@@ -1,0 +1,11 @@
+C; example for building multi-chain protein models
+
+>P1;5fd1
+structure:5fd1:   1:A: 106:A:ferredoxin:Azotobacter vinelandii: : 
+AFVVTDNCIKCKYTDCVEVCPVDCFYEGPNFLVIHPDECIDCALCEPECPAQAIFSE-DEVPEDMQEFIQLNAELA
+EVWPNITEKKDPLPDAEDWDGVKGKLQHLER*
+
+>P1;P12345
+sequence:P12345:   1:A: 55:A:undefined:undefined: : 
+AYVINDSC--IACGACKPECPVNIIQGS--IYAIDADSCIDCGSCASVCPVGAPNPECD-----------------
+-------------------------------*
