@@ -4,12 +4,15 @@ import io
 import warnings
 import pickle
 import pandas as pd
+import numpy as np
 from pathlib import Path
+from simple_tools import reverseTuple
 from interactome_tools import read_single_interface_annotated_interactome
 from pdb_tools import (allow_pdb_downloads,
                        suppress_pdb_warnings,
                        load_pdbtools_chain_sequences,
                        load_pdbtools_chain_strucRes_labels,
+                       produce_chain_struc_sequences,
                        write_partial_structure,
                        get_chain_IDs,
                        ordered_residue_IDs,
@@ -23,6 +26,9 @@ templateDir = Path('../templates')
 
 # directory for alignment files
 alignmentDir = Path('../alignments')
+
+# directory for model files
+modelDir = Path('../models')
 
 def set_pdb_dir (dir):
     
@@ -44,6 +50,13 @@ def set_alignment_dir (dir):
     alignmentDir = dir
     if not alignmentDir.exists():
         os.makedirs(alignmentDir)
+
+def set_model_dir (dir):
+    
+    global modelDir
+    modelDir = dir
+    if not modelDir.exists():
+        os.makedirs(modelDir)
 
 def enable_pdb_downloads (download):
     """Set global variable in pdb_tools module to allow PDB downloads.
@@ -113,10 +126,21 @@ def extend_alignment (FullQseq,
     
     return Qalign, Salign
 
-def produce_interactome_template_files (inPath,
-                                        chainSeqresFile,
-                                        chainStrucResFile,
-                                        outDir):
+def write_interactome_template_sequences (interactomeFile,
+                                          chainSeqresFile,
+                                          chainStrucResFile,
+                                          outPath):
+
+    load_pdbtools_chain_sequences (chainSeqresFile)
+    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    interactome = read_single_interface_annotated_interactome (interactomeFile)
+    chainIDs = []
+    for templates in interactome["Chain_pairs"].values:
+        for t in templates:
+            chainIDs.extend(t)
+    produce_chain_struc_sequences (chainIDs, outPath)
+
+def produce_interactome_template_files (inPath, chainSeqresFile, chainStrucResFile):
     
     load_pdbtools_chain_sequences (chainSeqresFile)
     load_pdbtools_chain_strucRes_labels (chainStrucResFile)
@@ -160,7 +184,7 @@ def produce_interactome_alignment_files (interactomeFile,
         sys.stdout.write('  PPI %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
         sys.stdout.flush()
         IDs = create_complex_alignment ([row.Protein_1, row.Protein_2],
-                                        row.Chain_pairs[0],
+                                        row.Chain_pairs,
                                         alignments,
                                         numModels = numModels,
                                         verbose = verbose)
@@ -169,7 +193,7 @@ def produce_interactome_alignment_files (interactomeFile,
     interactome["Complex_ID"], interactome["Template_ID"], interactome["Alignment_ID"] = zip(* allIDs)
     interactome = interactome [interactome["Alignment_ID"] != '-']
     interactome.drop(["Interfaces",	"Chain_pairs"], axis=1, inplace=True)
-    interactome.to_csv(outPath, index=False, sep='\t')
+    interactome.to_csv (outPath, index=False, sep='\t')
 
 def create_complex_alignment (proteins,
                               templates,
@@ -177,36 +201,37 @@ def create_complex_alignment (proteins,
                               numModels = 1,
                               verbose = True):
     
-    pdbid, _ = templates[0].split('_')
-    chainIDs = [id.split('_')[1] for id in templates]
-    templateMap = {c:p for c, p in zip(chainIDs, proteins)}
-    templateID = '-'.join([pdbid] + sorted(chainIDs))
+    for template in templates:
+        pdbid, _ = template[0].split('_')
+        chainIDs = [id.split('_')[1] for id in template]
+        templateMap = {c:p for c, p in zip(chainIDs, proteins)}
+        templateID = '-'.join([pdbid] + sorted(chainIDs))
     
-    chainIDs = get_chain_IDs (templateID, templateDir)
-    orderedProteins = [templateMap[c] for c in chainIDs]
+        chainIDs = get_chain_IDs (templateID, templateDir)
+        orderedProteins = [templateMap[c] for c in chainIDs]
     
-    complexID = '-'.join(orderedProteins)
-    alignmentID = '_'.join([complexID, '-'.join([pdbid] + chainIDs)])
+        complexID = '='.join(orderedProteins)
+        alignmentID = '_'.join([complexID, '-'.join([pdbid] + chainIDs)])
     
-    pr_alignments, ch_alignments = [], []
-    for protein, chainID in zip(orderedProteins, chainIDs):
-        align = alignments [(alignments["Query"] == protein) & 
-                            (alignments["Subject"] == '_'.join([pdbid, chainID]))]
-        if not align.empty:
-            prAlign, chAlign = align[["Qseq", "Sseq"]].values[0]
-            pr_alignments.append(prAlign)
-            ch_alignments.append(chAlign)
+        pr_alignments, ch_alignments = [], []
+        for protein, chainID in zip(orderedProteins, chainIDs):
+            align = alignments [(alignments["Query"] == protein) & 
+                                (alignments["Subject"] == '_'.join([pdbid, chainID]))]
+            if not align.empty:
+                prAlign, chAlign = align[["Qseq", "Sseq"]].values[0]
+                pr_alignments.append(prAlign)
+                ch_alignments.append(chAlign)
     
-    if len(pr_alignments) == len(orderedProteins):
-        write_alignment (complexID,
-                         templateID,
-                         chainIDs,
-                         [pr_alignments, ch_alignments],
-                         alignmentDir / alignmentID)
-        return complexID, templateID, alignmentID
-    else:
-        warnings.warn("Full alignment for complex %s not found. Alignment file not created" % complexID)
-        return '-', '-', '-'
+        if len(pr_alignments) == len(orderedProteins):
+            write_alignment (complexID,
+                             templateID,
+                             chainIDs,
+                             [pr_alignments, ch_alignments],
+                             alignmentDir / alignmentID)
+            return complexID, templateID, alignmentID
+    
+    warnings.warn("Full alignment for complex %s not found. Alignment file not created" % complexID)
+    return '-', '-', '-'
 
 def write_alignment (complexID,
                      templateID,
@@ -230,3 +255,72 @@ def write_alignment (complexID,
         fout.write ('>P1;%s\n' % complexID)
         fout.write ('sequence:%s:.:.:.:.::::\n' % complexID)
         fout.write ('/'.join(pr_alignments) + '*\n')
+
+def produce_model_annotated_interactome (inPath, outPath):
+    
+    allow_pdb_downloads (False)
+    suppress_pdb_warnings (False)
+    
+    interactome = pd.read_table (inPath)
+    n, mappingChains = len(interactome), []
+    for i, (p1, p2, modelID) in enumerate(interactome[["Protein_1", "Protein_2", "Complex_ID"]].values):
+        sys.stdout.write('  PPI %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
+        sys.stdout.flush()
+        chainLetters = get_chain_IDs (modelID, modelDir)
+        chainIDs = ['_'.join([modelID, c]) for c in chainLetters]
+        complexP1, complexP2 = modelID.split('=')
+        if complexP1 == p1:
+            mappingChains.append('-'.join(chainIDs))
+        else:
+            mappingChains.append('-'.join(reverseTuple(chainIDs)))
+    print()
+    interactome["Mapping_chains"] = mappingChains
+    interactome.to_csv (outPath, index=False, sep='\t')
+
+def produce_ppi_model_chainSeq_dict (inPath, proteinSeqFile, outPath):
+    
+    interactome = pd.read_table (inPath)
+    with open(proteinSeqFile, 'rb') as f:
+        proteinSeq = pickle.load(f)
+    
+    chainSeq = {}
+    for p1, p2, chainMap in interactome[["Protein_1", "Protein_2", "Mapping_chains"]].values:
+        c1, c2 = chainMap.split('-')
+        for c, p in [(c1, p1), (c2, p2)]:
+            if p in proteinSeq:
+                chainSeq[c] = proteinSeq[p]
+    
+    with open(outPath, 'wb') as fOut:
+        pickle.dump(chainSeq, fOut)
+
+def produce_ppi_chain_pos_mapping (inPath, chainSeqFile, outPath):
+    
+    interactome = pd.read_table (inPath)
+    with open(chainSeqFile, 'rb') as f:
+        chainSeq = pickle.load(f)
+    
+    mapping = []
+    for p1, p2, chainMap in interactome[["Protein_1", "Protein_2", "Mapping_chains"]].values:
+        c1, c2 = chainMap.split('-')
+        for c, p in [(c1, p1), (c2, p2)]:
+            if c in chainSeq:
+                pLen = cLen = str(len(chainSeq[c]))
+                pPos = cPos = ','.join(map(str, np.arange(1, len(chainSeq[c]) + 1)))
+                mapping.append((p, pLen, c, cLen, pPos, cPos))
+    
+    with io.open(outPath, "w") as fout:
+        fout.write ('\t'.join(["Query", "Qlen", "Subject", "Slen", "Qpos", "Spos"]) + '\n')
+        for line in mapping:
+            fout.write('\t'.join(line) + '\n')
+
+def produce_model_chain_strucRes_dict (chainSeqFile, outPath):
+    
+    with open(chainSeqFile, 'rb') as f:
+        chainSeq = pickle.load(f)
+    
+    labels = {}
+    for id, seq in chainSeq.items():
+        labels[id] = '-' * len(seq)
+    
+    with open(outPath, 'wb') as fOut:
+        pickle.dump(labels, fOut)

@@ -20,6 +20,9 @@ def main():
     # directory of processed data files specific to interactome
     interactomeDir = procDir / interactome_name
     
+    # directory of processed template-related data files specific to interactome
+    modelBasedDir = interactomeDir / 'model_based'
+    
     # directory for template structure files
     templateDir = Path('../templates')
     
@@ -30,15 +33,11 @@ def main():
     modelDir = Path('../models')
     
     # input data files
-    interactomeFile = interactomeDir / 'human_model_annotated_interactome.txt'
+    interactomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'
     
     # create output directories if not existing
-    if not dataDir.exists():
-        os.makedirs(str(dataDir))
-    if not procDir.exists():
-        os.makedirs(str(procDir))
-    if not interactomeDir.exists():
-        os.makedirs(str(interactomeDir))
+    if not modelDir.exists():
+        os.makedirs(str(modelDir))
     
     print('Creating PPI models')
     produce_interactome_models (interactomeFile,
