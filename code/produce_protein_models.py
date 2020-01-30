@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from modeller_tools import produce_interactome_models
+from modeller_tools import produce_protein_models
 
 def main():
     
@@ -33,19 +33,19 @@ def main():
     modelDir = Path('../models')
     
     # input data files
-    interactomeFile = modellingDir / 'human_template_annotated_interactome.txt'
+    templateMapFile = modellingDir / 'protein_template_annotations.txt'
     
     # create output directories if not existing
     if not modelDir.exists():
         os.makedirs(str(modelDir))
     
-    print('Creating PPI models')
-    produce_interactome_models (interactomeFile,
-                                alignmentDir,
-                                templateDir,
-                                modelDir,
-                                numModels = 1,
-                                verbosity = verbosity)
+    print('Creating protein models')
+    produce_protein_models (templateMapFile,
+                            alignmentDir,
+                            templateDir,
+                            modelDir,
+                            numModels = 1,
+                            verbosity = verbosity)
 
 if __name__ == "__main__":
     main()

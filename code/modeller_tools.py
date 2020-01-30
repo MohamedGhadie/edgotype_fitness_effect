@@ -27,6 +27,31 @@ def produce_interactome_models (inPath,
                                   ending_model = numModels,
                                   verbosity = verbosity)
 
+def produce_protein_models (inPath,
+                            alignmentDir,
+                            templateDir,
+                            modelDir,
+                            numModels = 1,
+                            verbosity = 'minimal'):
+    
+    templateMap = pd.read_table (inPath, sep='\t')
+    n = len(templateMap)
+    
+    for i, row in templateMap.iterrows():
+        print('\n********************************************************************')
+        print('Protein %d out of %d (%.2f%%)' % (i+1, n, 100.*(i+1)/n))
+        print('********************************************************************\n')
+        modelFile = modelDir / (row.Complex_ID + '.B99990001.pdb')
+        if not modelFile.is_file():
+            create_protein_model (row.Complex_ID,
+                                  row.Template_ID,
+                                  str(alignmentDir / row.Alignment_ID),
+                                  str(templateDir),
+                                  str(modelDir),
+                                  starting_model = 1,
+                                  ending_model = numModels,
+                                  verbosity = verbosity)
+
 def create_protein_model (protein,
                           templateIDs,
                           alignmentFile,

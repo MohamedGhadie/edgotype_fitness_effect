@@ -6,6 +6,14 @@ from pdb_tools import download_structures
 
 def main():
     
+    # reference interactome name
+    # options: HI-II-14, IntAct
+    interactome_name = 'HI-II-14'
+    
+    # homology modelling method used to create structural models
+    # options: template_based, model_based
+    model_method = 'model_based'
+    
     # maximum e-value cutoff to filter out protein-chain annotations
     #evalue = 1e-10
     
@@ -23,26 +31,29 @@ def main():
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
+        
+    # directory of processed data files specific to interactome
+    interactomeDir = procDir / interactome_name
+    
+    # directory of processed model-related data files specific to interactome
+    modellingDir = interactomeDir / model_method
     
     # directory of PDB structure files
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
-    # directory of processed data files specific to interactome
-    interactomeDir = procDir / interactome_name
-      
     # input data files
     #chainMapFile = procDir / 'human_pdb_chain_map.txt'
-    chainMapFile = interactomeDir / 'struc_interactome_pdb_chain_map.txt'
+    chainMapFile = modellingDir / 'struc_interactome_pdb_chain_map.txt'
     
     # output data files
     #filteredChainMapFile = interactomeDir / 'human_pdb_chain_map_filtered.txt'
-    singleChainMapFile = interactomeDir / 'human_single_chain_map_per_protein.txt'
-    chainIDFile = interactomeDir / 'unique_template_chainIDs.txt'
-    pdbIDFile = interactomeDir / 'unique_template_pdbIDs.txt'
+    singleChainMapFile = modellingDir / 'single_template_map_per_protein.txt'
+    chainIDFile = modellingDir / 'unique_template_chainIDs.txt'
+    pdbIDFile = modellingDir / 'unique_template_pdbIDs.txt'
     
     # create output directories if not existing
-    if not interactomeDir.exists():
-        os.makedirs(interactomeDir)
+    if not modellingDir.exists():
+        os.makedirs(modellingDir)
     if not pdbDir.exists():
         os.makedirs(pdbDir)
 

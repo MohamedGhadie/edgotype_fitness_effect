@@ -130,19 +130,23 @@ def write_interactome_template_sequences (interactomeFile,
                                           chainSeqresFile,
                                           chainStrucResFile,
                                           outPath):
+    
+    interactome = read_single_interface_annotated_interactome (interactomeFile)
+    templateIDs = []
+    for templates in interactome["Chain_pairs"].values:
+        for t in templates:
+            templateIDs.extend(t)
+    write_template_sequences (templateIDs, chainSeqresFile, chainStrucResFile, outPath)
+
+def write_template_sequences (templateIDs, chainSeqresFile, chainStrucResFile, outPath):
 
     load_pdbtools_chain_sequences (chainSeqresFile)
     load_pdbtools_chain_strucRes_labels (chainStrucResFile)
-    interactome = read_single_interface_annotated_interactome (interactomeFile)
-    chainIDs = []
-    for templates in interactome["Chain_pairs"].values:
-        for t in templates:
-            chainIDs.extend(t)
-    produce_chain_struc_sequences (chainIDs, outPath)
+    produce_chain_struc_sequences (templateIDs, outPath)
 
-def produce_interactome_template_files (inPath, chainSeqresFile, chainStrucResFile):
+def produce_interactome_template_files (inPath, chainSeqFile, chainStrucResFile):
     
-    load_pdbtools_chain_sequences (chainSeqresFile)
+    load_pdbtools_chain_sequences (chainSeqFile)
     load_pdbtools_chain_strucRes_labels (chainStrucResFile)
     interactome = read_single_interface_annotated_interactome (inPath)
     n = len(interactome)
@@ -165,15 +169,34 @@ def produce_interactome_template_files (inPath, chainSeqresFile, chainStrucResFi
                                          resIDs = resIDs)
     print()
 
+def produce_template_files (templateIDs, chainSeqFile, chainStrucResFile):
+    
+    load_pdbtools_chain_sequences (chainSeqFile)
+    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    n = len(templateIDs)
+    
+    for i, template in enumerate(templateIDs):
+        sys.stdout.write('  Template %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
+        sys.stdout.flush()
+        pdbid, chainID = template.split('_')
+        templateID = '-'.join([pdbid, chainID])
+        outFile = outDir / ('pdb' + templateID + '.ent')
+        if not outFile.is_file():
+            resIDs = {chainID : ordered_residue_IDs (pdbid, chainID, pdbDir)}
+            write_partial_structure (pdbid,
+                                     [chainID],
+                                     pdbDir,
+                                     outFile,
+                                     resIDs = resIDs)
+    print()
+
 def produce_interactome_alignment_files (interactomeFile,
                                          alignmentFile,
-                                         chainSeqresFile,
+                                         chainSeqFile,
                                          chainStrucResFile,
-                                         outPath,
-                                         numModels = 1,
-                                         verbose = True):
+                                         outPath):
     
-    load_pdbtools_chain_sequences (chainSeqresFile)
+    load_pdbtools_chain_sequences (chainSeqFile)
     load_pdbtools_chain_strucRes_labels (chainStrucResFile)
     interactome = read_single_interface_annotated_interactome (interactomeFile)
     alignments = pd.read_table (alignmentFile, sep="\t")
@@ -185,9 +208,7 @@ def produce_interactome_alignment_files (interactomeFile,
         sys.stdout.flush()
         IDs = create_complex_alignment ([row.Protein_1, row.Protein_2],
                                         row.Chain_pairs,
-                                        alignments,
-                                        numModels = numModels,
-                                        verbose = verbose)
+                                        alignments)
         allIDs.append(IDs)
     print()
     interactome["Complex_ID"], interactome["Template_ID"], interactome["Alignment_ID"] = zip(* allIDs)
@@ -195,11 +216,33 @@ def produce_interactome_alignment_files (interactomeFile,
     interactome.drop(["Interfaces",	"Chain_pairs"], axis=1, inplace=True)
     interactome.to_csv (outPath, index=False, sep='\t')
 
-def create_complex_alignment (proteins,
-                              templates,
-                              alignments,
-                              numModels = 1,
-                              verbose = True):
+def produce_protein_alignment_files (templateMapFile,
+                                     alignmentFile,
+                                     chainSeqFile,
+                                     chainStrucResFile,
+                                     outPath):
+    
+    load_pdbtools_chain_sequences (chainSeqFile)
+    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    templateMap = pd.read_table (templateMapFile)
+    alignments = pd.read_table (alignmentFile, sep="\t")
+    n = len(templateMap)
+    
+    allIDs = []
+    for i, row in templateMap.iterrows():
+        sys.stdout.write('  Protein %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
+        sys.stdout.flush()
+        IDs = create_complex_alignment ([row.Query],
+                                        [(row.Subject,)],
+                                        alignments)
+        allIDs.append(IDs)
+    print()
+    templateMap["Complex_ID"], templateMap["Template_ID"], templateMap["Alignment_ID"] = zip(* allIDs)
+    templateMap = templateMap [templateMap["Alignment_ID"] != '-']
+    #templateMap.drop(["Chain_pairs"], axis=1, inplace=True)
+    templateMap.to_csv (outPath, index=False, sep='\t')
+
+def create_complex_alignment (proteins, templates, alignments):
     
     for template in templates:
         pdbid, _ = template[0].split('_')
