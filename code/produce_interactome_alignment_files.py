@@ -16,15 +16,6 @@ def main():
     # options: HI-II-14, IntAct
     interactome_name = 'HI-II-14'
     
-    # Maximum e-value cutoff to filter out protein-chain annotations
-    evalue = 1e-10
-    
-    # Minimum protein coverage fraction required for protein-chain annotation
-    proteinCov = 0
-    
-    # Minimum chain coverage fraction required for protein-chain annotation
-    chainCov = 0
-    
     # allow downloading of PDB structures while constructing the structural interactome
     allow_pdb_downloads = True
     
@@ -59,17 +50,17 @@ def main():
     alignmentDir = Path('../alignments')
     
     # input data files
-    blastFile = modelBasedDir / 'interactome_template_blast_alignments_e100'
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
-    chainStrucSeqFile = modelBasedDir / 'chain_struc_sequences.pkl'
-    chainSeqresFile = procDir / 'chain_seqres.pkl'
-    chainStrucResFile = procDir / 'chain_strucRes.pkl'
+    chainStrucSeqFile = modelBasedDir / 'interactome_template_sequences.pkl'
+    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     interactomeFile = templateBasedDir / 'human_structural_interactome.txt'
+    blastFile = modelBasedDir / 'interactome_template_blast_alignments_e100'
     
     # output data files
-    alignmentFile1 = modelBasedDir / 'interactome_template_alignments.txt'
-    alignmentFile2 = modelBasedDir / 'interactome_template_filtered_alignments.txt'
-    alignmentFile3 = modelBasedDir / 'interactome_template_extended_alignments.txt'
+    alignmentFile1 = modelBasedDir / 'ppi_template_alignments.txt'
+    alignmentFile2 = modelBasedDir / 'ppi_template_filtered_alignments.txt'
+    alignmentFile3 = modelBasedDir / 'ppi_template_extended_alignments.txt'
     annotatedInteractomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'    
     
     # create output directories if not existing

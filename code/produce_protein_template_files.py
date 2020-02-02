@@ -17,7 +17,7 @@ def main():
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
-    model_method = 'model_based'
+    #model_method = 'model_based'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -35,7 +35,7 @@ def main():
     templateBasedDir = interactomeDir / 'template_based'
     
     # directory of processed model-related data files specific to interactome
-    modellingDir = interactomeDir / model_method
+    modelBasedDir = interactomeDir / 'model_based'
     
     # directory for PDB structure files
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
@@ -44,13 +44,13 @@ def main():
     templateDir = Path('../templates')
     
     # input data files
-    templateMapFile = modellingDir / 'single_template_map_per_protein.txt'
-    chainSeqresFile = procDir / 'chain_seqres.pkl'
-    chainStrucResFile = procDir / 'chain_strucRes.pkl'
+    templateMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'
+    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
-    chainStrucSeqFastaFile = modellingDir / 'protein_template_struc_sequences.fasta'
-    chainStrucSeqFile = modellingDir / 'protein_template_struc_sequences.pkl'
+    chainStrucSeqFastaFile = modelBasedDir / 'protein_template_sequences.fasta'
+    chainStrucSeqFile = modelBasedDir / 'protein_template_sequences.pkl'
     
     # create output directories if not existing
     if not modellingDir.exists():

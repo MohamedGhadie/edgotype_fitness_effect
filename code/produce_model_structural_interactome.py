@@ -44,7 +44,7 @@ def main():
     interactomeDir = procDir / interactome_name
     
     # directory of processed model-related data files specific to interactome
-    modellingDir = interactomeDir / 'model_based'
+    modelBasedDir = interactomeDir / 'model_based'
     
     # figure directory
     figDir = Path('../figures') / interactome_name / 'model_based'
@@ -53,7 +53,7 @@ def main():
     modelDir = Path('../models')
     
     # input data files
-    templateAnnotatedInteractomeFile = modellingDir / 'human_template_annotated_interactome.txt'
+    templateAnnotatedInteractomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'
     #pdbBlastFile = extDir / 'human_pdb_e-5'
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
     #chainSeqFile = procDir / 'chain_sequences.pkl'
@@ -63,11 +63,11 @@ def main():
     #interactomeFile = interactomeDir / 'human_interactome.txt'
     
     # output data files
-    modelAnnotatedInteractomeFile = modellingDir / 'human_model_annotated_interactome.txt'
-    chainSeqFile = modellingDir / 'interactome_model_chain_sequences.pkl'
-    chainMapFile = modellingDir / 'interactome_model_chain_map.txt'
-    modelInterfaceFile = procDir / 'model_interfaces.txt'
-    chainStrucResFile = modellingDir / 'interactome_model_chain_strucRes.pkl'
+    modelAnnotatedInteractomeFile = modelBasedDir / 'human_model_annotated_interactome.txt'
+    chainSeqFile = modelBasedDir / 'ppi_chain_sequences.pkl'
+    chainMapFile = modelBasedDir / 'struc_interactome_chain_map.txt'
+    modelInterfaceFile = modelBasedDir / 'model_interfaces.txt'
+    chainStrucResFile = modelBasedDir / 'ppi_chain_strucRes.pkl'
 
 #     proteinChainsFile = procDir / 'protein_chains.pkl'
 #     alignmentEvalueFile = procDir / 'human_protein_chain_min_alignment_evalues.pkl'
@@ -75,13 +75,13 @@ def main():
 #     chainAnnotatedInteractomeFile = interactomeDir / 'human_chain_annotated_interactome.txt'
 #     chainIDFile = interactomeDir / 'interactome_chainIDs.txt'
 #     pdbIDFile = interactomeDir / 'interactome_pdbIDs.txt'
-    structuralInteractomeFile1 = modellingDir / 'human_structural_interactome_withDuplicates.txt'
-    structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
+    structuralInteractomeFile1 = modelBasedDir / 'human_structural_interactome_withDuplicates.txt'
+    structuralInteractomeFile = modelBasedDir / 'human_structural_interactome.txt'
 #     refInteractomeChainMapFile = interactomeDir / 'ref_interactome_pdb_chain_map.txt'
 #     strucInteractomeChainMapFile = interactomeDir / 'struc_interactome_pdb_chain_map.txt'
     
-    if not modellingDir.exists():
-        os.makedirs(modellingDir)
+    if not modelBasedDir.exists():
+        os.makedirs(modelBasedDir)
     if not figDir.exists():
         os.makedirs(figDir)
     

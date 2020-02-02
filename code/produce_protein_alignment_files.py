@@ -56,18 +56,18 @@ def main():
     alignmentDir = Path('../alignments')
     
     # input data files
-    blastFile = modelBasedDir / 'protein_template_blast_alignments_e100'
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
-    chainStrucSeqFile = modelBasedDir / 'protein_template_struc_sequences.pkl'
-    chainSeqresFile = procDir / 'chain_seqres.pkl'
-    chainStrucResFile = procDir / 'chain_strucRes.pkl'
-    templateMapFile = modelBasedDir / 'single_template_map_per_protein.txt'
+    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
+    templateMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'
+    blastFile = modelBasedDir / 'protein_template_blast_alignments_e100'
+    chainStrucSeqFile = modelBasedDir / 'protein_template_sequences.pkl'
     
     # output data files
     alignmentFile1 = modelBasedDir / 'protein_template_alignments.txt'
     alignmentFile2 = modelBasedDir / 'protein_template_filtered_alignments.txt'
     alignmentFile3 = modelBasedDir / 'protein_template_extended_alignments.txt'
-    annotatedTemplateMapFile = modelBasedDir / 'protein_template_annotations.txt'    
+    annotatedTemplateMapFile = modelBasedDir / 'single_template_map_per_protein.txt'    
     
     # create output directories if not existing
     if not modelBasedDir.exists():

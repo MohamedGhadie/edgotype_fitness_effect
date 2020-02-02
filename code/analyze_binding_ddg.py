@@ -70,7 +70,7 @@ def main():
     
     # directory of processed data files specific to interactome
     interactomeDir = procDir / interactome_name
-        
+    
     # directory of processed model-related data files specific to interactome
     modellingDir = interactomeDir / model_method
     
@@ -82,13 +82,13 @@ def main():
     
     # input data files
     #geometryPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
-    natMutDDGinFile = modellingDir / ('nondisease_mutations_%s_ddg.txt' % ddg_method)
-    disMutDDGinFile = modellingDir / ('disease_mutations_%s_ddg.txt' % ddg_method)
+    natMutDDGinFile = methodDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
+    disMutDDGinFile = methodDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
     structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
     
     # output data files
-    natMutDDGoutFile = methodDir / ('nondisMut_%s_∆∆G_used.txt' % ddg_method)
-    disMutDDGoutFile = methodDir / ('disMut_%s_∆∆G_used.txt' % ddg_method)
+    natMutDDGoutFile = methodDir / ('nondisMut_binding_ddg_table_%s.txt' % ddg_method)
+    disMutDDGoutFile = methodDir / ('disMut_binding_ddg_table_%s.txt' % ddg_method)
     
     # create output directories if not existing
     if not methodDir.exists():

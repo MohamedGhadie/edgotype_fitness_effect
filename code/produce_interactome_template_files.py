@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from id_mapping import produce_chainSeq_dict
+from interactome_tools import write_interactome_sequences
 from modelling_tools import (set_pdb_dir,
                              set_template_dir,
                              enable_pdb_downloads,
@@ -39,21 +40,23 @@ def main():
     templateDir = Path('../templates')
     
     # input data files
+    uniqueGeneSequenceFile = procDir / 'human_unique_gene_reference_sequences.txt'
     interactomeFile = templateBasedDir / 'human_structural_interactome.txt'
-    chainSeqresFile = procDir / 'chain_seqres.pkl'
-    chainStrucResFile = procDir / 'chain_strucRes.pkl'
+    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
-    chainStrucSeqFastaFile = modelBasedDir / 'chain_struc_sequences.fasta'
-    chainStrucSeqFile = modelBasedDir / 'chain_struc_sequences.pkl'
+    interactomeSequenceFile = modelBasedDir / 'ppi_sequences.fasta'
+    chainStrucSeqFastaFile = modelBasedDir / 'ppi_template_sequences.fasta'
+    chainStrucSeqFile = modelBasedDir / 'ppi_template_sequences.pkl'
     
     # create output directories if not existing
     if not modelBasedDir.exists():
         os.makedirs(mdoelBasedDir)
-    if not templateDir.exists():
-        os.makedirs(templateDir)
     if not pdbDir.exists():
         os.makedirs(pdbDir)
+    if not templateDir.exists():
+        os.makedirs(templateDir)
     
     # set directory of raw PDB coordinate files for modelling tools
     set_pdb_dir (pdbDir)
@@ -66,6 +69,12 @@ def main():
     
     # suppress or allow PDB warnings
     disable_pdb_warnings (suppress_pdb_warnings)
+    
+    if not interactomeSequenceFile.is_file():
+        print('writing interactome protein sequences')
+        write_interactome_sequences (interactomeFile,
+                                     uniqueGeneSequenceFile,
+                                     interactomeSequenceFile)
     
     if not chainStrucSeqFastaFile.is_file():
         print('writing interactome template sequences to Fasta file')

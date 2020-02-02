@@ -90,16 +90,16 @@ def main():
     
     # input data files
     #geometryPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
-    natMutGeomEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edggetics.txt'
-    disMutGeomEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
-    natMutDDGFile = modellingDir / ('nondisease_mutations_%s_ddg.txt' % ddg_method)
-    disMutDDGFile = modellingDir / ('disease_mutations_%s_ddg.txt' % ddg_method)
     structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
+    natMutGeomEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
+    disMutGeomEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
+    natMutDDGFile = methodDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
+    disMutDDGFile = methodDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
     
     # output data files
     #physicsPerturbsFile = interactomeDir / ('mutation_perturbs_physics_%s.pkl' % ddg_method)
-    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edggetics.txt'
-    disMutEdgotypeFile = methodDir / 'disease_mutation_edgetics.txt'
+    natMutEdgotypeFile = methodDir / ('nondisease_mutation_edgetics_%s.txt' % ddg_method)
+    disMutEdgotypeFile = methodDir / ('disease_mutation_edgetics_%s.txt' % ddg_method)
     naturalMutEdgeFile = cytoscapeDir / ('nondiseaseMut_perturbed_edges_%s' % ddg_method)
     naturalMutNodeFile = cytoscapeDir / ('nondiseaseMut_node_colors_%s' % ddg_method)
     diseaseMutEdgeFile = cytoscapeDir / ('diseaseMut_perturbed_edges_%s' % ddg_method)

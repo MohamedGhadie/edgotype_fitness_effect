@@ -21,7 +21,7 @@ def main():
     interactomeDir = procDir / interactome_name
     
     # directory of processed model-related data files specific to interactome
-    modellingDir = interactomeDir / 'model_based'
+    modelBasedDir = interactomeDir / 'model_based'
     
     # directory for template structure files
     templateDir = Path('../templates')
@@ -33,7 +33,7 @@ def main():
     modelDir = Path('../models')
     
     # input data files
-    interactomeFile = modellingDir / 'human_template_annotated_interactome.txt'
+    interactomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'
     
     # create output directories if not existing
     if not modelDir.exists():

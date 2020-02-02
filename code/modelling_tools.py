@@ -336,9 +336,42 @@ def produce_ppi_model_chainSeq_dict (inPath, proteinSeqFile, outPath):
     with open(outPath, 'wb') as fOut:
         pickle.dump(chainSeq, fOut)
 
+def produce_protein_model_chainSeq_dict (inPath, proteinSeqFile, outPath):
+    
+    templateMap = pd.read_table (inPath)
+    with open(proteinSeqFile, 'rb') as f:
+        proteinSeq = pickle.load(f)
+    
+    chainSeq = {}
+    for p, m in templateMap[["Query", "ComplexID"]].values:
+        if p in proteinSeq:
+            chainSeq[m + '_A'] = proteinSeq[p]
+    
+    with open(outPath, 'wb') as fOut:
+        pickle.dump(chainSeq, fOut)
+
 def produce_ppi_chain_pos_mapping (inPath, chainSeqFile, outPath):
     
     interactome = pd.read_table (inPath)
+    with open(chainSeqFile, 'rb') as f:
+        chainSeq = pickle.load(f)
+    
+    mapping = []
+    for p, m in templateMap[["Query", "ComplexID"]].values:
+        c = m + '_A'
+        if c in chainSeq:
+            pLen = cLen = str(len(chainSeq[c]))
+            pPos = cPos = ','.join(map(str, np.arange(1, len(chainSeq[c]) + 1)))
+            mapping.append((p, pLen, c, cLen, pPos, cPos))
+    
+    with io.open(outPath, "w") as fout:
+        fout.write ('\t'.join(["Query", "Qlen", "Subject", "Slen", "Qpos", "Spos"]) + '\n')
+        for line in mapping:
+            fout.write('\t'.join(line) + '\n')
+
+def produce_protein_chain_pos_mapping (inPath, chainSeqFile, outPath):
+    
+    templateMap = pd.read_table (inPath)
     with open(chainSeqFile, 'rb') as f:
         chainSeq = pickle.load(f)
     
