@@ -57,8 +57,8 @@ def main():
     # input data files
     natMutLocFile = methodDir / 'nondisease_mutation_struc_loc.txt'
     disMutLocFile = methodDir / 'disease_mutation_struc_loc.txt'
-    natMutDdgFile = modellingDir / 'nondisease_mutations_ddg.txt'
-    disMutDdgFile = modellingDir / 'disease_mutations_ddg.txt'
+    natMutDdgFile = modellingDir / 'nondis_mut_folding_ddg_foldx.txt'
+    disMutDdgFile = modellingDir / 'dis_mut_folding_ddg_foldx.txt'
     
     # output data files
     natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgotype.txt'

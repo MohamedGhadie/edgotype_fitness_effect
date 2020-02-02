@@ -93,8 +93,8 @@ def main():
     structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
     natMutGeomEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
     disMutGeomEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
-    natMutDDGFile = methodDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
-    disMutDDGFile = methodDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
+    natMutDDGFile = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
+    disMutDDGFile = modellingDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
     
     # output data files
     #physicsPerturbsFile = interactomeDir / ('mutation_perturbs_physics_%s.pkl' % ddg_method)

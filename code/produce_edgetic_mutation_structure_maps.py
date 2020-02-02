@@ -69,8 +69,8 @@ def main():
     disMutEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgotype_geometry.txt'
     
     # output data files
-    natural_mutations_onchains_file = modellingDir / 'physics' / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
-    disease_mutations_onchains_file = modellingDir / 'physics' / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
+    natural_mutations_onchains_file = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
+    disease_mutations_onchains_file = modellingDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
     
     #------------------------------------------------------------------------------------
     # write edgetic mutations mapped onto PPI structural models to file

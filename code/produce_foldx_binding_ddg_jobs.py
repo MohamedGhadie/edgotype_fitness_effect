@@ -4,7 +4,7 @@
 # Mutations with existing ∆∆G values in the input file are skipped.
 #
 # Requirements:
-# Files must be in format produced by script produce_mutation_structure_maps.py
+# Files must be in format produced by script produce_edgetic_mutation_structure_maps.py
 #----------------------------------------------------------------------------------------
 
 import os
@@ -19,6 +19,10 @@ def main():
     # options: HI-II-14, IntAct
     interactome_name = 'HI-II-14'
     
+    # homology modelling method used to create structural models
+    # options: template_based, model_based
+    model_method = 'model_based'
+    
     # parent directory of all data files
     dataDir = Path('../data')
     
@@ -28,18 +32,26 @@ def main():
     # directory of processed data files specific to interactome
     interactomeDir = procDir / interactome_name
     
+    # directory of processed model-related data files specific to interactome
+    modellingDir = interactomeDir / model_method
+    
     # directory of foldx output jobs
-    outDir = interactomeDir / 'foldx'
+    outDir = modellingDir / 'foldx'
     
     # directory of PDB structure files
     pdbDir = Path('../pdb_files')
     
-    # input file containing mutations to submit to bindprofx
-    nondiseaseMutFile = interactomeDir / 'nondisease_mutations_foldx_ddg.txt'
-    diseaseMutFile = interactomeDir / 'disease_mutations_foldx_ddg.txt'
+    if model_method is 'model_based':
+        modelDir = Path('../models')
+    else
+        modelDir = pdbDir
+    
+    # input file containing mutations to submit to foldx
+    nondiseaseMutFile = modellingDir / 'nondis_mut_binding_ddg_foldx.txt'
+    diseaseMutFile = modellingDir / 'dis_mut_binding_ddg_foldx.txt'
     
     # temporary files
-    allMutFile = interactomeDir / 'all_mutations_foldx_ddg.txt'
+    allMutFile = modellingDir / 'all_mut_binding_ddg_foldx.txt'
     
     # create output directories if not existing
     if not outDir.exists():
@@ -49,7 +61,7 @@ def main():
     mutations = read_unprocessed_ddg_mutations (allMutFile, 'binding')
     
     produce_foldx_and_beluga_jobs (mutations,
-                                   pdbDir,
+                                   modelDir,
                                    outDir,
                                    account = 'ctb-yxia',
                                    walltime = '1-00',

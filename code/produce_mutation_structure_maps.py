@@ -24,7 +24,7 @@ def main():
     model_method = 'model_based'
     
     # method of calculating mutation ∆∆G for which results will be used
-    # options: bindprofx, foldx
+    # options: foldx
     ddg_method = 'foldx'
     
     # parent directory of all data files
@@ -58,8 +58,8 @@ def main():
     diseaseMutationsFile = methodDir / 'disease_mutation_dist_to_center.txt'
     
     # output data files
-    natural_mutations_ddg_file = methodDir / 'nondis_mut_folding_ddg.txt'
-    disease_mutations_ddg_file = methodDir / 'dis_mut_folding_ddg.txt'
+    natural_mutations_ddg_file = modellingDir / ('nondis_mut_folding_ddg_%s.txt' % ddg_method)
+    disease_mutations_ddg_file = modellingDir / ('dis_mut_folding_ddg.txt' % ddg_method)
     
     # create output directories if not existing
     if not methodDir.exists():

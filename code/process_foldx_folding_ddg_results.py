@@ -1,12 +1,18 @@
 import os
 from pathlib import Path
-from ddg_tools import read_foldx_results, write_mutation_ddg_tofile, produce_foldx_jobs
+from ddg_tools import (read_foldx_results,
+                       write_mutation_ddg_tofile,
+                       produce_foldx_and_beluga_jobs)
 
 def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
     interactome_name = 'HI-II-14'
+    
+    # homology modelling method used to create structural models
+    # options: template_based, model_based
+    model_method = 'model_based'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -17,41 +23,47 @@ def main():
     # directory of processed data files specific to interactome
     interactomeDir = procDir / interactome_name
     
+    # directory of processed model-related data files specific to interactome
+    modellingDir = interactomeDir / model_method
+    
     # directory of foldx results
-    inDir = interactomeDir / 'foldx' / 'results'
+    inDir = modellingDir / 'foldx' / 'results'
     
     # directory of foldx output jobs
-    outDir = interactomeDir / 'foldx'
+    outDir = modellingDir / 'foldx'
     
     # directory of PDB structure files
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
+    if model_method is 'model_based':
+        modelDir = Path('../models')
+    else
+        modelDir = pdbDir
+    
     # create output directories if not existing
-    if not interactomeDir.exists():
-        os.makedirs(interactomeDir)
     if not outDir.exists():
         os.makedirs(outDir)
     
     processed, unprocessed = read_foldx_results (inDir, type = 'folding')
     
     write_mutation_ddg_tofile (processed,
-                               interactomeDir / 'nondisease_mutations_ddg.txt',
-                               interactomeDir / 'nondisease_mutations_ddg_2.txt',
+                               modellingDir / 'nondis_mut_folding_ddg_foldx.txt',
+                               modellingDir / 'nondis_mut_folding_ddg_foldx_2.txt',
                                type = 'folding')
     write_mutation_ddg_tofile (processed,
-                               interactomeDir / 'disease_mutations_ddg.txt',
-                               interactomeDir / 'disease_mutations_ddg_2.txt',
+                               modellingDir / 'dis_mut_folding_ddg_foldx.txt',
+                               modellingDir / 'dis_mut_folding_ddg_foldx_2.txt',
                                type = 'folding')
     
-    os.remove (interactomeDir / 'nondisease_mutations_ddg.txt')
-    os.remove (interactomeDir / 'disease_mutations_ddg.txt')
-    os.rename (interactomeDir / 'nondisease_mutations_ddg_2.txt',
-               interactomeDir / 'nondisease_mutations_ddg.txt')
-    os.rename (interactomeDir / 'disease_mutations_ddg_2.txt',
-               interactomeDir / 'disease_mutations_ddg.txt')
+    os.remove (modellingDir / 'nondis_mut_folding_ddg_foldx.txt')
+    os.remove (modellingDir / 'dis_mut_folding_ddg_foldx.txt')
+    os.rename (modellingDir / 'nondis_mut_folding_ddg_foldx_2.txt',
+               modellingDir / 'nondis_mut_folding_ddg_foldx.txt')
+    os.rename (modellingDir / 'dis_mut_folding_ddg_foldx_2.txt',
+               modellingDir / 'dis_mut_folding_ddg_foldx.txt')
     
     produce_foldx_and_beluga_jobs (unprocessed,
-                                   pdbDir,
+                                   modelDir,
                                    outDir,
                                    'folding',
                                    account = 'ctb-yxia',
