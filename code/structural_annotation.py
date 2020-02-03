@@ -755,8 +755,8 @@ def process_skempi_mutations (mutationFile,
                                               "partners":partners,
                                               "protein_name":protein_names,
                                               "partner_name":partner_names,
-                                              "Mutation_Position":positions,
-                                              "Mut_res":mut_residues,
+                                              "mut_position":positions,
+                                              "mut_res":mut_residues,
                                               "chain_mutation":mut,
                                               "perturbations":perturbations,
                                               "temperature":temperatures,
@@ -767,12 +767,12 @@ def process_skempi_mutations (mutationFile,
                                               "ddg":ddg})
     expanded_mutations = expanded_mutations.drop_duplicates (subset=['protein_name',
                                                                      'partner_name',
-                                                                     'Mutation_Position',
-                                                                     'Mut_res'], keep='first')
-    expanded_mutations = expanded_mutations.drop_duplicates (subset=['Protein',
+                                                                     'mut_position',
+                                                                     'mut_res'], keep='first')
+    expanded_mutations = expanded_mutations.drop_duplicates (subset=['protein',
                                                                      'partners',
-                                                                     'Mutation_Position',
-                                                                     'Mut_res'], keep='first')
+                                                                     'mut_position',
+                                                                     'mut_res'], keep='first')
     
     print('%d out of %d mutations selected' % (len(expanded_mutations), len(mutations)))
     expanded_mutations.to_csv(outPath, index=False, sep = '\t')
@@ -827,16 +827,16 @@ def write_skempi_mutation_crystal_maps (inPath, outPath, modelddgFile = None):
                               'chain_mutation',
                               'partner_chain']) + '\n')
         for _, row in mutations.iterrows():
-            k = row.Protein, row.partners, row.Mutation_Position, row.Mut_res
+            k = row.protein, row.partners, row.mut_position, row.mut_res
             if (k in modelddg) or (not filter):
-                pdb_id, chain_id = row.Protein.split('_')
+                pdb_id, chain_id = row.protein.split('_')
                 _, partner_chain = row.partners.split('_')
-                fout.write('\t'.join([row.Protein,
+                fout.write('\t'.join([row.protein,
                                       row.partners,
-                                      str(row.Mutation_Position),
+                                      str(row.mut_position),
                                       pdb_id,
                                       chain_id,
-                                      str(row.Mutation_Position),
+                                      str(row.mut_position),
                                       row.chain_mutation,
                                       partner_chain]) + '\n')
 
@@ -940,9 +940,9 @@ def write_mutation_structure_maps (mutations,
         for i, mut in mutations.iterrows():
             print('\t' + 'mutation index: %d' % i)
             perturbing = False
-            pos = mut.Mutation_Position
+            pos = mut.mut_position
             perturbedPartners = [p for p, perturb in zip(mut.partners, mut.perturbations) if perturb > 0]
-            ppis = interactome[ (interactome[ ["Protein_1", "Protein_2"] ] == mut.Protein).any(1) ]
+            ppis = interactome[ (interactome[ ["Protein_1", "Protein_2"] ] == mut.protein).any(1) ]
             
             # go through each interaction (PPI) perturbed by the mutation
             for j, ppi in ppis.iterrows():
@@ -951,7 +951,7 @@ def write_mutation_structure_maps (mutations,
                     print('\t\t' + 'PPI # %d' % j)
                     
                     # get chain pairs (models) used to map interface for this PPI
-                    if ppi.Protein_2 == mut.Protein:
+                    if ppi.Protein_2 == mut.protein:
                         chainPairs = [tuple(reversed(x)) for x in ppi.Chain_pairs]
                         partner = ppi.Protein_1
                     else:
@@ -969,12 +969,12 @@ def write_mutation_structure_maps (mutations,
                             residues = ordered_chain_residues (pdbid, model, ch1_id, pdbDir)
                             if residues:
                                 # map mutation position back onto chain pair (model) through sequence alignment
-                                mappings = mutation_structure_map (chainMap, mut.Protein, ch1, pos)
+                                mappings = mutation_structure_map (chainMap, mut.protein, ch1, pos)
                                 # if mutation position maps through any protein-chain alignment 
                                 if mappings is not None:
                                     # make sure chain wildtype residue is different than mutation residue
                                     mappings["chainRes"] = mappings["posMaps"].apply(lambda x: return_chain_sequence(ch1)[x-1])
-                                    mappings = mappings[mappings["chainRes"] != mut.Mut_res]
+                                    mappings = mappings[mappings["chainRes"] != mut.mut_res]
                                     if check_interface:
                                         k = ch1 + '-' + ch2
                                         interfacial = mappings["posMaps"].apply(lambda x: x in known_interfaces[k]
@@ -989,7 +989,7 @@ def write_mutation_structure_maps (mutations,
                                         if resID:
                                             # write mutation structure mapping to file
                                             _, resNum, _ = resID
-                                            fout.write('\t'.join([mut.Protein,
+                                            fout.write('\t'.join([mut.protein,
                                                                   partner,
                                                                   str(pos),
                                                                   pdbid,
@@ -998,7 +998,7 @@ def write_mutation_structure_maps (mutations,
                                                                   ''.join([chainRes,
                                                                            ch1_id,
                                                                            str(resNum),
-                                                                           mut.Mut_res]),
+                                                                           mut.mut_res]),
                                                                   ch2_id]) +  '\n')
                                             print('\t\t\t' + 'mutation mapping writen to file')
                                             mapped = True

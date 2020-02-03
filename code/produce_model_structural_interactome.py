@@ -11,16 +11,15 @@
 #----------------------------------------------------------------------------------------
 
 import os
+import pandas as pd
 from pathlib import Path
-from interactome_tools import read_single_interface_annotated_interactome
 from modelling_tools import (set_model_dir,
                              produce_model_annotated_interactome,
                              produce_ppi_model_chainSeq_dict,
                              produce_ppi_chain_pos_mapping,
                              produce_model_chain_strucRes_dict)
 from structural_annotation import (produce_interface_annotated_interactome,
-                                   merge_interactome_interface_annotations,
-                                   remove_duplicate_interface_annotations)
+                                   merge_interactome_interface_annotations)
 
 def main():
     
@@ -45,9 +44,6 @@ def main():
     
     # directory of processed model-related data files specific to interactome
     modelBasedDir = interactomeDir / 'model_based'
-    
-    # figure directory
-    figDir = Path('../figures') / interactome_name / 'model_based'
     
     # directory for model structure files
     modelDir = Path('../models')
@@ -82,8 +78,6 @@ def main():
     
     if not modelBasedDir.exists():
         os.makedirs(modelBasedDir)
-    if not figDir.exists():
-        os.makedirs(figDir)
     
     set_model_dir (modelDir)
     
@@ -110,26 +104,26 @@ def main():
     
     if not structuralInteractomeFile1.is_file():
         print('mapping model interfaces onto model-annotated interactome')
-        produce_interface_annotated_interactome(modelAnnotatedInteractomeFile,
-                                                modelDir,
-                                                chainSeqFile,
-                                                chainMapFile,
-                                                modelInterfaceFile,
-                                                chainStrucResFile,
-                                                1,
-                                                1,
-                                                False,
-                                                0,
-                                                bindingDist,
-                                                structuralInteractomeFile1,
-                                                downloadPDB = False,
-                                                suppressWarnings = False)
+        produce_interface_annotated_interactome (modelAnnotatedInteractomeFile,
+                                                 modelDir,
+                                                 chainSeqFile,
+                                                 chainMapFile,
+                                                 modelInterfaceFile,
+                                                 chainStrucResFile,
+                                                 1,
+                                                 1,
+                                                 False,
+                                                 0,
+                                                 bindingDist,
+                                                 structuralInteractomeFile1,
+                                                 downloadPDB = False,
+                                                 suppressWarnings = False)
         
-    print('merging interface annotations for each PPI')
-    merge_interactome_interface_annotations (structuralInteractomeFile1,
-                                             structuralInteractomeFile)
+        print('merging interface annotations for each PPI')
+        merge_interactome_interface_annotations (structuralInteractomeFile1,
+                                                 structuralInteractomeFile)
     
-    structuralInteractome = read_single_interface_annotated_interactome( structuralInteractomeFile )
+    structuralInteractome = pd.read_table (structuralInteractomeFile, sep='\t')
     interactomeProteins = list(set(structuralInteractome[["Protein_1", "Protein_2"]].values.flatten()))
     print( '\n' + 'Structural interactome:' )
     print( '%d PPIs' % len(structuralInteractome) )

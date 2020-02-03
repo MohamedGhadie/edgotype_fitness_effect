@@ -37,7 +37,7 @@ def main():
     
     if model_method is 'model_based':
         modelDir = Path('../models')
-    else
+    else:
         modelDir = pdbDir
     
     # create output directories if not existing

@@ -22,9 +22,6 @@ def main():
     # suppress PDB warnings when constructing the structural interactome
     suppress_pdb_warnings = True
     
-    # verbosity for Modeller
-    verbose = True
-    
     # parent directory of all data files
     dataDir = Path('../data')
     
@@ -51,11 +48,11 @@ def main():
     
     # input data files
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
-    chainStrucSeqFile = modelBasedDir / 'interactome_template_sequences.pkl'
+    chainStrucSeqFile = modelBasedDir / 'ppi_template_sequences.pkl'
     chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     interactomeFile = templateBasedDir / 'human_structural_interactome.txt'
-    blastFile = modelBasedDir / 'interactome_template_blast_alignments_e100'
+    blastFile = modelBasedDir / 'ppi_template_blast_alignments_e100'
     
     # output data files
     alignmentFile1 = modelBasedDir / 'ppi_template_alignments.txt'
@@ -96,7 +93,7 @@ def main():
         # for each protein-chain pair. Filtering by evalue is not needed at this point.
         filter_chain_annotations (alignmentFile1,
                                   alignmentFile2,
-                                  evalue = 1000,
+                                  evalue = 100,
                                   prCov = 0,
                                   chCov = 0)
     
@@ -112,8 +109,7 @@ def main():
                                          alignmentFile3,
                                          chainSeqresFile,
                                          chainStrucResFile,
-                                         annotatedInteractomeFile,
-                                         verbose = verbose)
+                                         annotatedInteractomeFile)
     
 if __name__ == "__main__":
     main()

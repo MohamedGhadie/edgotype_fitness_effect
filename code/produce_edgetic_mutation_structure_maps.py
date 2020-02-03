@@ -51,7 +51,7 @@ def main():
     
     if model_method is 'model_based':
         modelDir = Path('../models')
-    else
+    else:
         modelDir = pdbDir
     
     # input data files
@@ -65,8 +65,8 @@ def main():
         chainStrucResFile = modellingDir / 'protein_chain_strucRes.pkl'
         chainInterfaceFile = procDir / 'pdb_interfaces.txt'
     chainMapFile = modellingDir / 'struc_interactome_chain_map.txt'
-    natMutEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgotype_geometry.txt'
-    disMutEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgotype_geometry.txt'
+    natMutEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
+    disMutEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
     
     # output data files
     natural_mutations_onchains_file = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
@@ -83,8 +83,8 @@ def main():
                                         cols = ["partners", "perturbations"],
                                         dtyp = [str, int])
     
-    naturalMutations = naturalMutations[naturalMutations["Edgotype"] == 'Edgetic'].reset_index(drop=True)
-    diseaseMutations = diseaseMutations[diseaseMutations["Edgotype"] == 'Edgetic'].reset_index(drop=True)
+    naturalMutations = naturalMutations[naturalMutations["edgotype"] == 'edgetic'].reset_index(drop=True)
+    diseaseMutations = diseaseMutations[diseaseMutations["edgotype"] == 'edgetic'].reset_index(drop=True)
     
     # write edgetic non-disease mutations
     if not natural_mutations_onchains_file.is_file():

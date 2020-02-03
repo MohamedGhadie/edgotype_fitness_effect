@@ -820,12 +820,11 @@ class ChainSelect (Select):
         Select (list): chain IDs.
 
     """
-    def __init__(self, chain_letters, resIDs = None):
+    def __init__ (self, chain_letters, resIDs = None):
         self.chain_letters = chain_letters
-        if resIDs:
-            self.resIDs = resIDs
+        self.resIDs = resIDs
     
-    def accept_chain(self, chain):
+    def accept_chain (self, chain):
         return (chain.get_id() in self.chain_letters)
     
     def accept_residue (self, residue):

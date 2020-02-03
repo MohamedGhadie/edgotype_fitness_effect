@@ -16,9 +16,11 @@ import pickle
 import numpy as np
 from pathlib import Path
 from text_tools import write_list_table
-from interactome_tools import read_single_interface_annotated_interactome
+from interactome_tools import read_interface_annotated_interactome
 from mutation_processing_tools import remove_mutation_overlaps
-from mutation_interface_edgotype import mutation_PPI_interface_perturbations, create_perturbed_network
+from mutation_interface_edgotype import (mutation_PPI_interface_perturbations, 
+                                         assign_edgotypes,
+                                         create_perturbed_network)
 from plot_tools import network_plot
 
 def main():
@@ -69,7 +71,7 @@ def main():
     
     # output data files
     #uniqueMutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
-    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edggetics.txt'
+    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgetics.txt'
     disMutEdgotypeFile = methodDir / 'disease_mutation_edgetics.txt'
     naturalMutEdgeFile = cytoscapeDir / 'nondiseaseMut_perturbed_edges'
     naturalMutNodeFile = cytoscapeDir / 'nondiseaseMut_node_colors'
@@ -108,18 +110,18 @@ def main():
     # Consider PPI perturbations only for PPIs with this minimum number of partners
     minPartners = 1
     
-    structuralInteractome = read_single_interface_annotated_interactome (structuralInteractomeFile)
+    structuralInteractome = read_interface_annotated_interactome (structuralInteractomeFile)
     
     print( '\n' + 'Predicting PPI perturbations by non-disease mutations based on geometry' )
-    naturalMutation_perturbs = mutation_PPI_interface_perturbations(naturalMutations,
-                                                                    structuralInteractome,
-                                                                    maxInterfaces = maxInterfaces,
-                                                                    dist = numResFromInterface)
+    naturalMutation_perturbs = mutation_PPI_interface_perturbations (naturalMutations,
+                                                                     structuralInteractome,
+                                                                     maxInterfaces = maxInterfaces,
+                                                                     dist = numResFromInterface)
     print( '\n' + 'Predicting PPI perturbations by disease mutations based on geometry' )
-    diseaseMutation_perturbs = mutation_PPI_interface_perturbations(diseaseMutations,
-                                                                    structuralInteractome,
-                                                                    maxInterfaces,
-                                                                    dist = numResFromInterface)
+    diseaseMutation_perturbs = mutation_PPI_interface_perturbations (diseaseMutations,
+                                                                     structuralInteractome,
+                                                                     maxInterfaces,
+                                                                     dist = numResFromInterface)
     
     naturalMutations["partners"], naturalMutations["perturbations"] = zip(* naturalMutation_perturbs)
     naturalMutations = naturalMutations[naturalMutations["partners"].apply(len) >= minPartners]

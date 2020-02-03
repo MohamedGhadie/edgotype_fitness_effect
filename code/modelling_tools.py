@@ -142,7 +142,7 @@ def write_template_sequences (templateIDs, chainSeqresFile, chainStrucResFile, o
 
     load_pdbtools_chain_sequences (chainSeqresFile)
     load_pdbtools_chain_strucRes_labels (chainStrucResFile)
-    produce_chain_struc_sequences (templateIDs, outPath)
+    produce_chain_struc_sequences (templateIDs, pdbDir, outPath)
 
 def produce_interactome_template_files (inPath, chainSeqFile, chainStrucResFile):
     
@@ -159,7 +159,7 @@ def produce_interactome_template_files (inPath, chainSeqFile, chainStrucResFile)
             _, chainID2 = chain2.split('_')
             selectChains = sorted([chainID1, chainID2])
             templateID = '-'.join([pdbid] + selectChains)
-            outFile = outDir / ('pdb' + templateID + '.ent')
+            outFile = templateDir / ('pdb' + templateID + '.ent')
             if not outFile.is_file():
                 resIDs = {c:ordered_residue_IDs (pdbid, c, pdbDir) for c in selectChains}
                 write_partial_structure (pdbid,
@@ -357,12 +357,13 @@ def produce_ppi_chain_pos_mapping (inPath, chainSeqFile, outPath):
         chainSeq = pickle.load(f)
     
     mapping = []
-    for p, m in templateMap[["Query", "ComplexID"]].values:
-        c = m + '_A'
-        if c in chainSeq:
-            pLen = cLen = str(len(chainSeq[c]))
-            pPos = cPos = ','.join(map(str, np.arange(1, len(chainSeq[c]) + 1)))
-            mapping.append((p, pLen, c, cLen, pPos, cPos))
+    for p1, p2, chainMap in interactome[["Protein_1", "Protein_2", "Mapping_chains"]].values:
+        c1, c2 = chainMap.split('-')
+        for c, p in [(c1, p1), (c2, p2)]:
+            if c in chainSeq:
+                pLen = cLen = str(len(chainSeq[c]))
+                pPos = cPos = ','.join(map(str, np.arange(1, len(chainSeq[c]) + 1)))
+                mapping.append((p, pLen, c, cLen, pPos, cPos))
     
     with io.open(outPath, "w") as fout:
         fout.write ('\t'.join(["Query", "Qlen", "Subject", "Slen", "Qpos", "Spos"]) + '\n')
@@ -376,13 +377,12 @@ def produce_protein_chain_pos_mapping (inPath, chainSeqFile, outPath):
         chainSeq = pickle.load(f)
     
     mapping = []
-    for p1, p2, chainMap in interactome[["Protein_1", "Protein_2", "Mapping_chains"]].values:
-        c1, c2 = chainMap.split('-')
-        for c, p in [(c1, p1), (c2, p2)]:
-            if c in chainSeq:
-                pLen = cLen = str(len(chainSeq[c]))
-                pPos = cPos = ','.join(map(str, np.arange(1, len(chainSeq[c]) + 1)))
-                mapping.append((p, pLen, c, cLen, pPos, cPos))
+    for p, m in templateMap[["Query", "ComplexID"]].values:
+        c = m + '_A'
+        if c in chainSeq:
+            pLen = cLen = str(len(chainSeq[c]))
+            pPos = cPos = ','.join(map(str, np.arange(1, len(chainSeq[c]) + 1)))
+            mapping.append((p, pLen, c, cLen, pPos, cPos))
     
     with io.open(outPath, "w") as fout:
         fout.write ('\t'.join(["Query", "Qlen", "Subject", "Slen", "Qpos", "Spos"]) + '\n')

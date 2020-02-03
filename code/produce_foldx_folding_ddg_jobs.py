@@ -34,7 +34,7 @@ def main():
     
     if model_method is 'model_based':
         modelDir = Path('../models')
-    else
+    else:
         modelDir = pdbDir
     
     # input file containing mutations to submit to bindprofx

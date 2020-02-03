@@ -73,8 +73,8 @@ def main():
 #     mutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl' # new
 #     natMutDdgFile = interactomeDir / 'nondisease_mutations_ddg.txt'
 #     disMutDdgFile = interactomeDir / 'disease_mutations_ddg.txt'
-    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgotype.txt'
-    disMutEdgotypeFile = methodDir / 'disease_mutation_edgotype.txt'
+    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgetics.txt'
+    disMutEdgotypeFile = methodDir / 'disease_mutation_edgetics.txt'
     
     # output data files
     outputFile = methodDir / ('%s_mut_fitness_effect.pkl' % edgotype)
@@ -89,8 +89,8 @@ def main():
     # load mutations and count edgotypes
     #------------------------------------------------------------------------------------
     
-    naturalMutations = pd.read_table (natMutLocFile, sep='\t')
-    diseaseMutations = pd.read_table (disMutLocFile, sep='\t')
+    naturalMutations = pd.read_table (natMutEdgotypeFile, sep='\t')
+    diseaseMutations = pd.read_table (disMutEdgotypeFile, sep='\t')
     
     naturalMutations = naturalMutations [naturalMutations["edgotype"] != '-'].reset_index(drop=True)
     diseaseMutations = diseaseMutations [diseaseMutations["edgotype"] != '-'].reset_index(drop=True)
@@ -103,13 +103,17 @@ def main():
                           'E': sum(diseaseMutations["edgotype"] == 'edgetic'),
                           'QW': sum(diseaseMutations["edgotype"] == 'quasi-wild-type')}
     
-    numNaturalMut_considered = sum(numNaturalMut_type.values())
-    numDiseaseMut_considered = sum(numDiseaseMut_type.values())
+    numNaturalMut_considered = len(naturalMutations)
+    numDiseaseMut_considered = len(diseaseMutations)
     
     #------------------------------------------------------------------------------------
     # Apply Bayes' theorem to calculate the probabilities for a mutation of selected
     # edgotype to be effectively neutral, mildly deleterious or strongly detrimental
     #------------------------------------------------------------------------------------
+    
+    # edgotype abbreviations
+    etype_symbol = {'quasi-null':'QN', 'edgetic':'E', 'quasi-wild-type':'QW'}
+    T = etype_symbol [edgotype]
     
     # Probability for new missense mutations to be neutral (N)
     pN = 0.27
@@ -122,13 +126,9 @@ def main():
     
     # Probability for strongly detrimental mutations (S) to be of selected edgotype (T)
     if assume_S_as_M:
-        pT_S = pT_M
+        pT_S = numDiseaseMut_type[T] / numDiseaseMut_considered
     else:
         pT_S = 1 if edgotype is 'quasi-null' else 0
-    
-    # edgotype abbreviations
-    etype_symbol = {'quasi-null':'QN', 'edgetic':'E', 'quasi-wild-type':'QW'}
-    T = etype_symbol [edgotype]
     
     allresults = fitness_effect (pN,
                                  pM,

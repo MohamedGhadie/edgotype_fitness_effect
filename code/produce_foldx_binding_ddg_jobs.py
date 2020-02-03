@@ -39,11 +39,11 @@ def main():
     outDir = modellingDir / 'foldx'
     
     # directory of PDB structure files
-    pdbDir = Path('../pdb_files')
+    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     if model_method is 'model_based':
         modelDir = Path('../models')
-    else
+    else:
         modelDir = pdbDir
     
     # input file containing mutations to submit to foldx
@@ -63,6 +63,7 @@ def main():
     produce_foldx_and_beluga_jobs (mutations,
                                    modelDir,
                                    outDir,
+                                   'binding',
                                    account = 'ctb-yxia',
                                    walltime = '1-00',
                                    ntasks = 1,

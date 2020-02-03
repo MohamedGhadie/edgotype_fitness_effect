@@ -12,7 +12,6 @@ from text_tools import parse_HI_II_14_interactome, parse_IntAct_interactions
 from id_mapping import produce_protein_interaction_dict
 from interactome_tools import (write_interactome_sequences,
                                remove_interactions_reported_once,
-                               duplicated_PPIs,
                                remove_duplicate_PPIs)
 
 def main():

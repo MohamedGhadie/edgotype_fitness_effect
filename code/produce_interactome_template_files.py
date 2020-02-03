@@ -15,6 +15,12 @@ def main():
     # options: HI-II-14, IntAct
     interactome_name = 'HI-II-14'
     
+    # allow downloading of PDB structures while constructing the structural interactome
+    allow_pdb_downloads = True
+    
+    # suppress PDB warnings when constructing the structural interactome
+    suppress_pdb_warnings = True
+    
     # parent directory of all data files
     dataDir = Path('../data')
     
@@ -52,7 +58,7 @@ def main():
     
     # create output directories if not existing
     if not modelBasedDir.exists():
-        os.makedirs(mdoelBasedDir)
+        os.makedirs(modelBasedDir)
     if not pdbDir.exists():
         os.makedirs(pdbDir)
     if not templateDir.exists():
