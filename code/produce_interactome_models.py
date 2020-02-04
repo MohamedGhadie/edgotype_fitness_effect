@@ -24,13 +24,13 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for template structure files
-    templateDir = Path('../templates')
+    templateDir = modelBasedDir / 'templates'
     
     # directory for alignment files
-    alignmentDir = Path('../alignments')
+    alignmentDir = modelBasedDir / 'alignments'
     
     # directory for output models
-    modelDir = Path('../models')
+    modelDir = modelBasedDir / 'models'
     
     # input data files
     interactomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'

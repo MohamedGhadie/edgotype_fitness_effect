@@ -46,7 +46,7 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for model structure files
-    modelDir = Path('../models')
+    modelDir = modelBasedDir / 'models'
     
     # input data files
     templateAnnotatedInteractomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'

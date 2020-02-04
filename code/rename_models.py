@@ -3,12 +3,24 @@ from pathlib import Path
 
 def main():
     
-    # directory for output models
-    modelDir = Path('../models')
+    # reference interactome name
+    # options: HI-II-14, IntAct
+    interactome_name = 'HI-II-14'
     
-    if not modelDir.exists():
-        print("Model directory not found")
-        return
+    # parent directory of all data files
+    dataDir = Path('../data')
+    
+    # parent directory of all processed data files
+    procDir = dataDir / 'processed'
+    
+    # directory of processed data files specific to interactome
+    interactomeDir = procDir / interactome_name
+    
+    # directory of processed model-related data files specific to interactome
+    modelBasedDir = interactomeDir / 'model_based'
+    
+    # directory for output models
+    modelDir = modelBasedDir / 'models'
     
     modelFiles = os.listdir(modelDir)
     for name in modelFiles:
@@ -28,14 +40,20 @@ def main():
 #         if name.endswith('.ent'):
 #             namesplit = name.split('-')
 #             if len(namesplit) == 2:
-#                 os.rename(modelDir / name, modelDir / '+'.join(namesplit))
+#                 os.rename(modelDir / name, modelDir / '#'.join(namesplit))
     
 #     modelFiles = os.listdir(modelDir)
 #     for name in modelFiles:
 #         if name.endswith('.ent'):
 #             namesplit = name.split('+')
 #             if len(namesplit) == 2:
-#                 os.rename(modelDir / name, modelDir / '='.join(namesplit))
+#                 os.rename(modelDir / name, modelDir / '#'.join(namesplit))
+
+#     modelFiles = os.listdir(modelDir)
+#     for name in modelFiles:
+#         if '#' in name:
+#             newname = name.replace('#','=')
+#             os.rename(modelDir / name, modelDir / newname)
 
 if __name__ == "__main__":
     main()

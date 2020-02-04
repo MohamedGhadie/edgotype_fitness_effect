@@ -50,10 +50,10 @@ def main():
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     # directory for template structure files
-    templateDir = Path('../templates')
+    templateDir = modelBasedDir / 'templates'
     
     # directory for alignment files
-    alignmentDir = Path('../alignments')
+    alignmentDir = modelBasedDir / 'alignments'
     
     # input data files
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'

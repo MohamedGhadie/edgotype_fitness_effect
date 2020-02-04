@@ -44,7 +44,7 @@ def main():
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     if model_method is 'model_based':
-        modelDir = Path('../models')
+        modelDir = modellingDir / 'models'
     else:
         modelDir = pdbDir
     
@@ -80,10 +80,10 @@ def main():
                                    nodes = 1,
                                    ntasks_per_node = 1,
                                    cpus_per_task = 1,
-                                   mem_per_cpu = '8000M',
-                                   outputfile = '/project/def-yxia/ghadie84/foldx/data/%x-%j.out',
+                                   mem_per_cpu = '4000M',
+                                   outputfile = '/project/ctb-yxia/ghadie84/foldx/data/%x-%j.out',
                                    username = 'ghadie84',
-                                   serverDataDir = '/project/def-yxia/ghadie84/foldx/data')
+                                   serverDataDir = '/project/ctb-yxia/ghadie84/foldx/data')
 
 if __name__ == "__main__":
     main()

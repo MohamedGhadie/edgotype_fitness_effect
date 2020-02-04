@@ -24,13 +24,13 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for template structure files
-    templateDir = Path('../templates')
+    templateDir = modelBasedDir / 'templates'
     
     # directory for alignment files
-    alignmentDir = Path('../alignments')
+    alignmentDir = modelBasedDir / 'alignments'
     
     # directory for output models
-    modelDir = Path('../models')
+    modelDir = modelBasedDir / 'models'
     
     # input data files
     templateMapFile = modelBasedDir / 'single_template_map_per_protein.txt'

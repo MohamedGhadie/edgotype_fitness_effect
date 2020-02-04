@@ -43,7 +43,7 @@ def main():
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     # directory for template structure files
-    templateDir = Path('../templates')
+    templateDir = modelBasedDir / 'templates'
     
     # input data files
     uniqueGeneSequenceFile = procDir / 'human_unique_gene_reference_sequences.txt'

@@ -41,7 +41,7 @@ def main():
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     # directory for template structure files
-    templateDir = Path('../templates')
+    templateDir = modelBasedDir / 'templates'
     
     # input data files
     templateMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'

@@ -21,7 +21,11 @@ def main():
     
     # method used to predict edgetic perturbations
     # options: geometry, physics
-    edgetic_method = 'geometry'
+    edgetic_method = 'physics'
+    
+    # method of calculating edgetic mutation ∆∆G
+    # options: bindprofx, foldx
+    ddg_method = 'foldx'
     
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
     # those of mildly deleterious (M) mutations. If set to False, strongly detrimental 
@@ -60,7 +64,12 @@ def main():
     methodDir = modellingDir / edgetic_method
     
     # figure directory
-    figDir = Path('../figures') / interactome_name / model_method / edgetic_method / 'mutation_fitness_effect'
+    figDir = Path('../figures') / interactome_name / model_method / edgetic_method
+    
+    if edgetic_method is 'physics':
+        figDir = figDir / ('%s_edgetics' % ddg_method) / 'mutation_fitness_effect'
+    elif edgetic_method is 'geometry':
+        figDir = figDir / 'mutation_fitness_effect'
     
     if assume_S_as_M:
         figDir = figDir / 'assume_S_as_M'
@@ -73,8 +82,10 @@ def main():
 #     mutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl' # new
 #     natMutDdgFile = interactomeDir / 'nondisease_mutations_ddg.txt'
 #     disMutDdgFile = interactomeDir / 'disease_mutations_ddg.txt'
-    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgetics.txt'
-    disMutEdgotypeFile = methodDir / 'disease_mutation_edgetics.txt'
+    natMutEdgotypeFile = methodDir / ('nondisease_mutation_edgetics%s.txt' 
+                                      % ('_' + ddg_method if edgetic_method is 'physics' else ''))
+    disMutEdgotypeFile = methodDir / ('disease_mutation_edgetics%s.txt' 
+                                      % ('_' + ddg_method if edgetic_method is 'physics' else ''))
     
     # output data files
     outputFile = methodDir / ('%s_mut_fitness_effect.pkl' % edgotype)

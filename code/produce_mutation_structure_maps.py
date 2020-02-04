@@ -47,7 +47,7 @@ def main():
     #pdbDir = Path('../pdb_files')
     
     if model_method is 'model_based':
-        modelDir = Path('../models')
+        modelDir = modellingDir / 'models'
     else:
         modelDir = pdbDir
     

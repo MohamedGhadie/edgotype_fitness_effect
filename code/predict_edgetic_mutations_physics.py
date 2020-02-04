@@ -34,10 +34,12 @@
 import os
 import pickle
 from pathlib import Path
-from text_tools import read_list_table
+from text_tools import read_list_table, write_list_table
 from interactome_tools import read_single_interface_annotated_interactome
 from ddg_tools import read_protein_mutation_ddg
-from mutation_interface_edgotype import energy_based_perturbation, create_perturbed_network
+from mutation_interface_edgotype import (energy_based_perturbation,
+                                         assign_edgotypes,
+                                         create_perturbed_network)
 from plot_tools import network_plot
 
 def main():
@@ -52,7 +54,7 @@ def main():
     
     # method of calculating mutation ∆∆G for which results will be used
     # options: bindprofx, foldx
-    ddg_method = 'bindprofx'
+    ddg_method = 'foldx'
     
     # Minimum reduction in binding free energy DDG required for interaction perturbation
     ddgCutoff = 0.5
@@ -62,7 +64,7 @@ def main():
     mono_edgetic = False
     
     # plot perturbed interactome and produce files for use by Cytoscape
-    plot_perturbations = False
+    plot_perturbations = True
     
     # show figures
     showFigs = False
@@ -135,7 +137,7 @@ def main():
 #     if geometryPerturbsFile.is_file():
 #         print( '\n' + 'Loading geometry-based PPI perturbation predictions' )
 #         with open(geometryPerturbsFile, 'rb') as f:
-#             naturalMutations, diseasePerturbs = pickle.load(f)
+#             naturalPerturbs, diseasePerturbs = pickle.load(f)
 #     else:
 #         print( '\n' + 'Geometry-based PPI perturbation prediction file not found' )
 #         return
@@ -156,8 +158,8 @@ def main():
     #------------------------------------------------------------------------------------
     
     print( '\n' + 'Labeling mutation edgotypes' )
-    print( '%d non-disease mutations' % len(naturalPerturbs) )
-    print( '%d disease mutations' % len(diseasePerturbs) )
+    print( '%d non-disease mutations' % len(naturalMutations) )
+    print( '%d disease mutations' % len(diseaseMutations) )
     
     naturalMutations["edgotype"] = assign_edgotypes (naturalMutations["perturbations"].tolist(),
                                                      mono_edgetic = False)
