@@ -25,6 +25,7 @@ from pdb_tools import (allow_pdb_downloads,
                        return_structure,
                        load_pdbtools_chain_strucRes_labels,
                        load_pdbtools_chain_sequences,
+                       valid_strucRes,
                        return_chain_sequence,
                        ordered_chain_residues,
                        return_chain_res_posToID,
@@ -316,16 +317,66 @@ def filter_chain_annotations_by_protein (inPath, proteins, outPath):
                 if linesplit[queryPos] in proteins:
                     fout.write(line)
 
-def single_chain_per_protien (inPath, outPath):
-    """Keep only one chain alignment for each protein, the one with the smallest e-value.
+# def single_chain_per_protien (inPath, outPath):
+#     """Keep only one chain alignment for each protein, the one with the smallest e-value.
+# 
+#     Args:
+#         inPath (Path): path to tab-deleimited file containing protein-chain alignments.
+#         outPath (Path): file path to save filtered alignments to.
+# 
+#     """
+#     chainMap = pd.read_table (inPath, sep='\t')
+#     chainMap = chainMap.sort_values ("Expect", axis=0, ascending=True)
+#     chainMap = chainMap.drop_duplicates (subset = "Query", keep='first')
+#     chainMap = chainMap.sort_values ("Query", axis=0, ascending=True)
+#     chainMap.to_csv (outPath, index=False, sep='\t')
+
+def single_chain_per_protein (inPath,
+                              outPath,
+                              chainSeqFile = None,
+                              chainStrucResFile = None,
+                              pdbDir = None):
+    """Keep only one chain alignment for each protein, the one with the smallest e-value,
+        and valid structured residue sequence if chain structured resdidue label file is
+        provided.
 
     Args:
         inPath (Path): path to tab-deleimited file containing protein-chain alignments.
         outPath (Path): file path to save filtered alignments to.
+        chainSeqFile (Path): check if PDB structure exists before selecting chain annotation.
+        chainStrucResFile (Path): check if PDB structure exists before selecting chain annotation.
+        pdbDir (Path): file directory containing PDB structures.
 
     """
     chainMap = pd.read_table (inPath, sep='\t')
     chainMap = chainMap.sort_values ("Expect", axis=0, ascending=True)
+    if chainSeqFile and chainStrucResFile and pdbDir:
+        load_pdbtools_chain_sequences (chainSeqFile)
+        load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+        keep = pd.Series(data = False, index = chainMap.index)
+        for p in set(chainMap["Query"].values):
+            for i, c in chainMap.loc[chainMap["Query"]==p, "Subject"].iteritems():
+                pdbid, chainID = c.split('_')
+                if valid_strucRes (pdbid, chainID, pdbDir):
+                    keep[i] = True
+                    break
+        chainMap = chainMap[keep].reset_index(drop=True)
+#     if chainStrucResFile:
+#         load_pdbtools_chain_sequences (chainSeqFile)
+#         load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+#         chainMap = chainMap[chainMap["Subject"].apply(lambda x:
+#                                                       valid_strucRes(pdbid,
+#                                                                      chainID,
+#                                                                      return_chain_sequence(x),
+#                                                                      return_chain_strucRes_label(x)))].reset_index(drop=True)
+#     if pdbDir:
+#         keep = pd.Series(data = False, index = chainMap.index)
+#         for p in set(chainMap["Query"].values):
+#             for i, c in chainMap.loc[chainMap["Query"]==p, "Subject"].iteritems():
+#                 if return_structure (c.split('_')[0], pdbDir):
+#                     keep[i] = True
+#                     break
+#         chainMap = chainMap[keep].reset_index(drop=True)
     chainMap = chainMap.drop_duplicates (subset = "Query", keep='first')
     chainMap = chainMap.sort_values ("Query", axis=0, ascending=True)
     chainMap.to_csv (outPath, index=False, sep='\t')

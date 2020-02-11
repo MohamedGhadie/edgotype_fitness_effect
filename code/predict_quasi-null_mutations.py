@@ -18,7 +18,7 @@ def main():
     
     # method used to predict edgetic perturbations
     # options: geometry, physics
-    edgetic_method = 'geometry'
+    edgetic_method = 'physics'
     
     # minimum change in protein free energy required for quasi-null mutations
     qnMinDDG = 5
@@ -53,6 +53,9 @@ def main():
     
     # figure directory
     figDir = Path('../figures') / interactome_name / model_method / edgetic_method
+    
+    if edgetic_method is 'physics':
+        figDir = figDir / ('%s_edgetics' % ddg_method)
     
     # input data files
     natMutLocFile = methodDir / 'nondisease_mutation_struc_loc.txt'

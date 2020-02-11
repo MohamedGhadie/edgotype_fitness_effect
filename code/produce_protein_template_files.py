@@ -6,8 +6,9 @@ from modelling_tools import (set_pdb_dir,
                              set_template_dir,
                              enable_pdb_downloads,
                              disable_pdb_warnings,
-                             write_template_sequences,
-                             produce_template_files)
+                             write_protein_template_sequences,
+                             produce_fullmodel_chain_strucRes_dict,
+                             produce_protein_template_files)
 
 def main():
     
@@ -15,9 +16,11 @@ def main():
     # options: HI-II-14, IntAct
     interactome_name = 'HI-II-14'
     
-    # homology modelling method used to create structural models
-    # options: template_based, model_based
-    #model_method = 'model_based'
+    # allow downloading of PDB structures while constructing the structural interactome
+    allow_pdb_downloads = True
+    
+    # suppress PDB warnings when constructing the structural interactome
+    suppress_pdb_warnings = True
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -41,20 +44,21 @@ def main():
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     # directory for template structure files
-    templateDir = modelBasedDir / 'templates'
+    templateDir = modelBasedDir / 'protein_templates'
     
     # input data files
     templateMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'
-    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
-    chainStrucSeqFastaFile = modelBasedDir / 'protein_template_sequences.fasta'
-    chainStrucSeqFile = modelBasedDir / 'protein_template_sequences.pkl'
+    templateSeqFastaFile = modelBasedDir / 'protein_template_sequences.fasta'
+    templateSeqFile = modelBasedDir / 'protein_template_sequences.pkl'
+    templateStrucResFile = modelBasedDir / 'protein_template_strucRes.pkl'
     
     # create output directories if not existing
-    if not modellingDir.exists():
-        os.makedirs(modellingDir)
+    if not modelBasedDir.exists():
+        os.makedirs(modelBasedDir)
     if not pdbDir.exists():
         os.makedirs(pdbDir)
     if not templateDir.exists():
@@ -72,22 +76,26 @@ def main():
     # suppress or allow PDB warnings
     disable_pdb_warnings (suppress_pdb_warnings)
     
-    templateMap = pd.read_table(templateMapFile, sep='\t')
-    templateIDs = templateMap["Subject"].tolist()
-    
-    if not chainStrucSeqFastaFile.is_file():
-        print('writing protein template sequences to Fasta file')
-        write_template_sequences (templateIDs,
-                                  chainSeqresFile,
-                                  chainStrucResFile,
-                                  chainStrucSeqFastaFile)
-    
-    if not chainStrucSeqFile.is_file():
-        print('producing protein template sequence dictionary')
-        produce_chainSeq_dict (chainStrucSeqFastaFile, chainStrucSeqFile)
-    
     print('Extracting coordinate files for protein templates')
-    produce_template_files (templateIDs, chainSeqresFile, chainStrucResFile)
+    produce_protein_template_files (templateMapFile, chainSeqFile, chainStrucResFile)
+    
+    print('writing protein template sequences to Fasta file')
+    templateMap = pd.read_table(templateMapFile, sep='\t')
+    templateIDs = []
+    for template in templateMap["Subject"].values:
+        pdbid, chainID = template.split('_')
+        templateID = '-'.join([pdbid, chainID]) 
+        templateIDs.append((templateID, chainID))
+    write_protein_template_sequences (templateIDs,
+                                      chainSeqFile,
+                                      chainStrucResFile,
+                                      templateSeqFastaFile)
+    
+    print('producing protein template sequence dictionary')
+    produce_chainSeq_dict (templateSeqFastaFile, templateSeqFile)
+    
+    print('producing protein template structured residue label file')
+    produce_fullmodel_chain_strucRes_dict (templateSeqFile, templateStrucResFile)
 
 if __name__ == "__main__":
     main()

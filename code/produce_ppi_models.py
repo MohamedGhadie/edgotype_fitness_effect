@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from modeller_tools import produce_interactome_models
+from modeller_tools import produce_ppi_models
 
 def main():
     
@@ -12,7 +12,8 @@ def main():
     verbosity = 'none'
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('../../../../')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -24,13 +25,13 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for template structure files
-    templateDir = modelBasedDir / 'templates'
+    templateDir = modelBasedDir / 'ppi_templates'
     
     # directory for alignment files
-    alignmentDir = modelBasedDir / 'alignments'
+    alignmentDir = modelBasedDir / 'ppi_alignments'
     
     # directory for output models
-    modelDir = modelBasedDir / 'models'
+    modelDir = modelBasedDir / 'ppi_models'
     
     # input data files
     interactomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'
@@ -40,12 +41,12 @@ def main():
         os.makedirs(str(modelDir))
     
     print('Creating PPI models')
-    produce_interactome_models (interactomeFile,
-                                alignmentDir,
-                                templateDir,
-                                modelDir,
-                                numModels = 1,
-                                verbosity = verbosity)
+    produce_ppi_models (interactomeFile,
+                        alignmentDir,
+                        templateDir,
+                        modelDir,
+                        numModels = 1,
+                        verbosity = verbosity)
 
 if __name__ == "__main__":
     main()

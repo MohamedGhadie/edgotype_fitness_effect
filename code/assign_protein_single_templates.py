@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from pathlib import Path
-from structural_annotation import single_chain_per_protien
+from structural_annotation import single_chain_per_protein
 from pdb_tools import download_structures
 
 def main():
@@ -44,12 +44,14 @@ def main():
     # input data files
     #chainMapFile = procDir / 'human_pdb_chain_map.txt'
     chainMapFile = templateBasedDir / 'struc_interactome_chain_map.txt'
+    chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
     #filteredChainMapFile = interactomeDir / 'human_pdb_chain_map_filtered.txt'
     singleChainMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'
-    chainIDFile = templateBasedDir / 'unique_model_chainIDs.txt'
-    pdbIDFile = templateBasedDir / 'unique_model_pdbIDs.txt'
+    chainIDFile = templateBasedDir / 'single_model_chainIDs.txt'
+    pdbIDFile = templateBasedDir / 'single_model_complexIDs.txt'
     
     # create output directories if not existing
     if not templateBasedDir.exists():
@@ -69,9 +71,12 @@ def main():
 #                                   prCov = prCov,
 #                                   chCov = chCov)
     
-    if not singleChainMapFile.is_file():
-        print('selecting one chain model per protein')
-        single_chain_per_protien (chainMapFile, singleChainMapFile)
+    print('selecting one chain model per protein')
+    single_chain_per_protein (chainMapFile,
+                              singleChainMapFile,
+                              chainSeqFile = chainSeqFile,
+                              chainStrucResFile = chainStrucResFile,
+                              pdbDir = pdbDir)
     
     proteinModels = pd.read_table (singleChainMapFile, sep='\t')
     uniqueChains = set(proteinModels["Subject"].values)

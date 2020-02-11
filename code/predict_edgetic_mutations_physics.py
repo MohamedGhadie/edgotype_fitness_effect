@@ -88,7 +88,7 @@ def main():
     cytoscapeDir = methodDir / 'cytoscape'
     
     # figure directory
-    figDir = Path('../figures') / interactome_name / model_method / 'physics'
+    figDir = Path('../figures') / interactome_name / model_method / 'physics' / ('%s_edgetics' % ddg_method)
     
     # input data files
     #geometryPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'

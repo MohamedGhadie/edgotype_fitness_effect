@@ -20,7 +20,7 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for output models
-    modelDir = modelBasedDir / 'models'
+    modelDir = modelBasedDir / 'ppi_models'
     
     modelFiles = os.listdir(modelDir)
     for name in modelFiles:

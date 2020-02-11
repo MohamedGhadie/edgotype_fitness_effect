@@ -2,12 +2,12 @@ import pandas as pd
 from modeller import *
 from modeller.automodel import *
 
-def produce_interactome_models (inPath,
-                                alignmentDir,
-                                templateDir,
-                                modelDir,
-                                numModels = 1,
-                                verbosity = 'minimal'):
+def produce_ppi_models (inPath,
+                        alignmentDir,
+                        templateDir,
+                        modelDir,
+                        numModels = 1,
+                        verbosity = 'minimal'):
     
     interactome = pd.read_table (inPath, sep='\t')
     n = len(interactome)

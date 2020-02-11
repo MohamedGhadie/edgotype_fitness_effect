@@ -49,15 +49,15 @@ def main():
     # options: template_based, model_based
     model_method = 'model_based'
     
-    # structural interactome names
-    struc_name = {'HI-II-14':'Y2H-SI', 'IntAct':'IntAct-SI'}
-    
     # method of calculating mutation ∆∆G for which results will be used
     # options: bindprofx, foldx
-    ddg_method = 'bindprofx'
+    ddg_method = 'foldx'
     
     # Minimum reduction in binding free energy DDG required for interaction perturbation
     ddgCutoff = 0.5
+    
+    # structural interactome names
+    struc_name = {'HI-II-14':'Y2H-SI', 'IntAct':'IntAct-SI'}
     
     # show figures
     showFigs = False
@@ -78,12 +78,12 @@ def main():
     methodDir = modellingDir / 'physics'
     
     # figure directory
-    figDir = Path('../figures') / interactome_name / model_method / 'physics'
+    figDir = Path('../figures') / interactome_name / model_method / 'physics' / ('%s_edgetics' % ddg_method)
     
     # input data files
     #geometryPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
-    natMutDDGinFile = methodDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
-    disMutDDGinFile = methodDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
+    natMutDDGinFile = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
+    disMutDDGinFile = modellingDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
     structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
     
     # output data files

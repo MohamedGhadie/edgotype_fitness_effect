@@ -16,14 +16,14 @@ def main():
     # options: HI-II-14, IntAct
     interactome_name = 'HI-II-14'
     
-    # Maximum e-value cutoff to filter out protein-chain annotations
-    evalue = 1e-10
-    
-    # Minimum protein coverage fraction required for protein-chain annotation
-    proteinCov = 0
-    
-    # Minimum chain coverage fraction required for protein-chain annotation
-    chainCov = 0
+#     Maximum e-value cutoff to filter out protein-chain annotations
+#     evalue = 1e-10
+#     
+#     Minimum protein coverage fraction required for protein-chain annotation
+#     proteinCov = 0
+#     
+#     Minimum chain coverage fraction required for protein-chain annotation
+#     chainCov = 0
     
     # allow downloading of PDB structures while constructing the structural interactome
     allow_pdb_downloads = True
@@ -46,28 +46,24 @@ def main():
     # directory of processed model-related data files specific to interactome
     modelBasedDir = interactomeDir / 'model_based'
     
-    # directory for PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
-    
     # directory for template structure files
-    templateDir = modelBasedDir / 'templates'
+    templateDir = modelBasedDir / 'protein_templates'
     
     # directory for alignment files
-    alignmentDir = modelBasedDir / 'alignments'
+    alignmentDir = modelBasedDir / 'protein_alignments'
     
     # input data files
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
-    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
-    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
-    templateMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'
+    chainMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'
     blastFile = modelBasedDir / 'protein_template_blast_alignments_e100'
-    chainStrucSeqFile = modelBasedDir / 'protein_template_sequences.pkl'
+    templateSeqFile = modelBasedDir / 'protein_template_sequences.pkl'
+    templateStrucResFile = modelBasedDir / 'protein_template_strucRes.pkl'
     
     # output data files
     alignmentFile1 = modelBasedDir / 'protein_template_alignments.txt'
     alignmentFile2 = modelBasedDir / 'protein_template_filtered_alignments.txt'
     alignmentFile3 = modelBasedDir / 'protein_template_extended_alignments.txt'
-    annotatedTemplateMapFile = modelBasedDir / 'single_template_map_per_protein.txt'    
+    templateMapFile = modelBasedDir / 'single_template_map_per_protein.txt'    
     
     # create output directories if not existing
     if not modelBasedDir.exists():
@@ -76,9 +72,6 @@ def main():
         os.makedirs(templateDir)
     if not alignmentDir.exists():
         os.makedirs(alignmentDir)
-    
-    # set directory of raw PDB coordinate files for modelling tools
-    set_pdb_dir (pdbDir)
     
     # set directory of template coordinate files for modelling tools
     set_template_dir (templateDir)
@@ -92,33 +85,30 @@ def main():
     # suppress or allow PDB warnings
     disable_pdb_warnings (suppress_pdb_warnings)
     
-    if not alignmentFile1.is_file():
-        print( 'Parsing BLAST protein-chain alignment file' )
-        parse_blast_file (blastFile, alignmentFile1)
+    print( 'Parsing BLAST protein-chain alignment file' )
+    parse_blast_file (blastFile, alignmentFile1)
     
-    if not alignmentFile2.is_file():
-        print('Filtering alignments')
-        # This is only to calculate alignment coverage, and remove duplicate alignments
-        # for each protein-chain pair. Filtering by evalue is not needed at this point.
-        filter_chain_annotations (alignmentFile1,
-                                  alignmentFile2,
-                                  evalue = 1000,
-                                  prCov = 0,
-                                  chCov = 0)
+    print('Filtering alignments')
+    # This is only to calculate alignment coverage, and remove duplicate alignments
+    # for each protein-chain pair. Filtering by evalue is not needed at this point.
+    filter_chain_annotations (alignmentFile1,
+                              alignmentFile2,
+                              evalue = 100,
+                              prCov = 0,
+                              chCov = 0)
     
-    if not alignmentFile3.is_file():
-        print('Extending alignments to full sequences')
-        extend_alignments (alignmentFile2,
-                           proteinSeqFile,
-                           chainStrucSeqFile,
-                           alignmentFile3)
+    print('Extending alignments to full sequences')
+    extend_alignments (alignmentFile2,
+                       proteinSeqFile,
+                       templateSeqFile,
+                       alignmentFile3)
     
-    print('Producing PPI alignment files')
-    produce_protein_alignment_files (templateMapFile,
+    print('Producing protein alignment files')
+    produce_protein_alignment_files (chainMapFile,
                                      alignmentFile3,
-                                     chainSeqresFile,
-                                     chainStrucResFile,
-                                     annotatedTemplateMapFile)
-    
+                                     templateSeqFile,
+                                     templateStrucResFile,
+                                     templateMapFile)
+
 if __name__ == "__main__":
     main()

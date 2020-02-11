@@ -8,7 +8,7 @@ from modelling_tools import (set_pdb_dir,
                              enable_pdb_downloads,
                              disable_pdb_warnings,
                              extend_alignments,
-                             produce_interactome_alignment_files)
+                             produce_ppi_alignment_files)
 
 def main():
     
@@ -37,22 +37,20 @@ def main():
     # directory of processed model-related data files specific to interactome
     modelBasedDir = interactomeDir / 'model_based'
     
-    # directory for PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
-    
     # directory for template structure files
-    templateDir = modelBasedDir / 'templates'
+    templateDir = modelBasedDir / 'ppi_templates'
     
     # directory for alignment files
-    alignmentDir = modelBasedDir / 'alignments'
+    alignmentDir = modelBasedDir / 'ppi_alignments'
     
     # input data files
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
-    chainStrucSeqFile = modelBasedDir / 'ppi_template_sequences.pkl'
-    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
-    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     interactomeFile = templateBasedDir / 'human_structural_interactome.txt'
     blastFile = modelBasedDir / 'ppi_template_blast_alignments_e100'
+    templateSeqFile = modelBasedDir / 'ppi_template_sequences.pkl'
+    templateStrucResFile = modelBasedDir / 'ppi_template_strucRes.pkl'
+    #templateSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    #templateStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
     alignmentFile1 = modelBasedDir / 'ppi_template_alignments.txt'
@@ -68,9 +66,6 @@ def main():
     if not alignmentDir.exists():
         os.makedirs(alignmentDir)
     
-    # set directory of raw PDB coordinate files for modelling tools
-    set_pdb_dir (pdbDir)
-    
     # set directory of template coordinate files for modelling tools
     set_template_dir (templateDir)
     
@@ -83,33 +78,30 @@ def main():
     # suppress or allow PDB warnings
     disable_pdb_warnings (suppress_pdb_warnings)
     
-    if not alignmentFile1.is_file():
-        print( 'Parsing BLAST protein-chain alignment file' )
-        parse_blast_file (blastFile, alignmentFile1)
+    print( 'Parsing BLAST protein-chain alignment file' )
+    parse_blast_file (blastFile, alignmentFile1)
     
-    if not alignmentFile2.is_file():
-        print('Filtering alignments')
-        # This is only to calculate alignment coverage, and remove duplicate alignments
-        # for each protein-chain pair. Filtering by evalue is not needed at this point.
-        filter_chain_annotations (alignmentFile1,
-                                  alignmentFile2,
-                                  evalue = 100,
-                                  prCov = 0,
-                                  chCov = 0)
+    print('Filtering alignments')
+    # This is only to calculate alignment coverage, and remove duplicate alignments
+    # for each protein-chain pair. Filtering by evalue is not needed at this point.
+    filter_chain_annotations (alignmentFile1,
+                              alignmentFile2,
+                              evalue = 100,
+                              prCov = 0,
+                              chCov = 0)
     
-    if not alignmentFile3.is_file():
-        print('Extending alignments to full sequences')
-        extend_alignments (alignmentFile2,
-                           proteinSeqFile,
-                           chainStrucSeqFile,
-                           alignmentFile3)
+    print('Extending alignments to full sequences')
+    extend_alignments (alignmentFile2,
+                       proteinSeqFile,
+                       templateSeqFile,
+                       alignmentFile3)
     
     print('Producing PPI alignment files')
-    produce_interactome_alignment_files (interactomeFile,
-                                         alignmentFile3,
-                                         chainSeqresFile,
-                                         chainStrucResFile,
-                                         annotatedInteractomeFile)
+    produce_ppi_alignment_files (interactomeFile,
+                                 alignmentFile3,
+                                 templateSeqFile,
+                                 templateStrucResFile,
+                                 annotatedInteractomeFile)
     
 if __name__ == "__main__":
     main()

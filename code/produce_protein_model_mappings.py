@@ -1,9 +1,9 @@
 import os
 from pathlib import Path
 from modelling_tools import (set_model_dir,
-                             produce_protein_model_chainSeq_dict,
-                             produce_model_chain_strucRes_dict,
-                             produce_protein_chain_pos_mapping)
+                             produce_protein_fullmodel_chainSeq_dict,
+                             produce_fullmodel_chain_strucRes_dict,
+                             produce_protein_fullmodel_pos_mapping)
 
 def main():
     
@@ -24,8 +24,8 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # input data files
-    templateMapFile = modelBasedDir / 'single_template_map_per_protein.txt'
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
+    templateMapFile = modelBasedDir / 'single_template_map_per_protein.txt'
     
     # output data files
     chainSeqFile = modelBasedDir / 'protein_chain_sequences.pkl'
@@ -35,17 +35,14 @@ def main():
     if not modelBasedDir.exists():
         os.makedirs(modelBasedDir)
     
-    if not chainSeqFile.is_file():
-        print('producing protein model chain sequence dictionary')
-        produce_protein_model_chainSeq_dict (templateMapFile, proteinSeqFile, chainSeqFile)
+    print('producing protein model chain sequence dictionary')
+    produce_protein_fullmodel_chainSeq_dict (templateMapFile, proteinSeqFile, chainSeqFile)
     
-    if not chainStrucResFile.is_file():
-        print('producing protein model chain structured residue label file')
-        produce_model_chain_strucRes_dict (chainSeqFile, chainStrucResFile)
+    print('producing protein model chain structured residue label file')
+    produce_fullmodel_chain_strucRes_dict (chainSeqFile, chainStrucResFile)
     
-    if not chainMapFile.is_file():
-        print('producing protein model chain position mapping file')
-        produce_protein_chain_pos_mapping (templateMapFile, chainSeqFile, chainMapFile)
+    print('producing protein model chain position mapping file')
+    produce_protein_fullmodel_pos_mapping (templateMapFile, chainSeqFile, chainMapFile)
 
 if __name__ == "__main__":
     main()

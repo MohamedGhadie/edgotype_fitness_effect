@@ -38,7 +38,7 @@ def main():
     mono_edgetic = False
     
     # plot perturbed interactome and produce files for use by Cytoscape
-    plot_perturbations = False
+    plot_perturbations = True
     
     # show figures
     showFigs = False

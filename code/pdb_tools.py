@@ -197,8 +197,10 @@ def download_structures (inPath, outDir):
                 download_structure ( id, outDir )
             except error.URLError:
                 failed += 1
-        print('%d out of %d IDs processed (%f%%), %d downloads failed' 
-                % (i + 1, n, 100*(i+1)/n, failed))
+        sys.stdout.write('  %d out of %d IDs processed (%f%%), %d downloads failed \r' 
+                            % (i+1, n, 100*(i+1)/n, failed))
+        sys.stdout.flush()
+    print()
 
 def download_structure (pdbid, outDir, fileFormat = 'pdb'):
     """Download PDB structure file.
@@ -374,6 +376,9 @@ def ordered_chain_residues (pdbid, model, chainID, pdbDir):
         if model.has_id(chainID):
             residues = chain_residues (model, chainID)
             pos = return_chain_res_IDsToPos (pdbid, chainID, pdbDir)
+#             if (pdbid == '4rer') and (chainID=='B'):
+#                 print('here')
+#                 print(pos)
             return [res for res in residues if res.get_id() in pos]
     return []
 
@@ -403,7 +408,7 @@ def ordered_residue_sequence (pdbid, chainID, pdbDir):
     
     residues = ordered_chain_residues (pdbid, None, chainID, pdbDir)
     if residues:
-        return ''.join([seq1(res.get_resname(), undef_code='.') for res in residues])
+        return ''.join([seq1(res.get_resname(), undef_code='X') for res in residues])
     else:
         return ''
 
@@ -677,6 +682,8 @@ def get_chain_res_posToIDs (pdbid, chainID, pdbDir):
         struc = return_structure (pdbid, pdbDir)
         if struc:
             maps = allchain_res_pos_to_IDs (pdbid, struc)
+#             if (pdbid == '4rer'):
+#                 print(maps)
             for id, posmaps in maps.items():
                 resPosToID[id] = posmaps
 
@@ -714,36 +721,62 @@ def chain_res_pos_to_IDs (pdbid, chain, minFracValidRes = 0.8):
         dict
     
     """
+    #print(pdbid)
     IDs = {}
-    pdbid = pdbid.split('-')[0]
     fullID = pdbid + '_' + chain.get_id()
-    seq = return_chain_sequence (fullID)
-    strucRes = return_chain_strucRes_label (fullID)
-    if seq and strucRes:
-        if len( seq ) == len( strucRes ):
+    sequence = return_chain_sequence (fullID)
+    strucResLabel = return_chain_strucRes_label (fullID)
+    mStart, resIDs = validated_strucRes_IDs (chain,
+                                             sequence,
+                                             strucResLabel,
+                                             minFracValidRes = minFracValidRes)
+    if resIDs:
+        for seqPos, label in enumerate(strucResLabel):
+            if (seqPos >= mStart) and (label == '-'):
+                IDs[seqPos + 1] = resIDs.pop(0)
+    return IDs
+
+def valid_strucRes (pdbid, chainID, pdbDir, minFracValidRes = 0.8):
+    
+    fullID = pdbid + '_' + chainID
+    sequence = return_chain_sequence (fullID)
+    strucResLabel = return_chain_strucRes_label (fullID)
+    struc = return_structure (pdbid, pdbDir)
+    if struc:
+        chain = struc[0][chainID]
+        mStart, resIDs = validated_strucRes_IDs (chain,
+                                                 sequence,
+                                                 strucResLabel,
+                                                 minFracValidRes = minFracValidRes)
+        if resIDs:
+            return True
+    return False
+
+def validated_strucRes_IDs (chain, seq, strucResLabel, minFracValidRes = 0.8):
+    
+    if seq and strucResLabel:
+        if len(seq) == len(strucResLabel):
             # construct chain sequence of structured residues based on SEQRES record 
-            seqres = ''.join( compress(seq, [c == '-' for c in strucRes]) )
-            seqresLen = len( seqres )
+            seqres = ''.join(compress(seq, [c == '-' for c in strucResLabel]))
+            seqresLen = len(seqres)
         
             # construct chain sequence of structured residues as read by BioPython
             coordresIDs = [ res.get_id() for res in chain.get_residues() ]
             coordres = [ seq1(res.get_resname(), undef_code='.') for res in chain.get_residues() ]
             coordresIDs = coordresIDs[ : seqresLen ]
             coordres = ''.join( coordres[ : seqresLen ] )
-            
             # check if fraction of valid structured residue names read by Biopython 
             # meets cutoff
-            if ( 1 - coordres.count('.') / len(coordres) ) >= minFracValidRes:
-                # check if the sequence of structured residues read by Biopython 
-                # is a subset of SEQRES 
-                match = re.search(coordres, seqres)
-                if match:
-                    mStart = match.start()
-                    for seqPos, label in enumerate(strucRes):
-                        if (seqPos >= mStart) and (label == '-'):
-                            if coordres:
-                                IDs[seqPos + 1] = coordresIDs.pop(0)
-    return IDs
+            if coordres:
+                if ( 1 - coordres.count('.') / len(coordres) ) >= minFracValidRes:
+                    # check if the sequence of structured residues read by Biopython 
+                    # is a subset of SEQRES
+#                     print(coordres)
+#                     print(seqres)
+                    match = re.search(coordres, seqres)
+                    if match:
+                        return match.start(), coordresIDs
+    return np.nan, []
 
 def produce_chain_list (inPath, outPath):
     """Produce list of PDB chain IDs from a fasta file of chain sequences.
@@ -780,19 +813,21 @@ def produce_chain_struc_sequences (chainIDs, pdbDir, outPath):
         sequences in fasta format.
 
     Args:
-        chainIDs (list): list of chain IDs.
+        chainIDs (list): list of tuples with template ID and chain ID.
         pdbDir (Path): path to file directory containing PDB structures.
         outPath (Path): file path to save sequences to.
 
     """
     IDs, seqs, n = [], [], len(chainIDs)
-    for i, id in enumerate(chainIDs):
+    for i, (templateID, chainID) in enumerate(chainIDs):
         sys.stdout.write('  chain %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
         sys.stdout.flush()
-        pdbid, chainID = id.split('_')
+        pdbid = templateID.split('-')[0]
+        #pdbid, chainID = id.split('_')
         seq = ordered_residue_sequence (pdbid, chainID, pdbDir)
         if seq:
-            IDs.append(id)
+            #IDs.append(id)
+            IDs.append('_'.join([templateID, chainID]))
             seqs.append(seq)
     df = pd.DataFrame(data={"ChainID":IDs, "Sequence":seqs})
     write_fasta_file (df, "ChainID", "Sequence", outPath)
@@ -812,6 +847,8 @@ def write_partial_structure (pdbid, chainIDs, pdbDir, outPath, resIDs = None):
         pdbio = PDBIO()
         pdbio.set_structure(struc)
         pdbio.save(str(outPath), select = ChainSelect(chainIDs, resIDs = resIDs))
+    else:
+        warnings.warn("Structure file for PDB ID %s not found in order to write parital structure" % pdbid)
 
 class ChainSelect (Select):
     """Class for chain collection used for creating partial PDB structures.

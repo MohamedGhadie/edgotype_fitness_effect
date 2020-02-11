@@ -15,9 +15,9 @@ import pandas as pd
 from pathlib import Path
 from modelling_tools import (set_model_dir,
                              produce_model_annotated_interactome,
-                             produce_ppi_model_chainSeq_dict,
-                             produce_ppi_chain_pos_mapping,
-                             produce_model_chain_strucRes_dict)
+                             produce_ppi_fullmodel_chainSeq_dict,
+                             produce_ppi_fullmodel_pos_mapping,
+                             produce_fullmodel_chain_strucRes_dict)
 from structural_annotation import (produce_interface_annotated_interactome,
                                    merge_interactome_interface_annotations)
 
@@ -46,7 +46,7 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for model structure files
-    modelDir = modelBasedDir / 'models'
+    modelDir = modelBasedDir / 'ppi_models'
     
     # input data files
     templateAnnotatedInteractomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'
@@ -88,19 +88,19 @@ def main():
     
     if not chainSeqFile.is_file():
         print('producing model chain sequence dictionary')
-        produce_ppi_model_chainSeq_dict (modelAnnotatedInteractomeFile,
-                                         proteinSeqFile,
-                                         chainSeqFile)
+        produce_ppi_fullmodel_chainSeq_dict (modelAnnotatedInteractomeFile,
+                                             proteinSeqFile,
+                                             chainSeqFile)
     
     if not chainMapFile.is_file():
         print('producing model chain position mapping file')
-        produce_ppi_chain_pos_mapping (modelAnnotatedInteractomeFile,
-                                       chainSeqFile,
-                                       chainMapFile)
+        produce_ppi_fullmodel_pos_mapping (modelAnnotatedInteractomeFile,
+                                           chainSeqFile,
+                                           chainMapFile)
     
     if not chainStrucResFile.is_file():
         print('producing model chain structured residue label file')
-        produce_model_chain_strucRes_dict (chainSeqFile, chainStrucResFile)
+        produce_fullmodel_chain_strucRes_dict (chainSeqFile, chainStrucResFile)
     
     if not structuralInteractomeFile1.is_file():
         print('mapping model interfaces onto model-annotated interactome')
