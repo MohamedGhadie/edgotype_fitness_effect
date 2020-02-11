@@ -20,6 +20,10 @@ def main():
     # options: geometry, physics
     edgetic_method = 'physics'
     
+    # method that was used to calculate edgetic mutation binding ∆∆G
+    # options: bindprofx, foldx
+    edgetic_ddg_method = 'foldx'
+    
     # minimum change in protein free energy required for quasi-null mutations
     qnMinDDG = 5
         
@@ -55,11 +59,11 @@ def main():
     figDir = Path('../figures') / interactome_name / model_method / edgetic_method
     
     if edgetic_method is 'physics':
-        figDir = figDir / ('%s_edgetics' % ddg_method)
+        figDir = figDir / ('%s_edgetics' % edgetic_ddg_method)
     
     # input data files
-    natMutLocFile = methodDir / 'nondisease_mutation_struc_loc.txt'
-    disMutLocFile = methodDir / 'disease_mutation_struc_loc.txt'
+    natMutLocFile = methodDir / ('nondisease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
+    disMutLocFile = methodDir / ('disease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
     natMutDdgFile = modellingDir / 'nondis_mut_folding_ddg_foldx.txt'
     disMutDdgFile = modellingDir / 'dis_mut_folding_ddg_foldx.txt'
     

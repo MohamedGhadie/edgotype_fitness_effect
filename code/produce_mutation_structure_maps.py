@@ -23,6 +23,10 @@ def main():
     # options: template_based, model_based
     model_method = 'model_based'
     
+    # method that was used to calculate edgetic mutation binding ∆∆G
+    # options: bindprofx, foldx
+    edgetic_ddg_method = 'foldx'
+    
     # method of calculating mutation ∆∆G for which results will be used
     # options: foldx
     ddg_method = 'foldx'
@@ -54,8 +58,8 @@ def main():
     # input data files
     chainSeqFile = modellingDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = modellingDir / 'protein_chain_strucRes.pkl'
-    naturalMutationsFile = methodDir / 'nondisease_mutation_dist_to_center.txt'
-    diseaseMutationsFile = methodDir / 'disease_mutation_dist_to_center.txt'
+    naturalMutationsFile = methodDir / ('nondisease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
+    diseaseMutationsFile = methodDir / ('disease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
     
     # output data files
     natural_mutations_ddg_file = modellingDir / ('nondis_mut_folding_ddg_%s.txt' % ddg_method)

@@ -61,8 +61,7 @@ def main():
     #dsspDir = Path('../../dssp')
     
     # directory for calculated solvent accessibility files
-    accDir = Path('../../../res_acc')
-    #accDir = Path('../../res_acc')
+    accDir = modellingDir / 'res_acc'
     
     # input data files
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
@@ -70,14 +69,22 @@ def main():
     chainSeqFile = modellingDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = modellingDir / 'protein_chain_strucRes.pkl'
     proteinModelFile = modellingDir / 'single_chain_map_per_protein.txt'
-    naturalMutationsFile = methodDir / 'nondisease_mutation_edgetics.txt'
-    diseaseMutationsFile = methodDir / 'disease_mutation_edgetics.txt'
+    if edgetic_method is 'geometry':
+        naturalMutationsFile = methodDir / 'nondisease_mutation_edgetics.txt'
+        diseaseMutationsFile = methodDir / 'disease_mutation_edgetics.txt'
+    elif edgetic_method is 'physics':
+        naturalMutationsFile = methodDir / ('nondisease_mutation_edgetics_%s.txt' % ddg_method)
+        diseaseMutationsFile = methodDir / ('disease_mutation_edgetics_%s.txt' % ddg_method)
     
     # output data files
     maxAccFile = procDir / 'empirical_maxAcc_99_99.pkl'
     proteinRSAFile = modellingDir / 'protein_RSA_99_99.pkl'
-    natMutRSAFile = methodDir / 'nondisease_mutation_RSA.txt'
-    disMutRSAFile = methodDir / 'disease_mutation_RSA.txt'
+    if edgetic_method is 'geometry':
+        natMutRSAFile = methodDir / 'nondisease_mutation_RSA.txt'
+        disMutRSAFile = methodDir / 'disease_mutation_RSA.txt'
+    elif edgetic_method is 'physics':
+        natMutRSAFile = methodDir / ('nondisease_mutation_RSA_%s.txt' % ddg_method)
+        disMutRSAFile = methodDir / ('disease_mutation_RSA_%s.txt' % ddg_method)
     
     # create output directories if not existing
     if not modellingDir.exists():

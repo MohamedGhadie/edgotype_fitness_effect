@@ -10,8 +10,16 @@ def main():
     # options: HI-II-14, IntAct
     interactome_name = 'HI-II-14'
     
+    # homology modelling method used to create structural models
+    # options: template_based, model_based
+    model_method = 'model_based'
+    
     # method used to perform calculations; 'geometry' or 'physics'
-    calc_method = 'physics'
+    edgetic_method = 'physics'
+    
+    # method that was used to calculate edgetic mutation binding ∆∆G
+    # options: bindprofx, foldx
+    ddg_method = 'foldx'
     
     # maximum RSA for buried mutations
     burialMaxRSA = 0.25
@@ -28,21 +36,35 @@ def main():
     # directory of processed data files specific to interactome
     interactomeDir = procDir / interactome_name
     
+    # directory of processed model-related data files specific to interactome
+    modellingDir = interactomeDir / model_method
+    
     # directory of calculation method
-    methodDir = interactomeDir / calc_method
+    methodDir = modellingDir / edgetic_method
     
     # figure directory
-    figDir = Path('../figures') / interactome_name / ('mutation_fitness_effect_using_%s' % calc_method)
+    figDir = Path('../figures') / interactome_name / modelling_method / edgetic_method
+    
+    if edgetic_method is 'physics':
+        figDir = figDir / ('%s_edgetics' % ddg_method)
         
     # input data files
-    naturalMutationsFile = methodDir / 'nondisease_mutation_unbiased_RSA.txt'
-    diseaseMutationsFile = methodDir / 'disease_mutation_unbiased_RSA.txt'
-    natMutGeometryFile = interactomeDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
-    disMutGeometryFile = interactomeDir / 'geometry' / 'disease_mutation_edgetics.txt'
+    if edgetic_method is 'geometry':
+        naturalMutationsFile = methodDir / 'nondisease_mutation_RSA.txt'
+        diseaseMutationsFile = methodDir / 'disease_mutation_RSA.txt'
+    elif edgetic_method is 'physics':
+        naturalMutationsFile = methodDir / ('nondisease_mutation_RSA_%s.txt' % ddg_method)
+        diseaseMutationsFile = methodDir / ('disease_mutation_RSA_%s.txt' % ddg_method)
+    natMutGeometryFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
+    disMutGeometryFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
     
     # output data files
-    natMutLocFile = methodDir / 'nondisease_mutation_struc_loc.txt'
-    disMutLocFile = methodDir / 'disease_mutation_struc_loc.txt'
+    if edgetic_method is 'geometry':
+        natMutLocFile = methodDir / 'nondisease_mutation_struc_loc.txt'
+        disMutLocFile = methodDir / 'disease_mutation_struc_loc.txt'
+    elif edgetic_method is 'physics':
+        natMutLocFile = methodDir / ('nondisease_mutation_struc_loc_%s.txt' % ddg_method)
+        disMutLocFile = methodDir / ('disease_mutation_struc_loc_%s.txt' % ddg_method)
     
     # create output directories if not existing
     if not methodDir.exists():
@@ -77,8 +99,8 @@ def main():
     # Identify mutation locations on protein structure
     #------------------------------------------------------------------------------------
     
-    #edgetic_region_label = 'interface' if calc_method is 'geometry' else 'edgetic'
-    #exposed_region_label = 'exposed-noninterface' if calc_method is 'geometry' else 'exposed-nonedgetic'
+    #edgetic_region_label = 'interface' if edgetic_method is 'geometry' else 'edgetic'
+    #exposed_region_label = 'exposed-noninterface' if edgetic_method is 'geometry' else 'exposed-nonedgetic'
     natMutGeometry = pd.read_table (natMutGeometryFile, sep='\t')
     disMutGeometry = pd.read_table (disMutGeometryFile, sep='\t')
     natMutGeometryEdgotype = {(row.protein, row.mut_position, row.mut_res):row.edgotype
