@@ -310,7 +310,6 @@ def extract_pairs (ls):
         list
 
     """
-    print(ls)
     lefts, rights = ls
     if (len(lefts) > 0) and (len(rights) > 0):
         return [(l,r) for l in lefts for r in rights]

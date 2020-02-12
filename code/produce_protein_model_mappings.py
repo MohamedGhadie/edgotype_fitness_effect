@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+from text_tools import produce_item_list
+from id_mapping import produce_chain_dict
 from modelling_tools import (set_model_dir,
                              produce_protein_fullmodel_chainSeq_dict,
                              produce_fullmodel_chain_strucRes_dict,
@@ -31,6 +33,8 @@ def main():
     chainSeqFile = modelBasedDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = modelBasedDir / 'protein_chain_strucRes.pkl'
     chainMapFile = modelBasedDir / 'single_chain_map_per_protein.txt'
+    chainListFile = modelBasedDir / 'protein_model_chains.list'
+    modelChainsFile = modelBasedDir / 'protein_model_chains.pkl'
     
     if not modelBasedDir.exists():
         os.makedirs(modelBasedDir)
@@ -43,6 +47,12 @@ def main():
     
     print('producing protein model chain position mapping file')
     produce_protein_fullmodel_pos_mapping (templateMapFile, chainSeqFile, chainMapFile)
+    
+    print('producing model chain ID list')
+    produce_item_list (chainMapFile, "Subject", chainListFile)
+    
+    print('producing model chain dictionary from chain list file')
+    produce_chain_dict (chainListFile, modelChainsFile)
 
 if __name__ == "__main__":
     main()

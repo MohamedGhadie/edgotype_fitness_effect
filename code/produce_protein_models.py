@@ -12,7 +12,7 @@ def main():
     verbosity = 'none'
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    dataDir = Path('../../../../')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'

@@ -82,10 +82,12 @@ def main():
 #     mutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl' # new
 #     natMutDdgFile = interactomeDir / 'nondisease_mutations_ddg.txt'
 #     disMutDdgFile = interactomeDir / 'disease_mutations_ddg.txt'
-    natMutEdgotypeFile = methodDir / ('nondisease_mutation_edgetics%s.txt' 
-                                      % ('_' + ddg_method if edgetic_method is 'physics' else ''))
-    disMutEdgotypeFile = methodDir / ('disease_mutation_edgetics%s.txt' 
-                                      % ('_' + ddg_method if edgetic_method is 'physics' else ''))
+#     natMutEdgotypeFile = methodDir / ('nondisease_mutation_edgetics%s.txt' 
+#                                       % ('_' + ddg_method if edgetic_method is 'physics' else ''))
+#     disMutEdgotypeFile = methodDir / ('disease_mutation_edgetics%s.txt' 
+#                                       % ('_' + ddg_method if edgetic_method is 'physics' else ''))
+    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgotype.txt'
+    disMutEdgotypeFile = methodDir / 'disease_mutation_edgotype.txt'
     
     # output data files
     outputFile = methodDir / ('%s_mut_fitness_effect.pkl' % edgotype)
@@ -106,13 +108,13 @@ def main():
     naturalMutations = naturalMutations [naturalMutations["edgotype"] != '-'].reset_index(drop=True)
     diseaseMutations = diseaseMutations [diseaseMutations["edgotype"] != '-'].reset_index(drop=True)
     
-    numNaturalMut_type = {'QN': sum(naturalMutations["edgotype"] == 'quasi-null'),
+    numNaturalMut_type = {'Q': sum(naturalMutations["edgotype"] == 'quasi-null'),
                           'E': sum(naturalMutations["edgotype"] == 'edgetic'),
-                          'QW': sum(naturalMutations["edgotype"] == 'quasi-wild-type')}
+                          'W': sum(naturalMutations["edgotype"] == 'quasi-wild-type')}
     
-    numDiseaseMut_type = {'QN': sum(diseaseMutations["edgotype"] == 'quasi-null'),
+    numDiseaseMut_type = {'Q': sum(diseaseMutations["edgotype"] == 'quasi-null'),
                           'E': sum(diseaseMutations["edgotype"] == 'edgetic'),
-                          'QW': sum(diseaseMutations["edgotype"] == 'quasi-wild-type')}
+                          'W': sum(diseaseMutations["edgotype"] == 'quasi-wild-type')}
     
     numNaturalMut_considered = len(naturalMutations)
     numDiseaseMut_considered = len(diseaseMutations)
@@ -123,7 +125,7 @@ def main():
     #------------------------------------------------------------------------------------
     
     # edgotype abbreviations
-    etype_symbol = {'quasi-null':'QN', 'edgetic':'E', 'quasi-wild-type':'QW'}
+    etype_symbol = {'quasi-null':'Q', 'edgetic':'E', 'quasi-wild-type':'W'}
     T = etype_symbol [edgotype]
     
     # Probability for new missense mutations to be neutral (N)
@@ -141,6 +143,9 @@ def main():
     else:
         pT_S = 1 if edgotype is 'quasi-null' else 0
     
+    print(numDiseaseMut_type[T])
+    print(numDiseaseMut_considered)
+    print(pT_S)
     allresults = fitness_effect (pN,
                                  pM,
                                  pS,
@@ -149,7 +154,7 @@ def main():
                                  numDiseaseMut_type[T],
                                  numDiseaseMut_considered,
                                  pT_S = pT_S,
-                                 edgotype = 'edgetic',
+                                 edgotype = edgotype,
                                  CI = 95,
                                  output = True)
     with open(outputFile, 'wb') as fOut:

@@ -1,6 +1,7 @@
 import os
 import io
 import re
+from pathlib import Path
 import warnings
 import pickle
 import numpy as np
@@ -50,9 +51,9 @@ def make_acc_file (accDir, pdbDir, pdbid, tempDir = None, selChains = None):
         struc = return_structure (pdbid, pdbDir)
     if struc:
         try:
-            rsa = DSSP(struc[0], strucFile, acc_array = 'Wilke')
-            acc = rsa_to_acc(rsa, maxAccTable = 'Wilke')
-            write_acc_file(acc, accFile)
+            rsa = DSSP (struc[0], strucFile, acc_array = 'Wilke')
+            acc = rsa_to_acc (rsa, maxAccTable = 'Wilke')
+            write_acc_file (acc, accFile)
         except:
             pass
     if selChains and strucFile.is_file():

@@ -2,26 +2,26 @@ import pickle
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from id_mapping import produce_pdbID_dict
+#from id_mapping import produce_pdbID_dict
 from stat_tools import t_test, sderror
-from threeD_structure_tools import produce_empirical_maxAcc, produce_protein_model_RSA
+from threeD_structure_tools import produce_protein_model_RSA
 
 def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    interactome_name = 'HI-II-14'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
     model_method = 'model_based'
     
     # method used to perform calculations; 'geometry' or 'physics'
-    calc_method = 'physics'
+    edgetic_method = 'physics'
     
-    # method of calculating mutation ∆∆G for which results will be used
+    # method that was used to calculate edgetic mutation ∆∆G
     # options: bindprofx, foldx
-    ddg_method = 'bindprofx'
+    ddg_method = 'foldx'
     
     # allow downloading of PDB structures
     allow_pdb_downloads = False
@@ -42,10 +42,10 @@ def main():
     modellingDir = interactomeDir / model_method
     
     # directory of calculation method
-    methodDir = modellingDir / calc_method
+    methodDir = modellingDir / edgetic_method
     
-    if calc_method is 'physics':
-        methodDir = methodDir / ddg_method
+#     if edgetic_method is 'physics':
+#         methodDir = methodDir / ddg_method
     
     # directory of PDB structures
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
@@ -53,12 +53,12 @@ def main():
     
     if model_method is 'model_based':
         modelDir = modellingDir / 'protein_models'
-    else
+    else:
         modelDir = pdbDir
     
     # directory of precalculated RSA files on local computer
-    dsspDir = Path('/Volumes/MG_Samsung/dssp')
-    #dsspDir = Path('../../dssp')
+    #dsspDir = Path('/Volumes/MG_Samsung/dssp')
+    # = Path('../../dssp')
     
     # directory for calculated solvent accessibility files
     accDir = modellingDir / 'res_acc'
@@ -124,6 +124,10 @@ def main():
     # Calculate mutation RSA
     #------------------------------------------------------------------------------------    
     
+#     with open('../../../../PhD/edgotype_fitness_effect/edgotype_fitness_effect/data/processed/protein_chains.pkl', 'rb') as f:
+#         prSeq = pickle.load(f)
+#     print(prSeq)
+#     return
     with open(proteinSeqFile, 'rb') as f:
         prSeq = pickle.load(f)
     prLen = {}
@@ -141,7 +145,7 @@ def main():
                                modelDir,
                                accDir,
                                proteinRSAFile,
-                               dsspDir = dsspDir,
+                               #dsspDir = dsspDir,
                                maxAccFile = maxAccFile,
                                mapToProtein = True,
                                downloadPDB = allow_pdb_downloads,

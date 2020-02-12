@@ -84,7 +84,7 @@ def main():
     templateIDs = []
     for template in templateMap["Subject"].values:
         pdbid, chainID = template.split('_')
-        templateID = '-'.join([pdbid, chainID]) 
+        templateID = '-'.join([pdbid, chainID])
         templateIDs.append((templateID, chainID))
     write_protein_template_sequences (templateIDs,
                                       chainSeqFile,

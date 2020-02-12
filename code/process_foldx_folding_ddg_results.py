@@ -36,7 +36,7 @@ def main():
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     if model_method is 'model_based':
-        modelDir = modellingDir / 'models'
+        modelDir = modellingDir / 'protein_models'
     else:
         modelDir = pdbDir
     

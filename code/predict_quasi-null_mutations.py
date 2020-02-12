@@ -116,17 +116,20 @@ def main():
             if row.edgotype == 'edgetic':
                 edgotypes.append('edgetic')
             elif row.edgotype == 'non-edgetic':
-                if row.structural_location == 'exposed-noninterface':
-                    edgotypes.append('quasi-wild-type')
-                elif row.structural_location == 'buried':
+                if row.structural_location == 'buried':
                     if np.isnan(row.ddg):
                         edgotypes.append('-')
                     elif row.ddg >= qnMinDDG:
                         edgotypes.append('quasi-null')
                     else:
                         edgotypes.append('quasi-wild-type')
+                elif row.structural_location in ['exposed-noninterface', 'interface']:
+                    edgotypes.append('quasi-wild-type')
+                else:
+                    edgotypes.append('-')
             else:
                 edgotypes.append('-')
+        print(len(edgotypes))
         mutations[k]['edgotype'] = edgotypes
     
     naturalMutations.to_csv(natMutEdgotypeFile, index=False, sep='\t')

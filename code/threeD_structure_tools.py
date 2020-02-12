@@ -1090,6 +1090,7 @@ def res_rsa (protein,
                                     allChains = pdbChains[pdbid],
                                     dsspDir = dsspDir,
                                     mapToProtein = mapToProtein)
+        
         rsaReduced = {}
         if mapToProtein:
             for pos, val in rsa.items():

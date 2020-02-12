@@ -63,7 +63,7 @@ def main():
     
     # output data files
     natural_mutations_ddg_file = modellingDir / ('nondis_mut_folding_ddg_%s.txt' % ddg_method)
-    disease_mutations_ddg_file = modellingDir / ('dis_mut_folding_ddg.txt' % ddg_method)
+    disease_mutations_ddg_file = modellingDir / ('dis_mut_folding_ddg_%s.txt' % ddg_method)
     
     # create output directories if not existing
     if not methodDir.exists():
@@ -87,7 +87,7 @@ def main():
         write_mutation_structure_maps (naturalMutationMaps,
                                        chainSeqFile,
                                        chainStrucResFile,
-                                       pdbDir,
+                                       modelDir,
                                        natural_mutations_ddg_file)
     
     # write disease mutations
@@ -101,7 +101,7 @@ def main():
         write_mutation_structure_maps (diseaseMutationMaps,
                                        chainSeqFile,
                                        chainStrucResFile,
-                                       pdbDir,
+                                       modelDir,
                                        disease_mutations_ddg_file)
     
 if __name__ == "__main__":

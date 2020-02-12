@@ -43,7 +43,7 @@ def main():
     methodDir = modellingDir / edgetic_method
     
     # figure directory
-    figDir = Path('../figures') / interactome_name / modelling_method / edgetic_method
+    figDir = Path('../figures') / interactome_name / model_method / edgetic_method
     
     if edgetic_method is 'physics':
         figDir = figDir / ('%s_edgetics' % ddg_method)

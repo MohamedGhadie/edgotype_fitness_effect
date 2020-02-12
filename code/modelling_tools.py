@@ -363,7 +363,7 @@ def produce_protein_fullmodel_chainSeq_dict (inPath, proteinSeqFile, outPath):
         proteinSeq = pickle.load(f)
     
     chainSeq = {}
-    for p, m in templateMap[["Query", "ComplexID"]].values:
+    for p, m in templateMap[["Query", "Complex_ID"]].values:
         if p in proteinSeq:
             chainSeq[m + '_A'] = proteinSeq[p]
     
@@ -397,15 +397,15 @@ def produce_protein_fullmodel_pos_mapping (inPath, chainSeqFile, outPath):
         chainSeq = pickle.load(f)
     
     mapping = []
-    for p, m in templateMap[["Query", "ComplexID"]].values:
+    for p, m in templateMap[["Query", "Complex_ID"]].values:
         c = m + '_A'
         if c in chainSeq:
             pLen = cLen = str(len(chainSeq[c]))
             pPos = cPos = ','.join(map(str, np.arange(1, len(chainSeq[c]) + 1)))
-            mapping.append((p, pLen, c, cLen, pPos, cPos))
+            mapping.append((p, pLen, c, cLen, '0', '1', '1', pPos, cPos))
     
     with io.open(outPath, "w") as fout:
-        fout.write ('\t'.join(["Query", "Qlen", "Subject", "Slen", "Qpos", "Spos"]) + '\n')
+        fout.write ('\t'.join(["Query", "Qlen", "Subject", "Slen", "Expect", "Qcov", "Scov", "Qpos", "Spos"]) + '\n')
         for line in mapping:
             fout.write('\t'.join(line) + '\n')
 

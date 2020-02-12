@@ -225,11 +225,14 @@ def produce_chain_dict (inPath, outPath):
         chainIDs = list(fin.read().split())
     chains = {}
     for chainid in chainIDs:
-        pdbid = (chainid[ : chainid.find('_') ] if '_' in chainid else chainid)
+        #pdbid = (chainid[ : chainid.find('_') ] if '_' in chainid else chainid)
+        pdbid, id = chainid.split('_')
         if pdbid in chains:
-            chains[pdbid].add(chainid)
+            #chains[pdbid].add(chainid)
+            chains[pdbid].add(id)
         else:
-            chains[pdbid] = {chainid}
+            #chains[pdbid] = {chainid}
+            chains[pdbid] = {id}
     with open(outPath, 'wb') as fOut:
         pickle.dump(chains, fOut)
 

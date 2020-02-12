@@ -9,19 +9,18 @@ def main():
     # parent directory of all data files
     dataDir = Path('../data')
     
+#     directory of data files from external sources
+#     extDir = dataDir / 'external'
+    
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
-    
-    # directory of PDB structures
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
-    #pdbDir = Path('../../pdb_files')
     
     # directory of precalculated RSA files on local computer
     dsspDir = Path('/Volumes/MG_Samsung/dssp')
     #dsspDir = Path('../../dssp')
     
     # input data files
-    pdbSeqresFile = extDir / 'pdb_seqres.txt'
+    pdbSeqresFile = procDir / 'pdb_seqres_reduced.fasta'
     
     # output data files
     chainListFile = procDir / 'pdb_chains.list'
@@ -40,7 +39,7 @@ def main():
         print('producing PDB chain ID file from fasta records')
         produce_chain_list (pdbSeqresFile, chainListFile)
     
-    if not pdbChainsFile.is_file():    
+    if not pdbChainsFile.is_file():
         print('producing PDB chain dictionary from chain list file')
         produce_chain_dict (chainListFile, pdbChainsFile)
     
