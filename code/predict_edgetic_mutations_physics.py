@@ -92,7 +92,7 @@ def main():
     
     # input data files
     #geometryPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
-    structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
+    structuralInteractomeFile = modellingDir / 'structural_interactome.txt'
     natMutGeomEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
     disMutGeomEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
     natMutDDGFile = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)

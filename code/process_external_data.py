@@ -8,9 +8,9 @@ from id_mapping import (produce_geneName_dict,
                         produce_uniprotID_dict,
                         produce_rnaToProtein_refseqID_dict,
                         produce_chainSeq_dict,
-                        produce_chain_dict,
+                        #produce_chain_dict,
                         produce_chain_strucRes_dict)
-from pdb_tools import produce_chain_list
+#from pdb_tools import produce_chain_list
 
 def main():
     
@@ -51,10 +51,10 @@ def main():
     uniprotIDmapFile = procDir / 'to_human_uniprotID_map.pkl'
     rnaToProteinRefseqIDMapFile = procDir / 'human_rnaToProtein_refseqID_map.pkl'
     seqresFile = procDir / 'pdb_seqres_reduced.fasta'
-    chainSeqresFile = templateBasedDir / 'protein_chain_sequences.pkl'
-    chainListFile = templateBasedDir / 'protein_model_chains.list'
+    chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    #chainListFile = templateBasedDir / 'protein_model_chains.list'
     #pdbidFile = templateBasedDir / 'seqres_pdb_IDs.list'
-    modelChainsFile = templateBasedDir / 'protein_model_chains.pkl'
+    #modelChainsFile = templateBasedDir / 'protein_model_chains.pkl'
     chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # create output directories if not existing
@@ -99,21 +99,21 @@ def main():
         print('reducing headers in PDB chain sequence file')
         reduce_fasta_headers (pdbSeqresFile, ' ', 1, 1, seqresFile)
     
-    if not chainSeqresFile.is_file():
+    if not chainSeqFile.is_file():
         print('producing PDB chain sequence dictionary from fasta records')
-        produce_chainSeq_dict (seqresFile, chainSeqresFile)
+        produce_chainSeq_dict (seqresFile, chainSeqFile)
     
-    if not chainListFile.is_file():
-        print('producing PDB chain ID file from fasta records')
-        produce_chain_list (seqresFile, chainListFile)
+#     if not chainListFile.is_file():
+#         print('producing PDB chain ID file from fasta records')
+#         produce_chain_list (seqresFile, chainListFile)
     
 #     if not pdbidFile.is_file():
 #         print('producing unique PDB ID file from chain list file')
 #         produce_pdb_ids (chainListFile, pdbidFile)
     
-    if not modelChainsFile.is_file():    
-        print('producing model chain dictionary from chain list file')
-        produce_chain_dict (chainListFile, modelChainsFile)
+#     if not modelChainsFile.is_file():    
+#         print('producing model chain dictionary from chain list file')
+#         produce_chain_dict (chainListFile, modelChainsFile)
     
     if not chainStrucResFile.is_file():
         print('parsing PDB chain structured-residue order file')

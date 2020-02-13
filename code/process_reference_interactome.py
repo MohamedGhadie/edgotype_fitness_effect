@@ -41,8 +41,8 @@ def main():
     uniqueGeneSequenceFile = procDir / 'human_unique_gene_reference_sequences.txt'
     
     # output data files
-    interactomeFile1 = interactomeDir / 'human_interactome_all.txt'
-    interactomeFile = interactomeDir / 'human_interactome.txt'
+    interactomeFile1 = interactomeDir / 'reference_interactome_all.txt'
+    interactomeFile = interactomeDir / 'reference_interactome.txt'
     interactomeSequenceFile = interactomeDir / 'interactome_sequences.fasta'
     proteinPartnersFile = interactomeDir / 'protein_interaction_partners.pkl'
     

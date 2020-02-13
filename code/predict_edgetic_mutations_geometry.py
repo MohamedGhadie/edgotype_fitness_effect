@@ -67,7 +67,7 @@ def main():
     # input data files
     naturalMutationsFile = procDir / 'dbsnp_mutations4.txt'
     diseaseMutationsFile = procDir / 'clinvar_mutations6.txt'
-    structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
+    structuralInteractomeFile = modellingDir / 'structural_interactome.txt'
     
     # output data files
     #uniqueMutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'

@@ -1,8 +1,9 @@
 #----------------------------------------------------------------------------------------
-# Process RefSeq intermediate data files
+# Process RefSeq data files
 #----------------------------------------------------------------------------------------
 
 import os
+import sys
 import numpy as np
 from pathlib import Path
 from text_tools import parse_refSeq_fasta, merge_refSeq_sequence_files
@@ -34,9 +35,11 @@ def main():
     
     numfiles = len([name for name in os.listdir(str(refseqInDir))])    
     for i in np.arange(1, numfiles + 1):
-        print('parsing RefSeq sequence file %d of %d' % (i, numfiles))
+        sys.stdout.write('  parsing RefSeq sequence file %d of %d \r' % (i, numfiles))
+        sys.stdout.flush()
         parse_refSeq_fasta (refseqInDir / ('human.%d.protein.faa' % i),
                             refseqOutDir / ('refseq_human_protein_%d.txt' % i))
+    print()
     
     if not refseqFile.is_file():
         print('merging RefSeq sequences from all files')

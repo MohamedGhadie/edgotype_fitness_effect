@@ -34,7 +34,7 @@ def main():
     modelDir = modelBasedDir / 'ppi_models'
     
     # input data files
-    interactomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'
+    interactomeFile = modelBasedDir / 'template_annotated_interactome.txt'
     
     # create output directories if not existing
     if not modelDir.exists():

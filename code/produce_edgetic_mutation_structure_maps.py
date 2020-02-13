@@ -55,7 +55,7 @@ def main():
         modelDir = pdbDir
     
     # input data files
-    structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
+    structuralInteractomeFile = modellingDir / 'structural_interactome.txt'
     if model_method is 'model_based':
         chainSeqFile = modellingDir / 'ppi_chain_sequences.pkl'
         chainStrucResFile = modellingDir / 'ppi_chain_strucRes.pkl'

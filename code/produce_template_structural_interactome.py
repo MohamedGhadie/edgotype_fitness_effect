@@ -15,7 +15,7 @@ import pickle
 import pandas as pd
 from pathlib import Path
 from pdb_tools import download_structures
-from text_tools import parse_blast_file
+from text_tools import parse_blast_file, produce_item_list
 from id_mapping import produce_protein_chain_dict
 from interactome_tools import (read_chain_annotated_interactome,
                                read_single_interface_annotated_interactome)
@@ -102,25 +102,26 @@ def main():
     
     # input data files
     pdbBlastFile = procDir / 'human_pdb_e-5'
-    proteinSeqFile = procDir / 'human_reference_sequences.pkl'
-    interactomeFile = interactomeDir / 'human_interactome.txt'
+    #proteinSeqFile = procDir / 'human_reference_sequences.pkl'
+    interactomeFile = interactomeDir / 'reference_interactome.txt'
     chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
-    pdbChainsFile = templateBasedDir / 'protein_model_chains.pkl'
-    chainListFile = templateBasedDir / 'protein_model_chains.list'
+    #pdbChainsFile = templateBasedDir / 'protein_model_chains.pkl'
+    #chainListFile = templateBasedDir / 'protein_model_chains.list'
     chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
     chainMapFile1 = procDir / 'human_pdb_alignment.txt'
     chainMapFile2 = procDir / 'human_pdb_chain_map.txt'
     chainMapFile3 = procDir / 'human_pdb_chain_map_filtered.txt'
-    proteinChainsFile = procDir / 'protein_chains.pkl'
-    alignmentEvalueFile = procDir / 'human_protein_chain_min_alignment_evalues.pkl'
     chainInterfaceFile = procDir / 'pdb_interfaces.txt'
-    chainAnnotatedInteractomeFile = templateBasedDir / 'human_chain_annotated_interactome.txt'
+    chainListFile = templateBasedDir / 'protein_model_chains.list'
+    modelChainsFile = templateBasedDir / 'protein_model_chains.pkl'
+    alignmentEvalueFile = templateBasedDir / 'protein_chain_min_alignment_evalues.pkl'
+    chainAnnotatedInteractomeFile = templateBasedDir / 'chain_annotated_interactome.txt'
     chainIDFile = templateBasedDir / 'interactome_chainIDs.txt'
     pdbIDFile = templateBasedDir / 'interactome_pdbIDs.txt'
-    interfaceAnnotatedInteractomeFile1 = templateBasedDir / 'human_structural_interactome_withDuplicates.txt'
-    interfaceAnnotatedInteractomeFile = templateBasedDir / 'human_structural_interactome.txt'
+    interfaceAnnotatedInteractomeFile1 = templateBasedDir / 'structural_interactome_withDuplicates.txt'
+    interfaceAnnotatedInteractomeFile = templateBasedDir / 'structural_interactome.txt'
     refInteractomeChainMapFile = templateBasedDir / 'ref_interactome_chain_map.txt'
     strucInteractomeChainMapFile = templateBasedDir / 'struc_interactome_chain_map.txt'
     
@@ -131,23 +132,10 @@ def main():
     if not figDir.exists():
         os.makedirs(figDir)
     
-    interactome = pd.read_table( interactomeFile )
+    interactome = pd.read_table(interactomeFile)
     print( '\n' + 'Reference interactome:' )
     print( '%d PPIs' % len(interactome) )
     print( '%d proteins' % len(set(interactome[["Protein_1", "Protein_2"]].values.flatten())) )
-    
-    with open(proteinSeqFile, 'rb') as f:
-        proteinSeq = pickle.load(f)
-    print( '\n' + 'Protein sequences:' )
-    print( '%d sequences' % len(proteinSeq.keys()) )
-    
-    with open(pdbChainsFile, 'rb') as f:
-        pdbChains = pickle.load(f)
-    with open(chainListFile, 'r') as f:
-        chainIDs = set(f.read().split())
-    print( '\n' + 'PDB structures available:' )
-    print( '%d structures' % len(pdbChains.keys()) )
-    print( '%d chains' % len(chainIDs) )
     
     if not chainMapFile1.is_file():
         print( 'parsing BLAST protein-chain alignment file' )
@@ -170,21 +158,21 @@ def main():
                                   prCov = proteinCov,
                                   chCov = chainCov)
     
-    if not proteinChainsFile.is_file():
+    print('producing chain ID list')
+    produce_item_list (chainMapFile3, "Subject", chainListFile)
+    
+    if not modelChainsFile.is_file():
         print( 'producing protein chains dictionary' )
-        produce_protein_chain_dict (chainMapFile3,
-                                    proteinChainsFile)
+        produce_protein_chain_dict (chainMapFile3, modelChainsFile)
     
     if not alignmentEvalueFile.is_file():
         print( 'producing protein-chain alignment evalue dictionary' )
-        produce_alignment_evalue_dict (chainMapFile3,
-                                       alignmentEvalueFile,
-                                       method = 'min')
+        produce_alignment_evalue_dict (chainMapFile3, alignmentEvalueFile, method = 'min')
     
     if not chainAnnotatedInteractomeFile.is_file():
         print('producing chain-annotated interactome')
         produce_chain_annotated_interactome (interactomeFile,
-                                             proteinChainsFile,
+                                             modelChainsFile,
                                              chainAnnotatedInteractomeFile,
                                              alignmentEvalueFile = alignmentEvalueFile)
     

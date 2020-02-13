@@ -48,7 +48,7 @@ def main():
     
     # input data files
     uniqueGeneSequenceFile = procDir / 'human_unique_gene_reference_sequences.txt'
-    interactomeFile = templateBasedDir / 'human_structural_interactome.txt'
+    interactomeFile = templateBasedDir / 'structural_interactome.txt'
     chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     

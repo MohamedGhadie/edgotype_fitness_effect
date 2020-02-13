@@ -45,7 +45,7 @@ def main():
     
     # input data files
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
-    interactomeFile = templateBasedDir / 'human_structural_interactome.txt'
+    interactomeFile = templateBasedDir / 'structural_interactome.txt'
     blastFile = modelBasedDir / 'ppi_template_blast_alignments_e100'
     templateSeqFile = modelBasedDir / 'ppi_template_sequences.pkl'
     templateStrucResFile = modelBasedDir / 'ppi_template_strucRes.pkl'
@@ -56,7 +56,7 @@ def main():
     alignmentFile1 = modelBasedDir / 'ppi_template_alignments.txt'
     alignmentFile2 = modelBasedDir / 'ppi_template_filtered_alignments.txt'
     alignmentFile3 = modelBasedDir / 'ppi_template_extended_alignments.txt'
-    annotatedInteractomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'    
+    annotatedInteractomeFile = modelBasedDir / 'template_annotated_interactome.txt'    
     
     # create output directories if not existing
     if not modelBasedDir.exists():

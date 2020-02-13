@@ -49,7 +49,7 @@ def main():
     modelDir = modelBasedDir / 'ppi_models'
     
     # input data files
-    templateAnnotatedInteractomeFile = modelBasedDir / 'human_template_annotated_interactome.txt'
+    templateAnnotatedInteractomeFile = modelBasedDir / 'template_annotated_interactome.txt'
     #pdbBlastFile = extDir / 'human_pdb_e-5'
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
     #chainSeqFile = procDir / 'chain_sequences.pkl'
@@ -59,7 +59,7 @@ def main():
     #interactomeFile = interactomeDir / 'human_interactome.txt'
     
     # output data files
-    modelAnnotatedInteractomeFile = modelBasedDir / 'human_model_annotated_interactome.txt'
+    modelAnnotatedInteractomeFile = modelBasedDir / 'model_annotated_interactome.txt'
     chainSeqFile = modelBasedDir / 'ppi_chain_sequences.pkl'
     chainMapFile = modelBasedDir / 'struc_interactome_chain_map.txt'
     modelInterfaceFile = modelBasedDir / 'model_interfaces.txt'
@@ -71,8 +71,8 @@ def main():
 #     chainAnnotatedInteractomeFile = interactomeDir / 'human_chain_annotated_interactome.txt'
 #     chainIDFile = interactomeDir / 'interactome_chainIDs.txt'
 #     pdbIDFile = interactomeDir / 'interactome_pdbIDs.txt'
-    structuralInteractomeFile1 = modelBasedDir / 'human_structural_interactome_withDuplicates.txt'
-    structuralInteractomeFile = modelBasedDir / 'human_structural_interactome.txt'
+    structuralInteractomeFile1 = modelBasedDir / 'structural_interactome_withDuplicates.txt'
+    structuralInteractomeFile = modelBasedDir / 'structural_interactome.txt'
 #     refInteractomeChainMapFile = interactomeDir / 'ref_interactome_pdb_chain_map.txt'
 #     strucInteractomeChainMapFile = interactomeDir / 'struc_interactome_pdb_chain_map.txt'
     
