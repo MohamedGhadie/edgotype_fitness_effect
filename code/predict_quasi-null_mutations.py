@@ -142,65 +142,65 @@ def main():
     naturalMutations = naturalMutations [naturalMutations["edgotype"] != '-'].reset_index(drop=True)
     diseaseMutations = diseaseMutations [diseaseMutations["edgotype"] != '-'].reset_index(drop=True)
     
-    numNaturalMut_type = {'QN': sum(naturalMutations["edgotype"] == 'quasi-null'),
+    numNaturalMut_type = {'Q': sum(naturalMutations["edgotype"] == 'quasi-null'),
                           'E': sum(naturalMutations["edgotype"] == 'edgetic'),
-                          'QW': sum(naturalMutations["edgotype"] == 'quasi-wild-type')}
+                          'W': sum(naturalMutations["edgotype"] == 'quasi-wild-type')}
     
-    numDiseaseMut_type = {'QN': sum(diseaseMutations["edgotype"] == 'quasi-null'),
+    numDiseaseMut_type = {'Q': sum(diseaseMutations["edgotype"] == 'quasi-null'),
                           'E': sum(diseaseMutations["edgotype"] == 'edgetic'),
-                          'QW': sum(diseaseMutations["edgotype"] == 'quasi-wild-type')}
+                          'W': sum(diseaseMutations["edgotype"] == 'quasi-wild-type')}
     
     numNaturalMut_considered = sum(numNaturalMut_type.values())
     numDiseaseMut_considered = sum(numDiseaseMut_type.values())
     
-    fracNaturalMut_type = {'QN': numNaturalMut_type['QN'] / numNaturalMut_considered,
+    fracNaturalMut_type = {'Q': numNaturalMut_type['Q'] / numNaturalMut_considered,
                            'E': numNaturalMut_type['E'] / numNaturalMut_considered,
-                           'QW': numNaturalMut_type['QW'] / numNaturalMut_considered}
-    fracDiseaseMut_type = {'QN': numDiseaseMut_type['QN'] / numDiseaseMut_considered,
+                           'W': numNaturalMut_type['W'] / numNaturalMut_considered}
+    fracDiseaseMut_type = {'Q': numDiseaseMut_type['Q'] / numDiseaseMut_considered,
                            'E': numDiseaseMut_type['E'] / numDiseaseMut_considered,
-                           'QW': numDiseaseMut_type['QW'] / numDiseaseMut_considered}
+                           'W': numDiseaseMut_type['W'] / numDiseaseMut_considered}
     
     print()
     print('Fraction of edgotypes among non-disease mutations:')
-    print('quasi-null: %f%% (SE = %g, %d out of %d)' % (100 * fracNaturalMut_type['QN'],
-                                                        sderror_on_fraction (numNaturalMut_type['QN'], numNaturalMut_considered),
-                                                        numNaturalMut_type['QN'],
+    print('quasi-null: %f%% (SE = %g, %d out of %d)' % (100 * fracNaturalMut_type['Q'],
+                                                        sderror_on_fraction (numNaturalMut_type['Q'], numNaturalMut_considered),
+                                                        numNaturalMut_type['Q'],
                                                         numNaturalMut_considered))
     print('edgetic: %f%% (SE = %g, %d out of %d)' % (100 * fracNaturalMut_type['E'],
                                                      sderror_on_fraction (numNaturalMut_type['E'], numNaturalMut_considered),
                                                      numNaturalMut_type['E'],
                                                      numNaturalMut_considered))
-    print('quasi-wild-type: %f%% (SE = %g, %d out of %d)' % (100 * fracNaturalMut_type['QW'],
-                                                             sderror_on_fraction (numNaturalMut_type['QW'], numNaturalMut_considered),
-                                                             numNaturalMut_type['QW'],
+    print('quasi-wild-type: %f%% (SE = %g, %d out of %d)' % (100 * fracNaturalMut_type['W'],
+                                                             sderror_on_fraction (numNaturalMut_type['W'], numNaturalMut_considered),
+                                                             numNaturalMut_type['W'],
                                                              numNaturalMut_considered))
     
     print()
     print('Fraction of edgotypes among disease mutations:')
-    print('quasi-null: %f%% (SE = %g, %d out of %d)' % (100 * fracDiseaseMut_type['QN'],
-                                                        sderror_on_fraction (numDiseaseMut_type['QN'], numDiseaseMut_considered),
-                                                        numDiseaseMut_type['QN'],
+    print('quasi-null: %f%% (SE = %g, %d out of %d)' % (100 * fracDiseaseMut_type['Q'],
+                                                        sderror_on_fraction (numDiseaseMut_type['Q'], numDiseaseMut_considered),
+                                                        numDiseaseMut_type['Q'],
                                                         numDiseaseMut_considered))
     print('edgetic: %f%% (SE = %g, %d out of %d)' % (100 * fracDiseaseMut_type['E'],
                                                      sderror_on_fraction (numDiseaseMut_type['E'], numDiseaseMut_considered),
                                                      numDiseaseMut_type['E'],
                                                      numDiseaseMut_considered))
-    print('quasi-wild-type: %f%% (SE = %g, %d out of %d)' % (100 * fracDiseaseMut_type['QW'],
-                                                             sderror_on_fraction (numDiseaseMut_type['QW'], numDiseaseMut_considered),
-                                                             numDiseaseMut_type['QW'],
+    print('quasi-wild-type: %f%% (SE = %g, %d out of %d)' % (100 * fracDiseaseMut_type['W'],
+                                                             sderror_on_fraction (numDiseaseMut_type['W'], numDiseaseMut_considered),
+                                                             numDiseaseMut_type['W'],
                                                              numDiseaseMut_considered))
     
-    fisher_test ([numNaturalMut_type['QN'] + numNaturalMut_type['E'], numNaturalMut_type['QW']],
-                 [numDiseaseMut_type['QN'] + numDiseaseMut_type['E'], numDiseaseMut_type['QW']])
+    fisher_test ([numNaturalMut_type['Q'] + numNaturalMut_type['E'], numNaturalMut_type['W']],
+                 [numDiseaseMut_type['Q'] + numDiseaseMut_type['E'], numDiseaseMut_type['W']])
         
-    pie_plot([numNaturalMut_type['QW'], numNaturalMut_type['E'], numNaturalMut_type['QN']],
+    pie_plot([numNaturalMut_type['W'], numNaturalMut_type['E'], numNaturalMut_type['Q']],
              angle = 90,
              colors = ['mediumslateblue', 'purple', 'red'],
              edgewidth = 2,
              show = showFigs,
              figdir = figDir,
              figname = 'non_disease_mut_edgotype')
-    pie_plot([numDiseaseMut_type['QW'], numDiseaseMut_type['E'], numDiseaseMut_type['QN']],
+    pie_plot([numDiseaseMut_type['W'], numDiseaseMut_type['E'], numDiseaseMut_type['Q']],
              angle = 90,
              colors = ['mediumslateblue', 'purple', 'red'],
              edgewidth = 2,

@@ -23,13 +23,12 @@ def main():
     # options: template_based, model_based
     model_method = 'model_based'
     
+    # method used to perform calculations; 'geometry' or 'physics'
+    edgetic_method = 'physics'
+    
     # method that was used to calculate edgetic mutation binding ∆∆G
     # options: bindprofx, foldx
-    edgetic_ddg_method = 'foldx'
-    
-    # method of calculating mutation ∆∆G for which results will be used
-    # options: foldx
-    ddg_method = 'foldx'
+    edgetic_ddg = 'foldx'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -44,7 +43,10 @@ def main():
     modellingDir = interactomeDir / model_method
     
     # directory of calculation method
-    methodDir = modellingDir / 'physics'
+    edgeticDir = modellingDir / edgetic_method
+    
+    if edgetic_method is 'physics':
+        edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
     
     # directory for PDB structure files
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
@@ -58,16 +60,16 @@ def main():
     # input data files
     chainSeqFile = modellingDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = modellingDir / 'protein_chain_strucRes.pkl'
-    naturalMutationsFile = methodDir / ('nondisease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
-    diseaseMutationsFile = methodDir / ('disease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
+    naturalMutationsFile = edgeticDir / 'nondisease_mutation_struc_loc.txt'
+    diseaseMutationsFile = edgeticDir / 'disease_mutation_struc_loc.txt'
     
     # output data files
-    natural_mutations_ddg_file = modellingDir / ('nondis_mut_folding_ddg_%s.txt' % ddg_method)
-    disease_mutations_ddg_file = modellingDir / ('dis_mut_folding_ddg_%s.txt' % ddg_method)
+    natural_mutations_ddg_file = edgeticDir / 'nondis_mut_folding_ddg_foldx.txt'
+    disease_mutations_ddg_file = edgeticDir / 'dis_mut_folding_ddg_foldx.txt'
     
     # create output directories if not existing
-    if not methodDir.exists():
-        os.makedirs(methodDir)
+    if not edgeticDir.exists():
+        os.makedirs(edgeticDir)
     
     #------------------------------------------------------------------------------------
     # write mutations mapped onto structural models to file

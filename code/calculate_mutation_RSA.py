@@ -2,7 +2,6 @@ import pickle
 import pandas as pd
 import numpy as np
 from pathlib import Path
-#from id_mapping import produce_pdbID_dict
 from stat_tools import t_test, sderror
 from threeD_structure_tools import produce_protein_model_RSA
 
@@ -21,7 +20,7 @@ def main():
     
     # method that was used to calculate edgetic mutation ∆∆G
     # options: bindprofx, foldx
-    ddg_method = 'foldx'
+    edgetic_ddg = 'foldx'
     
     # allow downloading of PDB structures
     allow_pdb_downloads = False
@@ -41,12 +40,12 @@ def main():
     # directory of processed model-related data files specific to interactome
     modellingDir = interactomeDir / model_method
     
-    # directory of calculation method
-    methodDir = modellingDir / edgetic_method
+    # directory of edgetic mutation calculation method
+    edgeticDir = modellingDir / edgetic_method
     
-#     if edgetic_method is 'physics':
-#         methodDir = methodDir / ddg_method
-    
+    if edgetic_method is 'physics':
+        edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
+        
     # directory of PDB structures
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     #pdbDir = Path('../../pdb_files')
@@ -56,41 +55,27 @@ def main():
     else:
         modelDir = pdbDir
     
-    # directory of precalculated RSA files on local computer
-    #dsspDir = Path('/Volumes/MG_Samsung/dssp')
-    # = Path('../../dssp')
-    
     # directory for calculated solvent accessibility files
     accDir = modellingDir / 'res_acc'
     
     # input data files
     proteinSeqFile = procDir / 'human_reference_sequences.pkl'
+    maxAccFile = procDir / 'empirical_maxAcc_99_99.pkl'
     modelChainsFile = modellingDir / 'protein_model_chains.pkl'
     chainSeqFile = modellingDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = modellingDir / 'protein_chain_strucRes.pkl'
     proteinModelFile = modellingDir / 'single_chain_map_per_protein.txt'
-    if edgetic_method is 'geometry':
-        naturalMutationsFile = methodDir / 'nondisease_mutation_edgetics.txt'
-        diseaseMutationsFile = methodDir / 'disease_mutation_edgetics.txt'
-    elif edgetic_method is 'physics':
-        naturalMutationsFile = methodDir / ('nondisease_mutation_edgetics_%s.txt' % ddg_method)
-        diseaseMutationsFile = methodDir / ('disease_mutation_edgetics_%s.txt' % ddg_method)
+    naturalMutationsFile = edgeticDir / 'nondisease_mutation_edgetics.txt'
+    diseaseMutationsFile = edgeticDir / 'disease_mutation_edgetics.txt'
     
     # output data files
-    maxAccFile = procDir / 'empirical_maxAcc_99_99.pkl'
-    proteinRSAFile = modellingDir / 'protein_RSA_99_99.pkl'
-    if edgetic_method is 'geometry':
-        natMutRSAFile = methodDir / 'nondisease_mutation_RSA.txt'
-        disMutRSAFile = methodDir / 'disease_mutation_RSA.txt'
-    elif edgetic_method is 'physics':
-        natMutRSAFile = methodDir / ('nondisease_mutation_RSA_%s.txt' % ddg_method)
-        disMutRSAFile = methodDir / ('disease_mutation_RSA_%s.txt' % ddg_method)
+    proteinRSAFile = edgeticDir / 'protein_RSA_99_99.pkl'
+    natMutRSAFile = edgeticDir / 'nondisease_mutation_RSA.txt'
+    disMutRSAFile = edgeticDir / 'disease_mutation_RSA.txt'
     
     # create output directories if not existing
-    if not modellingDir.exists():
-        os.makedirs(modellingDir)
-    if not methodDir.exists():
-        os.makedirs(methodDir)
+    if not edgeticDir.exists():
+        os.makedirs(edgeticDir)
     
     #------------------------------------------------------------------------------------
     # load mutations
@@ -124,10 +109,6 @@ def main():
     # Calculate mutation RSA
     #------------------------------------------------------------------------------------    
     
-#     with open('../../../../PhD/edgotype_fitness_effect/edgotype_fitness_effect/data/processed/protein_chains.pkl', 'rb') as f:
-#         prSeq = pickle.load(f)
-#     print(prSeq)
-#     return
     with open(proteinSeqFile, 'rb') as f:
         prSeq = pickle.load(f)
     prLen = {}
@@ -145,7 +126,6 @@ def main():
                                modelDir,
                                accDir,
                                proteinRSAFile,
-                               #dsspDir = dsspDir,
                                maxAccFile = maxAccFile,
                                mapToProtein = True,
                                downloadPDB = allow_pdb_downloads,

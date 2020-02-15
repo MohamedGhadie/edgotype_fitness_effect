@@ -19,7 +19,7 @@ def main():
     
     # method that was used to calculate edgetic mutation binding ∆∆G
     # options: bindprofx, foldx
-    ddg_method = 'foldx'
+    edgetic_ddg = 'foldx'
     
     # maximum RSA for buried mutations
     burialMaxRSA = 0.25
@@ -40,35 +40,28 @@ def main():
     modellingDir = interactomeDir / model_method
     
     # directory of calculation method
-    methodDir = modellingDir / edgetic_method
+    edgeticDir = modellingDir / edgetic_method
     
     # figure directory
     figDir = Path('../figures') / interactome_name / model_method / edgetic_method
     
     if edgetic_method is 'physics':
-        figDir = figDir / ('%s_edgetics' % ddg_method)
+        edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
+        figDir = figDir / (edgetic_ddg + '_edgetics')
         
     # input data files
-    if edgetic_method is 'geometry':
-        naturalMutationsFile = methodDir / 'nondisease_mutation_RSA.txt'
-        diseaseMutationsFile = methodDir / 'disease_mutation_RSA.txt'
-    elif edgetic_method is 'physics':
-        naturalMutationsFile = methodDir / ('nondisease_mutation_RSA_%s.txt' % ddg_method)
-        diseaseMutationsFile = methodDir / ('disease_mutation_RSA_%s.txt' % ddg_method)
+    naturalMutationsFile = edgeticDir / 'nondisease_mutation_RSA.txt'
+    diseaseMutationsFile = edgeticDir / 'disease_mutation_RSA.txt'
     natMutGeometryFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
     disMutGeometryFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
     
     # output data files
-    if edgetic_method is 'geometry':
-        natMutLocFile = methodDir / 'nondisease_mutation_struc_loc.txt'
-        disMutLocFile = methodDir / 'disease_mutation_struc_loc.txt'
-    elif edgetic_method is 'physics':
-        natMutLocFile = methodDir / ('nondisease_mutation_struc_loc_%s.txt' % ddg_method)
-        disMutLocFile = methodDir / ('disease_mutation_struc_loc_%s.txt' % ddg_method)
+    natMutLocFile = edgeticDir / 'nondisease_mutation_struc_loc.txt'
+    disMutLocFile = edgeticDir / 'disease_mutation_struc_loc.txt'
     
     # create output directories if not existing
-    if not methodDir.exists():
-        os.makedirs(methodDir)
+    if not edgeticDir.exists():
+        os.makedirs(edgeticDir)
     if not figDir.exists():
         os.makedirs(figDir)
     

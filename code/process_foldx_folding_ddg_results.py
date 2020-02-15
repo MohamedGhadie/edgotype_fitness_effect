@@ -14,6 +14,13 @@ def main():
     # options: template_based, model_based
     model_method = 'model_based'
     
+    # method used to perform calculations; 'geometry' or 'physics'
+    edgetic_method = 'physics'
+    
+    # method that was used to calculate edgetic mutation binding ∆∆G
+    # options: bindprofx, foldx
+    edgetic_ddg = 'foldx'
+    
     # parent directory of all data files
     dataDir = Path('../data')
     
@@ -26,11 +33,17 @@ def main():
     # directory of processed model-related data files specific to interactome
     modellingDir = interactomeDir / model_method
     
+    # directory of calculation method
+    edgeticDir = modellingDir / edgetic_method
+    
+    if edgetic_method is 'physics':
+        edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
+    
     # directory of foldx results
-    inDir = modellingDir / 'foldx' / 'results'
+    inDir = edgeticDir / 'foldx' / 'results'
     
     # directory of foldx output jobs
-    outDir = modellingDir / 'foldx'
+    outDir = edgeticDir / 'foldx'
     
     # directory of PDB structure files
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
@@ -47,20 +60,20 @@ def main():
     processed, unprocessed = read_foldx_results (inDir, type = 'folding')
     
     write_mutation_ddg_tofile (processed,
-                               modellingDir / 'nondis_mut_folding_ddg_foldx.txt',
-                               modellingDir / 'nondis_mut_folding_ddg_foldx_2.txt',
+                               edgeticDir / 'nondis_mut_folding_ddg_foldx.txt',
+                               edgeticDir / 'nondis_mut_folding_ddg_foldx_2.txt',
                                type = 'folding')
     write_mutation_ddg_tofile (processed,
-                               modellingDir / 'dis_mut_folding_ddg_foldx.txt',
-                               modellingDir / 'dis_mut_folding_ddg_foldx_2.txt',
+                               edgeticDir / 'dis_mut_folding_ddg_foldx.txt',
+                               edgeticDir / 'dis_mut_folding_ddg_foldx_2.txt',
                                type = 'folding')
     
-    os.remove (modellingDir / 'nondis_mut_folding_ddg_foldx.txt')
-    os.remove (modellingDir / 'dis_mut_folding_ddg_foldx.txt')
-    os.rename (modellingDir / 'nondis_mut_folding_ddg_foldx_2.txt',
-               modellingDir / 'nondis_mut_folding_ddg_foldx.txt')
-    os.rename (modellingDir / 'dis_mut_folding_ddg_foldx_2.txt',
-               modellingDir / 'dis_mut_folding_ddg_foldx.txt')
+    os.remove (edgeticDir / 'nondis_mut_folding_ddg_foldx.txt')
+    os.remove (edgeticDir / 'dis_mut_folding_ddg_foldx.txt')
+    os.rename (edgeticDir / 'nondis_mut_folding_ddg_foldx_2.txt',
+               edgeticDir / 'nondis_mut_folding_ddg_foldx.txt')
+    os.rename (edgeticDir / 'dis_mut_folding_ddg_foldx_2.txt',
+               edgeticDir / 'dis_mut_folding_ddg_foldx.txt')
     
     produce_foldx_and_beluga_jobs (unprocessed,
                                    modelDir,

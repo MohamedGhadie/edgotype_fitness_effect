@@ -14,6 +14,13 @@ def main():
     # options: template_based, model_based
     model_method = 'model_based'
     
+    # method used to perform calculations; 'geometry' or 'physics'
+    edgetic_method = 'physics'
+    
+    # method that was used to calculate edgetic mutation binding ∆∆G
+    # options: bindprofx, foldx
+    edgetic_ddg = 'foldx'
+    
     # parent directory of all data files
     dataDir = Path('../data')
     
@@ -26,8 +33,14 @@ def main():
     # directory of processed model-related data files specific to interactome
     modellingDir = interactomeDir / model_method
     
+    # directory of calculation method
+    edgeticDir = modellingDir / edgetic_method
+    
+    if edgetic_method is 'physics':
+        edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
+    
     # directory of foldx output jobs
-    outDir = modellingDir / 'foldx'
+    outDir = edgeticDir / 'foldx'
     
     # directory of PDB structure files
     pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
@@ -37,12 +50,12 @@ def main():
     else:
         modelDir = pdbDir
     
-    # input file containing mutations to submit to bindprofx
-    nondiseaseMutFile = modellingDir / 'nondis_mut_folding_ddg_foldx.txt'
-    diseaseMutFile = modellingDir / 'dis_mut_folding_ddg_foldx.txt'
+    # input file containing mutations to submit to foldx
+    nondiseaseMutFile = edgeticDir / 'nondis_mut_folding_ddg_foldx.txt'
+    diseaseMutFile = edgeticDir / 'dis_mut_folding_ddg_foldx.txt'
     
     # temporary files
-    allMutFile = modellingDir / 'all_mut_folding_ddg_foldx.txt'
+    allMutFile = edgeticDir / 'all_mut_folding_ddg_foldx.txt'
     
     # create output directories if not existing
     if not outDir.exists():
@@ -65,6 +78,7 @@ def main():
                                    username = 'ghadie84',
                                    outputfile = '/project/ctb-yxia/ghadie84/foldx/data/%x-%j.out',
                                    serverDataDir = '/project/ctb-yxia/ghadie84/foldx/data')
+    os.remove(allMutFile)
 
 if __name__ == "__main__":
     main()

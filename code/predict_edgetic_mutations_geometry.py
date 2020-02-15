@@ -21,6 +21,7 @@ from mutation_processing_tools import remove_mutation_overlaps
 from mutation_interface_edgotype import (mutation_PPI_interface_perturbations, 
                                          assign_edgotypes,
                                          create_perturbed_network)
+from stat_tools import sderror_on_fraction, fisher_test
 from plot_tools import network_plot
 
 def main():
@@ -154,13 +155,46 @@ def main():
         naturalMutations["mono-edgotype"] = nat_mono_edgotype
         diseaseMutations["mono-edgotype"] = dis_mono_edgotype
     
+    naturalMutations = naturalMutations [naturalMutations["edgotype"] != '-'].reset_index(drop=True)
+    diseaseMutations = diseaseMutations [diseaseMutations["edgotype"] != '-'].reset_index(drop=True)
+    
+    if mono_edgetic:
+        numNaturalMut_edgetic = sum(naturalMutations["mono-edgotype"] == 'mono-edgetic')
+        numNaturalMut_nonedgetic = sum(naturalMutations["mono-edgotype"].apply(lambda x: 
+                                                        x in ('non-edgetic', 'edgetic')))
+        numDiseaseMut_edgetic = sum(diseaseMutations["mono-edgotype"] == 'mono-edgetic')
+        numDiseaseMut_nonedgetic = sum(diseaseMutations["mono-edgotype"].apply(lambda x: 
+                                                        x in ('non-edgetic', 'edgetic')))
+    else:
+        numNaturalMut_edgetic = sum(naturalMutations["edgotype"] == 'edgetic')
+        numNaturalMut_nonedgetic = sum(naturalMutations["edgotype"] == 'non-edgetic')
+        numDiseaseMut_edgetic = sum(diseaseMutations["edgotype"] == 'edgetic')
+        numDiseaseMut_nonedgetic = sum(diseaseMutations["edgotype"] == 'non-edgetic')
+    
+    numNaturalMut_considered = numNaturalMut_edgetic + numNaturalMut_nonedgetic
+    numDiseaseMut_considered = numDiseaseMut_edgetic + numDiseaseMut_nonedgetic
+    
+    label = 'monoedgetic' if mono_edgetic else 'edgetic'
+    print( '\n' + 'Fraction of predicted %s mutations:' % label )
+    print('Non-disease mutations: %.3f (SE = %g, %d out of %d)' 
+            % (numNaturalMut_edgetic / numNaturalMut_considered,
+               sderror_on_fraction (numNaturalMut_edgetic, numNaturalMut_considered),
+               numNaturalMut_edgetic,
+               numNaturalMut_considered))
+    
+    print('Disease mutations: %.3f (SE = %g, %d out of %d)' 
+            % (numDiseaseMut_edgetic / numDiseaseMut_considered,
+               sderror_on_fraction (numDiseaseMut_edgetic, numDiseaseMut_considered),
+               numDiseaseMut_edgetic,
+               numDiseaseMut_considered))
+    
+    fisher_test ([numNaturalMut_edgetic, numNaturalMut_nonedgetic],
+                 [numDiseaseMut_edgetic, numDiseaseMut_nonedgetic])
+    
     # write predicted mutation edgotypes to file
     write_list_table (naturalMutations, ["partners", "perturbations"], natMutEdgotypeFile)
     write_list_table (diseaseMutations, ["partners", "perturbations"], disMutEdgotypeFile)
-    
-#     with open(uniqueMutationPerturbsFile, 'wb') as fOut:
-#         pickle.dump([naturalMutations, diseaseMutations], fOut)
-    
+        
     #------------------------------------------------------------------------------------
     # plot network perturbations
     #------------------------------------------------------------------------------------
