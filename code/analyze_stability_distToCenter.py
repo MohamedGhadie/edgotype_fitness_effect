@@ -45,7 +45,7 @@ def main():
     if edgetic_method is 'physics':
         edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
         figDir = figDir / ('%s_edgetics' % edgetic_ddg)
-        
+    
     # input data files
     naturalMutationsFile = edgeticDir / 'nondisease_mutation_dist_to_center.txt'
     diseaseMutationsFile = edgeticDir / 'disease_mutation_dist_to_center.txt'

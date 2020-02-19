@@ -16,7 +16,9 @@ import pandas as pd
 from pathlib import Path
 from pdb_tools import download_structures
 from text_tools import parse_blast_file, produce_item_list
-from id_mapping import produce_protein_chain_dict
+from id_mapping import (produce_chainSeq_dict, 
+                        produce_chain_strucRes_dict,
+                        produce_protein_chain_dict)
 from interactome_tools import (read_chain_annotated_interactome,
                                read_single_interface_annotated_interactome)
 from structural_annotation import (locate_alignments,
@@ -36,7 +38,7 @@ def main():
     interactome_name = 'HI-II-14'
     
     # Maximum e-value cutoff to filter out protein-chain annotations
-    evalue = 1e-10
+    evalue = 1e-5
     
     # Minimum protein coverage fraction required for protein-chain annotation
     proteinCov = 0
@@ -58,7 +60,7 @@ def main():
     mergeInterfaces = True
     
     # max number of interfaces mapped from distinct chain-pair annotations for each PPI
-    maxInterfaces = 5
+    maxInterfaces = 2
     
     # max number of chain-pair interface calculations per PPI, including known interfaces
     maxAttempts = 100
@@ -68,10 +70,10 @@ def main():
     randChainPairs = False
     
     # download missing PDB structures whose chain pairs map onto interactome
-    download_missing_structures = True
+    download_missing_structures = False
     
     # allow downloading of PDB structures while constructing the structural interactome
-    allow_pdb_downloads = True
+    allow_pdb_downloads = False
     
     # suppress PDB warnings when constructing the structural interactome
     suppress_pdb_warnings = True
@@ -98,22 +100,22 @@ def main():
     figDir = Path('../figures') / interactome_name / 'template_based'
         
     # directory for PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    pdbDir = Path('../../pdb_files')
     
     # input data files
-    pdbBlastFile = procDir / 'human_pdb_e-5'
-    #proteinSeqFile = procDir / 'human_reference_sequences.pkl'
+    chainResAnnotFile = extDir / 'ss_dis.txt'
+    seqresFile = procDir / 'pdb_seqres_reduced.fasta'
+    pdbBlastFile = interactomeDir / 'interactome_pdb_e-5'
     interactomeFile = interactomeDir / 'reference_interactome.txt'
-    chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
-    #pdbChainsFile = templateBasedDir / 'protein_model_chains.pkl'
-    #chainListFile = templateBasedDir / 'protein_model_chains.list'
-    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
-    chainMapFile1 = procDir / 'human_pdb_alignment.txt'
-    chainMapFile2 = procDir / 'human_pdb_chain_map.txt'
-    chainMapFile3 = procDir / 'human_pdb_chain_map_filtered.txt'
-    chainInterfaceFile = procDir / 'pdb_interfaces.txt'
+    chainInterfaceFile = procDir / 'chain_interfaces.txt'
+    chainMapFile1 = interactomeDir / 'interactome_chain_alignment.txt'
+    chainMapFile2 = interactomeDir / 'interactome_chain_alignment_filtered.txt'
+    chainMapFile3 = interactomeDir / 'interactome_chain_map.txt'
+    chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
+    chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     chainListFile = templateBasedDir / 'protein_model_chains.list'
     modelChainsFile = templateBasedDir / 'protein_model_chains.pkl'
     alignmentEvalueFile = templateBasedDir / 'protein_chain_min_alignment_evalues.pkl'
@@ -125,10 +127,10 @@ def main():
     refInteractomeChainMapFile = templateBasedDir / 'ref_interactome_chain_map.txt'
     strucInteractomeChainMapFile = templateBasedDir / 'struc_interactome_chain_map.txt'
     
-    if not templateBasedDir.exists():
-        os.makedirs(templateBasedDir)
     if not pdbDir.exists():
         os.makedirs(pdbDir)
+    if not templateBasedDir.exists():
+        os.makedirs(templateBasedDir)
     if not figDir.exists():
         os.makedirs(figDir)
     
@@ -137,26 +139,34 @@ def main():
     print( '%d PPIs' % len(interactome) )
     print( '%d proteins' % len(set(interactome[["Protein_1", "Protein_2"]].values.flatten())) )
     
+    if not chainSeqFile.is_file():
+        print('producing PDB chain sequence dictionary from fasta records')
+        produce_chainSeq_dict (seqresFile, chainSeqFile)
+    
+    if not chainStrucResFile.is_file():
+        print('parsing PDB chain structured-residue order file')
+        produce_chain_strucRes_dict (chainResAnnotFile, chainStrucResFile)
+    
     if not chainMapFile1.is_file():
         print( 'parsing BLAST protein-chain alignment file' )
         parse_blast_file (pdbBlastFile, chainMapFile1)
     
     if not chainMapFile2.is_file():
-        # pausing time in seconds between locating alignments on queries and subjects, occurs only once
-        pausetime = 120
-        print( 'locating aligned residues on protein and chain sequences' )
-        locate_alignments (chainMapFile1,
-                           chainMapFile2,
-                           resMatch = resMatch,
-                           pausetime = pausetime)
-    
-    if not chainMapFile3.is_file():
         print( 'filtering chain annotations' )
-        filter_chain_annotations (chainMapFile2,
-                                  chainMapFile3,
+        filter_chain_annotations (chainMapFile1,
+                                  chainMapFile2,
                                   evalue = evalue,
                                   prCov = proteinCov,
                                   chCov = chainCov)
+    
+    if not chainMapFile3.is_file():
+        # pausing time in seconds between locating alignments on queries and subjects, occurs only once
+        pausetime = 0
+        print( 'locating aligned residues on protein and chain sequences' )
+        locate_alignments (chainMapFile2,
+                           chainMapFile3,
+                           resMatch = resMatch,
+                           pausetime = pausetime)
     
     print('producing chain ID list')
     produce_item_list (chainMapFile3, "Subject", chainListFile)

@@ -27,7 +27,7 @@ downloadStructures = True
 suppressWarnings = True
 
 # maximum number of currently loaded structures
-MAX_STRUC = 100
+MAX_STRUC = 5
 
 # IDs of currently loaded PDB structures
 strucList = []

@@ -18,7 +18,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -47,8 +47,6 @@ def main():
     proteinPartnersFile = interactomeDir / 'protein_interaction_partners.pkl'
     
     # create output directories if not existing
-    if not procDir.exists():
-        os.makedirs(procDir)
     if not interactomeDir.exists():
         os.makedirs(interactomeDir)
     
@@ -81,14 +79,11 @@ def main():
     
     if not interactomeSequenceFile.is_file():
         print('writing interactome protein sequences')
-        write_interactome_sequences (interactomeFile,
-                                     uniqueGeneSequenceFile,
-                                     interactomeSequenceFile)
+        write_interactome_sequences (interactomeFile, uniqueGeneSequenceFile, interactomeSequenceFile)
     
     if not proteinPartnersFile.is_file():
         print('producing protein interaction partners dictionary')
-        produce_protein_interaction_dict (interactomeFile,
-                                          proteinPartnersFile)
+        produce_protein_interaction_dict (interactomeFile, proteinPartnersFile)
 
 if __name__ == "__main__":
     main()

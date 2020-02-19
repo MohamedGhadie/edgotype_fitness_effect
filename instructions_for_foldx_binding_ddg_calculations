@@ -1,0 +1,37 @@
+
+To produce PPI binding ∆∆G values using the FoldX method, follow the instructions below. Throughout the instructions, <projectDir> refers to your project directory, and <interactomeDir> refers to the interactome data directory <projectDir>/data/processed/<interactome_name>” where <interactome_name> is the name of the reference interactome you are working on, either HI-II-14 or IntAct. FoldX requires Python 2.
+
+1 - Register for a license with FoldX (http://foldxsuite.crg.eu/products#foldx)
+
+2 - cd <interactomeDir>
+
+3 - mkdir foldx
+
+4 - cd foldx
+ 
+5 - mkdir jobs
+
+6 - mkdir archived
+
+7 - Download FoldX and extract files in directory foldx
+
+8 - cp rotabase.txt jobs/
+
+9 - cd <projectDir>/code.
+
+10 - Produce data files for each job to be submitted to FoldX. Jobs will be saved in the directory “<interactomeDir>/foldx/data”:
+python3 produce_foldx_binding_ddg_jobs.py
+
+11 - cd <interactomeDir>/foldx/jobs
+
+12 - For each data folder in <interactomeDir>/foldx/data, run the following two commands: foldx -f <path_to_data_folder>/config_repairPDB.cfg
+foldx -f <path_to_data_folder>/config_pssm.cfg
+# Where <path_to_data_folder> is the full path to the data folder. FoldX will save results in the same data folder.
+
+13 - cd <interactomeDir>/foldx
+
+14 - mv data/ results/.
+
+15 - cd <projectDir>/code
+
+16 - python3 process_foldx_results.py

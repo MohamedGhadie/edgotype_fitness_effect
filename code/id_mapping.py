@@ -26,7 +26,7 @@ def produce_uniqueGene_swissProtIDs (inPath, geneMapFile, outPath):
     swissProtIDGenes = swissProtIDs.apply(lambda x: geneMap[x] if x in geneMap else 'no_name')
     duplicates = swissProtIDGenes.duplicated(keep=False)
     uniqueGeneSwissProtIDs = swissProtIDs[(duplicates==False) & (swissProtIDGenes!='no_name')]
-    uniqueGeneSwissProtIDs.to_csv(outPath, index=False)
+    uniqueGeneSwissProtIDs.to_csv(outPath, header=False, index=False)
 
 def produce_uniqueGene_sequences (inPath,
                                   uniqueGeneSwissProtIDFile,
