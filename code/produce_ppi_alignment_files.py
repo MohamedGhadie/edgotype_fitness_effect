@@ -14,10 +14,10 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # allow downloading of PDB structures while constructing the structural interactome
-    allow_pdb_downloads = True
+    allow_pdb_downloads = False
     
     # suppress PDB warnings when constructing the structural interactome
     suppress_pdb_warnings = True

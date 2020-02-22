@@ -13,6 +13,8 @@ from pdb_tools import (allow_pdb_downloads,
                        load_pdbtools_chain_sequences,
                        load_pdbtools_chain_strucRes_labels,
                        produce_chain_struc_sequences,
+                       pdbfile_id,
+                       pdbfile_name,
                        write_partial_structure,
                        get_chain_IDs,
                        ordered_residue_IDs,
@@ -157,6 +159,7 @@ def produce_ppi_template_files (inPath, templateSeqFile, templateStrucResFile):
     interactome = read_single_interface_annotated_interactome (inPath)
     n = len(interactome)
     
+    templateFiles = os.listdir(templateDir)
     for i, row in interactome.iterrows():
         sys.stdout.write('  PPI %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
         sys.stdout.flush()
@@ -165,13 +168,13 @@ def produce_ppi_template_files (inPath, templateSeqFile, templateStrucResFile):
             _, chainID2 = chain2.split('_')
             selectChains = sorted([chainID1, chainID2])
             templateID = '-'.join([pdbid] + selectChains)
-            outFile = templateDir / ('pdb' + templateID + '.ent')
-            if not outFile.is_file():
+            filename = pdbfile_name (templateID)
+            if filename not in templateFiles:
                 resIDs = {c:ordered_residue_IDs (pdbid, c, pdbDir) for c in selectChains}
                 write_partial_structure (pdbid,
                                          selectChains,
                                          pdbDir,
-                                         outFile,
+                                         templateDir / filename,
                                          resIDs = resIDs)
     print()
 
@@ -183,24 +186,25 @@ def produce_protein_template_files (inPath, templateSeqFile, templateStrucResFil
     templateIDs = templateMap["Subject"].tolist()
     n = len(templateIDs)
     
+    templateFiles = os.listdir(templateDir)
     for i, template in enumerate(templateIDs):
         sys.stdout.write('  Template %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
         sys.stdout.flush()
         pdbid, chainID = template.split('_')
         templateID = '-'.join([pdbid, chainID])
-        outFile = templateDir / ('pdb' + templateID + '.ent')
+        filename = pdbfile_name (templateID)
 #         if template == '4rer_B':
 #             print('1: 4rer_B')
 #             print('pdbid = %s' % pdbid)
 #             print('chainid = %s' % chainID)
 #             print('templateid = %s' % templateID)
 #             print('outfile = %s' % str(outFile))
-        if not outFile.is_file():
+        if filename not in templateFiles:
             resIDs = {chainID : ordered_residue_IDs (pdbid, chainID, pdbDir)}
             write_partial_structure (pdbid,
                                      [chainID],
                                      pdbDir,
-                                     outFile,
+                                     templateDir / filename,
                                      resIDs = resIDs)
     print()
 
@@ -225,8 +229,12 @@ def produce_ppi_alignment_files (interactomeFile,
                                         alignments)
         allIDs.append(IDs)
     print()
-    interactome["Complex_ID"], interactome["Template_ID"], interactome["Alignment_ID"] = zip(* allIDs)
-    interactome = interactome [interactome["Alignment_ID"] != '-']
+    interactome["Complex_ID"], interactome["Template_file_ID"], interactome["Alignment_file_ID"] = zip(* allIDs)
+    
+    missingAlignments = sum(interactome["Alignment_file_ID"] == '-')
+    interactome = interactome [interactome["Alignment_file_ID"] != '-']
+    print("%d alignment files created" % len(interactome))
+    print("%d alignment files not created (template alignment missing)" % missingAlignments)
     interactome.drop(["Interfaces",	"Chain_pairs"], axis=1, inplace=True)
     interactome.to_csv (outPath, index=False, sep='\t')
 
@@ -249,8 +257,11 @@ def produce_protein_alignment_files (templateMapFile,
         IDs = create_complex_alignment ([row.Query], [(row.Subject,)], alignments)
         allIDs.append(IDs)
     print()
-    templateMap["Complex_ID"], templateMap["Template_ID"], templateMap["Alignment_ID"] = zip(* allIDs)
-    templateMap = templateMap [templateMap["Alignment_ID"] != '-']
+    templateMap["Complex_ID"], templateMap["Template_file_ID"], templateMap["Alignment_file_ID"] = zip(* allIDs)
+    missingAlignments = sum(templateMap["Alignment_file_ID"] == '-')
+    templateMap = templateMap [templateMap["Alignment_file_ID"] != '-']
+    print("%d alignment files created" % len(templateMap))
+    print("%d alignment files not created (template alignment missing)" % missingAlignments)
     templateMap.to_csv (outPath, index=False, sep='\t')
 
 def create_complex_alignment (proteins, templates, alignments):
@@ -268,10 +279,11 @@ def create_complex_alignment (proteins, templates, alignments):
 #         print(len(ordered_residue_IDs ('1yxq', 'A', Path('/Volumes/MG_Samsung/pdb_files'))))
 #         print('right here again')
         chainIDs = get_chain_IDs (templateID, templateDir)
+#         print(templateFileID)
+#         print(chainIDs)
         orderedProteins = [templateMap[c] for c in chainIDs]
-    
         complexID = '='.join(orderedProteins)
-        alignmentID = '_'.join([complexID, '-'.join([pdbid] + chainIDs)])
+        
         pr_alignments, ch_alignments = [], []
         for protein, chainID in zip(orderedProteins, chainIDs):
             align = alignments [(alignments["Query"] == protein) & 
@@ -283,14 +295,14 @@ def create_complex_alignment (proteins, templates, alignments):
 #         print(template)
 #         print(chainIDs)
         if len(pr_alignments) == len(orderedProteins):
+            templateFileID = pdbfile_id (templateID)
+            alignmentFileID = '_'.join([complexID, pdbfile_id('-'.join([pdbid] + chainIDs))])
             write_alignment (complexID,
                              templateID,
                              chainIDs,
                              [pr_alignments, ch_alignments],
-                             alignmentDir / alignmentID)
-            return complexID, templateID, alignmentID
-    
-    warnings.warn("Full alignment for complex %s not found. Alignment file not created" % complexID)
+                             alignmentDir / alignmentFileID)
+            return complexID, templateFileID, alignmentFileID
     return '-', '-', '-'
 
 def write_alignment (complexID,
@@ -300,7 +312,7 @@ def write_alignment (complexID,
                      outPath):
 
     pr_alignments, ch_alignments = alignments
-#     print(templateID)
+#     print(templateFileID)
 #     print(chainIDs)
 #     print(templateDir)
     het, resNum, icode = ordered_residue_ID ('first', templateID, chainIDs[0], templateDir)
@@ -308,8 +320,9 @@ def write_alignment (complexID,
     het, resNum, icode = ordered_residue_ID ('last', templateID, chainIDs[-1], templateDir)
     lastResID = str(resNum) if icode == ' ' else str(resNum) + icode
     with io.open(outPath, "w") as fout:
-        fout.write ('>P1;%s\n' % templateID)
-        fout.write ('structure:%s:%s:%s:%s:%s::::\n' % (templateID,
+        templateFileID = pdbfile_id (templateID)
+        fout.write ('>P1;%s\n' % templateFileID)
+        fout.write ('structure:%s:%s:%s:%s:%s::::\n' % (templateFileID,
                                                         firstResID,
                                                         chainIDs[0],
                                                         lastResID,

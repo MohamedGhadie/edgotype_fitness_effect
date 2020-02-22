@@ -14,10 +14,10 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # allow downloading of PDB structures while constructing the structural interactome
-    allow_pdb_downloads = True
+    allow_pdb_downloads = False
     
     # suppress PDB warnings when constructing the structural interactome
     suppress_pdb_warnings = True
@@ -41,7 +41,8 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    pdbDir = Path('../../pdb_files')
     
     # directory for template structure files
     templateDir = modelBasedDir / 'ppi_templates'

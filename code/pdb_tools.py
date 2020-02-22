@@ -109,9 +109,10 @@ def load_structure (pdbid, structureFile):
         try:
             return PDBParser( QUIET=suppressWarnings ).get_structure( pdbid, str(structureFile) )
         except:
+            warnings.warn('Structure file not loaded')
             return None
     else:
-        print( '\t' + 'Structure file not found' )
+        warnings.warn('Structure file not found')
         return None
 
 def add_structure (pdbid, struc):
@@ -128,6 +129,19 @@ def add_structure (pdbid, struc):
     structures[pdbid] = struc
     strucList.append(pdbid)
 
+def pdbfile_id (strucid):
+    
+    m = re.search(r'-|_', strucid)
+    if m:
+        ind = m.start(0)
+        return strucid[:ind] + re.sub(r'([a-z])', r'!\1', strucid[ind:])
+    else:
+        return strucid
+
+def pdbfile_name (strucid):
+    
+    return 'pdb' + pdbfile_id (strucid) + '.ent'
+
 def retrieve_structure (pdbid, pdbDir):
     """Retrieve PDB structure from local directory if available, otherwise donwload 
         from PDB database.
@@ -138,7 +152,7 @@ def retrieve_structure (pdbid, pdbDir):
 
     """
     if pdbid not in structures:
-        structureFile = pdbDir / ('pdb' + pdbid + '.ent')
+        structureFile = pdbDir / pdbfile_name (pdbid)
         if downloadStructures and not structureFile.is_file():
             try:
                 download_structure (pdbid, pdbDir)
@@ -194,7 +208,7 @@ def download_structures (inPath, outDir):
         filename = outDir / ('pdb' + id + '.ent')
         if not filename.is_file():
             try:
-                download_structure ( id, outDir )
+                download_structure (id, outDir)
             except error.URLError:
                 failed += 1
         sys.stdout.write('  %d out of %d IDs processed (%f%%), %d downloads failed \r' 

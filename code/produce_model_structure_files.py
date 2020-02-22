@@ -2,7 +2,7 @@ import os
 import sys
 from pathlib import Path
 from interactome_tools import read_single_interface_annotated_interactome
-from pdb_tools import write_partial_structure
+from pdb_tools import pdb_filename, write_partial_structure
 
 def main():
     
@@ -50,10 +50,11 @@ def main():
             pdbid, chainID1 = chain1.split('_')
             _, chainID2 = chain2.split('_')
             modelID = '_'.join([pdbid, chainID1, chainID2])
+            filename = pdb_filename (modelID)
             write_partial_structure (pdbid,
                                      [chainID1, chainID2],
                                      pdbDir,
-                                     templateDir / (modelID + '.ent'))
+                                     templateDir / filename)
 
 if __name__ == "__main__":
     main()

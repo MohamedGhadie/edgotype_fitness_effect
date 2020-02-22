@@ -35,7 +35,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # Maximum e-value cutoff to filter out protein-chain annotations
     evalue = 1e-5
@@ -110,7 +110,7 @@ def main():
     interactomeFile = interactomeDir / 'reference_interactome.txt'
     
     # output data files
-    chainInterfaceFile = procDir / 'chain_interfaces_HI.txt'
+    chainInterfaceFile = procDir / 'chain_interfaces_3.txt'
     chainMapFile1 = interactomeDir / 'interactome_chain_alignment.txt'
     chainMapFile2 = interactomeDir / 'interactome_chain_alignment_filtered.txt'
     chainMapFile3 = interactomeDir / 'interactome_chain_map.txt'
@@ -119,13 +119,13 @@ def main():
     chainListFile = templateBasedDir / 'protein_model_chains.list'
     modelChainsFile = templateBasedDir / 'protein_model_chains.pkl'
     alignmentEvalueFile = templateBasedDir / 'protein_chain_min_alignment_evalues.pkl'
-    chainAnnotatedInteractomeFile = templateBasedDir / 'chain_annotated_interactome.txt'
-    chainIDFile = templateBasedDir / 'interactome_chainIDs.txt'
-    pdbIDFile = templateBasedDir / 'interactome_pdbIDs.txt'
-    interfaceAnnotatedInteractomeFile1 = templateBasedDir / 'structural_interactome_withDuplicates.txt'
-    interfaceAnnotatedInteractomeFile = templateBasedDir / 'structural_interactome.txt'
-    refInteractomeChainMapFile = templateBasedDir / 'ref_interactome_chain_map.txt'
-    strucInteractomeChainMapFile = templateBasedDir / 'struc_interactome_chain_map.txt'
+    chainAnnotatedInteractomeFile = templateBasedDir / 'chain_annotated_interactome_3.txt'
+    chainIDFile = templateBasedDir / 'interactome_chainIDs_3.txt'
+    pdbIDFile = templateBasedDir / 'interactome_pdbIDs_3.txt'
+    interfaceAnnotatedInteractomeFile1 = templateBasedDir / 'structural_interactome_withDuplicates_3.txt'
+    interfaceAnnotatedInteractomeFile = templateBasedDir / 'structural_interactome_3.txt'
+    refInteractomeChainMapFile = templateBasedDir / 'ref_interactome_chain_map_3.txt'
+    strucInteractomeChainMapFile = templateBasedDir / 'struc_interactome_chain_map_3.txt'
     
     if not pdbDir.exists():
         os.makedirs(pdbDir)
@@ -256,12 +256,12 @@ def main():
                                              interactomeProteins,
                                              strucInteractomeChainMapFile)
     
-    print('plotting structural interactome')
-    edges = list(structuralInteractome[["Protein_1", "Protein_2"]].values)
-    network_plot (edges,
-                  show = showFigs,
-                  figdir = figDir,
-                  figname = 'structural_interactome')
+#     print('plotting structural interactome')
+#     edges = list(structuralInteractome[["Protein_1", "Protein_2"]].values)
+#     network_plot (edges,
+#                   show = showFigs,
+#                   figdir = figDir,
+#                   figname = 'structural_interactome')
 
 if __name__ == "__main__":
     main()

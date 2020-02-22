@@ -2,31 +2,6 @@ import pandas as pd
 from modeller import *
 from modeller.automodel import *
 
-def produce_ppi_models (inPath,
-                        alignmentDir,
-                        templateDir,
-                        modelDir,
-                        numModels = 1,
-                        verbosity = 'minimal'):
-    
-    interactome = pd.read_table (inPath, sep='\t')
-    n = len(interactome)
-    
-    for i, row in interactome.iterrows():
-        print('\n********************************************************************')
-        print('PPI %d out of %d (%.2f%%)' % (i+1, n, 100.*(i+1)/n))
-        print('********************************************************************\n')
-        modelFile = modelDir / (row.Complex_ID + '.B99990001.pdb')
-        if not modelFile.is_file():
-            create_protein_model (row.Complex_ID,
-                                  row.Template_ID,
-                                  str(alignmentDir / row.Alignment_ID),
-                                  str(templateDir),
-                                  str(modelDir),
-                                  starting_model = 1,
-                                  ending_model = numModels,
-                                  verbosity = verbosity)
-
 def produce_protein_models (inPath,
                             alignmentDir,
                             templateDir,
@@ -39,13 +14,13 @@ def produce_protein_models (inPath,
     
     for i, row in templateMap.iterrows():
         print('\n********************************************************************')
-        print('Protein %d out of %d (%.2f%%)' % (i+1, n, 100.*(i+1)/n))
+        print('Protein complex %d out of %d (%.2f%%)' % (i+1, n, 100.*(i+1)/n))
         print('********************************************************************\n')
         modelFile = modelDir / (row.Complex_ID + '.B99990001.pdb')
         if not modelFile.is_file():
             create_protein_model (row.Complex_ID,
-                                  row.Template_ID,
-                                  str(alignmentDir / row.Alignment_ID),
+                                  row.Template_file_ID,
+                                  str(alignmentDir / row.Alignment_file_ID),
                                   str(templateDir),
                                   str(modelDir),
                                   starting_model = 1,
