@@ -30,7 +30,7 @@ def main():
     dbsnpInFile = dbsnpInDir / ('ds_flat_ch%s.flat' % chr)
     
     # output data files
-    dbsnpOutfile = dbsnpOutDir / ('dbsnp_chr%s.txt' % chr)
+    dbsnpOutFile = dbsnpOutDir / ('dbsnp_chr%s.txt' % chr)
     
     # create output directories if not existing
     if not procDir.exists():
@@ -44,10 +44,10 @@ def main():
     
     if chr is '1':
         print('collecting dbSNP flatfile keys')
-        parse_dbsnp_flatfile_keys (dbsnpInFile, dbsnpOutDir, pausetime = 30)
+        parse_dbsnp_flatfile_keys (dbsnpInFile, dbsnpOutDir, pausetime = 0)
     
     print('parsing dbSNP flatfile')
-    parse_dbsnp_flatfile (dbsnpFlatfile, dbsnpOutDir, dbsnpOutFile, pausetime = 30)
+    parse_dbsnp_flatfile (dbsnpInFile, dbsnpOutDir, dbsnpOutFile, pausetime = 0)
 
 if __name__ == '__main__':
     main()

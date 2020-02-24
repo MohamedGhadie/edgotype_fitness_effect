@@ -1,0 +1,19 @@
+[ghadie84@beluga4 model_based]$ cd ppi_models_1/
+[ghadie84@beluga4 ppi_models_1]$ find . -type f | wc -l
+1817
+[ghadie84@beluga4 ppi_models_1]$ cd ..
+[ghadie84@beluga4 model_based]$ cd ppi_models_2/
+[ghadie84@beluga4 ppi_models_2]$ find . -type f | wc -l
+71
+[ghadie84@beluga4 ppi_models_2]$ cd ..
+[ghadie84@beluga4 model_based]$ cd ppi_models_3/
+[ghadie84@beluga4 ppi_models_3]$ find . -type f | wc -l
+1085
+[ghadie84@beluga4 ppi_models_3]$ cd ..
+[ghadie84@beluga4 model_based]$ cd ppi_models_4
+[ghadie84@beluga4 ppi_models_4]$ find . -type f | wc -l
+1289
+[ghadie84@beluga4 ppi_models_4]$ cd ..
+[ghadie84@beluga4 model_based]$ cd ppi_models_5
+[ghadie84@beluga4 ppi_models_5]$ find . -type f | wc -l
+4019

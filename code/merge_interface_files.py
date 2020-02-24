@@ -9,7 +9,7 @@ def main():
     inDir = '../data/processed'
     
     # input file names
-    inFiles = ['chain_interfaces_%d.txt' % i for i in np.arange(1,7)]
+    inFiles = ['chain_interfaces_%d.txt' % i for i in np.arange(1,7)] + ['chain_interfaces_HI.txt']
     
     # path to output file
     outPath = Path(inDir) / 'chain_interfaces_new.txt'

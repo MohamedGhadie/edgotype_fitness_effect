@@ -142,6 +142,10 @@ def pdbfile_name (strucid):
     
     return 'pdb' + pdbfile_id (strucid) + '.ent'
 
+def solve_pdbfile_id (id):
+    
+    return id.replace('!', '')
+
 def retrieve_structure (pdbid, pdbDir):
     """Retrieve PDB structure from local directory if available, otherwise donwload 
         from PDB database.

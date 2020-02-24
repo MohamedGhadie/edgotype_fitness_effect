@@ -51,7 +51,7 @@ def main():
     filter_and_merge_dbsnp_mutations (dbsnpDir,
                                       uniprotIDmapFile,
                                       dbsnpMutationsFile1,
-                                      pausetime = 30)
+                                      pausetime = 0)
     
     print('reading mutation flanking sequences from RefSeq transcripts')
     get_flanking_sequences (dbsnpMutationsFile1,
@@ -70,4 +70,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

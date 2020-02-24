@@ -7,7 +7,7 @@ import io
 import re
 from pathlib import Path
 from text_tools import write_beluga_job
-from pdb_tools import clear_structures, write_partial_structure
+from pdb_tools import pdbfile_id, solve_pdbfile_id, clear_structures, write_partial_structure
 
 def read_unprocessed_ddg_mutations (inPath, type = 'binding'):
     """Read PDB chain mutations with missing ∆∆G values from file.
@@ -153,7 +153,8 @@ def produce_foldx_buildmodel_jobs (mutations, pdbDir, outDir, parameters = None)
     if not parameters:
         parameters = {}
     for struc, mutList in mutations.items():
-        strucid = '_'.join(struc)
+        #strucid = '_'.join(struc)
+        strucid = get_strucID (struc)
         strucDir = outDir / strucid
         if not strucDir.exists():
             os.makedirs(strucDir)
@@ -211,7 +212,8 @@ def produce_foldx_pssm_jobs (mutations, pdbDir, outDir, parameters = None):
         parameters = {}
     
     for struc, mutList in mutations.items():
-        strucid = '_'.join(struc)
+        #strucid = '_'.join(struc)
+        strucid = get_strucID (struc)
         pdbid, chainID1, chainID2 = struc[:3]
         for mut in mutList:
             mutID = '_'.join([strucid, mut])
@@ -335,7 +337,8 @@ def produce_beluga_foldx_jobs (mutations,
     
     if type is 'folding':
         for struc, _ in mutations.items():
-            strucid = '_'.join(struc)
+            #strucid = '_'.join(struc)
+            strucid = get_strucID (struc)
             commands = ['../foldx -f %s/%s/config_repairPDB.cfg' % (serverDataDir, strucid),
                         '../foldx -f %s/%s/config_buildModel.cfg' % (serverDataDir, strucid)]
             if extraCommands:
@@ -355,7 +358,8 @@ def produce_beluga_foldx_jobs (mutations,
                               commands = commands)
     elif type is 'binding':
         for struc, mutList in mutations.items():
-            strucid = '_'.join(struc)
+            #strucid = '_'.join(struc)
+            strucid = get_strucID (struc)
             for mut in mutList:
                 mutID = '_'.join([strucid, mut])
                 commands = ['../foldx -f %s/%s/config_repairPDB.cfg' % (serverDataDir, mutID),
@@ -406,7 +410,8 @@ def read_foldx_buildmodel_results (inDir):
     strucDir = os.listdir(inDir)
     strucDir = [dir for dir in strucDir if os.path.isdir(inDir / dir)]
     for strucID in strucDir:
-        struc = tuple(strucID.split('_'))
+        #struc = tuple(strucID.split('_'))
+        struc = tuple((solve_pdbfile_id(strucID)).split('_'))
         if re.match(r'\D\S\d+\D', struc[-1]):
             struc = struc[:-1]
         mutListFile = inDir / strucID / 'individual_list.txt'
@@ -465,7 +470,8 @@ def read_foldx_pssm_results (inDir):
     strucDirs = [dir for dir in strucDirs if os.path.isdir(inDir / dir)]
     for strucID in strucDirs:
         strucDir = inDir / strucID
-        struc = tuple(strucID.split('_'))
+        #struc = tuple(strucID.split('_'))
+        struc = tuple((solve_pdbfile_id(strucID)).split('_'))
         if len(struc) > 3:
             struc = struc[:-1]
         
@@ -611,3 +617,10 @@ def append_mutation_ddg_files (inPath1, inPath2, outPath):
             next(f2)
             for line in f2:
                 fout.write(line)
+
+def get_strucID (struc):
+
+    if re.match(r'\D\S\d+\D', struc[-1]):
+        return pdbfile_id ('_'.join(struc[:-1])) + '_' + struc[-1]
+    else:
+        return pdbfile_id ('_'.join(struc))

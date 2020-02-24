@@ -86,13 +86,10 @@ def main():
                             clinvarMutationsFile4)
 
     print( 'Matching RefSeq flanking sequences to UniProt sequences' )
-    match_flanking_sequences (clinvarMutationsFile4,
-                              uniqueGeneSequenceFile,
-                              clinvarMutationsFile5)
+    match_flanking_sequences (clinvarMutationsFile4, uniqueGeneSequenceFile, clinvarMutationsFile5)
 
     print( 'Removing synonymous and nonsense mutations' )
-    remove_synon_nonsense_mutations (clinvarMutationsFile5,
-                                     clinvarMutationsFile6)
+    remove_synon_nonsense_mutations (clinvarMutationsFile5, clinvarMutationsFile6)
 
 if __name__ == "__main__":
     main()

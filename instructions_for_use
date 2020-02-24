@@ -46,7 +46,7 @@ wget https://ars.els-cdn.com/content/image/1-s2.0-S0092867415004304-mmc3.xlsx -O
 cd ../../code
 python3 process_external_data.py
 
-# process reference interactive dataset
+# process reference interactome dataset
 python3 process_interactome.py
 
 cd ../data/processed

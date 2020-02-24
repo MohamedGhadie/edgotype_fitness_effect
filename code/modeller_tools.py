@@ -1,3 +1,4 @@
+import subprocess
 import pandas as pd
 from modeller import *
 from modeller.automodel import *
@@ -14,10 +15,27 @@ def produce_protein_models (inPath,
     
     for i, row in templateMap.iterrows():
         print('\n********************************************************************')
-        print('Protein complex %d out of %d (%.2f%%)' % (i+1, n, 100.*(i+1)/n))
+        print('Protein complex: %s, %d out of %d (%.2f%%)' % (row.Complex_ID, i+1, n, 100.*(i+1)/n))
+        print('Template file: %s' % row.Template_file_ID)
+        print('Alignment file %s' % row.Alignment_file_ID)
         print('********************************************************************\n')
         modelFile = modelDir / (row.Complex_ID + '.B99990001.pdb')
         if not modelFile.is_file():
+            relatedFile = modelDir / (row.Complex_ID + '.D00000001')
+            if relatedFile.is_file():
+                subprocess.call(['rm' , str(relatedFile)])
+            relatedFile = modelDir / (row.Complex_ID + '.V99990001')
+            if relatedFile.is_file():
+                subprocess.call(['rm' , str(relatedFile)])
+            relatedFile = modelDir / (row.Complex_ID + '.ini')
+            if relatedFile.is_file():
+                subprocess.call(['rm' , str(relatedFile)])
+            relatedFile = modelDir / (row.Complex_ID + '.rsr')
+            if relatedFile.is_file():
+                subprocess.call(['rm' , str(relatedFile)])
+            relatedFile = modelDir / (row.Complex_ID + '.sch')
+            if relatedFile.is_file():
+                subprocess.call(['rm' , str(relatedFile)])
             create_protein_model (row.Complex_ID,
                                   row.Template_file_ID,
                                   str(alignmentDir / row.Alignment_file_ID),

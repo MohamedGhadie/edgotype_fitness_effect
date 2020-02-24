@@ -199,7 +199,7 @@ def parse_dbsnp_flatfile (inPath,
     print('\t%d lines parsed from ' % (i + 1) + str(inPath) +  
           'and written to file ' + str(outPath))
 
-def filter_and_merge_dbsnp_mutations (inDir,
+def filter_and_merge_dbsnp_mutations_old (inDir,
                                       uniprotIDmapFile,
                                       outPath,
                                       pausetime = 0):
@@ -221,16 +221,13 @@ def filter_and_merge_dbsnp_mutations (inDir,
         if dbsnpChrMutationsFile.is_file():
             print('\tadding mutations from chromosome ' + i)
             newMut = pd.read_table(dbsnpChrMutationsFile, dtype='str', sep='\t')
-            print('\t\tdata read')
             newMut["assertion"] = newMut["assertion"].apply(str.lower)
             newMut["validated"] = newMut["validated"].apply(str.lower)
             newMut["validation"] = newMut["validation"].apply(str.lower)
-            print('\t\tfirst conversion done')
             newMut["MAF"] = newMut["MAF"].apply(lambda x:
                                                 float(x) if is_numeric(x) else -1)
             newMut["aa_position"] = newMut["aa_position"].apply(lambda x:
                                                                 int(x) if is_numeric(x) else -1)
-            print('\t\tsecond conversion done')
         
             common = (newMut["MAF"] >= 0.01)
             human = (newMut["species"] == 'human')
@@ -282,6 +279,102 @@ def filter_and_merge_dbsnp_mutations (inDir,
                            "allele":"frequency_reporting_allele",
                            "allele.1": "variation_allele"}, inplace=True)
     allmut.to_csv(outPath, index=False, sep='\t')
+
+def filter_and_merge_dbsnp_mutations (inDir, uniprotIDmapFile, outPath, pausetime = 0):
+    
+    """Filter and merge dbSNP mutations from several tab-delimited files.
+
+    Args:
+        inDir (Path): file directory containing dbSNP files to merge.
+        UniProtIDmapFile (Path): path to file containing UniProt ID mapping dictionary.
+        outPath (Path): path to save processed mutation file to.
+        pausetime (numeric): pausing time in seconds between processing each file.
+
+    """
+    with open(uniprotIDmapFile, 'rb') as f:
+        uniprotIDmap = pickle.load(f)
+    chromosomes = list(map(str, list(np.array(range(22)) + 1) + ['X', 'Y']))
+    
+    with io.open(outPath, 'w') as fout:
+        headers = ["ID", "species", "class", "1000genome", "date", "genotype", "submitterlink",
+                   "allele_origin", "alleles", "het", "se(het)", "max_prob", "min_prob",
+                    "validated", "validation", "method", "MAF", "frequency_reporting_allele",
+                    "count", "assertion", "gene", "mut_position", "variation_allele", "frame",
+                    "fxn-class", "locus_id", "mrna_acc", "prot_acc", "mut_res", "protein"]
+        fout.write(''.join(headers) + '\n')
+        numCol = len(headers) - 1
+        for chr in chromosomes:
+            inPath = inDir / ('dbsnp_chr%s.txt' % chr)
+            if inPath.is_file():
+                with io.open(inPath, 'r') as f:
+                    print('\n' + 'Processing mutations from chromosome %s' % chr)
+                    numSelected = numCommon = numHuman = numSNP = numMissense = numValidated = 0
+                    numNotwithdrawn = numPositioned = numSequenced = numNonpathogenic = 0
+                    next(f)
+                    for i, line in enumerate(f):
+                        linesplit = list(map(str.strip, line.split('\t')))
+                        lineLen = len(linesplit)
+                        if lineLen < numCol:
+                            linesplit = linesplit + (['?'] * (numCol - lineLen))
+                        (id, species, mut_class, thousandGenome, date, genotype, submitterlink,
+                         allele_origin, alleles, het, se_het, max_prob, min_prob, validated, validation,
+                         method, MAF, freq_allele, count, assertion, gene, mut_position, var_allele,
+                         frame, fxn_class, locus_id, mrna_acc, prot_acc, mut_res) = linesplit
+                    
+                        assertion, validated, validation = assertion.lower(), validated.lower(), validation.lower()
+                        MAF = float(MAF) if is_numeric(MAF) else -1
+                        mut_position = int(mut_position) if is_numeric(mut_position) else -1
+                        
+                        if ((MAF >= 0.01) and (species == 'human') and (mut_class == 'snp') and
+                            (fxn_class == 'missense') and (validated == 'yes') and 
+                            (validation == 'notwithdrawn') and (mut_position > -1) and
+                            (prot_acc != '?') and (assertion not in ['pathogenic',
+                                                                     'likely pathogenic',
+                                                                     'drug-response',
+                                                                     'uncertain significance',
+                                                                     'other'])):
+                            gene = gene.upper()
+                            protein = uniprotIDmap[gene] if gene in uniprotIDmap else '-'
+                            if protein != '-':
+                                numSelected += 1
+                                fout.write(''.join(map(str, [id, species, mut_class, thousandGenome,
+                                                             date, genotype, submitterlink, allele_origin,
+                                                             alleles, het, se_het, max_prob, min_prob,
+                                                             validated, validation, method, MAF, freq_allele,
+                                                             count, assertion, gene, mut_position,
+                                                             var_allele, frame, fxn_class, locus_id,
+                                                             mrna_acc, prot_acc, mut_res, protein])) + '\n')
+
+                        numCommon += (MAF >= 0.01)
+                        numHuman += (species == 'human')
+                        numSNP += (mut_class == 'snp')
+                        numMissense += (fxn_class == 'missense')
+                        numValidated += (validated == 'yes')
+                        numNotwithdrawn += (validation == 'notwithdrawn')
+                        numPositioned += (mut_position > -1)
+                        numSequenced += (prot_acc != '?')
+                        numNonpathogenic += (assertion not in ['pathogenic',
+                                                               'likely pathogenic',
+                                                               'drug-response',
+                                                               'uncertain significance',
+                                                               'other'])
+                    
+                    print('Common: %d' % numCommon)
+                    print('Human: %d' % numHuman)
+                    print('SNP: %d' % numSNP)
+                    print('Missense: %d' % numMissense)
+                    print('Validated: %d' % numValidated)
+                    print('Not withdrawn: %d' % numNotwithdrawn)
+                    print('Positioned: %d' % numPositioned)
+                    print('Sequenced: %d' % numSequenced)
+                    print('Non-pathogenic: %d' % numNonpathogenic)
+                    print('%d out of %d mutations selected from chromosome %s' % (numSelected, i+1, chr))
+                    print('Pausing for %d seconds' % pausetime)
+                    time.sleep(pausetime)
+    
+    mutations = pd.read_table (outPath, dtype='str', sep='\t')
+    mutations = mutations.drop_duplicates (subset=["gene", "mut_position"])
+    mutations.to_csv (outPath, index=False, sep='\t')
 
 def filter_clinvar_mutations (inPath,
                               outPath,
