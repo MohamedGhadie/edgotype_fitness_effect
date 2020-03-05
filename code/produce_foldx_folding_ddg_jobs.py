@@ -8,7 +8,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -43,7 +43,8 @@ def main():
     outDir = edgeticDir / 'foldx'
     
     # directory of PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':
         modelDir = modellingDir / 'protein_models'
@@ -74,7 +75,7 @@ def main():
                                    nodes = 1,
                                    ntasks_per_node = 1,
                                    cpus_per_task = 1,
-                                   mem_per_cpu = '4000M',
+                                   mem_per_cpu = '4G',
                                    username = 'ghadie84',
                                    outputfile = '/project/ctb-yxia/ghadie84/foldx/data/%x-%j.out',
                                    serverDataDir = '/project/ctb-yxia/ghadie84/foldx/data')

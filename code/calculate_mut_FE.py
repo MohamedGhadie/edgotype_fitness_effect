@@ -9,7 +9,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # mutation edgotype for which fitness effect is calculated
     # options: quasi-null, edgetic, quasi-wild-type
@@ -25,7 +25,7 @@ def main():
     
     # method of calculating edgetic mutation ∆∆G
     # options: bindprofx, foldx
-    ddg_method = 'foldx'
+    edgetic_ddg = 'foldx'
     
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
     # those of mildly deleterious (M) mutations. If set to False, strongly detrimental 
@@ -61,13 +61,14 @@ def main():
     modellingDir = interactomeDir / model_method
     
     # directory of calculation method
-    methodDir = modellingDir / edgetic_method
+    edgeticDir = modellingDir / edgetic_method
     
     # figure directory
     figDir = Path('../figures') / interactome_name / model_method / edgetic_method
     
     if edgetic_method is 'physics':
-        figDir = figDir / ('%s_edgetics' % ddg_method) / 'mutation_fitness_effect'
+        edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
+        figDir = figDir / (edgetic_ddg + '_edgetics') / 'mutation_fitness_effect'
     elif edgetic_method is 'geometry':
         figDir = figDir / 'mutation_fitness_effect'
     
@@ -77,24 +78,26 @@ def main():
         figDir = figDir / 'assume_S_quasi_null'
     
     # input data files
-#     natMutLocFile = methodDir / 'nondisease_mutation_struc_loc.txt'
-#     disMutLocFile = methodDir / 'disease_mutation_struc_loc.txt'
+#     natMutLocFile = edgeticDir / 'nondisease_mutation_struc_loc.txt'
+#     disMutLocFile = edgeticDir / 'disease_mutation_struc_loc.txt'
 #     mutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl' # new
 #     natMutDdgFile = interactomeDir / 'nondisease_mutations_ddg.txt'
 #     disMutDdgFile = interactomeDir / 'disease_mutations_ddg.txt'
-#     natMutEdgotypeFile = methodDir / ('nondisease_mutation_edgetics%s.txt' 
-#                                       % ('_' + ddg_method if edgetic_method is 'physics' else ''))
-#     disMutEdgotypeFile = methodDir / ('disease_mutation_edgetics%s.txt' 
-#                                       % ('_' + ddg_method if edgetic_method is 'physics' else ''))
-    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgotype.txt'
-    disMutEdgotypeFile = methodDir / 'disease_mutation_edgotype.txt'
+#     natMutEdgotypeFile = edgeticDir / ('nondisease_mutation_edgetics%s.txt' 
+#                                       % ('_' + edgetic_ddg if edgetic_method is 'physics' else ''))
+#     disMutEdgotypeFile = edgeticDir / ('disease_mutation_edgetics%s.txt' 
+#                                       % ('_' + edgetic_ddg if edgetic_method is 'physics' else ''))
+    natMutEdgotypeFile = edgeticDir / 'nondisease_mutation_edgotype.txt'
+    disMutEdgotypeFile = edgeticDir / 'disease_mutation_edgotype.txt'
+#     natMutEdgotypeFile = edgeticDir / 'nondisease_mutation_edgetics_foldx.txt'
+#     disMutEdgotypeFile = edgeticDir / 'disease_mutation_edgetics_foldx.txt'
     
     # output data files
-    outputFile = methodDir / ('%s_mut_fitness_effect.pkl' % edgotype)
+    outputFile = edgeticDir / ('%s_mut_fitness_effect.pkl' % edgotype)
     
     # create output directories if not existing
-    if not methodDir.exists():
-        os.makedirs(methodDir)
+    if not edgeticDir.exists():
+        os.makedirs(edgeticDir)
     if not figDir.exists():
         os.makedirs(figDir)
     

@@ -46,7 +46,8 @@ def main():
     outDir = edgeticDir / 'foldx'
     
     # directory of PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':
         modelDir = modellingDir / 'protein_models'
@@ -85,10 +86,10 @@ def main():
                                    nodes = 1,
                                    ntasks_per_node = 1,
                                    cpus_per_task = 1,
-                                   mem_per_cpu = '4000M',
+                                   mem_per_cpu = '4G',
                                    username = 'ghadie84',
-                                   outputfile = '/project/ctb-yxia/ghadie84/foldx/data/%x-%j.out',
-                                   serverDataDir = '/project/ctb-yxia/ghadie84/foldx/data')
+                                   outputfile = '/project/ctb-yxia/ghadie84/foldx_2/data/%x-%j.out',
+                                   serverDataDir = '/project/ctb-yxia/ghadie84/foldx_2/data')
 
 if __name__ == "__main__":
     main()

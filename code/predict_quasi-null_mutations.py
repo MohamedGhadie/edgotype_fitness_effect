@@ -10,7 +10,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -22,7 +22,10 @@ def main():
     
     # method that was used to calculate edgetic mutation binding ∆∆G
     # options: bindprofx, foldx
-    edgetic_ddg_method = 'foldx'
+    edgetic_ddg = 'foldx'
+    
+    # maximum RSA for buried mutations
+    burialMaxRSA = 0.25
     
     # minimum change in protein free energy required for quasi-null mutations
     qnMinDDG = 5
@@ -53,27 +56,28 @@ def main():
     modellingDir = interactomeDir / model_method
     
     # directory of calculation method
-    methodDir = modellingDir / edgetic_method
+    edgeticDir = modellingDir / edgetic_method
     
     # figure directory
     figDir = Path('../figures') / interactome_name / model_method / edgetic_method
     
     if edgetic_method is 'physics':
-        figDir = figDir / ('%s_edgetics' % edgetic_ddg_method)
+        edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
+        figDir = figDir / (edgetic_ddg + '_edgetics')
     
     # input data files
-    natMutLocFile = methodDir / ('nondisease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
-    disMutLocFile = methodDir / ('disease_mutation_struc_loc_%s.txt' % edgetic_ddg_method)
-    natMutDdgFile = modellingDir / 'nondis_mut_folding_ddg_foldx.txt'
-    disMutDdgFile = modellingDir / 'dis_mut_folding_ddg_foldx.txt'
+    natMutLocFile = edgeticDir / 'nondisease_mutation_struc_loc.txt'
+    disMutLocFile = edgeticDir / 'disease_mutation_struc_loc.txt'
+    natMutDdgFile = edgeticDir / 'nondis_mut_folding_ddg_foldx.txt'
+    disMutDdgFile = edgeticDir / 'dis_mut_folding_ddg_foldx.txt'
     
     # output data files
-    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgotype.txt'
-    disMutEdgotypeFile = methodDir / 'disease_mutation_edgotype.txt'
+    natMutEdgotypeFile = edgeticDir / 'nondisease_mutation_edgotype.txt'
+    disMutEdgotypeFile = edgeticDir / 'disease_mutation_edgotype.txt'
     
     # create output directories if not existing
-    if not methodDir.exists():
-        os.makedirs(methodDir)
+    if not edgeticDir.exists():
+        os.makedirs(edgeticDir)
     if not figDir.exists():
         os.makedirs(figDir)
     
@@ -109,6 +113,28 @@ def main():
     # Assign mutation edgotypes
     #------------------------------------------------------------------------------------    
     
+#     mutations = {'nat_mut':naturalMutations, 'dis_mut':diseaseMutations}
+#     for k, mut in mutations.items():
+#         edgotypes = []
+#         for _, row in mut.iterrows():
+#             if row.edgotype == 'edgetic':
+#                 edgotypes.append('edgetic')
+#             elif row.edgotype == 'non-edgetic':
+#                 if row.structural_location == 'buried':
+#                     if np.isnan(row.ddg):
+#                         edgotypes.append('-')
+#                     elif row.ddg >= qnMinDDG:
+#                         edgotypes.append('quasi-null')
+#                     else:
+#                         edgotypes.append('quasi-wild-type')
+#                 elif row.structural_location in ['exposed-noninterface', 'interface']:
+#                     edgotypes.append('quasi-wild-type')
+#                 else:
+#                     edgotypes.append('-')
+#             else:
+#                 edgotypes.append('-')
+#         mutations[k]['edgotype'] = edgotypes
+    
     mutations = {'nat_mut':naturalMutations, 'dis_mut':diseaseMutations}
     for k, mut in mutations.items():
         edgotypes = []
@@ -116,24 +142,23 @@ def main():
             if row.edgotype == 'edgetic':
                 edgotypes.append('edgetic')
             elif row.edgotype == 'non-edgetic':
-                if row.structural_location == 'buried':
+                if np.isnan(row.RSA):
+                    edgotypes.append('-')
+                elif row.RSA <= burialMaxRSA:
                     if np.isnan(row.ddg):
                         edgotypes.append('-')
                     elif row.ddg >= qnMinDDG:
                         edgotypes.append('quasi-null')
                     else:
                         edgotypes.append('quasi-wild-type')
-                elif row.structural_location in ['exposed-noninterface', 'interface']:
+                elif row.RSA > burialMaxRSA:
                     edgotypes.append('quasi-wild-type')
-                else:
-                    edgotypes.append('-')
             else:
                 edgotypes.append('-')
-        print(len(edgotypes))
         mutations[k]['edgotype'] = edgotypes
     
-    naturalMutations.to_csv(natMutEdgotypeFile, index=False, sep='\t')
-    diseaseMutations.to_csv(disMutEdgotypeFile, index=False, sep='\t')
+    naturalMutations.to_csv (natMutEdgotypeFile, index=False, sep='\t')
+    diseaseMutations.to_csv (disMutEdgotypeFile, index=False, sep='\t')
     
     #------------------------------------------------------------------------------------
     # Display mutation edgotype fractions

@@ -11,6 +11,8 @@ def main():
     # verbosity for Modeller
     verbosity = 'none'
     
+    modellerTimeout = 30
+    
     # parent directory of all data files
     #dataDir = Path('../data')
     dataDir = Path('../../../../')
@@ -31,7 +33,7 @@ def main():
     alignmentDir = modelBasedDir / 'ppi_alignments'
     
     # directory for output models
-    modelDir = modelBasedDir / 'ppi_models'
+    modelDir = modelBasedDir / 'ppi_models_test'
     
     # input data files
     interactomeFile = modelBasedDir / 'template_annotated_interactome.txt'
@@ -46,7 +48,8 @@ def main():
                             templateDir,
                             modelDir,
                             numModels = 1,
-                            verbosity = verbosity)
+                            verbosity = verbosity,
+                            modellerTimeout = modellerTimeout * 60)
 
 if __name__ == "__main__":
     main()

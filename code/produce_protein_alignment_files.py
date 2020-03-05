@@ -26,7 +26,7 @@ def main():
 #     chainCov = 0
     
     # allow downloading of PDB structures while constructing the structural interactome
-    allow_pdb_downloads = True
+    allow_pdb_downloads = False
     
     # suppress PDB warnings when constructing the structural interactome
     suppress_pdb_warnings = True

@@ -301,7 +301,7 @@ def filter_and_merge_dbsnp_mutations (inDir, uniprotIDmapFile, outPath, pausetim
                     "validated", "validation", "method", "MAF", "frequency_reporting_allele",
                     "count", "assertion", "gene", "mut_position", "variation_allele", "frame",
                     "fxn-class", "locus_id", "mrna_acc", "prot_acc", "mut_res", "protein"]
-        fout.write(''.join(headers) + '\n')
+        fout.write('\t'.join(headers) + '\n')
         numCol = len(headers) - 1
         for chr in chromosomes:
             inPath = inDir / ('dbsnp_chr%s.txt' % chr)
@@ -337,13 +337,13 @@ def filter_and_merge_dbsnp_mutations (inDir, uniprotIDmapFile, outPath, pausetim
                             protein = uniprotIDmap[gene] if gene in uniprotIDmap else '-'
                             if protein != '-':
                                 numSelected += 1
-                                fout.write(''.join(map(str, [id, species, mut_class, thousandGenome,
-                                                             date, genotype, submitterlink, allele_origin,
-                                                             alleles, het, se_het, max_prob, min_prob,
-                                                             validated, validation, method, MAF, freq_allele,
-                                                             count, assertion, gene, mut_position,
-                                                             var_allele, frame, fxn_class, locus_id,
-                                                             mrna_acc, prot_acc, mut_res, protein])) + '\n')
+                                fout.write('\t'.join(map(str, [id, species, mut_class, thousandGenome,
+                                                               date, genotype, submitterlink, allele_origin,
+                                                               alleles, het, se_het, max_prob, min_prob,
+                                                               validated, validation, method, MAF, freq_allele,
+                                                               count, assertion, gene, mut_position,
+                                                               var_allele, frame, fxn_class, locus_id,
+                                                               mrna_acc, prot_acc, mut_res, protein])) + '\n')
 
                         numCommon += (MAF >= 0.01)
                         numHuman += (species == 'human')

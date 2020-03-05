@@ -1,5 +1,6 @@
-import subprocess
 import pandas as pd
+from subprocess import call
+from multiprocessing import Process
 from modeller import *
 from modeller.automodel import *
 
@@ -8,7 +9,8 @@ def produce_protein_models (inPath,
                             templateDir,
                             modelDir,
                             numModels = 1,
-                            verbosity = 'minimal'):
+                            verbosity = 'minimal',
+                            modellerTimeout = None):
     
     templateMap = pd.read_table (inPath, sep='\t')
     n = len(templateMap)
@@ -21,29 +23,25 @@ def produce_protein_models (inPath,
         print('********************************************************************\n')
         modelFile = modelDir / (row.Complex_ID + '.B99990001.pdb')
         if not modelFile.is_file():
-            relatedFile = modelDir / (row.Complex_ID + '.D00000001')
-            if relatedFile.is_file():
-                subprocess.call(['rm' , str(relatedFile)])
-            relatedFile = modelDir / (row.Complex_ID + '.V99990001')
-            if relatedFile.is_file():
-                subprocess.call(['rm' , str(relatedFile)])
-            relatedFile = modelDir / (row.Complex_ID + '.ini')
-            if relatedFile.is_file():
-                subprocess.call(['rm' , str(relatedFile)])
-            relatedFile = modelDir / (row.Complex_ID + '.rsr')
-            if relatedFile.is_file():
-                subprocess.call(['rm' , str(relatedFile)])
-            relatedFile = modelDir / (row.Complex_ID + '.sch')
-            if relatedFile.is_file():
-                subprocess.call(['rm' , str(relatedFile)])
-            create_protein_model (row.Complex_ID,
-                                  row.Template_file_ID,
-                                  str(alignmentDir / row.Alignment_file_ID),
-                                  str(templateDir),
-                                  str(modelDir),
-                                  starting_model = 1,
-                                  ending_model = numModels,
-                                  verbosity = verbosity)
+            delete_model_files (modelDir, row.Complex_ID)
+            p = Process (target = create_protein_model,
+                         name = "create_protein_model",
+                         args = (row.Complex_ID,
+                                 row.Template_file_ID,
+                                 str(alignmentDir / row.Alignment_file_ID),
+                                 str(templateDir),
+                                 str(modelDir)),
+                         kwargs = {"starting_model":1,
+                                   "ending_model":numModels,
+                                   "verbosity":verbosity})
+            p.daemon = True
+            p.start()
+            p.join(modellerTimeout)
+            if p.is_alive():
+                print('Modelling timed out. Killing process...')
+                p.terminate()
+                p.join()
+                delete_model_files (modelDir, row.Complex_ID)
 
 def create_protein_model (protein,
                           templateIDs,
@@ -93,3 +91,17 @@ class MyModel (automodel):
         # Rename chain for single chain model:
         if numChains == 1:
             self.chains[0].name = 'A'
+
+def delete_model_files (modelDir, modelID):
+    
+    filenames = [modelID + '.B99990001.pdb',
+                 modelID + '.D00000001',
+                 modelID + '.V99990001',
+                 modelID + '.ini',
+                 modelID + '.rsr',
+                 modelID + '.sch']
+                 
+    for name in filenames:
+        filepath = modelDir / name
+        if filepath.is_file():
+            call(['rm' , str(filepath)])

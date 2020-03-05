@@ -28,7 +28,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -213,7 +213,7 @@ def main():
                       edgeColors = edgeColors,
                       show = showFigs,
                       figdir = figDir,
-                      figname = 'nondisease_mut_perturbed_interactome')
+                      figname = 'nondisease_mut_perturbed_interactome_geometry')
     
         print( '\n' + 'Creating network perturbed by disease mutations' )
         nodes, edges, nodeColors, edgeColors = create_perturbed_network (structuralInteractome,
@@ -228,7 +228,7 @@ def main():
                       edgeColors = edgeColors,
                       show = showFigs,
                       figdir = figDir,
-                      figname = 'disease_mut_perturbed_interactome')
+                      figname = 'disease_mut_perturbed_interactome_geometry')
 
 if __name__ == "__main__":
     main()

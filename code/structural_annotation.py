@@ -4,7 +4,9 @@
 
 import os
 import io
+import sys
 import time
+import warnings
 import pickle
 import pandas as pd
 import numpy as np
@@ -354,7 +356,11 @@ def single_chain_per_protein (inPath,
         load_pdbtools_chain_sequences (chainSeqFile)
         load_pdbtools_chain_strucRes_labels (chainStrucResFile)
         keep = pd.Series(data = False, index = chainMap.index)
-        for p in set(chainMap["Query"].values):
+        proteins = list(set(chainMap["Query"].values))
+        n = len(proteins)
+        for k, p in enumerate(proteins):
+            sys.stdout.write('  Protein %d out of %d (%.2f%%) \r' % (k+1, n, 100*(k+1)/n))
+            sys.stdout.flush()
             for i, c in chainMap.loc[chainMap["Query"]==p, "Subject"].iteritems():
                 pdbid, chainID = c.split('_')
                 if valid_strucRes (pdbid, chainID, pdbDir):

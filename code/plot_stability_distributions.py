@@ -62,8 +62,8 @@ def main():
     natMutDDG = read_protein_mutation_ddg (natMutDdgFile, type = 'folding')
     disMutDDG = read_protein_mutation_ddg (disMutDdgFile, type = 'folding')
     
-    natMutDDG = [ddg for ddg in natMutDDG.values() if not np.isnan(ddg)]
-    disMutDDG = [ddg for ddg in disMutDDG.values() if not np.isnan(ddg)]
+    natMutDDG = [ddg for _, _, _, ddg in natMutDDG.values() if not np.isnan(ddg)]
+    disMutDDG = [ddg for _, _, _, ddg in disMutDDG.values() if not np.isnan(ddg)]
     
     #------------------------------------------------------------------------------------
     # Change in protein stability in relation to mutation distance to center
@@ -78,7 +78,7 @@ def main():
     print('skew = %f' % stats.skew(natMutDDG))
     print('\n' + 'Disease mutations')
     normality_test (disMutDDG, 0.05)
-    print('skew = %f' % stats.skew(diseaseMutations["ddg"]))
+    print('skew = %f' % stats.skew(disMutDDG))
     
     numbins = 30
     multi_histogram_plot (natMutDDG,

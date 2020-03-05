@@ -5,7 +5,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -20,7 +20,7 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for output models
-    modelDir = modelBasedDir / 'ppi_models'
+    modelDir = modelBasedDir / 'protein_models'
     
     modelFiles = os.listdir(modelDir)
     for name in modelFiles:

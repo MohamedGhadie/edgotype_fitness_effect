@@ -343,14 +343,18 @@ def produce_model_annotated_interactome (inPath, outPath):
         sys.stdout.write('  PPI %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
         sys.stdout.flush()
         chainLetters = get_chain_IDs (modelID, modelDir)
-        chainIDs = ['_'.join([modelID, c]) for c in chainLetters]
-        complexP1, complexP2 = modelID.split('=')
-        if complexP1 == p1:
-            mappingChains.append('-'.join(chainIDs))
+        if chainLetters:
+            chainIDs = ['_'.join([modelID, c]) for c in chainLetters]
+            complexP1, complexP2 = modelID.split('=')
+            if complexP1 == p1:
+                mappingChains.append('-'.join(chainIDs))
+            else:
+                mappingChains.append('-'.join(reverseTuple(chainIDs)))
         else:
-            mappingChains.append('-'.join(reverseTuple(chainIDs)))
+            mappingChains.append('-')
     print()
     interactome["Mapping_chains"] = mappingChains
+    interactome = interactome [interactome["Mapping_chains"] != '-']
     interactome.to_csv (outPath, index=False, sep='\t')
 
 def produce_ppi_fullmodel_chainSeq_dict (inPath, proteinSeqFile, outPath):

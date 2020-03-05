@@ -16,8 +16,8 @@ def main():
     procDir = dataDir / 'processed'
     
     # directory of precalculated RSA files on local computer
-    dsspDir = Path('/Volumes/MG_Samsung/dssp')
-    #dsspDir = Path('../../dssp')
+    #dsspDir = Path('/Volumes/MG_Samsung/dssp')
+    dsspDir = Path('../../dssp')
     
     # input data files
     pdbSeqresFile = procDir / 'pdb_seqres_reduced.fasta'

@@ -7,7 +7,7 @@ import pickle
 import numpy as np
 import pandas as pd
 from Bio.PDB import DSSP
-from pdb_tools import return_structure, write_partial_structure
+from pdb_tools import pdbfile_id, return_structure, write_partial_structure
 
 maxResAcc = {'Wilke': {'A': 129.0, 'R': 274.0, 'N': 195.0, 'D': 193.0, 'C': 167.0,
                        'E': 223.0, 'Q': 225.0, 'G': 104.0, 'H': 224.0, 'I': 197.0,
@@ -24,9 +24,12 @@ def load_empirical_maxAcc (inPath):
 def calculate_structure_rsa (accDir, pdbDir, pdbid, selChains = None):
     
     if selChains:
-        accFile = accDir / (pdbid + '_' + '_'.join(selChains) + '.txt')
+        pdbFileID = pdbfile_id (pdbid + '_' + '_'.join(sorted(selChains)))
+        #accFile = accDir / (pdbid + '_' + '_'.join(selChains) + '.txt')
     else:
-        accFile = accDir / (pdbid + '.txt')
+        pdbFileID = pdbfile_id (pdbid)
+        #accFile = accDir / (pdbid + '.txt')
+    accFile = accDir / (pdbFileID + '.txt')
     if not accFile.is_file():
         make_acc_file (accDir, pdbDir, pdbid, selChains = selChains)
     if accFile.is_file():
@@ -40,15 +43,17 @@ def make_acc_file (accDir, pdbDir, pdbid, tempDir = None, selChains = None):
     if selChains:
         if not tempDir:
             tempDir = pdbDir
-        extid =  pdbid + '_' + '_'.join(sorted(selChains))
-        strucFile = tempDir / ('pdb' + extid + '.ent')
-        accFile = accDir / (extid + '.txt')
+        pdbfileID = pdbfile_id (pdbid + '_' + '_'.join(sorted(selChains)))
+        #extid =  pdbid + '_' + '_'.join(sorted(selChains))
+        strucFile = tempDir / ('pdb' + pdbfileID + '.ent')
+        accFile = accDir / (pdbfileID + '.txt')
         write_partial_structure (pdbid, selChains, pdbDir, strucFile)
-        struc = return_structure (extid, tempDir)
+        struc = return_structure (pdbfileID, tempDir)
     else:
-        strucFile = pdbDir / ('pdb' + pdbid + '.ent')
-        accFile = accDir / (pdbid + '.txt')
-        struc = return_structure (pdbid, pdbDir)
+        pdbfileID = pdbfile_id (pdbid)
+        strucFile = pdbDir / ('pdb' + pdbfileID + '.ent')
+        accFile = accDir / (pdbfileID + '.txt')
+        struc = return_structure (pdbfileID, pdbDir)
     if struc:
         try:
             rsa = DSSP (struc[0], strucFile, acc_array = 'Wilke')

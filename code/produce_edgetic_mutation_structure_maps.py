@@ -17,7 +17,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -46,8 +46,8 @@ def main():
     modellingDir = interactomeDir / model_method
     
     # directory for PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
-    #pdbDir = Path('../pdb_files')
+    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
+    pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':
         modelDir = modellingDir / 'ppi_models'

@@ -43,7 +43,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based

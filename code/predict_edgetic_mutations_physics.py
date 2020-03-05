@@ -47,7 +47,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -82,14 +82,14 @@ def main():
     # directory of processed model-related data files specific to interactome
     modellingDir = interactomeDir / model_method
     
-    # directory of calculation method
-    methodDir = modellingDir / 'physics'
+    # directory of edgetic mutation calculation method
+    edgeticDir = modellingDir / 'physics' / (ddg_method + '_edgetics')
     
     # directory of network perturbation output data files for use by Cytoscape
-    cytoscapeDir = methodDir / 'cytoscape'
+    cytoscapeDir = edgeticDir / 'cytoscape'
     
     # figure directory
-    figDir = Path('../figures') / interactome_name / model_method / 'physics' / ('%s_edgetics' % ddg_method)
+    figDir = Path('../figures') / interactome_name / model_method / 'physics' / (ddg_method + '_edgetics')
     
     # input data files
     #geometryPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
@@ -101,16 +101,16 @@ def main():
     
     # output data files
     #physicsPerturbsFile = interactomeDir / ('mutation_perturbs_physics_%s.pkl' % ddg_method)
-    natMutEdgotypeFile = methodDir / ('nondisease_mutation_edgetics_%s.txt' % ddg_method)
-    disMutEdgotypeFile = methodDir / ('disease_mutation_edgetics_%s.txt' % ddg_method)
-    naturalMutEdgeFile = cytoscapeDir / ('nondiseaseMut_perturbed_edges_%s' % ddg_method)
-    naturalMutNodeFile = cytoscapeDir / ('nondiseaseMut_node_colors_%s' % ddg_method)
-    diseaseMutEdgeFile = cytoscapeDir / ('diseaseMut_perturbed_edges_%s' % ddg_method)
-    diseaseMutNodeFile = cytoscapeDir / ('diseaseMut_node_colors_%s' % ddg_method)
+    natMutEdgotypeFile = edgeticDir / 'nondisease_mutation_edgetics.txt'
+    disMutEdgotypeFile = edgeticDir / 'disease_mutation_edgetics.txt'
+    naturalMutEdgeFile = cytoscapeDir / 'nondiseaseMut_perturbed_edges'
+    naturalMutNodeFile = cytoscapeDir / 'nondiseaseMut_node_colors'
+    diseaseMutEdgeFile = cytoscapeDir / 'diseaseMut_perturbed_edges'
+    diseaseMutNodeFile = cytoscapeDir / 'diseaseMut_node_colors'
     
     # create output directories if not existing
-    if not methodDir.exists():
-        os.makedirs(methodDir)
+    if not edgeticDir.exists():
+        os.makedirs(edgeticDir)
     if not cytoscapeDir.exists():
         os.makedirs(cytoscapeDir)
     if not figDir.exists():

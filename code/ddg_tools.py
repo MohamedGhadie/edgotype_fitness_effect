@@ -5,6 +5,7 @@
 import os
 import io
 import re
+import sys
 from pathlib import Path
 from text_tools import write_beluga_job
 from pdb_tools import pdbfile_id, solve_pdbfile_id, clear_structures, write_partial_structure
@@ -152,7 +153,12 @@ def produce_foldx_buildmodel_jobs (mutations, pdbDir, outDir, parameters = None)
                      'vdwDesign':2}
     if not parameters:
         parameters = {}
-    for struc, mutList in mutations.items():
+    mutations = mutations.items()
+    n = len(mutations)
+    print('Writing FoldX BuildModel files:')
+    for i, (struc, mutList) in enumerate(mutations):
+        sys.stdout.write('  Structure %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
+        sys.stdout.flush()
         #strucid = '_'.join(struc)
         strucid = get_strucID (struc)
         strucDir = outDir / strucid
@@ -188,6 +194,7 @@ def produce_foldx_buildmodel_jobs (mutations, pdbDir, outDir, parameters = None)
                             ionStrength = mutParam['ionStrength'],
                             water = mutParam['water'],
                             vdwDesign = mutParam['vdwDesign'])
+    print()
 
 def produce_foldx_pssm_jobs (mutations, pdbDir, outDir, parameters = None):
     """Produce jobs for the FoldX method for ∆∆G calculation using PSSM command.
@@ -211,7 +218,12 @@ def produce_foldx_pssm_jobs (mutations, pdbDir, outDir, parameters = None):
     if not parameters:
         parameters = {}
     
-    for struc, mutList in mutations.items():
+    mutations = mutations.items()
+    n = len(mutations)
+    print('Writing FoldX PSSM files:')
+    for i, (struc, mutList) in enumerate(mutations):
+        sys.stdout.write('  Structure %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
+        sys.stdout.flush()
         #strucid = '_'.join(struc)
         strucid = get_strucID (struc)
         pdbid, chainID1, chainID2 = struc[:3]
@@ -246,6 +258,7 @@ def produce_foldx_pssm_jobs (mutations, pdbDir, outDir, parameters = None):
                                 ionStrength = mutParam['ionStrength'],
                                 water = mutParam['water'],
                                 vdwDesign = mutParam['vdwDesign'])
+    print()
 
 def write_foldx_config (outPath,
                         command,
@@ -335,6 +348,7 @@ def produce_beluga_foldx_jobs (mutations,
     if not outDir.exists():
         os.makedirs(outDir)
     
+    print('Writing Beluga job files')
     if type is 'folding':
         for struc, _ in mutations.items():
             #strucid = '_'.join(struc)

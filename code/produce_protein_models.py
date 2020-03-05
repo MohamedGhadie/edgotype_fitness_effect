@@ -11,6 +11,8 @@ def main():
     # verbosity for Modeller
     verbosity = 'none'
     
+    modellerTimeout = 30
+    
     # parent directory of all data files
     dataDir = Path('../../../../')
     
@@ -45,7 +47,8 @@ def main():
                             templateDir,
                             modelDir,
                             numModels = 1,
-                            verbosity = verbosity)
+                            verbosity = verbosity,
+                            modellerTimeout = modellerTimeout * 60)
 
 if __name__ == "__main__":
     main()
