@@ -8,7 +8,9 @@
 import os
 import pandas as pd
 from pathlib import Path
-from text_tools import parse_HI_II_14_interactome, parse_IntAct_interactions
+from text_tools import (parse_HI_II_14_interactome,
+                        parse_HuRI_interactome,
+                        parse_IntAct_interactions)
 from id_mapping import produce_protein_interaction_dict
 from interactome_tools import (write_interactome_sequences,
                                remove_interactions_reported_once,
@@ -17,8 +19,8 @@ from interactome_tools import (write_interactome_sequences,
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    # options: HI-II-14, IntAct, HuRI
+    interactome_name = 'HuRI'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -34,6 +36,7 @@ def main():
     
     # input data files
     HI_II_14_datafile = extDir / 'HI-II-14.tsv'
+    HuRI_datafile = extDir / 'HuRI.tsv'
     IntAct_datafile = extDir / 'intact.txt'
     uniprotIDmapFile = procDir / 'to_human_uniprotID_map.pkl'
     uniqueGeneSwissProtIDFile = procDir / 'uniprot_unique_gene_reviewed_human_proteome.list'
@@ -57,6 +60,11 @@ def main():
                                         uniprotIDmapFile,
                                         interactomeFile1,
                                         selfPPIs = False)
+        if interactome_name is 'HuRI':
+            parse_HuRI_interactome (HuRI_datafile,
+                                    uniprotIDmapFile,
+                                    interactomeFile1,
+                                    selfPPIs = False)
         elif interactome_name is 'IntAct':
             parse_IntAct_interactions (IntAct_datafile, 
                                        uniqueGeneSwissProtIDFile,
@@ -67,14 +75,16 @@ def main():
             print('Error: interactome name %s not recognized. Quiting...' % interactome_name)
             return
     
+    interactome = pd.read_table (interactomeFile1)
+    proteins = list(set(interactome[["Protein_1", "Protein_2"]].values.flatten()))
+    print('Interactome size with duplicates: %d PPIs, %d proteins' % (len(interactome), len(proteins)))
+    
     if not interactomeFile.is_file():
-        interactome = pd.read_table(interactomeFile1)
-        print('Initial interactome size: %d PPIs' % len(interactome))
         if interactome_name is 'IntAct':
             interactome = remove_interactions_reported_once (interactome)
             print('Interactome size after removing PPIs reported only once: %d PPIs' % len(interactome))
         interactome = remove_duplicate_PPIs (interactome)
-        print('Interactome size after removing duplicate PPIs: %d PPIs' % len(interactome))
+        print('Interactome size after removing duplicates: %d PPIs' % len(interactome))
         interactome.to_csv (interactomeFile, index=False, sep='\t')
     
     if not interactomeSequenceFile.is_file():
