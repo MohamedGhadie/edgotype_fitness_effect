@@ -64,17 +64,8 @@ def main():
     chainMapFile = modelBasedDir / 'struc_interactome_chain_map.txt'
     modelInterfaceFile = modelBasedDir / 'model_interfaces.txt'
     chainStrucResFile = modelBasedDir / 'ppi_chain_strucRes.pkl'
-
-#     proteinChainsFile = procDir / 'protein_chains.pkl'
-#     alignmentEvalueFile = procDir / 'human_protein_chain_min_alignment_evalues.pkl'
-#     chainInterfaceFile = procDir / 'pdb_interfaces.txt'
-#     chainAnnotatedInteractomeFile = interactomeDir / 'human_chain_annotated_interactome.txt'
-#     chainIDFile = interactomeDir / 'interactome_chainIDs.txt'
-#     pdbIDFile = interactomeDir / 'interactome_pdbIDs.txt'
     structuralInteractomeFile1 = modelBasedDir / 'structural_interactome_withDuplicates.txt'
     structuralInteractomeFile = modelBasedDir / 'structural_interactome.txt'
-#     refInteractomeChainMapFile = interactomeDir / 'ref_interactome_pdb_chain_map.txt'
-#     strucInteractomeChainMapFile = interactomeDir / 'struc_interactome_pdb_chain_map.txt'
     
     if not modelBasedDir.exists():
         os.makedirs(modelBasedDir)

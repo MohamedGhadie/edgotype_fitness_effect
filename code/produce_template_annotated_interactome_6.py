@@ -1,13 +1,5 @@
 #----------------------------------------------------------------------------------------
-# This script constructs a structural interactome from a reference interactome by mapping 
-# interaction binding interfaces at amino acid resolution from experimentally determined 
-# three-dimensional structural models in PDB onto interactions in the reference interactome.
 #
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
-# - process_interactome.py
-# - BLAST human protein sequences against PDB sequences and save results into path
-#   ../data/external/human_pdb_e-5
 #----------------------------------------------------------------------------------------
 
 import os
@@ -35,7 +27,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    interactome_name = 'HuRI'
     
     # Maximum e-value cutoff to filter out protein-chain annotations
     evalue = 1e-5
@@ -120,11 +112,11 @@ def main():
     modelChainsFile = templateBasedDir / 'protein_model_chains.pkl'
     alignmentEvalueFile = templateBasedDir / 'protein_chain_min_alignment_evalues.pkl'
     chainAnnotatedInteractomeFile = templateBasedDir / 'chain_annotated_interactome_6.txt'
-    chainIDFile = templateBasedDir / 'interactome_chainIDs_6.txt'
-    pdbIDFile = templateBasedDir / 'interactome_pdbIDs_6.txt'
+    chainIDFile = templateBasedDir / 'interactome_chainIDs.txt'
+    pdbIDFile = templateBasedDir / 'interactome_pdbIDs.txt'
     interfaceAnnotatedInteractomeFile1 = templateBasedDir / 'structural_interactome_withDuplicates_6.txt'
     interfaceAnnotatedInteractomeFile = templateBasedDir / 'structural_interactome_6.txt'
-    refInteractomeChainMapFile = templateBasedDir / 'ref_interactome_chain_map_6.txt'
+    refInteractomeChainMapFile = templateBasedDir / 'ref_interactome_chain_map.txt'
     strucInteractomeChainMapFile = templateBasedDir / 'struc_interactome_chain_map_6.txt'
     
     if not pdbDir.exists():
@@ -168,8 +160,8 @@ def main():
                            resMatch = resMatch,
                            pausetime = pausetime)
     
-    print('producing chain ID list')
-    produce_item_list (chainMapFile3, "Subject", chainListFile)
+        print('producing chain ID list')
+        produce_item_list (chainMapFile3, "Subject", chainListFile)
     
     if not modelChainsFile.is_file():
         print( 'producing protein chains dictionary' )
@@ -185,28 +177,25 @@ def main():
                                              modelChainsFile,
                                              chainAnnotatedInteractomeFile,
                                              alignmentEvalueFile = alignmentEvalueFile)
-    
-    chainAnnotatedInteractome = read_chain_annotated_interactome (chainAnnotatedInteractomeFile)
-    interactomeProteins = list(set(chainAnnotatedInteractome[["Protein_1", "Protein_2"]].values.flatten()))
-    print( '\n' + 'Chain-annotated interactome:' )
-    print( '%d PPIs' % len(chainAnnotatedInteractome) )
-    print( '%d proteins' % len(interactomeProteins) )
-    print()
-    
-    uniqueChains = set()
-    for ls in chainAnnotatedInteractome["Mapping_chains"].values:
-        for pair in ls:
-            uniqueChains.update(pair)
-    uniquePDBs = {id.split('_')[0] for id in uniqueChains}
-    print('\n' + 'Interactome chain-pair annotations:')
-    print('%d unique chains in %d unique PDB structures' % (len(uniqueChains), len(uniquePDBs)))
-    
-    with open(chainIDFile, 'w') as f:
-        for i in sorted(uniqueChains):
-            f.write("%s\n" % i)
-    with open(pdbIDFile, 'w') as f:
-        for i in sorted(uniquePDBs):
-            f.write("%s\n" % i)
+        
+        chainAnnotatedInteractome = read_chain_annotated_interactome (chainAnnotatedInteractomeFile)
+        interactomeProteins = list(set(chainAnnotatedInteractome[["Protein_1", "Protein_2"]].values.flatten()))
+        print( 'Chain-annotated interactome:' )
+        print( '%d PPIs' % len(chainAnnotatedInteractome) )
+        print( '%d proteins' % len(interactomeProteins) )
+        
+        uniqueChains = set()
+        for ls in chainAnnotatedInteractome["Mapping_chains"].values:
+            for pair in ls:
+                uniqueChains.update(pair)
+        uniquePDBs = {id.split('_')[0] for id in uniqueChains}
+        
+        with open(chainIDFile, 'w') as f:
+            for i in sorted(uniqueChains):
+                f.write("%s\n" % i)
+        with open(pdbIDFile, 'w') as f:
+            for i in sorted(uniquePDBs):
+                f.write("%s\n" % i)
     
     if not refInteractomeChainMapFile.is_file():
         print('filtering chain annotations by reference chain-annotated interactome proteins')

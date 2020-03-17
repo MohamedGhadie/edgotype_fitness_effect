@@ -14,7 +14,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    interactome_name = 'HuRI'
     
     # allow downloading of PDB structures while constructing the structural interactome
     allow_pdb_downloads = False
@@ -49,8 +49,6 @@ def main():
     blastFile = modelBasedDir / 'ppi_template_blast_alignments_e100'
     templateSeqFile = modelBasedDir / 'ppi_template_sequences.pkl'
     templateStrucResFile = modelBasedDir / 'ppi_template_strucRes.pkl'
-    #templateSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
-    #templateStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
     alignmentFile1 = modelBasedDir / 'ppi_template_alignments.txt'

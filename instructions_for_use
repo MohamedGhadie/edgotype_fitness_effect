@@ -49,10 +49,13 @@ python3 process_external_data.py
 # process reference interactome dataset
 python3 process_interactome.py
 
-cd ../data/processed
-# BLAST human protein sequences against PDB SEQRES sequences:
+# BLAST interactome protein sequences against PDB SEQRES sequences:
+cd ../data/processed/<interactome_name>
+cp interactome_sequences.fasta ../
+cd ../
 makeblastdb -in pdb_seqres_reduced.fasta -dbtype prot -out pdb_seqres_db
-blastp -db pdb_seqres_db -query human_reference_sequences.fasta -out human_pdb_e-5 -evalue 1e-5
+blastp -db pdb_seqres_db -query interactome_sequences.fasta -out interactome_pdb_e-5 -evalue 1e-5
+cp interactome_pdb_e-5 /<interactome_name>
 
 # produce template structural interactome:
 cd ../../code
@@ -94,7 +97,13 @@ python3 process_dbsnp_mutations.py
 # produce PPI template files for PPI homology modelling
 python3 produce_ppi_template_files.py
 
+# blast again this time against sequence residues that have 3d coordinates, for modeller
+cd ../data/processed/<interactome_name>/model_based
+makeblastdb -in ppi_template_sequences.fasta -dbtype prot -out ppi_template_seq_db
+blastp -db ppi_template_seq_db -query protein_sequences.fasta -out ppi_template_blast_alignments_e100 -evalue 100 -max_hsps 1 -num_alignments 1000
+
 # produce PPI alignment files for PPI homology modelling
+cd ../../../../code
 python3 produce_ppi_alignment_files.py
 
 # produce PPI structural models
@@ -109,6 +118,8 @@ python3 rename_models.py
 
 # produce structural interactome
 python3 produce_model_structural_interactome.py
+
+# At this point, you have the structural interactome with mapped PPI interfaces in the file "structural_interactome.txt" in directory /data/processed/<interactome_name>/model_based/
 
 # predict PPI edgetic perturbations and edgetic mutations based on geometry:
 python3 predict_edgetic_mutations_geometry.py

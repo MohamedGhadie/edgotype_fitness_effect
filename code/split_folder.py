@@ -4,7 +4,7 @@ from subprocess import run
 
 def main():
     
-    numFiles = 100
+    numFiles = 111
     
     # path to folder to split
     inDir = './jobs'

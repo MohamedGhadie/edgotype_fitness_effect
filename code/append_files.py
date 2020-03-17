@@ -5,13 +5,13 @@ from pathlib import Path
 def main():
     
     # directory of input files
-    inDir = '../data/processed/IntAct/model_based'
+    inDir = '../data/processed/HuRI/model_based'
     
     # input file names
     inFiles = ['structural_interactome_withDuplicates_%d.txt' % i for i in np.arange(1,11)]
     
     # path to output file
-    outPath = Path(inDir) / 'structural_interactome_withDuplicates_appended.txt'
+    outPath = Path(inDir) / 'structural_interactome_withDuplicates.txt'
     
     with io.open(outPath, 'w') as fout:
         for i, inFile in enumerate(inFiles):

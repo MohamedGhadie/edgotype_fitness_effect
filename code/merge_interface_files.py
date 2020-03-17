@@ -6,13 +6,13 @@ from structural_annotation import clear_interfaces, read_chain_interfaces, write
 def main():
     
     # directory of input files
-    inDir = '../data/processed/IntAct/model_based'
+    inDir = '../data/processed/HuRI/model_based'
     
     # input file names
     inFiles = ['model_interfaces_%d.txt' % i for i in np.arange(1,11)]
     
     # path to output file
-    outPath = Path(inDir) / 'model_interfaces_merged.txt'
+    outPath = Path(inDir) / 'model_interfaces.txt'
     
     with io.open(outPath, 'w') as fout:
         for i, inFile in enumerate(inFiles):

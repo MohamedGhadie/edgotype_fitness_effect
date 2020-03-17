@@ -212,6 +212,7 @@ def download_structures (inPath, outDir):
         filename = outDir / ('pdb' + id + '.ent')
         if not filename.is_file():
             try:
+                print()
                 download_structure (id, outDir)
             except error.URLError:
                 failed += 1

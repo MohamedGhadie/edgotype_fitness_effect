@@ -5,13 +5,13 @@ from pathlib import Path
 def main():
     
     # number of lines wanted in each output split file
-    outLen = 176
+    outLen = 193
     
     # directory of input file
-    inDir = '../data/processed/IntAct/model_based'
+    inDir = '../data/processed/HuRI/model_based'
     
     # input file name
-    inFile = 'single_template_map_per_protein.txt'
+    inFile = 'model_annotated_interactome.txt'
     
     # path to input file
     inPath = Path(inDir) / inFile
