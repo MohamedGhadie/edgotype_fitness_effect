@@ -4,7 +4,7 @@ from pathlib import Path
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
+    # options: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # parent directory of all data files
@@ -20,7 +20,7 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for output models
-    modelDir = modelBasedDir / 'ppi_models'
+    modelDir = modelBasedDir / 'protein_models'
     
     modelFiles = os.listdir(modelDir)
     for name in modelFiles:

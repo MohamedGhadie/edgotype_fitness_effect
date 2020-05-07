@@ -633,7 +633,15 @@ def append_mutation_ddg_files (inPath1, inPath2, outPath):
                 fout.write(line)
 
 def get_strucID (struc):
+    """Return structure file ID from structure, chains and mutation ID tuple.
 
+    Args:
+        strucid (tuple): structure, chains and mutation ID tuple.
+
+    Returns:
+        str: structure file ID.
+
+    """
     if re.match(r'\D\S\d+\D', struc[-1]):
         return pdbfile_id ('_'.join(struc[:-1])) + '_' + struc[-1]
     else:

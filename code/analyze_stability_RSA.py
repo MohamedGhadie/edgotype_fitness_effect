@@ -8,8 +8,8 @@ from plot_tools import multi_bar_plot, curve_plot
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -29,7 +29,8 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -128,23 +129,23 @@ def main():
     xticklabels = [round(i, 1) for i in np.arange(0, 1.1, 0.2)]
     curve_plot ([disMutDDG, natMutDDG],
                 xdata = [disMutRSA, natMutRSA],
-                styles = ['^m', 'oc'],
-                fitstyles = ['--m', '--c'],
-                capsize = 6,
-                msize = 12,
-                ewidth = 2,
-                ecolors = ['m', 'c'],
-                fontsize = 16,
+                styles = ['^m', 'og'],
+                fitstyles = ['--m', '--g'],
+                capsize = 12,
+                msize = 20,
+                ewidth = 3,
+                ecolors = ['m', 'g'],
+                fontsize = 24,
                 xticklabels = xticklabels,
-                xlabel = 'Relative solvent accessibility',
-                ylabel = 'Change in protein stability ∆∆G (kcal / mol)',
-                leg = ('Disease mutations', 'Non-disease mutations'),
+                xlabel = 'RSA',
+                ylabel = 'Change in protein stability\n∆∆G (kcal / mol)',
+                #leg = ('Disease mutations', 'Non-disease mutations'),
                 xlim = [-0.05, 1],
-                ylim = [-1, 6],
+                ylim = [-0.25, 6],
                 compress = True,
                 linefit = False,
                 xstart = -0.05,
-                perbin = 0,
+                perbin = 2,
                 show = showFigs,
                 figdir = figDir,
                 figname = 'Stability_vs_RSA')

@@ -13,8 +13,8 @@ from modelling_tools import (set_pdb_dir,
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # allow downloading of PDB structures while constructing the structural interactome
     allow_pdb_downloads = False
@@ -41,7 +41,6 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     # directory for template structure files

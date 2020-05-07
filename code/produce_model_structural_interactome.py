@@ -1,13 +1,5 @@
 #----------------------------------------------------------------------------------------
-# This script constructs a structural interactome from a reference interactome by mapping 
-# interaction binding interfaces at amino acid resolution from experimentally determined 
-# three-dimensional structural models in PDB onto interactions in the reference interactome.
 #
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
-# - process_interactome.py
-# - BLAST human protein sequences against PDB sequences and save results into path
-#   ../data/external/human_pdb_e-5
 #----------------------------------------------------------------------------------------
 
 import os
@@ -24,8 +16,8 @@ from structural_annotation import (produce_interface_annotated_interactome,
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'IntAct'
     
     # max binding distance for interface residues in PDB structure
     bindingDist = 5
@@ -34,7 +26,8 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -110,9 +103,9 @@ def main():
                                                  downloadPDB = False,
                                                  suppressWarnings = False)
         
-        print('merging interface annotations for each PPI')
-        merge_interactome_interface_annotations (structuralInteractomeFile1,
-                                                 structuralInteractomeFile)
+#         print('merging interface annotations for each PPI')
+#         merge_interactome_interface_annotations (structuralInteractomeFile1,
+#                                                  structuralInteractomeFile)
     
     structuralInteractome = pd.read_table (structuralInteractomeFile, sep='\t')
     interactomeProteins = list(set(structuralInteractome[["Protein_1", "Protein_2"]].values.flatten()))

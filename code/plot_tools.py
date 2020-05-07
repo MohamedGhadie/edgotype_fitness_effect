@@ -2,8 +2,8 @@
 # Modules for plotting.
 #----------------------------------------------------------------------------------------
 
-# import matplotlib
-# matplotlib.use('Agg')
+#import matplotlib
+#matplotlib.use('Agg')
 import os
 import numpy as np
 import networkx as nx
@@ -33,6 +33,7 @@ def bar_plot (data,
               ylim = None,
               xticks = None,
               yMinorTicks = False,
+              bottom = 0,
               adjustBottom = False,
               shiftBottomAxis = None,
               xbounds = None,
@@ -62,6 +63,7 @@ def bar_plot (data,
         ylim (list): limits for y-axis.
         xticks (list): x-tick position.
         yMinorTicks (numeric): number of minor ticks between two major ticks on y-axis.
+        bottom (list): y coordinate(s) of the bar bases.
         adjustBottom (boolean) = True if bottom margin of figure needs adjustment.
         shiftBottomAxis (numeric) = shift x-axis by this much.
         xbounds (list): chop off x-axis beyond these bounds.
@@ -82,6 +84,7 @@ def bar_plot (data,
     ph.bar(ind,
            data,
            barwidth,
+           bottom = bottom,
            color = colors,
            alpha = opacity,
            edgecolor = edgecolor)

@@ -64,6 +64,50 @@ def suppress_pdb_warnings (suppress):
     global suppressWarnings
     suppressWarnings = suppress
 
+def pdbfile_id (strucid):
+    """Return structure file ID from structure ID by appending ! to lowercase chain 
+        letters, if any.
+
+    Args:
+        strucid (str): structure ID.
+
+    Returns:
+        str: structure file ID.
+
+    """
+    m = re.search(r'-|_', strucid)
+    if m:
+        ind = m.start(0)
+        return strucid[:ind] + re.sub(r'([a-z])', r'!\1', strucid[ind:])
+    else:
+        return strucid
+
+def pdbfile_name (strucid):
+    """Return stucture file name from structure ID by appending ! to lowercase chain 
+        letters, if any.
+
+    Args:
+        strucid (str): structure ID.
+
+    Returns:
+        str: structure file name.
+
+    """
+    return 'pdb' + pdbfile_id (strucid) + '.ent'
+
+def solve_pdbfile_id (id):
+    """Resolve structure ID from structure file ID by removing ! from lowercase chain 
+        letters, if any.
+
+    Args:
+        id (str): structure file ID.
+
+    Returns:
+        str: structure ID.
+
+    """
+    return id.replace('!', '')
+
 def load_pdbtools_chain_sequences (inPath):
     """Load PDB chain sequences into global variable.
 
@@ -128,23 +172,6 @@ def add_structure (pdbid, struc):
         del structures[strucList.pop(0)]
     structures[pdbid] = struc
     strucList.append(pdbid)
-
-def pdbfile_id (strucid):
-    
-    m = re.search(r'-|_', strucid)
-    if m:
-        ind = m.start(0)
-        return strucid[:ind] + re.sub(r'([a-z])', r'!\1', strucid[ind:])
-    else:
-        return strucid
-
-def pdbfile_name (strucid):
-    
-    return 'pdb' + pdbfile_id (strucid) + '.ent'
-
-def solve_pdbfile_id (id):
-    
-    return id.replace('!', '')
 
 def retrieve_structure (pdbid, pdbDir):
     """Retrieve PDB structure from local directory if available, otherwise donwload 

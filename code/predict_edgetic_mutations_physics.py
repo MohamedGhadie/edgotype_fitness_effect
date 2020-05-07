@@ -47,7 +47,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -57,7 +57,7 @@ def main():
     # options: bindprofx, foldx
     ddg_method = 'foldx'
     
-    # Minimum reduction in binding free energy DDG required for interaction perturbation
+    # Minimum reduction in binding free energy ∆∆G required for interaction perturbation
     ddgCutoff = 0.5
     
     # set to True to calculate dispensable PPI content using fraction of mono-edgetic mutations 

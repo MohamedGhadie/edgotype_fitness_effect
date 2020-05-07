@@ -43,7 +43,7 @@ def main():
     
     # reference interactome name
     # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -57,7 +57,7 @@ def main():
     ddgCutoff = 0.5
     
     # structural interactome names
-    struc_name = {'HI-II-14':'Y2H-SI', 'IntAct':'IntAct-SI'}
+    struc_name = {'HI-II-14':'Y2H-SI', 'HuRI':'Y2H-SI', 'IntAct':'IntAct-SI'}
     
     # show figures
     showFigs = False
@@ -77,6 +77,9 @@ def main():
     # directory of calculation method
     methodDir = modellingDir / 'physics'
     
+    # directory of edgetic mutation calculation method
+    edgeticDir = methodDir / (ddg_method + '_edgetics')
+    
     # figure directory
     figDir = Path('../figures') / interactome_name / model_method / 'physics' / ('%s_edgetics' % ddg_method)
     
@@ -87,12 +90,12 @@ def main():
     structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'
     
     # output data files
-    natMutDDGoutFile = methodDir / ('nondisMut_binding_ddg_table_%s.txt' % ddg_method)
-    disMutDDGoutFile = methodDir / ('disMut_binding_ddg_table_%s.txt' % ddg_method)
+    natMutDDGoutFile = edgeticDir / ('nondisMut_binding_ddg_table_%s.txt' % ddg_method)
+    disMutDDGoutFile = edgeticDir / ('disMut_binding_ddg_table_%s.txt' % ddg_method)
     
     # create output directories if not existing
-    if not methodDir.exists():
-        os.makedirs(methodDir)
+    if not edgeticDir.exists():
+        os.makedirs(edgeticDir)
     if not figDir.exists():
         os.makedirs(figDir)
     

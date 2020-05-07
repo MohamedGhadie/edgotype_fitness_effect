@@ -63,13 +63,13 @@ def fitness_effect (pN,
             print('%s = %.1f %%' % (cond_probs[0], 100 * pT_N))
             print('%s = %.1f %%' % (cond_probs[1], 100 * pT_M))
             print('%s = %.1f %%' % (cond_probs[2], 100 * pT_S))
-            print('P(%s) = %sP(N) + %sP(M) + %sP(S) = %.1f %%' 
+            print('P(%s) = %sP(N) + %sP(M) + %sP(S) = %.2f %%' 
                     % (T, cond_probs[0], cond_probs[1], cond_probs[2], 100 * pT))
-            print('Probability for %s mutations to be effectively neutral %s = %.1f %%' 
+            print('Probability for %s mutations to be effectively neutral %s = %.2f %%' 
                     % (edgotype, posteriors[0], 100 * pN_T))
-            print('Probability for %s mutations to be mildly deleterious %s = %.1f %%' 
+            print('Probability for %s mutations to be mildly deleterious %s = %.2f %%' 
                     % (edgotype, posteriors[1], 100 * pM_T))
-            print('Probability for %s mutations to be strongly detrimental %s = %.1f %%' 
+            print('Probability for %s mutations to be strongly detrimental %s = %.2f %%' 
                     % (edgotype, posteriors[2], 100 * pS_T))
     
         # calculate 95% confidence interval

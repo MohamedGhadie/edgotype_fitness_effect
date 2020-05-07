@@ -7,8 +7,8 @@ from pdb_tools import download_structures
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -28,6 +28,7 @@ def main():
     
     # parent directory of all data files
     dataDir = Path('../data')
+    #dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -39,9 +40,8 @@ def main():
     templateBasedDir = interactomeDir / 'template_based'
     
     # directory of PDB structure files
-    pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
-    #newDir = Path('/Volumes/MG_Samsung/pdb_files_new')
-    #pdbDir = Path('../../pdb_files')
+    pdbDir = Path('../../pdb_files')
+    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     # input data files
     #chainMapFile = procDir / 'human_pdb_chain_map.txt'

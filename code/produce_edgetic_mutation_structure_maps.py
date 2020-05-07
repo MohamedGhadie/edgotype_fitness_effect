@@ -16,7 +16,7 @@ from structural_annotation import write_mutation_structure_maps
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
+    # options: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models

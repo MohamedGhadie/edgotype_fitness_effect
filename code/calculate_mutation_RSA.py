@@ -9,7 +9,7 @@ from threeD_structure_tools import produce_protein_model_RSA
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
+    # options: HI-II-14, HuRI, IntAct
     interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
@@ -30,7 +30,8 @@ def main():
     suppress_pdb_warnings = True
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -110,27 +111,27 @@ def main():
     # Calculate mutation RSA
     #------------------------------------------------------------------------------------    
     
-    with open(proteinSeqFile, 'rb') as f:
-        prSeq = pickle.load(f)
-    prLen = {}
-    for p in mutationProteins:
-        if p in prSeq:
-            prLen[p] = len(prSeq[p])
-    
-    #if not proteinRSAFile.is_file():
-    print('producing protein RSA dictionary')
-    produce_protein_model_RSA (prLen,
-                               modelChainsFile,
-                               chainSeqFile,
-                               proteinModelFile,
-                               chainStrucResFile,
-                               modelDir,
-                               accDir,
-                               proteinRSAFile,
-                               maxAccFile = maxAccFile,
-                               mapToProtein = True,
-                               downloadPDB = allow_pdb_downloads,
-                               suppressWarnings = suppress_pdb_warnings)
+    if not proteinRSAFile.is_file():
+        with open(proteinSeqFile, 'rb') as f:
+            prSeq = pickle.load(f)
+        prLen = {}
+        for p in mutationProteins:
+            if p in prSeq:
+                prLen[p] = len(prSeq[p])
+        
+        print('producing protein RSA dictionary')
+        produce_protein_model_RSA (prLen,
+                                   modelChainsFile,
+                                   chainSeqFile,
+                                   proteinModelFile,
+                                   chainStrucResFile,
+                                   modelDir,
+                                   accDir,
+                                   proteinRSAFile,
+                                   maxAccFile = maxAccFile,
+                                   mapToProtein = True,
+                                   downloadPDB = allow_pdb_downloads,
+                                   suppressWarnings = suppress_pdb_warnings)
         
     with open(proteinRSAFile, 'rb') as f:
         proteinRSA = pickle.load(f)
@@ -164,8 +165,8 @@ def main():
                                                 chain_pos = disMutChainPos,
                                                 RSA = disMutRSA)
     
-    naturalMutations.to_csv (natMutRSAFile, index=False, sep='\t')
-    diseaseMutations.to_csv (disMutRSAFile, index=False, sep='\t')
+#     naturalMutations.to_csv (natMutRSAFile, index=False, sep='\t')
+#     diseaseMutations.to_csv (disMutRSAFile, index=False, sep='\t')
     
     natMutRSA = [rsa for rsa in natMutRSA if not np.isnan(rsa)]
     disMutRSA = [rsa for rsa in disMutRSA if not np.isnan(rsa)]

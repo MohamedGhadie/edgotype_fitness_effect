@@ -10,8 +10,8 @@ from modelling_tools import (set_model_dir,
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # parent directory of all data files
     dataDir = Path('../data')

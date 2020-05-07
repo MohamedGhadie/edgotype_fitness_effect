@@ -1,3 +1,4 @@
+import os
 import pickle
 import pandas as pd
 import numpy as np
@@ -9,7 +10,7 @@ from plot_tools import bar_plot, multi_bar_plot
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
+    # options: HI-II-14, HuRI, IntAct
     interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
@@ -33,7 +34,8 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -111,27 +113,28 @@ def main():
     #------------------------------------------------------------------------------------
     # Calculate RSA for all residues in structural models carrying mutations
     #------------------------------------------------------------------------------------ 
-    
-    print('Calculating RSA for all model residues')
-    with open(proteinSeqFile, 'rb') as f:
-        prSeq = pickle.load(f)
-    prLen = {}
-    for p in mutationProteins:
-        if p in prSeq:
-            prLen[p] = len(prSeq[p])
 
-    produce_protein_model_RSA (prLen,
-                               modelChainsFile,
-                               chainSeqFile,
-                               proteinModelFile,
-                               chainStrucResFile,
-                               modelDir,
-                               accDir,
-                               proteinModelRSAFile,
-                               maxAccFile = maxAccFile,
-                               mapToProtein = False,
-                               downloadPDB = allow_pdb_downloads,
-                               suppressWarnings = suppress_pdb_warnings)
+    if not proteinModelRSAFile.is_file():
+        with open(proteinSeqFile, 'rb') as f:
+            prSeq = pickle.load(f)
+        prLen = {}
+        for p in mutationProteins:
+            if p in prSeq:
+                prLen[p] = len(prSeq[p])
+        
+        print('Calculating RSA for all model residues')
+        produce_protein_model_RSA (prLen,
+                                   modelChainsFile,
+                                   chainSeqFile,
+                                   proteinModelFile,
+                                   chainStrucResFile,
+                                   modelDir,
+                                   accDir,
+                                   proteinModelRSAFile,
+                                   maxAccFile = maxAccFile,
+                                   mapToProtein = False,
+                                   downloadPDB = allow_pdb_downloads,
+                                   suppressWarnings = suppress_pdb_warnings)
     
     with open(proteinModelRSAFile, 'rb') as f:
         modelRSA = pickle.load(f)
@@ -190,11 +193,14 @@ def main():
         t_test (disMutRSA, allResRSA)
     print() 
     
-    bar_plot ([np.mean(disMutRSA), np.mean(natMutRSA), np.mean(allResRSA)],
+    data = [np.mean(disMutRSA), np.mean(natMutRSA), np.mean(allResRSA)]
+    maxY = 0.1 * np.ceil(max(data) / 0.1)
+    maxY = 0.6
+    bar_plot (data,
               error = [sderror(disMutRSA), sderror(natMutRSA), sderror(allResRSA)],
               xlabels = ['Disease\nmutations', 'Non-disease\nmutations', 'All\nresidues'],
-              ylabel = 'Relative solvent accessibility',
-              ylabels = [0, 0.1, 0.2, 0.3],
+              ylabel = 'RSA',
+              ylabels = list(np.around(np.linspace(0, maxY, int(maxY*10+1)),1)),
               colors = ['magenta', 'turquoise', 'dodgerblue'],
               edgecolor = 'black',
               ewidth = 2,
@@ -202,7 +208,7 @@ def main():
               fontsize = 20,
               capsize = 10,
               msize = 20,
-              ylim = [0, 0.3],
+              ylim = [0, maxY],
               show = showFigs,
               figdir = figDir,
               figname = 'avg_rsa')
@@ -223,16 +229,17 @@ def main():
     maxY = max([i for ls in (diseaseData, nondiseaseData) for i in ls])
     maxY = 5 * np.ceil(maxY / 5) if maxY > 0 else 0
     multi_bar_plot ([diseaseData, nondiseaseData],
-                    xlabel = 'Relative solvent accessibility',
+                    xlabel = 'RSA',
                     ylabel = 'Difference in fraction\nfrom all residues (%)',
                     xlabels = xticklabels,
                     colors = ['magenta', 'turquoise'],
+                    hatches = ['/', '..'],
                     barwidth = barwidth,
                     fontsize = 22,
-                    ylim = [-11, maxY],
+                    ylim = [-15, maxY],
                     xticks = xticks,
                     opacity = None,
-                    leg = ('Disease mutations', 'Non-disease mutations'),
+                    #leg = ('Disease mutations', 'Non-disease mutations'),
                     overlap = False,
                     show = showFigs,
                     figdir = figDir,

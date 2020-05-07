@@ -7,8 +7,8 @@ from ddg_tools import (append_mutation_ddg_files,
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based

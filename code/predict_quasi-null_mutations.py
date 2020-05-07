@@ -9,7 +9,7 @@ from plot_tools import pie_plot
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
+    # options: HI-II-14, HuRI, IntAct
     interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
@@ -28,7 +28,7 @@ def main():
     burialMaxRSA = 0.25
     
     # minimum change in protein free energy required for quasi-null mutations
-    qnMinDDG = 5
+    qnMinDDG = 2
         
     # calculate confidence intervals
     computeConfidenceIntervals = True
@@ -44,7 +44,8 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'

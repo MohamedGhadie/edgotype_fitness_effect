@@ -5,8 +5,8 @@ from modeller_tools import produce_protein_models
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # verbosity for Modeller
     verbosity = 'none'

@@ -7,8 +7,8 @@ from plot_tools import curve_plot
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -25,7 +25,8 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -133,26 +134,27 @@ def main():
     xticklabels = list(map(str, xticks[:-1])) + ['≥' + str(xticks[-1])]
     curve_plot ([disMutDDG, natMutDDG],
                 xdata = [disMutDist_plot, natMutDist_plot],
-                styles = ['^m', 'oc'],
-                fitstyles = ['--m', '--c'],
-                capsize = 5,
-                msize = 12,
-                ewidth = 2,
-                ecolors = ['m', 'c'],
-                fontsize = 16,
+                styles = ['^m', 'og'],
+                fitstyles = ['--m', '--g'],
+                capsize = 12,
+                msize = 20,
+                ewidth = 3,
+                ecolors = ['m', 'g'],
+                fontsize = 24,
                 binwidth = 5,
                 xticks = xticks,
                 xticklabels = xticklabels,
+                #yticklabels = [0, 2, 4, 6, 8],
                 xlabel = 'Distance to protein center (Å)',
-                ylabel = 'Change in protein stability ∆∆G (kcal / mol)',
+                ylabel = 'Change in protein stability\n∆∆G (kcal / mol)',
                 #leg = ('Disease mutations', 'Non-disease mutations'),
                 xlim = [-2.5, 52.5],
-                #ylim = [-2.5, 10],
-                ylim = [-0.25, 6],
+                ylim = [-1.25, 4],
+                #ylim = [-0.5, 8.1],
                 compress = True,
-                linefit = True,
+                linefit = False,
                 xstart = -2.5,
-                perbin = 0,
+                perbin = 2,
                 show = showFigs,
                 figdir = figDir,
                 figname = 'Stability_vs_distToCenter')

@@ -7,7 +7,7 @@ from plot_tools import pie_plot
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
+    # options: HI-II-14, HuRI, IntAct
     interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
@@ -28,7 +28,8 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -118,8 +119,8 @@ def main():
                 locations.append('exposed-noninterface')
         mut["structural_location"] = locations
     
-    naturalMutations.to_csv (natMutLocFile, index=False, sep='\t')
-    diseaseMutations.to_csv (disMutLocFile, index=False, sep='\t')
+#     naturalMutations.to_csv (natMutLocFile, index=False, sep='\t')
+#     diseaseMutations.to_csv (disMutLocFile, index=False, sep='\t')
     
     #------------------------------------------------------------------------------------
     # Calculate fraction of mutations in each region on protein structure
@@ -181,6 +182,7 @@ def main():
               #labels = [exposed_region_label.title(), edgetic_region_label.title(), 'Buried'],
               #labels = ['exposed-noninterface', 'interface', 'Buried'],
               colors = ['mediumslateblue', 'purple', 'red'],
+              #colors = ['dodgerblue', 'purple', 'red'],
               edgewidth = 2,
               show = showFigs,
               figdir = figDir,
@@ -190,6 +192,7 @@ def main():
               #labels = [exposed_region_label.title(), edgetic_region_label.title(), 'Buried'],
               #labels = ['exposed-noninterface', 'interface', 'Buried'],
               colors = ['mediumslateblue', 'purple', 'red'],
+              #colors = ['dodgerblue', 'purple', 'red'],
               edgewidth = 2,
               show = showFigs,
               figdir = figDir,

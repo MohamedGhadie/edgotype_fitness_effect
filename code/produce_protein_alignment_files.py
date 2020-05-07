@@ -13,17 +13,8 @@ from modelling_tools import (set_pdb_dir,
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
-    
-#     Maximum e-value cutoff to filter out protein-chain annotations
-#     evalue = 1e-10
-#     
-#     Minimum protein coverage fraction required for protein-chain annotation
-#     proteinCov = 0
-#     
-#     Minimum chain coverage fraction required for protein-chain annotation
-#     chainCov = 0
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # allow downloading of PDB structures while constructing the structural interactome
     allow_pdb_downloads = False

@@ -7,8 +7,8 @@ from ddg_tools import (read_foldx_results,
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'HI-II-14'
+    # options: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -88,8 +88,8 @@ def main():
                                    cpus_per_task = 1,
                                    mem_per_cpu = '4G',
                                    username = 'ghadie84',
-                                   outputfile = '/project/ctb-yxia/ghadie84/foldx_2/data/%x-%j.out',
-                                   serverDataDir = '/project/ctb-yxia/ghadie84/foldx_2/data')
+                                   outputfile = '/project/ctb-yxia/ghadie84/foldx/data/%x-%j.out',
+                                   serverDataDir = '/project/ctb-yxia/ghadie84/foldx/data')
 
 if __name__ == "__main__":
     main()

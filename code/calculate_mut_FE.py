@@ -3,17 +3,17 @@ import pickle
 import pandas as pd
 from pathlib import Path
 from math_tools import fitness_effect
-from plot_tools import curve_plot
+from plot_tools import curve_plot, bar_plot
 
 def main():
     
     # reference interactome name
-    # options: HI-II-14, IntAct
+    # options: HI-II-14, HuRI, IntAct
     interactome_name = 'IntAct'
     
     # mutation edgotype for which fitness effect is calculated
     # options: quasi-null, edgetic, quasi-wild-type
-    edgotype = 'edgetic'
+    edgotype = 'quasi-null'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -32,24 +32,22 @@ def main():
     # mutations are assumed to be all quasi-null
     assume_S_as_M = False
     
-    # minimum change in protein free energy required for quasi-null mutations
-    qnMinDDG = 5
-    
     # calculate confidence intervals
     computeConfidenceIntervals = True
     
     # confidence interval (%)
     CI = 95
     
-    # set to True to calculate dispensable PPI content using fraction of mono-edgetic mutations 
-    # instead of edgetic mutations
+    # calculate dispensable PPI content using fraction of mono-edgetic mutations 
+    # instead of fraction of edgetic mutations
     mono_edgetic = False
     
     # show figures
     showFigs = False
     
     # parent directory of all data files
-    dataDir = Path('../data')
+    #dataDir = Path('../data')
+    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -78,19 +76,8 @@ def main():
         figDir = figDir / 'assume_S_quasi_null'
     
     # input data files
-#     natMutLocFile = edgeticDir / 'nondisease_mutation_struc_loc.txt'
-#     disMutLocFile = edgeticDir / 'disease_mutation_struc_loc.txt'
-#     mutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl' # new
-#     natMutDdgFile = interactomeDir / 'nondisease_mutations_ddg.txt'
-#     disMutDdgFile = interactomeDir / 'disease_mutations_ddg.txt'
-#     natMutEdgotypeFile = edgeticDir / ('nondisease_mutation_edgetics%s.txt' 
-#                                       % ('_' + edgetic_ddg if edgetic_method is 'physics' else ''))
-#     disMutEdgotypeFile = edgeticDir / ('disease_mutation_edgetics%s.txt' 
-#                                       % ('_' + edgetic_ddg if edgetic_method is 'physics' else ''))
     natMutEdgotypeFile = edgeticDir / 'nondisease_mutation_edgotype.txt'
     disMutEdgotypeFile = edgeticDir / 'disease_mutation_edgotype.txt'
-#     natMutEdgotypeFile = edgeticDir / 'nondisease_mutation_edgetics_foldx.txt'
-#     disMutEdgotypeFile = edgeticDir / 'disease_mutation_edgetics_foldx.txt'
     
     # output data files
     outputFile = edgeticDir / ('%s_mut_fitness_effect.pkl' % edgotype)
@@ -146,9 +133,6 @@ def main():
     else:
         pT_S = 1 if edgotype is 'quasi-null' else 0
     
-    print(numDiseaseMut_type[T])
-    print(numDiseaseMut_considered)
-    print(pT_S)
     allresults = fitness_effect (pN,
                                  pM,
                                  pS,
@@ -181,20 +165,45 @@ def main():
                 ylim = [0, 100],
                 styles = '.k',
                 capsize = 10 if computeConfidenceIntervals else 0,
-                msize = 16,
-                ewidth = 1.25,
+                msize = 28,
+                ewidth = 3,
                 ecolors = 'k',
-                ylabel = 'Fraction of %s mutations (%%)' % edgotype,
+                ylabel = 'Fraction (%)',
                 yMinorTicks = 4,
                 xticks = [1, 2, 3],
                 xticklabels = ('Effectively\nneutral', 'Mildly\ndeleterious', 'Strongly\ndetrimental'),
-                fontsize = 20,
+                fontsize = 24,
                 adjustBottom = 0.2,
                 shiftBottomAxis = -0.1,
                 xbounds = (1, 3),
                 show = showFigs,
                 figdir = figDir,
-                figname = '%s_mut_fitness_effect' % T)
+                figname = '%s_mut_fitness_effect_dot' % T)
+    
+    bar_plot (prob,
+              error = conf if computeConfidenceIntervals else None,
+              xlabels = ('Effectively\nneutral', 'Mildly\ndeleterious', 'Strongly\ndetrimental'),
+              ylabels = None,
+              ylabel = 'Fraction (%)',
+              barwidth = 0.5,
+              colors = ('limegreen', 'orange', 'red'),
+              capsize = 10 if computeConfidenceIntervals else 0,
+              fmt = '.k',
+              msize = 24,
+              ewidth = 3,
+              edgecolor = 'black',
+              ecolors = 'k',
+              fontsize = 21,
+              xlim = None,
+              ylim = [0, 100],
+              xticks = None,
+              yMinorTicks = 4,
+              adjustBottom = False,
+              shiftBottomAxis = None,
+              xbounds = None,
+              show = showFigs,
+              figdir = figDir,
+              figname = '%s_mut_fitness_effect_bar' % T)
 
 if __name__ == "__main__":
     main()
