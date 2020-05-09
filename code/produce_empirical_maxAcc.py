@@ -9,14 +9,10 @@ def main():
     # parent directory of all data files
     dataDir = Path('../data')
     
-#     directory of data files from external sources
-#     extDir = dataDir / 'external'
-    
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
     
     # directory of precalculated RSA files on local computer
-    #dsspDir = Path('/Volumes/MG_Samsung/dssp')
     dsspDir = Path('../../dssp')
     
     # input data files

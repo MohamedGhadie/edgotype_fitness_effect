@@ -114,28 +114,6 @@ def main():
     # Assign mutation edgotypes
     #------------------------------------------------------------------------------------    
     
-#     mutations = {'nat_mut':naturalMutations, 'dis_mut':diseaseMutations}
-#     for k, mut in mutations.items():
-#         edgotypes = []
-#         for _, row in mut.iterrows():
-#             if row.edgotype == 'edgetic':
-#                 edgotypes.append('edgetic')
-#             elif row.edgotype == 'non-edgetic':
-#                 if row.structural_location == 'buried':
-#                     if np.isnan(row.ddg):
-#                         edgotypes.append('-')
-#                     elif row.ddg >= qnMinDDG:
-#                         edgotypes.append('quasi-null')
-#                     else:
-#                         edgotypes.append('quasi-wild-type')
-#                 elif row.structural_location in ['exposed-noninterface', 'interface']:
-#                     edgotypes.append('quasi-wild-type')
-#                 else:
-#                     edgotypes.append('-')
-#             else:
-#                 edgotypes.append('-')
-#         mutations[k]['edgotype'] = edgotypes
-    
     mutations = {'nat_mut':naturalMutations, 'dis_mut':diseaseMutations}
     for k, mut in mutations.items():
         edgotypes = []

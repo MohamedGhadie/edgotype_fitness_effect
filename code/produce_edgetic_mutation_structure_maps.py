@@ -8,7 +8,6 @@
 # - calculate_dispensable_content_geometry.py
 #----------------------------------------------------------------------------------------
 
-import os
 from pathlib import Path
 from text_tools import read_list_table
 from structural_annotation import write_mutation_structure_maps

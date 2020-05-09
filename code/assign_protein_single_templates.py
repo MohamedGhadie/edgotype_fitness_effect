@@ -44,13 +44,11 @@ def main():
     #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     # input data files
-    #chainMapFile = procDir / 'human_pdb_chain_map.txt'
     chainMapFile = templateBasedDir / 'struc_interactome_chain_map.txt'
     chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
     chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # output data files
-    #filteredChainMapFile = interactomeDir / 'human_pdb_chain_map_filtered.txt'
     singleChainMapFile = templateBasedDir / 'single_chain_map_per_protein.txt'
     chainIDFile = templateBasedDir / 'single_model_chainIDs.txt'
     pdbIDFile = templateBasedDir / 'single_model_complexIDs.txt'
@@ -64,14 +62,6 @@ def main():
     #------------------------------------------------------------------------------------
     # select one chain model per protein
     #------------------------------------------------------------------------------------
-    
-#     if not filteredChainMapFile.is_file():
-#         print('filtering chain annotations')
-#         filter_chain_annotations (chainMapFile,
-#                                   filteredChainMapFile,
-#                                   evalue = evalue,
-#                                   prCov = prCov,
-#                                   chCov = chCov)
     
     print('selecting one chain model per protein')
     single_chain_per_protein (chainMapFile,

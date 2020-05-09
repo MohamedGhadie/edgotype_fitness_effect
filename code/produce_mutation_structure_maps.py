@@ -1,11 +1,6 @@
 #----------------------------------------------------------------------------------------
 # Map mutations in the structural interactome onto structural models to be submitted for 
 # protein folding ∆∆G calculations.
-#
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
-# - produce_structural_interactome.py
-# - calculate_dist_to_center.py
 #----------------------------------------------------------------------------------------
 
 import os

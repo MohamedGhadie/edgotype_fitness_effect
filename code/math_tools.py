@@ -1,3 +1,6 @@
+#----------------------------------------------------------------------------------------
+# Modules for mathematical computations.
+#----------------------------------------------------------------------------------------
 
 import numpy as np
 from stat_tools import proportion_ratio_CI, proportion_sum_CI
@@ -13,7 +16,26 @@ def fitness_effect (pN,
                     edgotype = 'edgetic',
                     CI = 95,
                     output = True):
-    
+    """Calculate the fitness effect probabilities with confidence intervals for a given edgotype T.
+
+    Args:
+        pN (numeric): prior probability for mutations to be effectively neutral.
+        pM (numeric): prior probability for mutations to be mildly deleterious.
+        pS (numeric): prior probability for mutations to be strongly detrimental.
+        k_N (numeric): number of neutral mutations with edgotype T.
+        n_N (numeric): total number of neutral mutations.
+        k_M (numeric): number of mildly deleterious mutations with edgotype T.
+        n_M (numeric): total number of mildly deleterious mutations.
+        pT_S (numeric): probability for strongly detrimental mutations to have edgotype T.
+        edgotype (str): edgotype for which to calculate fitness effect, 
+                        either 'edgetic', 'quasi-null' or 'quasi-wild-type'.
+        CI (numeric): percent confidence interval to be calculated for each fitness effect probability.
+        output (bool): print output if True.
+
+    Returns:
+        dict
+
+    """
     # abbreviations for different structural regions
     edgotype_symbol = {'quasi-null':'Q', 'edgetic':'E', 'quasi-wild-type':'W'}
     

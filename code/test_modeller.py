@@ -26,7 +26,6 @@ class MyModel(automodel):
         # Constrain the A and B chains to be identical (but only restrain
         # the C-alpha atoms, to reduce the number of interatomic distances
         # that need to be calculated):
-        print([c for c in self.chains])
         s1 = selection(self.chains['A']).only_atom_types('CA')
         s2 = selection(self.chains['B']).only_atom_types('CA')
         self.restraints.symmetry.append(symmetry(s1, s2, 1.0))
@@ -35,7 +34,6 @@ class MyModel(automodel):
         # each model:
         #self.rename_segments(segment_ids=('A'))
         self.restraints.symmetry.report(1.0)
-    
-    
+
 if __name__ == "__main__":
     main()

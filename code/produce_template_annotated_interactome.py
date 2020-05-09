@@ -3,15 +3,9 @@
 # interaction binding interfaces at amino acid resolution from experimentally determined 
 # three-dimensional structural models in PDB onto interactions in the reference interactome.
 #
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
-# - process_interactome.py
-# - BLAST human protein sequences against PDB sequences and save results into path
-#   ../data/external/human_pdb_e-5
 #----------------------------------------------------------------------------------------
 
 import os
-import pickle
 import pandas as pd
 from pathlib import Path
 from pdb_tools import download_structures

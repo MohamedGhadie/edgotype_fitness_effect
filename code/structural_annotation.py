@@ -29,13 +29,22 @@ from pdb_tools import (allow_pdb_downloads,
                        load_pdbtools_chain_sequences,
                        valid_strucRes,
                        return_chain_sequence,
-                       ordered_chain_residues,
+                       structured_chain_residues,
                        return_chain_res_posToID,
                        return_chain_res_IDToPos,
                        get_interface_by_chainIDs)
 from ddg_tools import read_protein_mutation_ddg
 
+#-----------------------------------------
+# Global variables modified by modules
+#-----------------------------------------
+
+# dictionary of chain interfaces already calculated
 known_interfaces = {}
+
+#-----------------------------------------
+# Modules
+#-----------------------------------------
 
 def load_dictionaries (chainSequenceFile = None, chainStrucResLabelFile = None):
     """Load dictionaries containing PDB chain sequence data.
@@ -279,7 +288,7 @@ def filter_chain_annotations (inPath,
                     Scov = (len(Sseq) - Sseq.count('-')) / int(linesplit[SlenCol])
                     if (Qcov >= prCov) and (Scov >= chCov):
                         fout.write('\t'.join([line, str(Qcov), str(Scov)]) + '\n')
-    remove_duplicate_chain_annotations(outPath, outPath)
+    remove_duplicate_chain_annotations (outPath, outPath)
 
 def remove_duplicate_chain_annotations (inPath, outPath):
     """Keep only one alignment for each protein-chain pair, the one with the smallest 
@@ -319,20 +328,6 @@ def filter_chain_annotations_by_protein (inPath, proteins, outPath):
                 if linesplit[queryPos] in proteins:
                     fout.write(line)
 
-# def single_chain_per_protien (inPath, outPath):
-#     """Keep only one chain alignment for each protein, the one with the smallest e-value.
-# 
-#     Args:
-#         inPath (Path): path to tab-deleimited file containing protein-chain alignments.
-#         outPath (Path): file path to save filtered alignments to.
-# 
-#     """
-#     chainMap = pd.read_table (inPath, sep='\t')
-#     chainMap = chainMap.sort_values ("Expect", axis=0, ascending=True)
-#     chainMap = chainMap.drop_duplicates (subset = "Query", keep='first')
-#     chainMap = chainMap.sort_values ("Query", axis=0, ascending=True)
-#     chainMap.to_csv (outPath, index=False, sep='\t')
-
 def single_chain_per_protein (inPath,
                               outPath,
                               chainSeqFile = None,
@@ -367,22 +362,6 @@ def single_chain_per_protein (inPath,
                     keep[i] = True
                     break
         chainMap = chainMap[keep].reset_index(drop=True)
-#     if chainStrucResFile:
-#         load_pdbtools_chain_sequences (chainSeqFile)
-#         load_pdbtools_chain_strucRes_labels (chainStrucResFile)
-#         chainMap = chainMap[chainMap["Subject"].apply(lambda x:
-#                                                       valid_strucRes(pdbid,
-#                                                                      chainID,
-#                                                                      return_chain_sequence(x),
-#                                                                      return_chain_strucRes_label(x)))].reset_index(drop=True)
-#     if pdbDir:
-#         keep = pd.Series(data = False, index = chainMap.index)
-#         for p in set(chainMap["Query"].values):
-#             for i, c in chainMap.loc[chainMap["Query"]==p, "Subject"].iteritems():
-#                 if return_structure (c.split('_')[0], pdbDir):
-#                     keep[i] = True
-#                     break
-#         chainMap = chainMap[keep].reset_index(drop=True)
     chainMap = chainMap.drop_duplicates (subset = "Query", keep='first')
     chainMap = chainMap.sort_values ("Query", axis=0, ascending=True)
     chainMap.to_csv (outPath, index=False, sep='\t')
@@ -1023,7 +1002,7 @@ def write_mutation_structure_maps (mutations,
                         if struc:
                             model = struc[0]
                             # get structured residues that are part of the chain SEQRES
-                            residues = ordered_chain_residues (pdbid, model, ch1_id, pdbDir)
+                            residues = structured_chain_residues (pdbid, model, ch1_id, pdbDir)
                             if residues:
                                 # map mutation position back onto chain pair (model) through sequence alignment
                                 mappings = mutation_structure_map (chainMap, mut.protein, ch1, pos)

@@ -4,15 +4,9 @@
 # with disease as well as Mendelian disease-causing mutations are mapped onto the 
 # structural interactome. Then, PPI perturbations caused by mutations are predicted based 
 # on mutation location relative to interaction interface.
-#
-# Run the following scripts before running this script:
-# - produce_structural_interactome.py
-# - process_dbsnp_mutations.py
-# - process_clinvar_mutations.py
 #----------------------------------------------------------------------------------------
 
 import os
-import pickle
 import numpy as np
 from pathlib import Path
 from text_tools import write_list_table

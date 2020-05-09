@@ -17,8 +17,8 @@ from pdb_tools import (allow_pdb_downloads,
                        pdbfile_name,
                        write_partial_structure,
                        get_chain_IDs,
-                       ordered_residue_IDs,
-                       ordered_residue_ID)
+                       structured_residue_IDs,
+                       structured_residue_ID)
 
 # directory for PDB structure files
 pdbDir = Path('../pdb_files')
@@ -170,7 +170,7 @@ def produce_ppi_template_files (inPath, templateSeqFile, templateStrucResFile):
             templateID = '-'.join([pdbid] + selectChains)
             filename = pdbfile_name (templateID)
             if filename not in templateFiles:
-                resIDs = {c:ordered_residue_IDs (pdbid, c, pdbDir) for c in selectChains}
+                resIDs = {c:structured_residue_IDs (pdbid, c, pdbDir) for c in selectChains}
                 write_partial_structure (pdbid,
                                          selectChains,
                                          pdbDir,
@@ -193,14 +193,8 @@ def produce_protein_template_files (inPath, templateSeqFile, templateStrucResFil
         pdbid, chainID = template.split('_')
         templateID = '-'.join([pdbid, chainID])
         filename = pdbfile_name (templateID)
-#         if template == '4rer_B':
-#             print('1: 4rer_B')
-#             print('pdbid = %s' % pdbid)
-#             print('chainid = %s' % chainID)
-#             print('templateid = %s' % templateID)
-#             print('outfile = %s' % str(outFile))
         if filename not in templateFiles:
-            resIDs = {chainID : ordered_residue_IDs (pdbid, chainID, pdbDir)}
+            resIDs = {chainID : structured_residue_IDs (pdbid, chainID, pdbDir)}
             write_partial_structure (pdbid,
                                      [chainID],
                                      pdbDir,
@@ -272,15 +266,7 @@ def create_complex_alignment (proteins, templates, alignments):
         templateMap = {c:p for c, p in zip(chainIDs, proteins)}
         templateID = '-'.join([pdbid] + sorted(chainIDs))
         
-#         chainIDs = get_chain_IDs ('1yxq', Path('/Volumes/MG_Samsung/pdb_files'))
-#         print(chainIDs)
-#         print('right here')
-#         print(get_chain_IDs ('1yxq', Path('/Volumes/MG_Samsung/pdb_files')))
-#         print(len(ordered_residue_IDs ('1yxq', 'A', Path('/Volumes/MG_Samsung/pdb_files'))))
-#         print('right here again')
         chainIDs = get_chain_IDs (templateID, templateDir)
-#         print(templateFileID)
-#         print(chainIDs)
         orderedProteins = [templateMap[c] for c in chainIDs]
         complexID = '='.join(orderedProteins)
         
@@ -292,8 +278,6 @@ def create_complex_alignment (proteins, templates, alignments):
                 prAlign, chAlign = align[["Qseq", "Sseq"]].values[0]
                 pr_alignments.append(prAlign)
                 ch_alignments.append(chAlign)
-#         print(template)
-#         print(chainIDs)
         if len(pr_alignments) == len(orderedProteins):
             templateFileID = pdbfile_id (templateID)
             alignmentFileID = '_'.join([complexID, pdbfile_id('-'.join([pdbid] + chainIDs))])
@@ -312,12 +296,9 @@ def write_alignment (complexID,
                      outPath):
 
     pr_alignments, ch_alignments = alignments
-#     print(templateFileID)
-#     print(chainIDs)
-#     print(templateDir)
-    het, resNum, icode = ordered_residue_ID ('first', templateID, chainIDs[0], templateDir)
+    het, resNum, icode = structured_residue_ID ('first', templateID, chainIDs[0], templateDir)
     firstResID = str(resNum) if icode == ' ' else str(resNum) + icode
-    het, resNum, icode = ordered_residue_ID ('last', templateID, chainIDs[-1], templateDir)
+    het, resNum, icode = structured_residue_ID ('last', templateID, chainIDs[-1], templateDir)
     lastResID = str(resNum) if icode == ' ' else str(resNum) + icode
     with io.open(outPath, "w") as fout:
         templateFileID = pdbfile_id (templateID)

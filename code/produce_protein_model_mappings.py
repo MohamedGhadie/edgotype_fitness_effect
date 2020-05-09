@@ -2,8 +2,7 @@ import os
 from pathlib import Path
 from text_tools import produce_item_list
 from id_mapping import produce_chain_dict
-from modelling_tools import (set_model_dir,
-                             produce_protein_fullmodel_chainSeq_dict,
+from modelling_tools import (produce_protein_fullmodel_chainSeq_dict,
                              produce_fullmodel_chain_strucRes_dict,
                              produce_protein_fullmodel_pos_mapping)
 

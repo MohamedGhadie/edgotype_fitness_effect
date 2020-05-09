@@ -2,8 +2,7 @@ import os
 from pathlib import Path
 from text_tools import parse_blast_file
 from structural_annotation import filter_chain_annotations
-from modelling_tools import (set_pdb_dir,
-                             set_template_dir,
+from modelling_tools import (set_template_dir,
                              set_alignment_dir,
                              enable_pdb_downloads,
                              disable_pdb_warnings,

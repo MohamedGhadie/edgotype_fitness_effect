@@ -323,7 +323,6 @@ def binomial_prob (n, kobs, p, itr = 10000):
     result = []
     k = np.random.binomial(n, p, size = itr)
     for kmin, kmax in [(0, kobs), (kobs, n)]:
-        #print('p = %f, %d ≤ k ≤ %d' % (p, kmin, kmax))    
         if p == 0:
             bp = 1 if kmin <= 0 else 0
         elif p == 1:
