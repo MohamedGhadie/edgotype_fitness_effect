@@ -1,5 +1,13 @@
 #----------------------------------------------------------------------------------------
-# Modules for protein 3D structure calculations.
+# Modules for mutation and residue 3D structure calculations:
+# - Relative solvent accessibility (RSA)
+# - Distance to protein center
+# - Distance to protein interface
+# - Distance to protein surface
+# - Distance to point
+# - Distance to residues
+# - Number of neighbors
+# - Writing mutation structure mapping to file
 #----------------------------------------------------------------------------------------
 
 import os
@@ -427,7 +435,7 @@ def multiprotein_res_dist_to_surface (proteins,
                                          surfaceRes[protein] if protein in surfaceRes else [],
                                          pdbChains,
                                          chainMap,
-                                         #pdbIDs = toPDB[protein] if protein in toPDB else None,
+                                         pdbIDs = toPDB[protein] if protein in toPDB else None,
                                          prCov = prCov,
                                          chCov = chCov,
                                          allChainMap = allChainMap,
@@ -1243,7 +1251,7 @@ def dist_to_residues (protein,
     return ()
     
 def dist_to_residues_mapped_struc (resPos, otherPos, strucMap):
-    """Return distances from a protein residue to a group of target residues on a mapped structure.
+    """Return distances from a protein residue to a group of target residues given a mapped structure.
 
     Args:
         resPos (int): residue position on protein sequence.
@@ -1377,7 +1385,7 @@ def res_dist_to_center (protein,
     return dist
 
 def dist_to_center_mapped_struc (resPos, strucMap):
-    """Return a residue's distance to protein geometric center on a mapped structure.
+    """Return a residue's distance to protein geometric center given a mapped structure.
 
     Args:
         resPos (int): residue position on protein sequence.
@@ -1443,7 +1451,18 @@ def geometric_center (points):
         return ()
     
 def resPos_dist_to_point (pdbid, chainID, resPos, point):
-    
+    """Return a residue's distance to a point given its position on chain sequence.
+
+    Args:
+        pdbid (str): structure ID.
+        chainID (str): chain letter ID.
+        resPos (int): residue position on chain sequence.
+        point (tuple): point (x, y, z) coordinates.
+
+    Returns:
+        numeric
+
+    """
     struc = return_structure (pdbid, pdbDir)
     if struc:
         chain = struc[0][chainID]
@@ -1453,12 +1472,31 @@ def resPos_dist_to_point (pdbid, chainID, resPos, point):
     return np.nan
 
 def multichain_allres_dist_to_center (pdbid, chainIDs):
-    
+    """Return distances to structure geometric center for all residues in multiple chains.
+
+    Args:
+        pdbid (str): structure ID.
+        chainIDs (list): chain letter IDs.
+
+    Returns:
+        dict
+
+    """
     center = multichain_geometric_center (pdbid, chainIDs)
     return multichain_allres_dist_to_point (pdbid, chainIDs, center)
 
 def multichain_allres_dist_to_point (pdbid, chainIDs, point):
-    
+    """Return distances to a point for all residues in multiple chains.
+
+    Args:
+        pdbid (str): structure ID.
+        chainIDs (list): chain letter IDs.
+        point (tuple): point (x, y, z) coordinates.
+
+    Returns:
+        dict
+
+    """
     distances = {}
     for chainID in chainIDs:
         fullID = pdbid + '_' + chainID
@@ -1466,7 +1504,17 @@ def multichain_allres_dist_to_point (pdbid, chainIDs, point):
     return distances
 
 def chain_allres_dist_to_point (pdbid, chainID, point):
-    
+    """Return distances to a point for all residues in a single chain.
+
+    Args:
+        pdbid (str): structure ID.
+        chainID (str): chain letter ID.
+        point (tuple): point (x, y, z) coordinates.
+
+    Returns:
+        dict
+
+    """
     chainSeq = return_chain_sequence (pdbid + '_' + chainID)
     if chainSeq:
         chainSeqPositions = np.arange(1, len(chainSeq) + 1)
@@ -1475,7 +1523,18 @@ def chain_allres_dist_to_point (pdbid, chainID, point):
         return {}
     
 def multiResPos_dist_to_point (pdbid, chainID, resPos, point):
-    
+    """Return distances to a point for a group of residues in a single chain.
+
+    Args:
+        pdbid (str): structure ID.
+        chainID (str): chain letter ID.
+        resPos (list): residue positions on chain sequence.
+        point (tuple): point (x, y, z) coordinates.
+
+    Returns:
+        dict
+
+    """
     distances = {}
     struc = return_structure (pdbid, pdbDir)
     if struc:
@@ -1490,7 +1549,16 @@ def multiResPos_dist_to_point (pdbid, chainID, resPos, point):
     return distances
 
 def multiRes_dist_to_point (residues, point):
-    
+    """Return distances to a point for a group of residues.
+
+    Args:
+        residues (list): residue objects.
+        point (tuple): point (x, y, z) coordinates.
+
+    Returns:
+        list
+
+    """
     distance = []
     n = len(residues)
     for i, residue in enumerate(residues):
@@ -1498,7 +1566,16 @@ def multiRes_dist_to_point (residues, point):
     return distances
     
 def res_dist_to_point (residue, point):
-    
+    """Return a residue's distance to a point.
+
+    Args:
+        residue (Residue): residue object.
+        point (tuple): point (x, y, z) coordinates.
+
+    Returns:
+        numeric
+
+    """
     mindist = np.inf
     px, py, pz = point
     for atom in residue:
@@ -1514,7 +1591,20 @@ def res_distance_by_chainIDs (pdbid,
                               chainID2,
                               pos2,
                               pdbDir):
-    
+    """Return distance between two residues in a multi-chain structure.
+
+    Args:
+        pdbid (str): structure ID.
+        chainID1 (str): first chain letter ID.
+        pos1 (int): residue position on first chain sequence.
+        chainID2 (str): second chain letter ID.
+        pos2 (int): residue position on second chain sequence.
+        pdbDir (Path): file directory containing PDB structures.
+
+    Returns:
+        numeric
+
+    """
     struc = return_structure (pdbid, pdbDir)
     if struc:
         resID1 = return_chain_res_posToID (pdbid, chainID1, pos1, pdbDir)
@@ -1536,7 +1626,29 @@ def res_rsa (protein,
              allChainMap = False,
              singleChain = True,
              mapToProtein = True):
-    
+    """Return RSA for multiple residues in a protein.
+
+    Args:
+        protein (str): protein ID.
+        resPos (list): residue positions on protein sequence.
+        pdbChains (dict): PDB structure chain ID dictionary.
+        chainMap (DataFrame): table of processed protein-chain alignments.
+        dsspDir (Path): path to file directory containing pre-calculated solvent accessibility.
+        pdbIDs (list): structure IDs to be used as model. If None, model will be selected from chain map table.
+        prCov (numeric): minimum alignment coverage fraction required on protein sequence.
+        chCov (numeric): minimum alignment coverage fraction required on chain sequence.
+        allChainMap (bool): if True, all chains in PDB structure must map simultaneously with 
+                            no overlap onto protein sequence.
+        singleChain (bool): if True, map a single chain per protein.
+        mapToProtein (bool): if True, map RSA values from model to protein sequence positions.
+
+    Returns:
+        dict: if mapToProtein:
+                protein sequence position: (chain ID, position on chain sequence, RSA)
+              else:
+                (chainID, pos): RSA
+
+    """
     if pdbIDs:
         pdbIDs = sorted(set(pdbIDs))
     else:
@@ -1576,10 +1688,26 @@ def res_rsa_mapped_struc (resPos,
                           strucMap,
                           allChains = None,
                           dsspDir = None,
-                          wholeStructureRSA = False,
+                          precalculatedRSA = False,
                           mapToProtein = True):
-    
-    if wholeStructureRSA:
+    """Return RSA for multiple residues on protein sequence given a mapped structure.
+
+    Args:
+        resPos (list): residue positions on protein sequence.
+        strucMap (DataFrame): table of processed alignments for protein and mapping structure chains.
+        allChains (set): optionally provide all chain letter IDs in structural model.
+        dsspDir (Path): path to file directory containing pre-calculated solvent accessibility.
+        precalculatedRSA (bool): if True, use pre-calculated RSA file for whole structure.
+        mapToProtein (bool): if True, map RSA values from model to protein sequence positions.
+
+    Returns:
+        dict: if mapToProtein:
+                protein sequence position: (chain ID, position on chain sequence, RSA)
+              else:
+                (chainID, pos): RSA
+
+    """
+    if precalculatedRSA:
         return precalculated_res_rsa (resPos,
                                       strucMap,
                                       dsspDir,
@@ -1594,7 +1722,21 @@ def calculate_res_rsa (resPos,
                        strucMap,
                        allChains = None,
                        mapToProtein = True):
-    
+    """Calculate RSA for multiple residues on protein sequence given a mapped structure.
+
+    Args:
+        resPos (list): residue positions on protein sequence.
+        strucMap (DataFrame): table of processed alignments for protein and mapping structure chains.
+        allChains (set): optionally provide all chain letter IDs in structural model.
+        mapToProtein (bool): if True, map RSA values from model to protein sequence positions.
+
+    Returns:
+        dict: if mapToProtein:
+                protein sequence position: (chain ID, position on chain sequence, RSA)
+              else:
+                (chainID, pos): RSA
+
+    """
     pdbIDs = sorted({x.split('_')[0] for x in strucMap["Subject"].values})
     if len(pdbIDs) == 0:
         warnings.warn("Requesting residue RSA using empty structure map")
@@ -1621,7 +1763,22 @@ def precalculated_res_rsa (resPos,
                            strucMap,
                            dsspDir,
                            mapToProtein = True):
-    
+    """Return RSA for multiple residues on protein sequence given a mapped structure using 
+        pre-calculated results from DSSP on full PDB structures.
+
+    Args:
+        resPos (list): residue positions on protein sequence.
+        strucMap (DataFrame): table of processed alignments for protein and mapping structure chains.
+        dsspDir (Path): path to file directory containing pre-calculated solvent accessibility.
+        mapToProtein (bool): if True, map RSA values from model to protein sequence positions.
+
+    Returns:
+        dict: if mapToProtein:
+                protein sequence position: (chain ID, position on chain sequence, RSA)
+              else:
+                (chainID, pos): RSA
+
+    """
     rsa = {}
     pdbIDs = sorted({x.split('_')[0] for x in strucMap["Subject"].values})
     if len(pdbIDs) == 0:
@@ -1642,7 +1799,17 @@ def precalculated_res_rsa (resPos,
     return rsa
     
 def rsa_map (rsa, resPos, strucMap):
-    
+    """Map RSA results for multiple residues from structure onto protein sequence.
+
+    Args:
+        rsa (dict): RSA dictionary with (chain, Res ID) keys.
+        resPos (list): residue positions on protein sequence.
+        strucMap (DataFrame): table of processed alignments for protein and mapping structure chains.
+
+    Returns:
+        dict: protein sequence position: (chain ID, position on chain sequence, RSA)
+
+    """
     rsaMap = {}
     chainResPos, mappedPositions = [], []
     for pos in resPos:
@@ -1664,7 +1831,16 @@ def rsa_map (rsa, resPos, strucMap):
     return rsaMap
 
 def chain_rsa_map (rsa, pdbid):
-    
+    """Map RSA dictionary keys from residue IDs to chain sequence positions.
+
+    Args:
+        rsa (dict): RSA dictionary with (chain, Res ID) keys.
+        pdbid (str): structure ID.
+
+    Returns:
+        dict: (chainID, pos): RSA
+
+    """
     rsaMap = {}
     for k in rsa.keys():
         chainID, resID = k
@@ -1685,7 +1861,29 @@ def count_mutation_neighbors (mutations,
                               singleChain = True,
                               downloadPDB = True,
                               suppressWarnings = True):
-    
+    """Return the number of neighbors for mutation residues on multiple proteins.
+
+    Args:
+        mutations (DataFrame): table of proteins and mutation positions.
+        pdbChainsFile (Path): path to file containing PDB chain ID dictionary.
+        chainMapFile (Path): path to tab-delimited file containing processed protein-chain alignments.
+        chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
+                                    positions associated with 3D coordinates.
+        pdbDir (Path): file directory containing pdb structures.
+        nbDist (numeric): maximum distance (non-inclusive) between neighbor residues.
+        prCov (numeric): minimum alignment coverage fraction required on protein sequence.
+        chCov (numeric): minimum alignment coverage fraction required on chain sequence.
+        pdbMapFile (Path): path to file containing dict of protein Uniprot ID to PDB ID mapping.
+        allChainMap (bool): if True, all chains in PDB structure must map simultaneously with 
+                            no overlap onto protein sequence.
+        singleChain (bool): if True, map a single chain per protein.
+        downloadPDB (bool): if True, allow downloading of PDB structures.
+        suppressWarnings (bool): if True, suppress PDB warnings.
+
+    Returns:
+        list
+
+    """
     allow_pdb_downloads (downloadPDB)
     suppress_pdb_warnings (suppressWarnings)
     with open(pdbChainsFile, 'rb') as f:
@@ -1731,7 +1929,29 @@ def count_multiprotein_res_neighbors (proteins,
                                       singleChain = True,
                                       downloadPDB = True,
                                       suppressWarnings = True):
-    
+    """Return the number of neighbors for all residues of multiple proteins.
+
+    Args:
+        proteins (DataFrame): table of proteins and residue positions.
+        pdbChainsFile (Path): path to file containing PDB chain ID dictionary.
+        chainMapFile (Path): path to tab-delimited file containing processed protein-chain alignments.
+        chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
+                                    positions associated with 3D coordinates.
+        pdbDir (Path): file directory containing pdb structures.
+        nbDist (numeric): maximum distance (non-inclusive) between neighbor residues.
+        prCov (numeric): minimum alignment coverage fraction required on protein sequence.
+        chCov (numeric): minimum alignment coverage fraction required on chain sequence.
+        pdbMapFile (Path): path to file containing dict of protein Uniprot ID to PDB ID mapping.
+        allChainMap (bool): if True, all chains in PDB structure must map simultaneously with 
+                            no overlap onto protein sequence.
+        singleChain (bool): if True, map a single chain per protein.
+        downloadPDB (bool): if True, allow downloading of PDB structures.
+        suppressWarnings (bool): if True, suppress PDB warnings.
+
+    Returns:
+        list
+
+    """
     allow_pdb_downloads (downloadPDB)
     suppress_pdb_warnings (suppressWarnings)
     with open(pdbChainsFile, 'rb') as f:
@@ -1775,7 +1995,26 @@ def count_protein_res_neighbors (protein,
                                  pdbIDs = None,
                                  allChainMap = False,
                                  singleChain = True):
-    
+    """Return the number of neighbors for multiple residues of a single protein.
+
+    Args:
+        protein (str): protein ID.
+        resPos (list): list of residue positions on protein sequence.
+        pdbChains (dict): PDB structure chain ID dictionary.
+        chainMap (DataFrame): table of processed protein-chain alignments.
+        pdbDir (Path): file directory containing pdb structures.
+        nbDist (numeric): maximum distance (non-inclusive) between neighbor residues.
+        prCov (numeric): minimum alignment coverage fraction required on protein sequence.
+        chCov (numeric): minimum alignment coverage fraction required on chain sequence.
+        pdbIDs (list): structure IDs to be used as model. If None, model will be selected from chain map table.
+        allChainMap (bool): if True, all chains in PDB structure must map simultaneously with 
+                            no overlap onto protein sequence.
+        singleChain (bool): if True, map a single chain per protein.
+
+    Returns:
+        array
+
+    """
     neighbors = []
     n = len(resPos)
     for i, pos in enumerate(resPos):
@@ -1804,7 +2043,26 @@ def count_res_neighbors (protein,
                          pdbIDs = None,
                          allChainMap = False,
                          singleChain = True):
-    
+    """Return the number of neighbors for a single residue of a protein.
+
+    Args:
+        protein (str): protein ID.
+        resPos (int): residue position on protein sequence.
+        pdbChains (dict): PDB structure chain ID dictionary.
+        chainMap (DataFrame): table of processed protein-chain alignments.
+        pdbDir (Path): file directory containing pdb structures.
+        nbDist (numeric): maximum distance (non-inclusive) between neighbor residues.
+        prCov (numeric): minimum alignment coverage fraction required on protein sequence.
+        chCov (numeric): minimum alignment coverage fraction required on chain sequence.
+        pdbIDs (list): structure IDs to be used as model. If None, model will be selected from chain map table.
+        allChainMap (bool): if True, all chains in PDB structure must map simultaneously with 
+                            no overlap onto protein sequence.
+        singleChain (bool): if True, map a single chain per protein.
+
+    Returns:
+        numeric
+
+    """
     if pdbIDs:
         pdbIDs = sorted(set(pdbIDs))
     else:
@@ -1827,7 +2085,18 @@ def count_res_neighbors (protein,
     return np.nan
 
 def count_res_neighbors_mapped_struc (resPos, strucMap, pdbDir, nbDist = 5):
-    
+    """ Return the number of neighbors for a single residue of a protein given a mapped structure.
+
+    Args:
+        resPos (int): residue position on protein sequence.
+        strucMap (DataFrame): table of processed alignments for protein and mapping structure chains.
+        pdbDir (Path): file directory containing pdb structures.
+        nbDist (numeric): maximum distance (non-inclusive) between neighbor residues.
+        
+    Returns:
+        numeric
+
+    """
     mappedPos = position_map (resPos, strucMap)
     try:
         ind = list(np.isnan(mappedPos)).index(False)
@@ -1852,7 +2121,23 @@ def best_structure_map (protein,
                         chCov = 0,
                         allChainMap = False,
                         singleChain = True):
-    
+    """Return the alignments for the best mapping strucure onto a protein.
+
+    Args:
+        protein (str): protein ID.
+        pdbIDs (list): structure IDs to be used as model. If None, model will be selected from chain map table.
+        pdbChains (dict): PDB structure chain ID dictionary.
+        chainMap (DataFrame): table of processed protein-chain alignments.
+        prCov (numeric): minimum alignment coverage fraction required on protein sequence.
+        chCov (numeric): minimum alignment coverage fraction required on chain sequence.
+        allChainMap (bool): if True, all chains in PDB structure must map simultaneously with 
+                            no overlap onto protein sequence.
+        singleChain (bool): if True, map a single chain per protein.
+
+    Returns:
+        DataFrame, numeric: structure alignment, protein sequence coverage
+
+    """
     bestMap, bestCov = None, 0
     for id in pdbIDs:
         strucMap, mapped, cov = structure_map (protein,
@@ -1875,7 +2160,23 @@ def structure_map (protein,
                    chCov = 0,
                    allChainMap = False,
                    singleChain = True):
-    
+    """Return the alignments for a strucure mapping onto a protein.
+
+    Args:
+        protein (str): protein ID.
+        pdbid (str): structure ID whose alignment is to be found.
+        pdbChains (dict): PDB structure chain ID dictionary.
+        chainMap (DataFrame): table of processed protein-chain alignments.
+        prCov (numeric): minimum alignment coverage fraction required on protein sequence.
+        chCov (numeric): minimum alignment coverage fraction required on chain sequence.
+        allChainMap (bool): if True, all chains in PDB structure must map simultaneously with 
+                            no overlap onto protein sequence.
+        singleChain (bool): if True, map a single chain per protein.
+
+    Returns:
+        DataFrame, bool, numeric: structure alignment, found or not, protein sequence coverage
+
+    """
     mapInd = ((chainMap["Query"] == protein) & 
                 chainMap["Subject"].apply(lambda x: x.startswith(pdbid + '_')))
     strucMap = chainMap[mapInd].sort_values("Expect", axis=0, ascending=True)
@@ -1907,9 +2208,9 @@ def pos_structure_map (strucMap,
         sequence position.
 
     Args:
-        strucMap (DataFrame): table of protein-chain sequence alignments.
-        protein (str): protein UniProt ID.
-        chainID (str): PDB chain ID.
+        strucMap (DataFrame): table of processed alignments for protein and mapping structure chains.
+        protein (str): protein ID.
+        chainID (str): chain ID.
         pos (int): protein sequence position to be passed through alignments.
         firstMap (bool): if True, only first successful alignment returned.
 
@@ -1952,7 +2253,19 @@ def write_mutation_structure_maps (mutations,
                                    outPath,
                                    downloadPDB = True,
                                    suppressWarnings = True):
-    
+    """Map mutations onto protein structural models and write to file.
+
+    Args:
+        mutations (list): mutation tuples (protein, protein seq pos, mut Resisue, chain ID, chain seq pos).
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
+        chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
+                                    positions associated with 3D coordinates.
+        pdbDir (Path): file directory containing pdb structures.
+        outPath (Path): file path to save mapped mutations to.
+        downloadPDB (bool): if True, allow downloading of PDB structures.
+        suppressWarnings (bool): if True, suppress PDB warnings.
+
+    """
     set_pdb_dir (pdbDir)
     allow_pdb_downloads (downloadPDB)
     suppress_pdb_warnings (suppressWarnings)
@@ -1988,33 +2301,3 @@ def write_mutation_structure_maps (mutations,
                                               ''.join([chainWT, chainID, str(resNum), mutRes]),
                                               '-']) + '\n')
         print()
-
-def remove_mutation_RSA_bias (mutations):
-    
-    edgetic = mutations["edgotype"] == 'edgetic'
-    nonEdgetic = mutations["edgotype"] == 'non-edgetic'
-    numNonEdgetic = sum(nonEdgetic)
-    validRSA = np.isnan(mutations["RSA"]) == False
-    numNonEdgeticRSA = sum(nonEdgetic & validRSA)
-    mappingFactor = numNonEdgeticRSA / numNonEdgetic
-    
-    mutations = mutations [edgetic | validRSA].reset_index(drop=True)
-    
-    edgetic = mutations["edgotype"] == 'edgetic'
-    numEdgetic = sum(edgetic)
-    numEdgeticsToRemove = numEdgetic - int(np.round(numEdgetic * mappingFactor))
-    
-    nans = np.isnan(mutations["RSA"])
-    numEdgeticNaN = sum(edgetic & nans)
-    
-    if numEdgeticsToRemove <= numEdgeticNaN:
-        edgeticInd = [i for i, v in enumerate(edgetic & nans) if v]
-    else:
-        mutations = mutations[nans == False].reset_index(drop=True)
-        numEdgeticsToRemove -= numEdgeticNaN
-        edgeticInd = [i for i, v in enumerate(mutations["edgotype"] == 'edgetic') if v]
-    
-    sampleIndex = np.random.choice (edgeticInd, size = numEdgeticsToRemove, replace = False)
-    toKeep = [i not in sampleIndex for i in range(len(mutations))]
-    mutations = mutations[toKeep].reset_index(drop=True)
-    return mutations
