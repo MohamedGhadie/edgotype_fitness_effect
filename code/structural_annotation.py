@@ -1000,9 +1000,8 @@ def write_mutation_structure_maps (mutations,
                         (pdbid, ch1_id), (_, ch2_id) = ch1.split('_'), ch2.split('_')
                         struc = return_structure (pdbid, pdbDir)
                         if struc:
-                            model = struc[0]
                             # get structured residues that are part of the chain SEQRES
-                            residues = structured_chain_residues (pdbid, model, ch1_id, pdbDir)
+                            residues = structured_chain_residues (pdbid, ch1_id, pdbDir)
                             if residues:
                                 # map mutation position back onto chain pair (model) through sequence alignment
                                 mappings = mutation_structure_map (chainMap, mut.protein, ch1, pos)

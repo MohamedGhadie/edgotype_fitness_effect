@@ -17,7 +17,7 @@ from itertools import compress
 from text_tools import write_fasta_file
 
 #-----------------------------------------
-# Global variables modified by modules.
+# Global variables modified by modules
 #-----------------------------------------
 
 # allow PDB structure downloading
@@ -43,6 +43,10 @@ chainStrucResLabel = {}
 
 # mapping of chain sequence positions to residue IDs 
 resPosToID = {}
+
+#-----------------------------------------
+# Modules
+#-----------------------------------------
 
 def allow_pdb_downloads (download):
     """Set global variable to allow PDB downloads.
@@ -364,12 +368,11 @@ def residues_per_chain (model):
             allresidues[chain.get_id()] = residues
     return allresidues
 
-def structured_residues_per_chain (pdbid, model, pdbDir):
+def structured_residues_per_chain (pdbid, pdbDir):
     """Return all SEQRES residues per chain for all chains in a PDB model.
 
     Args:
         pdbid (str): PDB ID for model parent structure.
-        model (Bio.PDB.Model): PDB model.
         pdbDir (Path): path to file directory containing PDB structures.
     
     Returns:
@@ -377,10 +380,13 @@ def structured_residues_per_chain (pdbid, model, pdbDir):
     
     """
     resPerChain = {}
-    for chain in model.get_chains():
-        residues = structured_chain_residues (pdbid, model, chain.get_id(), pdbDir)
-        if residues:
-            resPerChain[chain.get_id()] = residues
+    struc = return_structure (pdbid, pdbDir)
+    if struc:
+        model = struc[0]
+        for chain in model.get_chains():
+            residues = structured_chain_residues (pdbid, chain.get_id(), pdbDir)
+            if residues:
+                resPerChain[chain.get_id()] = residues
     return resPerChain
 
 def nonhet_residues_per_chain (model):
@@ -404,12 +410,11 @@ def nonhet_residues_per_chain (model):
             allresidues[chain.get_id()] = residues
     return allresidues
 
-def structured_chain_residues (pdbid, model, chainID, pdbDir):
+def structured_chain_residues (pdbid, chainID, pdbDir):
     """Return all SEQRES residues of a chain. 
 
     Args:
         pdbid (str): PDB ID for model parent structure.
-        model (Bio.PDB.Model): PDB model.
         chainID (str): chain ID.
         pdbDir (Path): path to file directory containing PDB structures.
     
@@ -469,7 +474,7 @@ def structured_residue_sequence (pdbid, chainID, pdbDir):
         list
     
     """
-    residues = structured_chain_residues (pdbid, None, chainID, pdbDir)
+    residues = structured_chain_residues (pdbid, chainID, pdbDir)
     if residues:
         return ''.join([seq1(res.get_resname(), undef_code='X') for res in residues])
     else:
@@ -487,7 +492,7 @@ def structured_residue_IDs (pdbid, chainID, pdbDir):
         list
     
     """
-    residues = structured_chain_residues (pdbid, None, chainID, pdbDir)
+    residues = structured_chain_residues (pdbid, chainID, pdbDir)
     return [res.get_id() for res in residues]
 
 def structured_residue_ID (resOrder, pdbid, chainID, pdbDir):
@@ -581,9 +586,8 @@ def get_interface_by_chainIDs (pdbDir,
         pdbID = pdbID1
         struc = return_structure (pdbID, pdbDir)
         if struc:
-            model = struc[0]
-            residues1 = structured_chain_residues (pdbID, model, id1, pdbDir)
-            residues2 = structured_chain_residues (pdbID, model, id2, pdbDir)
+            residues1 = structured_chain_residues (pdbID, id1, pdbDir)
+            residues2 = structured_chain_residues (pdbID, id2, pdbDir)
             interfaceIndex1, interfaceIndex2 = get_interface_indices (residues1,
                                                                       residues2,
                                                                       maxDist = maxDist)
@@ -648,9 +652,8 @@ def count_neighbors_by_chainIDs (pdbid,
     if resID:
         struc = return_structure (pdbid, pdbDir)
         if struc:
-            model = struc[0]
-            residues = structured_residues_per_chain (pdbid, model)
-            res = model[hostchainID][resID]
+            residues = structured_residues_per_chain (pdbid, pdbDir)
+            res = struc[0][hostchainID][resID]
             otherRes = [r for r in residues[hostchainID] if r.get_id() != resID]
             for id in {id.split('_')[1] for id in chainIDs}:
                 if id != hostchainID:
@@ -943,6 +946,7 @@ def write_partial_structure (pdbid, chainIDs, pdbDir, outPath, resIDs = None):
         chainIDs (list): IDs for chains to be included in partial structure file.
         pdbDir (Path): path to file directory containing PDB structures.
         outPath (Path): file path to save partial structure to.
+        resIDs (dict): residue IDs to include from each chain.
 
     """
     struc = return_structure (pdbid, pdbDir)
@@ -957,7 +961,8 @@ class ChainSelect (Select):
     """Class for chain collection used for creating partial PDB structures.
 
     Args:
-        Select (list): chain IDs.
+        chain_letters (list): chain letter IDs.
+        resIDs (dict): residue IDs to include from each chain.
 
     """
     def __init__ (self, chain_letters, resIDs = None):
