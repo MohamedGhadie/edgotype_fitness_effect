@@ -33,7 +33,7 @@ from pdb_tools import (allow_pdb_downloads,
                        return_chain_res_posToID,
                        return_chain_res_IDToPos,
                        get_interface_by_chainIDs)
-from ddg_tools import read_protein_mutation_ddg
+from energy_tools import read_protein_mutation_ddg
 
 #-----------------------------------------
 # Global variables modified by modules
@@ -340,8 +340,9 @@ def single_chain_per_protein (inPath,
     Args:
         inPath (Path): path to tab-deleimited file containing protein-chain alignments.
         outPath (Path): file path to save filtered alignments to.
-        chainSeqFile (Path): check if PDB structure exists before selecting chain annotation.
-        chainStrucResFile (Path): check if PDB structure exists before selecting chain annotation.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
+        chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
+                                    positions associated with 3D coordinates.
         pdbDir (Path): file directory containing PDB structures.
 
     """
@@ -385,7 +386,7 @@ def produce_interface_annotated_interactome (inPath,
     Args:
         inPath (Path): path to file containing chain-annotated interactome.
         pdbDir (Path): file directory containing pdb structures.
-        chainSeqFile (Path): path to file containing dictionary of PDB chain sequences.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
         chainMapFile (Path): path to tab-delimited file containing protein-chain alignments.
         interfaceFile (Path): path to file containing already calculated chain-pair interfaces.
                                 Newly calculated interfaces are added to this file.
@@ -712,7 +713,7 @@ def process_skempi_mutations (mutationFile,
 
     Args:
         mutationFile (Path): path to SKEMPI mutations file.
-        chainSeqFile (Path): path to file containing dictionary of chain sequences.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
         chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
                                     positions associated with 3D coordinates.
         pdbDir (Path): file directory containing PDB structures.
@@ -892,7 +893,7 @@ def write_skempi_mutation_structure_maps (mutationFile,
         mutationFile (Path): path to file containing mutations to be mapped.
         interactomeFile (Path): path to file containing interface-annotated interactome.
         chainMapFile (Path): path to tab-delimited file containing protein-chain sequence alignments.
-        chainSeqFile (Path): path to file containing dictionary of chain sequences.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
         chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
                                     positions associated with 3D coordinates.
         pdbDir (Path): file directory containing PDB structures.
@@ -933,7 +934,7 @@ def write_mutation_structure_maps (mutations,
         mutations (DataFrame): mutations to be mapped.
         interactomeFile (Path): path to file containing interface-annotated interactome.
         chainMapFile (Path): path to tab-delimited file containing protein-chain sequence alignments.
-        chainSeqFile (Path): path to file containing dictionary of chain sequences.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
         chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
                                     positions associated with 3D coordinates.
         pdbDir (Path): file directory containing PDB structures.

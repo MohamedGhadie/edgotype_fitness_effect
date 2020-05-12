@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# Modules for calculating and processing mutation ∆∆G data.
+# Modules for calculating and processing structural energy.
 #----------------------------------------------------------------------------------------
 
 import os

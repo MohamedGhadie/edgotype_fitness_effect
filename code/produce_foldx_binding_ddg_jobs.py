@@ -9,9 +9,9 @@
 
 import os
 from pathlib import Path
-from ddg_tools import (append_mutation_ddg_files,
-                       read_unprocessed_ddg_mutations,
-                       produce_foldx_and_beluga_jobs)
+from energy_tools import (append_mutation_ddg_files,
+                          read_unprocessed_ddg_mutations,
+                          produce_foldx_and_beluga_jobs)
 
 def main():
     

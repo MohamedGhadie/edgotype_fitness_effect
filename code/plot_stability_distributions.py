@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.stats as stats
 from pathlib import Path
-from ddg_tools import read_protein_mutation_ddg
+from energy_tools import read_protein_mutation_ddg
 from stat_tools import normality_test
 from plot_tools import multi_histogram_plot
 

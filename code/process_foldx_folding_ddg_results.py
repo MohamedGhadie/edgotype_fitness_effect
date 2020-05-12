@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
-from ddg_tools import (read_foldx_results,
-                       write_mutation_ddg_tofile,
-                       produce_foldx_and_beluga_jobs)
+from energy_tools import (read_foldx_results,
+                          write_mutation_ddg_tofile,
+                          produce_foldx_and_beluga_jobs)
 
 def main():
     

@@ -142,7 +142,7 @@ def protein_residue_RSA (positions,
     Args:
         positions (list): list of protein-position tuples.
         pdbChainsFile (Path): path to file containing PDB chain ID dictionary.
-        chainSeqFile (Path): path to file containing dictionary of PDB chain sequences.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
         chainMapFile (Path): path to tab-delimited file containing processed protein-chain alignments.
         chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
                                     positions associated with 3D coordinates.
@@ -222,7 +222,7 @@ def produce_protein_model_RSA (prLen,
     Args:
         prLen (dict): dictionary of sequence length for all proteins.
         pdbChainsFile (Path): path to file containing PDB chain ID dictionary.
-        chainSeqFile (Path): path to file containing dictionary of PDB chain sequences.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
         chainMapFile (Path): path to tab-delimited file containing processed protein-chain alignments.
         chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
                                     positions associated with 3D coordinates.
@@ -559,7 +559,7 @@ def mutation_dist_to_center (mutations,
     Args:
         mutations (DataFrame): table of proteins and mutation positions.
         pdbChainsFile (Path): path to file containing PDB chain ID dictionary.
-        chainSeqFile (Path): path to file containing dictionary of PDB chain sequences.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
         chainMapFile (Path): path to tab-delimited file containing processed protein-chain alignments.
         chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
                                     positions associated with 3D coordinates.

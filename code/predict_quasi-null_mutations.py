@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from ddg_tools import read_protein_mutation_ddg
+from energy_tools import read_protein_mutation_ddg
 from stat_tools import fisher_test, sderror_on_fraction
 from plot_tools import pie_plot
 

@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Modules for final step in producing models using the modeller library. Runs in Python 2.
+#----------------------------------------------------------------------------------------
+
 import pandas as pd
 from subprocess import call
 from multiprocessing import Process
@@ -11,7 +15,18 @@ def produce_protein_models (inPath,
                             numModels = 1,
                             verbosity = 'minimal',
                             modellerTimeout = None):
-    
+    """Build structural models for multiple protein complexes.
+
+    Args:
+        inPath (Path): path to file containing protein complex template annotation table.
+        alignmentDir (Path): file directory containing template alignment file for each protein complex.
+        templateDir (Path): file directory containing template structures.
+        modelDir (Path): file directory to save structural models to.
+        numModels (int): number of models to produce per complex.
+        verbosity (str): modeller verbosity level, either 'verbose', 'minimal' or 'none'.
+        modellerTimeout (numeric): maximum time in seconds allowed for producing a model.
+
+    """
     templateMap = pd.read_table (inPath, sep='\t')
     n = len(templateMap)
     
@@ -51,7 +66,19 @@ def create_protein_model (protein,
                           starting_model = 1,
                           ending_model = 1,
                           verbosity = 'minimal'):
-    
+    """Build structural model(s) for a single protein complex.
+
+    Args:
+        protein (str): protein complex ID.
+        templateIDs (str, list): template ID(s).
+        alignmentFile (Path): path to file containing complex-template alignment file.
+        templateDir (Path): file directory containing template structures.
+        modelDir (Path): file directory to save structural model to.
+        starting_model (int): number of first model to build.
+        ending_model (int): number of last model to build.
+        verbosity (str): modeller verbosity level, either 'verbose', 'minimal' or 'none'.
+
+    """
     if verbosity is 'verbose':
         log.verbose()
     elif verbosity is 'minimal':
@@ -79,12 +106,17 @@ def create_protein_model (protein,
 
 # Override MyModel methods
 class MyModel (automodel):
-    
+    """Overrides MyModel methods. Renumbers chain residues, and renames single chains as A.
+
+    Args:
+        automodel (object): modeller environ object.
+
+    """
     def special_patches (self, aln):
         # number of chains in model
         numChains = len(self.chains)
         
-        # Rename both chains and renumber the residues in each
+        # Renumber residues in each chain
         self.rename_segments (segment_ids = [c.name for c in self.chains],
                               renumber_residues = [1] * numChains)
         
@@ -93,7 +125,13 @@ class MyModel (automodel):
             self.chains[0].name = 'A'
 
 def delete_model_files (modelDir, modelID):
-    
+    """Delete all model-related files produced by modeller for a single model.
+
+    Args:
+        modelDir (Path): file directory containing structural models.
+        modelID (str): model ID.
+
+    """
     filenames = [modelID + '.B99990001.pdb',
                  modelID + '.D00000001',
                  modelID + '.V99990001',
