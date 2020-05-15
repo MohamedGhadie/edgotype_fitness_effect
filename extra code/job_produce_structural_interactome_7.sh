@@ -10,4 +10,4 @@
 #SBATCH --job-name=ghadie84_produce_model_struc_interactome_HuRI_7
 
 source ~/venv/bin/activate
-python produce_model_structural_interactome_7.py
+python produce_structural_interactome_7.py

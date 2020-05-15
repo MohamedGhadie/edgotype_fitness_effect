@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Plot protein folding ∆∆G upon mutation versus mutation residue RSA.
+#----------------------------------------------------------------------------------------
+
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -7,9 +11,8 @@ from plot_tools import multi_bar_plot, curve_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
-    interactome_name = 'IntAct'
+    # reference interactome name: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -29,8 +32,7 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -139,7 +141,7 @@ def main():
                 xticklabels = xticklabels,
                 xlabel = 'RSA',
                 ylabel = 'Change in protein stability\n∆∆G (kcal / mol)',
-                #leg = ('Disease mutations', 'Non-disease mutations'),
+                leg = ('Disease mutations', 'Non-disease mutations'),
                 xlim = [-0.05, 1],
                 ylim = [-0.25, 6],
                 compress = True,
@@ -174,4 +176,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Select one template chain per protein from the protein-chain alignment table.
+#----------------------------------------------------------------------------------------
+
 import os
 import pandas as pd
 from pathlib import Path
@@ -10,25 +14,12 @@ def main():
     # options: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
-    # homology modelling method used to create structural models
-    # options: template_based, model_based
-    #model_method = 'model_based'
-    
-    # maximum e-value cutoff to filter out protein-chain annotations
-    #evalue = 1e-10
-    
-    # minimum protein sequence coverage fraction required for protein-chain annotation
-    #prCov = 0.5
-    
-    # minimum chain sequence coverage fraction required for protein-chain annotation
-    #chCov = 0.5
-    
     # download missing template structures from PDB
     download_template_structures = True
     
     # parent directory of all data files
-    dataDir = Path('../data')
     #dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -41,7 +32,6 @@ def main():
     
     # directory of PDB structure files
     pdbDir = Path('../../pdb_files')
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     
     # input data files
     chainMapFile = templateBasedDir / 'struc_interactome_chain_map.txt'

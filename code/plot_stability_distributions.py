@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Plot distributions for folding ∆∆G upon mutation.
+#----------------------------------------------------------------------------------------
+
 import numpy as np
 import scipy.stats as stats
 from pathlib import Path
@@ -7,8 +11,7 @@ from plot_tools import multi_histogram_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models

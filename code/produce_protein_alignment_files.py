@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Produce protein alignment files required for single protein structural modelling.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from text_tools import parse_blast_file
@@ -15,10 +19,10 @@ def main():
     # options: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
-    # allow downloading of PDB structures while constructing the structural interactome
+    # allow downloading of PDB structures
     allow_pdb_downloads = False
     
-    # suppress PDB warnings when constructing the structural interactome
+    # suppress PDB warnings
     suppress_pdb_warnings = True
     
     # parent directory of all data files
@@ -81,6 +85,7 @@ def main():
     print('Filtering alignments')
     # This is only to calculate alignment coverage, and remove duplicate alignments
     # for each protein-chain pair. Filtering by evalue is not needed at this point.
+    # Yet, some template annotations from very low quality PDB structures may be left out.
     filter_chain_annotations (alignmentFile1,
                               alignmentFile2,
                               evalue = 100,

@@ -1,3 +1,8 @@
+#----------------------------------------------------------------------------------------
+# Produce single protein structural models.
+# Call script from directory ../data/processed/<interactome_name>/model_based/protein_models.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from modeller_tools import produce_protein_models
@@ -11,6 +16,7 @@ def main():
     # verbosity for Modeller
     verbosity = 'none'
     
+    # maximum time in minutes allowed for producing a model
     modellerTimeout = 30
     
     # parent directory of all data files

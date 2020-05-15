@@ -1,9 +1,6 @@
 #----------------------------------------------------------------------------------------
-# This script processes results from foldx calculations. Since each foldx result file 
+# Process binding ∆∆G results from FoldX. Since each result file 
 # contains only one mutation, no second-round jobs should be produced.
-#
-# Requirements:
-# Files must be in format produced by script produce_edgetic_mutation_structure_maps.py
 #----------------------------------------------------------------------------------------
 
 import os
@@ -14,8 +11,7 @@ from ddg_tools import (read_foldx_results,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
@@ -41,7 +37,6 @@ def main():
     outDir = modellingDir / 'foldx'
     
     # directory of PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':

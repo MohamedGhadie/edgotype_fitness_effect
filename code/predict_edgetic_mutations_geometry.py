@@ -1,9 +1,5 @@
 #----------------------------------------------------------------------------------------
-# Predict interactome perturbations based on geometry. Given a structural interactome 
-# with PPI binding interface annotations, common neutral mutations not associated 
-# with disease as well as Mendelian disease-causing mutations are mapped onto the 
-# structural interactome. Then, PPI perturbations caused by mutations are predicted based 
-# on mutation location relative to interaction interface.
+# Predict PPI perturbations based on geometry.
 #----------------------------------------------------------------------------------------
 
 import os
@@ -20,16 +16,13 @@ from plot_tools import network_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
-    # homology modelling method used to create structural models
-    # options: template_based, model_based
+    # modelling method used to map interfaces: template_based or model_based
     model_method = 'model_based'
     
-    # set to True to calculate dispensable PPI content using fraction of mono-edgetic mutations 
-    # instead of edgetic mutations
+    # predict mono-edgetic mutations instead of edgetic mutations
     mono_edgetic = False
     
     # plot perturbed interactome and produce files for use by Cytoscape
@@ -65,7 +58,6 @@ def main():
     structuralInteractomeFile = modellingDir / 'structural_interactome.txt'
     
     # output data files
-    #uniqueMutationPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
     natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgetics.txt'
     disMutEdgotypeFile = methodDir / 'disease_mutation_edgetics.txt'
     naturalMutEdgeFile = cytoscapeDir / 'nondiseaseMut_perturbed_edges'
@@ -93,13 +85,11 @@ def main():
     #------------------------------------------------------------------------------------
     
     # Consider PPI perturbations only for PPIs with this maximum number of interfaces 
-    # mapped from distinct PDB binding chain pairs.
-    # This parameter is irrelevent if the flag "merge_interfaces" is True.
-    # Set to inf for unlimited number of interfaces.
+    # mapped from distinct models.
     maxInterfaces = np.inf
     
     # Predict PPI perturbation if mutation is this number of residues away in sequence 
-    # from an interface residue. Set to 0 if mutation must be exactly at interface residue.
+    # from an interface residue. Set to 0 if mutation must be exactly at interface.
     numResFromInterface = 0
     
     # Consider PPI perturbations only for PPIs with this minimum number of partners

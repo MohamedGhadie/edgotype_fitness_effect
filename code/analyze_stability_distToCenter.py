@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Plot protein folding ∆∆G upon mutation versus mutation residue distance to protein center.
+#----------------------------------------------------------------------------------------
+
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -25,8 +29,7 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -147,9 +150,9 @@ def main():
                 #yticklabels = [0, 2, 4, 6, 8],
                 xlabel = 'Distance to protein center (Å)',
                 ylabel = 'Change in protein stability\n∆∆G (kcal / mol)',
-                #leg = ('Disease mutations', 'Non-disease mutations'),
+                leg = ('Disease mutations', 'Non-disease mutations'),
                 xlim = [-2.5, 52.5],
-                ylim = [-1.25, 4],
+                #ylim = [-1.25, 4],
                 #ylim = [-0.5, 8.1],
                 compress = True,
                 linefit = False,

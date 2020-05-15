@@ -1,15 +1,10 @@
 #----------------------------------------------------------------------------------------
-# This script processes mutations from the dbSNP database.
-#
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
+# Filter, merge and further process dbSNP mutations from intermediate files.
 #----------------------------------------------------------------------------------------
 
 import os
 from pathlib import Path
-from mutation_processing_tools import (parse_dbsnp_flatfile_keys,
-                                       parse_dbsnp_flatfile,
-                                       filter_and_merge_dbsnp_mutations,
+from mutation_processing_tools import (filter_and_merge_dbsnp_mutations,
                                        get_flanking_sequences,
                                        match_flanking_sequences,
                                        remove_synon_nonsense_mutations)

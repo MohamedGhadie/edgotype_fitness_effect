@@ -107,12 +107,12 @@ def single_mutation_PPI_perturb (protein,
     return sum(onInterface)
 
 def energy_based_perturbation (perturbs, ddg, cutoff, probabilistic = False):
-    """Re-predict PPI perturbations for predicted PPI-perturbing mutations using ∆∆G.
+    """Predict PPI perturbations for interface-perturbing mutations using ∆∆G.
 
     Args:
-        perturbs (dataframe): mutation perturbations.
+        perturbs (dataframe): mutation interface perturbations.
         ddg (dict): mutation ∆∆G values.
-        cutoff (numeric): minimum ∆∆G required for PPI perturbation.
+        cutoff (numeric): minimum ∆∆G (non-inclusive) required for PPI perturbation.
         probabilistic (bool): if True, predict perturbations for PPIs with unknown ∆∆Gs 
                                 using the probability of perturbation calculated from 
                                 known ∆∆Gs.

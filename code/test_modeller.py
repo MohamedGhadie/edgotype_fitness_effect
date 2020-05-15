@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Test modeller installation by building an example structural model.
+#----------------------------------------------------------------------------------------
+
 from modeller import *
 from modeller.automodel import *
 
@@ -6,12 +10,13 @@ def main():
     log.verbose()
 
     env = environ()
+    
     # directories for input atom files
     env.io.atom_files_directory = ['.', '../atom_files']
 
     # Be sure to use 'MyModel' rather than 'automodel' here!
     a = MyModel(env,
-                alnfile  = 'twochain copy.ali' ,     # alignment filename
+                alnfile  = 'twochain.ali' ,     # alignment filename
                 knowns   = '2abx',              # codes of the templates
                 sequence = '1hc9')              # code of the target
 

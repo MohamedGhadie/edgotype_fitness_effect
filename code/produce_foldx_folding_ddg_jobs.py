@@ -1,3 +1,9 @@
+#----------------------------------------------------------------------------------------
+# Produce jobs for mutations mapped onto protein structures to be submitted 
+# to FoldX for folding ∆∆G calculations. Each produced job contains multiple mutations. 
+# Mutations with existing ∆∆G values in the input file are skipped.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from energy_tools import (append_mutation_ddg_files,
@@ -6,8 +12,7 @@ from energy_tools import (append_mutation_ddg_files,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
@@ -43,7 +48,6 @@ def main():
     outDir = edgeticDir / 'foldx'
     
     # directory of PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':

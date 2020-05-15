@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Calculate mutation residue RSA.
+#----------------------------------------------------------------------------------------
+
 import os
 import pickle
 import pandas as pd
@@ -8,9 +12,8 @@ from threeD_structure_tools import produce_protein_model_RSA
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
-    interactome_name = 'IntAct'
+    # reference interactome name: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -30,8 +33,7 @@ def main():
     suppress_pdb_warnings = True
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -49,7 +51,6 @@ def main():
         edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
         
     # directory of PDB structures
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':
@@ -165,8 +166,8 @@ def main():
                                                 chain_pos = disMutChainPos,
                                                 RSA = disMutRSA)
     
-#     naturalMutations.to_csv (natMutRSAFile, index=False, sep='\t')
-#     diseaseMutations.to_csv (disMutRSAFile, index=False, sep='\t')
+    naturalMutations.to_csv (natMutRSAFile, index=False, sep='\t')
+    diseaseMutations.to_csv (disMutRSAFile, index=False, sep='\t')
     
     natMutRSA = [rsa for rsa in natMutRSA if not np.isnan(rsa)]
     disMutRSA = [rsa for rsa in disMutRSA if not np.isnan(rsa)]

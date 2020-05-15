@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# Modules for processing mutation files.
+# Modules for processing mutation data.
 #----------------------------------------------------------------------------------------
 
 import io
@@ -198,87 +198,6 @@ def parse_dbsnp_flatfile (inPath,
         fout.write('\t'.join(allvalues) + '\n')
     print('\t%d lines parsed from ' % (i + 1) + str(inPath) +  
           'and written to file ' + str(outPath))
-
-def filter_and_merge_dbsnp_mutations_old (inDir,
-                                      uniprotIDmapFile,
-                                      outPath,
-                                      pausetime = 0):
-    
-    """Filter and merge dbSNP mutations from several tab-delimited files.
-
-    Args:
-        inDir (Path): file directory containing dbSNP files to merge.
-        UniProtIDmapFile (Path): path to file containing UniProt ID mapping dictionary.
-        outPath (Path): path to save processed mutation file to.
-        pausetime (numeric): pausing time in seconds between processing each file.
-
-    """
-    with open(uniprotIDmapFile, 'rb') as f:
-        uniprotIDmap = pickle.load(f)
-    chromosomes = list(map(str, list(np.array(range(22)) + 1) + ['X', 'Y']))
-    for i in chromosomes:
-        dbsnpChrMutationsFile = inDir / ('dbsnp_chr' + i + '.txt')
-        if dbsnpChrMutationsFile.is_file():
-            print('\tadding mutations from chromosome ' + i)
-            newMut = pd.read_table(dbsnpChrMutationsFile, dtype='str', sep='\t')
-            newMut["assertion"] = newMut["assertion"].apply(str.lower)
-            newMut["validated"] = newMut["validated"].apply(str.lower)
-            newMut["validation"] = newMut["validation"].apply(str.lower)
-            newMut["MAF"] = newMut["MAF"].apply(lambda x:
-                                                float(x) if is_numeric(x) else -1)
-            newMut["aa_position"] = newMut["aa_position"].apply(lambda x:
-                                                                int(x) if is_numeric(x) else -1)
-        
-            common = (newMut["MAF"] >= 0.01)
-            human = (newMut["species"] == 'human')
-            snp = (newMut["class"] == 'snp')
-            missense = (newMut["fxn-class"] == 'missense')
-            validated = (newMut["validated"] == 'yes')
-            notwithdrawn = (newMut["validation"] == 'notwithdrawn')
-            positioned = (newMut["aa_position"] > -1)
-            sequenced = (newMut["prot_acc"] != '?')
-            nonpathogenic = newMut["assertion"].apply(lambda x:
-                                                     x not in {'pathogenic',
-                                                               'likely pathogenic',
-                                                               'drug-response',
-                                                               'uncertain significance',
-                                                               'other'})
-            print('Common: %d' % sum(common))
-            print('Human: %d' % sum(human))
-            print('SNP: %d' % sum(snp))
-            print('Missense: %d' % sum(missense))
-            print('Validated: %d' % sum(validated))
-            print('Not withdrawn: %d' % sum(notwithdrawn))
-            print('Positioned: %d' % sum(positioned))
-            print('Sequenced: %d' % sum(sequenced))
-            print('Non-pathogenic: %d' % sum(nonpathogenic))
-            print('\t\tfirst selection done')
-            selected = (human &
-                        snp &
-                        missense &
-                        nonpathogenic &
-                        validated &
-                        notwithdrawn &
-                        common &
-                        positioned &
-                        sequenced)
-            print('\t\t%d out of %d mutations selected from chromosome ' 
-                  % (sum(selected), len(newMut)) + i)
-            newMut = newMut[selected]
-            newMut["gene"] = newMut["gene"].apply(str.upper)
-            newMut["protein"] = newMut["gene"].apply(lambda x: uniprotIDmap[x] if x in uniprotIDmap else '-')
-            newMut = newMut[newMut["protein"] != '-']
-            newMut.drop_duplicates(subset=["gene", "aa_position"], inplace=True)
-            newMut.to_csv(outPath, header=(i=='1'), mode = 'a', index=False, sep='\t')
-            print('\t\tpausing for %d seconds' % pausetime)
-            time.sleep(pausetime)
-    allmut = pd.read_table(outPath, dtype='str', sep='\t')
-    allmut.drop_duplicates(subset=["gene", "aa_position"], inplace=True)
-    allmut.rename(columns={"residue":"mut_res",
-                           "aa_position":"mut_position",
-                           "allele":"frequency_reporting_allele",
-                           "allele.1": "variation_allele"}, inplace=True)
-    allmut.to_csv(outPath, index=False, sep='\t')
 
 def filter_and_merge_dbsnp_mutations (inDir, uniprotIDmapFile, outPath, pausetime = 0):
     
@@ -521,7 +440,7 @@ def decompose_clinvar_snp_name (name):
         names (str): mutation name to be decomposed.
 
     Returns:
-        tuple
+        str, str, str, str, str: rna_acc, cdna_mut, wt_res, mut_pos, mut_res
 
     """
     m = re.match(r"(\w{2}_\d+\.\d+)*(\(\w*\))*(\:)*(c\.[\w\>\-]*)*(\s)*(\(p\.\w*\))*", name.strip())
@@ -541,7 +460,7 @@ def decompose_protein_snp (mut):
         mut (str): mutation to be decomposed.
 
     Returns:
-        tuple
+        str, int, str: wt_res, mut_pos, mut_res
 
     """
     snp = mut.strip()
@@ -561,14 +480,14 @@ def map_clinvar_protein_refseq_IDs (inPath, idMapFile, outPath):
         outPath (Path): path to save processed mutation file to.
 
     """
-    mutations = pd.read_table(inPath, sep='\t')
+    mutations = pd.read_table (inPath, sep='\t')
     with open(idMapFile, 'rb') as f:
         protein_acc = pickle.load(f)
     mutations["prot_acc"] = mutations["rna_acc"].apply(lambda x: protein_acc[x] 
                                                                  if x in protein_acc
                                                                  else '-')
     mutations = mutations [mutations["prot_acc"] != '-']
-    mutations.to_csv(outPath, index=False, sep='\t')
+    mutations.to_csv (outPath, index=False, sep='\t')
 
 def get_flanking_sequences (inPath, sequenceFile, sideLength, outPath):
     """Produce mutation flanking sequences.
@@ -580,8 +499,8 @@ def get_flanking_sequences (inPath, sequenceFile, sideLength, outPath):
         outPath (Path): path to save processed mutation file to.
 
     """
-    mutations = pd.read_table(inPath, sep='\t')
-    sequences = pd.read_table(sequenceFile, sep='\t')
+    mutations = pd.read_table (inPath, sep='\t')
+    sequences = pd.read_table (sequenceFile, sep='\t')
     sequencedProteins = sequences["ID"].values
     mutations["protein_seq"] = mutations["prot_acc"].apply(lambda x:
                                                           sequences.loc[sequences["ID"]==x, "Sequence"].item() 
@@ -596,7 +515,7 @@ def get_flanking_sequences (inPath, sequenceFile, sideLength, outPath):
     mutations = mutations[mutations["wt_context"]!='-'].reset_index(drop=True)
     mutations["mut_context_pos"], mutations["wt_context"] = zip(* mutations["wt_context"].values)
     mutations.drop("protein_seq", axis=1, inplace=True)
-    mutations.to_csv(outPath, index=False, sep='\t')
+    mutations.to_csv (outPath, index=False, sep='\t')
 
 def match_flanking_sequences (inPath, sequenceFile, outPath, mask = False):
     """Select mutations whose flanking sequence matches to protein sequence.
@@ -609,8 +528,8 @@ def match_flanking_sequences (inPath, sequenceFile, outPath, mask = False):
                      to protein sequence.
 
     """
-    mutations = pd.read_table(inPath, sep='\t')
-    sequences = pd.read_table(sequenceFile, sep='\t')
+    mutations = pd.read_table (inPath, sep='\t')
+    sequences = pd.read_table (sequenceFile, sep='\t')
     sequencedProteins = sequences["ID"].values
     mutations["protein_seq"] = mutations["protein"].apply(lambda x:
                                                           sequences.loc[sequences["ID"]==x,
@@ -638,9 +557,9 @@ def match_flanking_sequences (inPath, sequenceFile, outPath, mask = False):
     mutations["wt_context"] = mutations.apply(lambda x: x["wt_context"][:x["mut_context_pos"]-1] +
                                                         x["wt_res"] + 
                                                         x["wt_context"][x["mut_context_pos"]:], axis=1)
-    mutations.drop("protein_seq", axis=1, inplace=True)
-    mutations.drop("seq_match", axis=1, inplace=True)
-    mutations.to_csv(outPath, index=False, sep='\t')
+    mutations.drop ("protein_seq", axis=1, inplace=True)
+    mutations.drop ("seq_match", axis=1, inplace=True)
+    mutations.to_csv (outPath, index=False, sep='\t')
 
 def flanking_sequence (pos, seq, sideLength):
     """Return the flanking sequence centered at a given position.
@@ -651,7 +570,7 @@ def flanking_sequence (pos, seq, sideLength):
         sideLength (numeric): number of residues included on each side of the flanking sequence.
 
     Returns:
-        tuple: starting position and flanking sequence, otherwise '-' 
+        int, str: starting position and flanking sequence, otherwise '-' 
 
     """
     pos = pos - 1
@@ -663,7 +582,7 @@ def flanking_sequence (pos, seq, sideLength):
     else:
         return '-'
 
-def remove_synon_nonsense_mutations(inPath, outPath):
+def remove_synon_nonsense_mutations (inPath, outPath):
     """Remove synonymous and nonsense mutations.
 
     Args:
@@ -671,11 +590,11 @@ def remove_synon_nonsense_mutations(inPath, outPath):
         outPath (Path): path to save selected mutations to.
 
     """
-    mutations = pd.read_table(inPath, sep='\t')
+    mutations = pd.read_table (inPath, sep='\t')
     nonsynonymous = mutations.apply(lambda x: x["mut_res"] != x["wt_res"], axis=1)
     missense = mutations["mut_res"] != '*'
     mutations = mutations[nonsynonymous & missense]
-    mutations.to_csv(outPath, index=False, sep='\t')
+    mutations.to_csv (outPath, index=False, sep='\t')
 
 def toOneLetterAA (aa):
     """Convert an amino acid three-letter code to one-letter code.
@@ -707,7 +626,7 @@ def remove_mutation_overlaps (nondiseaseMutationFile, diseaseMutationFile):
         diseaseMutationFile (Path): path to tab-delimited file containing disease mutations.
 
     Returns:
-        Two DataFrames: nondisease mutations, disease mutations
+        DataFrame, DataFrame: nondisease mutations, disease mutations
 
     """
     naturalMutations = pd.read_table (nondiseaseMutationFile, sep='\t')

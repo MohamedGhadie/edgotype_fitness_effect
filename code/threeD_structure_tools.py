@@ -113,7 +113,7 @@ def produce_empirical_maxAcc (pdbIDs, dsspDir, outPath, perc = 99.99):
                     resAcc[res].append(sa)
     maxAcc = {}
     for res, sa in resAcc.items():
-        maxAcc[ res ] = np.percentile(sa, perc) if sa else np.nan
+        maxAcc[res] = np.percentile(sa, perc) if sa else np.nan
     print('Maximum residue accessibility values:')
     print(maxAcc)
     with open(outPath, 'wb') as fOut:

@@ -1,10 +1,7 @@
 #----------------------------------------------------------------------------------------
-# This script produces jobs for mutations mapped onto structures to be submitted 
-# to FoldX for ∆∆G calculations. Each produced job contains only one mutation. 
+# Produce jobs for mutations mapped onto PPI structures to be submitted 
+# to FoldX for binding ∆∆G calculations. Each produced job contains only one mutation. 
 # Mutations with existing ∆∆G values in the input file are skipped.
-#
-# Requirements:
-# Files must be in format produced by script produce_edgetic_mutation_structure_maps.py
 #----------------------------------------------------------------------------------------
 
 import os
@@ -15,8 +12,7 @@ from energy_tools import (append_mutation_ddg_files,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
@@ -39,7 +35,6 @@ def main():
     outDir = modellingDir / 'foldx'
     
     # directory of PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':

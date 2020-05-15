@@ -1,11 +1,6 @@
 #----------------------------------------------------------------------------------------
-# Map mutations in the structural interactome onto structural models to be submitted for 
-# ∆∆G calculations.
-#
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
-# - produce_structural_interactome.py
-# - calculate_dispensable_content_geometry.py
+# Map mutations that are edgetic by geometry (interfacial) onto PPI structural models 
+# to be submitted for binding ∆∆G calculations.
 #----------------------------------------------------------------------------------------
 
 from pathlib import Path
@@ -14,8 +9,7 @@ from structural_annotation import write_mutation_structure_maps
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
@@ -45,7 +39,6 @@ def main():
     modellingDir = interactomeDir / model_method
     
     # directory for PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':

@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Plot fitness effect axes with no data points.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from plot_tools import bar_plot

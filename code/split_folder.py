@@ -1,9 +1,14 @@
+#----------------------------------------------------------------------------------------
+# Split files in one folder into multiple folders.
+#----------------------------------------------------------------------------------------
+
 import sys
 from os import listdir
 from subprocess import run
 
 def main():
     
+    # number of files wanted in each split folder
     numFiles = 111
     
     # path to folder to split

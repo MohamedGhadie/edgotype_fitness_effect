@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Merge multiple protein chain interface files into one file.
+#----------------------------------------------------------------------------------------
+
 import io
 import numpy as np
 from pathlib import Path

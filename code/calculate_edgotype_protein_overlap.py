@@ -11,7 +11,7 @@ from plot_tools import venn2_plot
 def main():
     
     # names of reference interactomes
-    # options: any pair from: HI-II-14, IntAct, experiment
+    # options: any pair from: HI-II-14, HuRI, IntAct, experiment
     interactome_names = ['HuRI', 'experiment']
     
     # homology modelling method used to create structural models
@@ -38,8 +38,7 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'

@@ -1,3 +1,8 @@
+#----------------------------------------------------------------------------------------
+# Process results from folding ∆∆G calculations by FoldX. Failed jobs with multiple 
+# mutations will be split again into multiple single-mutation jobs.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from energy_tools import (read_foldx_results,
@@ -6,8 +11,7 @@ from energy_tools import (read_foldx_results,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
@@ -46,7 +50,6 @@ def main():
     outDir = edgeticDir / 'foldx'
     
     # directory of PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':

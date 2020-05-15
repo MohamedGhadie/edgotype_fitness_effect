@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Produce protein full model mapping data files required for further structural calculations.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from text_tools import produce_item_list
@@ -8,8 +12,7 @@ from modelling_tools import (produce_protein_fullmodel_chainSeq_dict,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # parent directory of all data files

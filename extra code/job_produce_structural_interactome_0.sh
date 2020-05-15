@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=8G
 #SBATCH --output=/project/ctb-yxia/ghadie84/edgotype_fitness_effect_full_model/code/%x-%j.out
-#SBATCH --job-name=ghadie84_produce_model_struc_interactome_HuRI_6
+#SBATCH --job-name=ghadie84_produce_model_struc_interactome_HuRI_0
 
 source ~/venv/bin/activate
-python produce_model_structural_interactome_6.py
+python produce_structural_interactome_0.py

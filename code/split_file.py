@@ -1,10 +1,14 @@
+#----------------------------------------------------------------------------------------
+# Split a text file into multiple files.
+#----------------------------------------------------------------------------------------
+
 import io
 import numpy as np
 from pathlib import Path
 
 def main():
     
-    # number of lines wanted in each output split file
+    # number of lines wanted in each split file
     outLen = 75
     
     # directory of input file

@@ -1,11 +1,17 @@
+#----------------------------------------------------------------------------------------
+# Rename structural models created by modeller as "pdb<modelID>.ent".
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
+    
+    # type of models: ppi_models or protein_models
+    modelType = 'ppi_models'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -20,7 +26,7 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for output models
-    modelDir = modelBasedDir / 'protein_models'
+    modelDir = modelBasedDir / modelType
     
     modelFiles = os.listdir(modelDir)
     for name in modelFiles:

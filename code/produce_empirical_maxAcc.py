@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Produce dictionary of empirically calculated residue maximum solvent accessibility.
+#----------------------------------------------------------------------------------------
+
 import pickle
 from pathlib import Path
 from id_mapping import produce_chain_dict
@@ -12,7 +16,7 @@ def main():
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
     
-    # directory of precalculated RSA files on local computer
+    # local directory of precalculated RSA files
     dsspDir = Path('../../dssp')
     
     # input data files

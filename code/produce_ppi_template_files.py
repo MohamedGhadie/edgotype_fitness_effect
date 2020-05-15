@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Produce PPI template files required for PPI structural modelling.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from id_mapping import produce_chainSeq_dict
@@ -12,21 +16,17 @@ from modelling_tools import (set_pdb_dir,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
-    # allow downloading of PDB structures while constructing the structural interactome
+    # allow downloading of PDB structures
     allow_pdb_downloads = False
     
-    # suppress PDB warnings when constructing the structural interactome
+    # suppress PDB warnings
     suppress_pdb_warnings = True
     
     # parent directory of all data files
     dataDir = Path('../data')
-    
-    # directory of data files from external sources
-    extDir = dataDir / 'external'
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -41,7 +41,6 @@ def main():
     modelBasedDir = interactomeDir / 'model_based'
     
     # directory for PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     # directory for template structure files

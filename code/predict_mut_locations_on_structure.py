@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Identify mutation locations on protein structure.
+#----------------------------------------------------------------------------------------
+
 import os
 import pandas as pd
 from pathlib import Path
@@ -6,9 +10,8 @@ from plot_tools import pie_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
-    interactome_name = 'IntAct'
+    # reference interactome name: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -28,8 +31,7 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -93,8 +95,6 @@ def main():
     # Identify mutation locations on protein structure
     #------------------------------------------------------------------------------------
     
-    #edgetic_region_label = 'interface' if edgetic_method is 'geometry' else 'edgetic'
-    #exposed_region_label = 'exposed-noninterface' if edgetic_method is 'geometry' else 'exposed-nonedgetic'
     natMutGeometry = pd.read_table (natMutGeometryFile, sep='\t')
     disMutGeometry = pd.read_table (disMutGeometryFile, sep='\t')
     natMutGeometryEdgotype = {(row.protein, row.mut_position, row.mut_res):row.edgotype
@@ -119,8 +119,8 @@ def main():
                 locations.append('exposed-noninterface')
         mut["structural_location"] = locations
     
-#     naturalMutations.to_csv (natMutLocFile, index=False, sep='\t')
-#     diseaseMutations.to_csv (disMutLocFile, index=False, sep='\t')
+    naturalMutations.to_csv (natMutLocFile, index=False, sep='\t')
+    diseaseMutations.to_csv (disMutLocFile, index=False, sep='\t')
     
     #------------------------------------------------------------------------------------
     # Calculate fraction of mutations in each region on protein structure
@@ -179,20 +179,16 @@ def main():
     
     pie_plot ([numNaturalMut_exposed, numNaturalMut_interface, numNaturalMut_buried],
               angle = 90,
-              #labels = [exposed_region_label.title(), edgetic_region_label.title(), 'Buried'],
-              #labels = ['exposed-noninterface', 'interface', 'Buried'],
+              labels = ['exposed-noninterface', 'interface', 'Buried'],
               colors = ['mediumslateblue', 'purple', 'red'],
-              #colors = ['dodgerblue', 'purple', 'red'],
               edgewidth = 2,
               show = showFigs,
               figdir = figDir,
               figname = 'non_disease_mutation_structural_locations')
     pie_plot ([numDiseaseMut_exposed, numDiseaseMut_interface, numDiseaseMut_buried],
               angle = 90,
-              #labels = [exposed_region_label.title(), edgetic_region_label.title(), 'Buried'],
-              #labels = ['exposed-noninterface', 'interface', 'Buried'],
+              labels = ['exposed-noninterface', 'interface', 'Buried'],
               colors = ['mediumslateblue', 'purple', 'red'],
-              #colors = ['dodgerblue', 'purple', 'red'],
               edgewidth = 2,
               show = showFigs,
               figdir = figDir,

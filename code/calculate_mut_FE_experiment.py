@@ -1,3 +1,10 @@
+#----------------------------------------------------------------------------------------
+# Calculate the fitness effect for different mutation edgotypes in the experimental dataset 
+# of Sahni et al. (2015), i.e., probabilities for edgetic (E), quasi-null (Q) and 
+# quasi-wild-type (W) mutations to be effectively neutral (N), mildly deleterious (M) or 
+# strongly detrimental (S).
+#----------------------------------------------------------------------------------------
+
 import os
 import pickle
 import pandas as pd
@@ -19,7 +26,7 @@ def main():
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
     # those of mildly deleterious (M) mutations. If set to False, strongly detrimental 
     # mutations are assumed to be all quasi-null
-    assume_S_as_M = True
+    assume_S_as_M = False
     
     # calculate confidence intervals
     computeConfidenceIntervals = True
@@ -31,8 +38,7 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # directory of data files from external sources
     extDir = dataDir / 'external'

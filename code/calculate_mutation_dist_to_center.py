@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Calculate mutation distance to protein geometric center.
+#----------------------------------------------------------------------------------------
+
 import os
 import numpy as np
 import pandas as pd
@@ -47,7 +51,6 @@ def main():
         edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
     
     # directory of PDB structures
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':

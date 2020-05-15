@@ -1,3 +1,9 @@
+#----------------------------------------------------------------------------------------
+# Calculate the the fitness effect for different mutation edgotypes, i.e., probabilities 
+# for edgetic (E), quasi-null (Q) or quasi-wild-type (W) mutations to be effectively 
+# neutral (N), mildly deleterious (M) or strongly detrimental (S).
+#----------------------------------------------------------------------------------------
+
 import os
 import pickle
 import pandas as pd
@@ -7,9 +13,8 @@ from plot_tools import curve_plot, bar_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
-    interactome_name = 'IntAct'
+    # reference interactome name: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # mutation edgotype for which fitness effect is calculated
     # options: quasi-null, edgetic, quasi-wild-type
@@ -28,7 +33,7 @@ def main():
     edgetic_ddg = 'foldx'
     
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
-    # those of mildly deleterious (M) mutations. If set to False, strongly detrimental 
+    # those of mildly deleterious (M) mutations. If False, strongly detrimental 
     # mutations are assumed to be all quasi-null
     assume_S_as_M = False
     
@@ -38,16 +43,11 @@ def main():
     # confidence interval (%)
     CI = 95
     
-    # calculate dispensable PPI content using fraction of mono-edgetic mutations 
-    # instead of fraction of edgetic mutations
-    mono_edgetic = False
-    
     # show figures
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'

@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------------------
-# Map mutations in the structural interactome onto structural models to be submitted for 
-# protein folding ∆∆G calculations.
+# Produce mutation mappings onto structural models of single proteins to be submitted to 
+# FoldX for protein folding ∆∆G calculations.
 #----------------------------------------------------------------------------------------
 
 import os
@@ -10,8 +10,7 @@ from threeD_structure_tools import write_mutation_structure_maps
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
@@ -44,7 +43,6 @@ def main():
         edgeticDir = edgeticDir / (edgetic_ddg + '_edgetics')
     
     # directory for PDB structure files
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':

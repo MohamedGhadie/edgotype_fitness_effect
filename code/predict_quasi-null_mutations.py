@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Predict non-edgetic mutations to be either quasi-null or quasi-wild-type.
+#----------------------------------------------------------------------------------------
+
 import os
 import pandas as pd
 import numpy as np
@@ -8,9 +12,8 @@ from plot_tools import pie_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
-    interactome_name = 'IntAct'
+    # reference interactome name: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -36,16 +39,11 @@ def main():
     # confidence interval (%)
     CI = 95
     
-    # set to True to calculate dispensable PPI content using fraction of mono-edgetic mutations 
-    # instead of edgetic mutations
-    mono_edgetic = False
-    
     # show figures
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'

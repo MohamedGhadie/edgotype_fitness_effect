@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Process raw data files from external sources.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from text_tools import parse_fasta_file, reduce_fasta_headers
@@ -7,13 +11,8 @@ from id_mapping import (produce_geneName_dict,
                         produce_proteinSeq_dict,
                         produce_uniprotID_dict,
                         produce_rnaToProtein_refseqID_dict)
-#from pdb_tools import produce_chain_list
 
 def main():
-    
-    # reference interactome name
-    # options: HI-II-14, IntAct
-    #interactome_name = 'HI-II-14'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -23,12 +22,6 @@ def main():
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
-
-    # directory of processed data files specific to interactome
-    #interactomeDir = procDir / interactome_name
-        
-    # directory of processed template-related data files specific to interactome
-    #templateBasedDir = interactomeDir / 'template_based'
     
     # input data files
     uniprotRefSeqFile = extDir / 'UP000005640_9606.fasta'
@@ -36,7 +29,6 @@ def main():
     proteomeListFile = extDir / 'uniprot_reviewed_human_proteome.list'
     refseqIDFile = extDir / 'LRG_RefSeqGene'
     pdbSeqresFile = extDir / 'pdb_seqres.txt'
-    #chainResAnnotFile = extDir / 'ss_dis.txt'
     
     # output data files
     refSeqFile = procDir / 'human_reference_sequences.fasta'
@@ -48,17 +40,10 @@ def main():
     uniprotIDmapFile = procDir / 'to_human_uniprotID_map.pkl'
     rnaToProteinRefseqIDMapFile = procDir / 'human_rnaToProtein_refseqID_map.pkl'
     seqresFile = procDir / 'pdb_seqres_reduced.fasta'
-    #chainSeqFile = templateBasedDir / 'protein_chain_sequences.pkl'
-    #chainListFile = templateBasedDir / 'protein_model_chains.list'
-    #pdbidFile = templateBasedDir / 'seqres_pdb_IDs.list'
-    #modelChainsFile = templateBasedDir / 'protein_model_chains.pkl'
-    #chainStrucResFile = templateBasedDir / 'protein_chain_strucRes.pkl'
     
     # create output directories if not existing
     if not procDir.exists():
         os.makedirs(procDir)
-#     if not templateBasedDir.exists():
-#         os.makedirs(templateBasedDir)
     
     if not refSeqFile.is_file():
         print('Reducing headers in protein sequence fasta file')
@@ -95,26 +80,6 @@ def main():
     if not seqresFile.is_file():
         print('reducing headers in PDB chain sequence file')
         reduce_fasta_headers (pdbSeqresFile, ' ', 1, 1, seqresFile)
-    
-#     if not chainSeqFile.is_file():
-#         print('producing PDB chain sequence dictionary from fasta records')
-#         produce_chainSeq_dict (seqresFile, chainSeqFile)
-    
-#     if not chainListFile.is_file():
-#         print('producing PDB chain ID file from fasta records')
-#         produce_chain_list (seqresFile, chainListFile)
-    
-#     if not pdbidFile.is_file():
-#         print('producing unique PDB ID file from chain list file')
-#         produce_pdb_ids (chainListFile, pdbidFile)
-    
-#     if not modelChainsFile.is_file():    
-#         print('producing model chain dictionary from chain list file')
-#         produce_chain_dict (chainListFile, modelChainsFile)
-    
-#     if not chainStrucResFile.is_file():
-#         print('parsing PDB chain structured-residue order file')
-#         produce_chain_strucRes_dict (chainResAnnotFile, chainStrucResFile)
 
 if __name__ == "__main__":
     main()

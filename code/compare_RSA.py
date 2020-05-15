@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Compare RSA for mutation residues and other residues.
+#----------------------------------------------------------------------------------------
+
 import os
 import pickle
 import pandas as pd
@@ -9,9 +13,8 @@ from plot_tools import bar_plot, multi_bar_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
-    interactome_name = 'IntAct'
+    # reference interactome name: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -34,8 +37,7 @@ def main():
     showFigs = False
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
@@ -50,7 +52,6 @@ def main():
     edgeticDir = modellingDir / edgetic_method
     
     # directory of PDB structures
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':
@@ -195,7 +196,6 @@ def main():
     
     data = [np.mean(disMutRSA), np.mean(natMutRSA), np.mean(allResRSA)]
     maxY = 0.1 * np.ceil(max(data) / 0.1)
-    maxY = 0.6
     bar_plot (data,
               error = [sderror(disMutRSA), sderror(natMutRSA), sderror(allResRSA)],
               xlabels = ['Disease\nmutations', 'Non-disease\nmutations', 'All\nresidues'],
@@ -236,10 +236,10 @@ def main():
                     hatches = ['/', '..'],
                     barwidth = barwidth,
                     fontsize = 22,
-                    ylim = [-15, maxY],
+                    ylim = [minY, maxY],
                     xticks = xticks,
                     opacity = None,
-                    #leg = ('Disease mutations', 'Non-disease mutations'),
+                    leg = ('Disease mutations', 'Non-disease mutations'),
                     overlap = False,
                     show = showFigs,
                     figdir = figDir,

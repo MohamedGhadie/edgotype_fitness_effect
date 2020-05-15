@@ -1,12 +1,17 @@
+#----------------------------------------------------------------------------------------
+# Extract structural model files with extension .ent from a folder.
+#----------------------------------------------------------------------------------------
+
 import os
 import subprocess
 from pathlib import Path
 
 def main():
     
-    # directory for output models
+    # input directory containing structural models to extract
     modelDir = Path('../data/processed/HI-II-14/model_based/ppi_models')
     
+    # output directory to save extracted models
     outDir = Path('../models_only')
     
     if not modelDir.exists():

@@ -1,5 +1,7 @@
 #----------------------------------------------------------------------------------------
-#
+# Build a template-annotated interactome from a chain-annotated reference interactome by 
+# identifying chain pair annotations that have binding interfaces. Interfaces are also
+# mapped onto protein sequences.
 #----------------------------------------------------------------------------------------
 
 import os

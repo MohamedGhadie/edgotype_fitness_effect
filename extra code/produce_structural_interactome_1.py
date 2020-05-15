@@ -1,13 +1,6 @@
 #----------------------------------------------------------------------------------------
-# This script constructs a structural interactome from a reference interactome by mapping 
-# interaction binding interfaces at amino acid resolution from experimentally determined 
-# three-dimensional structural models in PDB onto interactions in the reference interactome.
-#
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
-# - process_interactome.py
-# - BLAST human protein sequences against PDB sequences and save results into path
-#   ../data/external/human_pdb_e-5
+# Build an interface-annotated structural interactome from available PPI structural models.
+# Interfaces are mapped onto protein sequences.
 #----------------------------------------------------------------------------------------
 
 import os

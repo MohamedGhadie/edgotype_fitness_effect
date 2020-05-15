@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# This script processes mutations from the dbSNP database.
+# Parse a single flat file of mutations from the dbSNP database.
 #----------------------------------------------------------------------------------------
 
 import os
@@ -42,9 +42,9 @@ def main():
     # process dbSNP mutations
     #------------------------------------------------------------------------------------
     
-#     if chr is '1':
-#         print('collecting dbSNP flatfile keys')
-#         parse_dbsnp_flatfile_keys (dbsnpInFile, dbsnpOutDir, pausetime = 0)
+    if chr is '1':
+        print('collecting dbSNP flatfile keys')
+        parse_dbsnp_flatfile_keys (dbsnpInFile, dbsnpOutDir, pausetime = 0)
     
     print('parsing dbSNP flatfile')
     parse_dbsnp_flatfile (dbsnpInFile, dbsnpOutDir, dbsnpOutFile, pausetime = 0)

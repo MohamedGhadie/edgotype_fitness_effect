@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# Calculate overlap in PPIs and proteins between two interactomes.
+# Calculate overlap in proteins and PPIs between two reference or structural interactomes.
 #----------------------------------------------------------------------------------------
 
 import pandas as pd
@@ -19,8 +19,7 @@ def main():
     model_method = 'model_based'
     
     # parent directory of all data files
-    #dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
+    dataDir = Path('../data')
     
     # parent directory of all processed data files
     procDir = dataDir / 'processed'

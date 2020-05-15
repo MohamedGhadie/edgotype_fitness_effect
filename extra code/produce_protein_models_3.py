@@ -1,3 +1,8 @@
+#----------------------------------------------------------------------------------------
+# Produce single protein structural models.
+# Call script from directory ../data/processed/<interactome_name>/model_based/protein_models.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from modeller_tools import produce_protein_models

@@ -1,8 +1,5 @@
 #----------------------------------------------------------------------------------------
-# Process reference interactome from protein-protein interaction dataset.
-#
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
+# Process reference interactome from PPI dataset.
 #----------------------------------------------------------------------------------------
 
 import os
@@ -18,8 +15,7 @@ from interactome_tools import (write_interactome_sequences,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, IntAct, HuRI
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # parent directory of all data files

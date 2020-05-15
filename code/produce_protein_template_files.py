@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Produce protein template files required for single protein structural modelling.
+#----------------------------------------------------------------------------------------
+
 import os
 import pandas as pd
 from pathlib import Path
@@ -24,10 +28,7 @@ def main():
     
     # parent directory of all data files
     dataDir = Path('../data')
-    
-    # directory of data files from external sources
-    extDir = dataDir / 'external'
-    
+        
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
     

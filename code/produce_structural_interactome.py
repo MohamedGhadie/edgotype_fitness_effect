@@ -1,13 +1,6 @@
 #----------------------------------------------------------------------------------------
-# This script constructs a structural interactome from a reference interactome by mapping 
-# interaction binding interfaces at amino acid resolution from experimentally determined 
-# three-dimensional structural models in PDB onto interactions in the reference interactome.
-#
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
-# - process_interactome.py
-# - BLAST human protein sequences against PDB sequences and save results into path
-#   ../data/external/human_pdb_e-5
+# Build an interface-annotated structural interactome from available PPI structural models.
+# Interfaces are mapped onto protein sequences.
 #----------------------------------------------------------------------------------------
 
 import os
@@ -23,8 +16,7 @@ from structural_annotation import (produce_interface_annotated_interactome,
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # max binding distance for interface residues in PDB structure
@@ -34,6 +26,7 @@ def main():
     showFigs = False
     
     # parent directory of all data files
+    # dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect_full_model/data')
     dataDir = Path('../data')
     
     # parent directory of all processed data files
@@ -87,33 +80,33 @@ def main():
         print('producing model chain structured residue label file')
         produce_fullmodel_chain_strucRes_dict (chainSeqFile, chainStrucResFile)
     
-#     if not structuralInteractomeFile1.is_file():
-#         print('mapping model interfaces onto model-annotated interactome')
-#         produce_interface_annotated_interactome (modelAnnotatedInteractomeFile,
-#                                                  modelDir,
-#                                                  chainSeqFile,
-#                                                  chainMapFile,
-#                                                  modelInterfaceFile,
-#                                                  chainStrucResFile,
-#                                                  1,
-#                                                  1,
-#                                                  False,
-#                                                  0,
-#                                                  bindingDist,
-#                                                  structuralInteractomeFile1,
-#                                                  downloadPDB = False,
-#                                                  suppressWarnings = False)
-#         
-#         print('merging interface annotations for each PPI')
-#         merge_interactome_interface_annotations (structuralInteractomeFile1,
-#                                                  structuralInteractomeFile)
-#     
-#     structuralInteractome = pd.read_table (structuralInteractomeFile, sep='\t')
-#     interactomeProteins = list(set(structuralInteractome[["Protein_1", "Protein_2"]].values.flatten()))
-#     print( '\n' + 'Structural interactome:' )
-#     print( '%d PPIs' % len(structuralInteractome) )
-#     print( '%d proteins' % len(interactomeProteins) )
-#     print()
+    if not structuralInteractomeFile1.is_file():
+        print('mapping PPI interfaces from structural models')
+        produce_interface_annotated_interactome (modelAnnotatedInteractomeFile,
+                                                 modelDir,
+                                                 chainSeqFile,
+                                                 chainMapFile,
+                                                 modelInterfaceFile,
+                                                 chainStrucResFile,
+                                                 1,
+                                                 1,
+                                                 False,
+                                                 0,
+                                                 bindingDist,
+                                                 structuralInteractomeFile1,
+                                                 downloadPDB = False,
+                                                 suppressWarnings = False)
+        
+        print('merging interface annotations for each PPI')
+        merge_interactome_interface_annotations (structuralInteractomeFile1,
+                                                 structuralInteractomeFile)
+    
+    structuralInteractome = pd.read_table (structuralInteractomeFile, sep='\t')
+    interactomeProteins = list(set(structuralInteractome[["Protein_1", "Protein_2"]].values.flatten()))
+    print('\n' + 'Structural interactome:')
+    print('%d PPIs' % len(structuralInteractome))
+    print('%d proteins' % len(interactomeProteins))
+    print()
 
 if __name__ == "__main__":
     main()

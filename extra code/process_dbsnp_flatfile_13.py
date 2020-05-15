@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# This script processes mutations from the dbSNP database.
+# Parse a single flat file of mutations from the dbSNP database.
 #----------------------------------------------------------------------------------------
 
 import os

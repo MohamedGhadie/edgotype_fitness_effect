@@ -1,3 +1,8 @@
+#----------------------------------------------------------------------------------------
+# Run this script from inside a Beluga job folder, and it will submit all job scripts with
+# extension .sh to the server.
+#----------------------------------------------------------------------------------------
+
 from os import listdir
 from pathlib import Path
 from time import sleep

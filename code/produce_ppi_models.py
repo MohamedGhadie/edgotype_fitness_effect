@@ -1,20 +1,24 @@
+#----------------------------------------------------------------------------------------
+# Produce PPI structural models.
+# Call script from directory ../data/processed/<interactome_name>/model_based/ppi_models.
+#----------------------------------------------------------------------------------------
+
 import os
 from pathlib import Path
 from modeller_tools import produce_protein_models
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, IntAct
-    interactome_name = 'IntAct'
+    # reference interactome name: HI-II-14, HuRI, IntAct
+    interactome_name = 'HuRI'
     
     # verbosity for Modeller
     verbosity = 'none'
     
+    # maximum time in minutes allowed for producing a model
     modellerTimeout = 30
     
     # parent directory of all data files
-    #dataDir = Path('../data')
     dataDir = Path('../../../../')
     
     # parent directory of all processed data files
@@ -33,7 +37,7 @@ def main():
     alignmentDir = modelBasedDir / 'ppi_alignments'
     
     # directory for output models
-    modelDir = modelBasedDir / 'ppi_models_test'
+    modelDir = modelBasedDir / 'ppi_models'
     
     # input data files
     interactomeFile = modelBasedDir / 'template_annotated_interactome.txt'
@@ -42,7 +46,7 @@ def main():
     if not modelDir.exists():
         os.makedirs(str(modelDir))
     
-    print('Creating PPI models')
+    print('Building PPI models')
     produce_protein_models (interactomeFile,
                             alignmentDir,
                             templateDir,

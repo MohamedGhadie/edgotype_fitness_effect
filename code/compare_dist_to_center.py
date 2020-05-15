@@ -1,3 +1,7 @@
+#----------------------------------------------------------------------------------------
+# Compare mutation distance to protein geometric center with other residues.
+#----------------------------------------------------------------------------------------
+
 import os
 import pickle
 import numpy as np
@@ -9,8 +13,7 @@ from plot_tools import bar_plot, multi_bar_plot
 
 def main():
     
-    # reference interactome name
-    # options: HI-II-14, HuRI, IntAct
+    # reference interactome name: HI-II-14, HuRI, IntAct
     interactome_name = 'HuRI'
     
     # homology modelling method used to create structural models
@@ -49,7 +52,6 @@ def main():
     edgeticDir = modellingDir / edgetic_method
     
     # directory of PDB structures
-    #pdbDir = Path('/Volumes/MG_Samsung/pdb_files')
     pdbDir = Path('../../pdb_files')
     
     if model_method is 'model_based':
@@ -238,9 +240,10 @@ def main():
                     colors = ['magenta', 'dodgerblue'],
                     barwidth = barwidth,
                     #ylim = [-12, 40],
+                    ylim = [minY, maxY]
                     xticks = xticks,
                     opacity = None,
-                    #leg = ('Disease mutations', 'Non-disease mutations'),
+                    leg = ('Disease mutations', 'Non-disease mutations'),
                     overlap = False,
                     show = showFigs,
                     figdir = figDir,

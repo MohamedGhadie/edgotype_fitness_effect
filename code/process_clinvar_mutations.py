@@ -1,8 +1,5 @@
 #----------------------------------------------------------------------------------------
-# This script processes mutations from the ClinVar database.
-#
-# Run the following scripts before running this script:
-# - produce_data_mappings.py
+# Process mutations from the ClinVar database.
 #----------------------------------------------------------------------------------------
 
 import os
@@ -52,7 +49,7 @@ def main():
     #------------------------------------------------------------------------------------
     
     if not clinvarMutationsFile1.is_file():
-        print( 'Filtering ClinVar mutation file' )
+        print('Filtering ClinVar mutation file')
         filter_clinvar_mutations (allClinvarMutationsFile,
                                   clinvarMutationsFile1,
                                   assembly = 'GRCh38',
@@ -71,26 +68,25 @@ def main():
                                             'criteria provided, single submitter'],
                                   uniprotIDmapFile = uniprotIDmapFile)
     
-    print( 'Decomposing mutation names' )
+    print('Decomposing mutation names')
     decompose_clinvar_snp_mutations (clinvarMutationsFile1, clinvarMutationsFile2)
 
-    print( 'Mapping protein refseq IDs' )
+    print('Mapping protein refseq IDs')
     map_clinvar_protein_refseq_IDs (clinvarMutationsFile2,
                                     rnaToProteinRefseqIDMapFile,
                                     clinvarMutationsFile3)
 
-    print( 'Reading mutation flanking sequences from protein RefSeq transcripts' )
+    print('Reading mutation flanking sequences from protein RefSeq transcripts')
     get_flanking_sequences (clinvarMutationsFile3,
                             refseqFile,
                             flankingSeqSideLen,
                             clinvarMutationsFile4)
 
-    print( 'Matching RefSeq flanking sequences to UniProt sequences' )
+    print('Matching RefSeq flanking sequences to UniProt sequences')
     match_flanking_sequences (clinvarMutationsFile4, uniqueGeneSequenceFile, clinvarMutationsFile5)
 
-    print( 'Removing synonymous and nonsense mutations' )
+    print('Removing synonymous and nonsense mutations')
     remove_synon_nonsense_mutations (clinvarMutationsFile5, clinvarMutationsFile6)
 
 if __name__ == "__main__":
     main()
-
