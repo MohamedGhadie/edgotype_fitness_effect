@@ -1,67 +1,75 @@
 
-## Be aware that running all scripts from scratch will take many days, especially for downloading PDB structure, calculating interfaces for >1000 structures, and submitting jobs to BindProfX or Foldx.
+# This file contains all instructions for predicting mutation edgotypes and calculating the fitness effect for different mutation edgotypes.
 
-## All scripts run in Python 3, except for produce_ppi_models.py and produce_protein_models.py which run in Python 2. Install all python modules listed in the file “dependencies” before running the instructions below.
+# All scripts run in Python 3, except for produce_ppi_models.py and produce_protein_models.py which run in Python 2.
 
-## All scripts are set to do calculations on the HI-II-14 dataset (and its corresponding structural interactome Y2H-SI). To repeat calculations on the IntAct dataset (and its corresponding structural interactome IntAct-SI), set the parameter “interactome_name” in all scripts to the value “IntAct”. Some plotting scripts may require that calculations for all 3 interactomes (Y2H-SI, IntAct-SI, and experiment) be done first.
+# Install all python modules listed in the file “dependencies” before running instructions below.
 
-## To reproduce all data files and results from scratch, set your working directory to your project directory “edgotype_fitness_effect”, and follow the following instructions:
+## All scripts and instructions below are set to perform calculations on the HuRI dataset and its structural interactome Y2H-SI. To repeat calculations on the literature-curated IntAct dataset, set the parameter <interactome_name> in all scripts to “IntAct”. Also replace the term "HuRI" in instructions below with the term "IntAct".
 
+####################################################################################
+				Instructions
+####################################################################################
+
+# create project directory
+mkdir edgotype_fitness_effect
+
+# create subdirectory for data files from external sources:
 mkdir data
 cd data
 mkdir external
 cd external
 
-# download and unzip UniProt human reference sequences:
+# Download and unzip UniProt human reference sequences:
 wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes//Eukaryota/UP000005640_9606.fasta.gz
 gunzip UP000005640_9606.fasta.gz
 
-# download and unzip UniProt ID mapping table:
+# Download and unzip UniProt ID mapping table:
 wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping//by_organism/HUMAN_9606_idmapping.dat.gz
 gunzip HUMAN_9606_idmapping.dat.gz
 
-# download UniProt reviewed human proteome list:
+# Download UniProt reviewed human proteome list:
 wget 'http://www.uniprot.org/uniprot/?sort=&desc=&compress=no&query=&fil=reviewed:yes%20AND%20organism:%22Homo%20sapiens%20(Human)%20[9606]%22%20AND%20proteome:up000005640&format=list&force=yes' -O uniprot_reviewed_human_proteome.list
 
-# download RefSeqGene mapping:
+# Download RefSeqGene mapping:
 wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/RefSeqGene/LRG_RefSeqGene
 
-# download and unzip PDB sequences and structures residue labels:
+# Download and unzip PDB chain sequences and structured residue labels:
 wget ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt
 wget https://cdn.rcsb.org/etl/kabschSander/ss_dis.txt.gz
 gunzip ss_dis.txt.gz
 
-# download HI-II-14 human protein-protein interaction dataset:
-wget http://interactome.dfci.harvard.edu/H_sapiens/download/HI-II-14.tsv
+# Download the HuRI human protein-protein interaction dataset:
+wget http://www.interactome-atlas.org/data/HuRI.tsv
 
-# download and extract IntAct protein-protein interaction dataset:
+# Download and extract IntAct protein-protein interaction dataset:
 wget ftp://ftp.ebi.ac.uk/pub/databases/intact/current/psimitab/intact.zip
 unzip intact.zip
 rm intact.zip intact_negative.txt
 
-# downlaod experimental edgotype dataset of Sahni et al. (2015):
+# Downlaod experimental edgotype dataset of Sahni et al. (2015):
 wget https://ars.els-cdn.com/content/image/1-s2.0-S0092867415004304-mmc3.xlsx -O Sahni_2015_Table_S3.xlsx
 
-# process data files from external sources:
+# Process data files from external sources:
 cd ../../code
 python3 process_external_data.py
 
-# process reference interactome dataset
+# Process reference interactome dataset:
 python3 process_interactome.py
 
 # BLAST interactome protein sequences against PDB SEQRES sequences:
-cd ../data/processed/<interactome_name>
+cd ../data/processed/HuRI
 cp interactome_sequences.fasta ../
 cd ../
 makeblastdb -in pdb_seqres_reduced.fasta -dbtype prot -out pdb_seqres_db
 blastp -db pdb_seqres_db -query interactome_sequences.fasta -out interactome_pdb_e-5 -evalue 1e-5
-cp interactome_pdb_e-5 /<interactome_name>
+cp interactome_pdb_e-5 /HuRI
 
-# produce template structural interactome:
+# Produce template-annotated interactome:
 cd ../../code
-python3 produce_template_structural_interactome.py
+python3 produce_template_annotated_interactome.py
 
-# download, unzip and process RefSeq protein transcript sequence files:
+# Download, unzip and process RefSeq protein transcript sequence files:
 cd ../data/external
 mkdir RefSeq
 cd RefSeq
@@ -70,14 +78,14 @@ gunzip human.*.protein.faa.gz
 cd ../../../code
 python3 process_refseq_files.py
 
-# download, unzip and process disease-causing mutations from ClinVar:
+# Download, unzip and process disease-causing mutations from ClinVar:
 cd ../data/external
 wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar//tab_delimited/variant_summary.txt.gz
 gunzip variant_summary.txt.gz
 cd ../../code
 python3 process_clinvar_mutations.py
 
-# download, unzip and process dbSNP flatfiles:
+# Download, unzip and process dbSNP flat files:
 cd ../data/external
 mkdir dbsnp
 cd dbsnp
@@ -87,51 +95,123 @@ cd dbsnp
 	3 - cd ../../../code
 	4 - # set parameter ‘chr’ in script process_dbsnp_flatfile.py to <i> in string format
 	5 - python3 process_dbsnp_flatfile.py
-	6 - rm ds_flat_ch<i>.flat (# optionally to clear memory)
+	6 - rm ds_flat_ch<i>.flat (optional to clear memory)
 	7 - cd ../data/external/dbsnp
 
-# filter and process common non-disease mutations from dbSNP flatfiles:
+# Filter, process and merge common non-disease mutations from dbSNP flat files:
 cd ../../../code
 python3 process_dbsnp_mutations.py
 
-# produce PPI template files for PPI homology modelling
+# Produce PPI template files for PPI homology modelling:
 python3 produce_ppi_template_files.py
 
-# blast again this time against sequence residues that have 3d coordinates, for modeller
-cd ../data/processed/<interactome_name>/model_based
+# Blast again this time against PDB chain residues that have 3D coordinates:
+cd ../data/processed/HuRI/model_based
 makeblastdb -in ppi_template_sequences.fasta -dbtype prot -out ppi_template_seq_db
 blastp -db ppi_template_seq_db -query protein_sequences.fasta -out ppi_template_blast_alignments_e100 -evalue 100 -max_hsps 1 -num_alignments 1000
 
-# produce PPI alignment files for PPI homology modelling
+# Produce PPI alignment files for PPI homology modelling:
 cd ../../../../code
 python3 produce_ppi_alignment_files.py
 
-# produce PPI structural models
-cd ../data/processed/<interactome_name>/model_based
+# Produce PPI structural models:
+cd ../data/processed/HuRI/model_based
 mkdir ppi_models
 cd ppi_models
 python2 ../../../../../code/produce_ppi_models.py
 
-# rename structural model files
+# Rename PPI structural model files:
+# Set parameter <modelType> in script rename_models.py to "ppi_models"
 cd ../../../../../code
 python3 rename_models.py
 
-# produce structural interactome
-python3 produce_model_structural_interactome.py
+# Produce structural interactome:
+python3 produce_structural_interactome.py
 
-# At this point, you have the structural interactome with mapped PPI interfaces in the file "structural_interactome.txt" in directory /data/processed/<interactome_name>/model_based/
+# At this point, the structural interactome with mapped PPI interfaces can be found in the file /data/processed/HuRI/model_based/structural_interactome.txt
 
-# predict PPI edgetic perturbations and edgetic mutations based on geometry:
+# Predict PPI edgetic perturbations and edgetic mutations using geometry:
 python3 predict_edgetic_mutations_geometry.py
 
-# produce edgetic mutation structure maps for submission to FoldX:
+# Produce edgetic mutation structure maps for FoldX binding ∆∆G calculations:
 python3 produce_edgetic_mutation_structure_maps.py
 
-#Submit mutation structure maps to FoldX for ∆∆G calculations following instructions in file ‘instructions_for_FoldX’
+# Run FoldX binding ∆∆G calculations following instructions in file ‘instructions_for_FoldX_binding_ddg’
 
-# Analyze binding ∆∆G upon mutation
+# Compare mutation binding ∆∆G:
 python3 analyze_binding_ddg.py
 
-# predict PPI edgetic perturbations and edgetic mutations based on physics (∆∆G):
+# Predict PPI edgetic perturbations and edgetic mutations using physics (∆∆G):
 python3 predict_edgetic_mutations_physics.py
 
+# Assign a single chain template to each protein:
+python3 assign_protein_single_templates.py
+
+# Produce protein template files for single protein homology modelling:
+python3 produce_protein_template_files.py
+
+# Blast against PDB chain residues that have 3D coordinates:
+cd ../data/processed/HuRI/model_based
+makeblastdb -in protein_template_sequences.fasta -dbtype prot -out protein_template_seq_db
+blastp -db protein_template_seq_db -query protein_sequences.fasta -out protein_template_blast_alignments_e100 -evalue 100 -max_hsps 1 -num_alignments 1000
+
+# Produce protein alignment files for single protein homology modelling:
+cd ../../../../code
+python3 produce_protein_alignment_files.py
+
+# Produce protein structural models:
+cd ../data/processed/HuRI/model_based
+mkdir protein_models
+cd protein_models
+python2 ../../../../../code/produce_protein_models.py
+
+# Rename protein structural model files:
+# Set parameter <modelType> in script rename_models.py to "protein_models"
+cd ../../../../../code
+python3 rename_models.py
+
+# Produce protein full model mapping data required for further structural calculations:
+python3 produce_protein_model_mappings.py
+
+# Produce empirically calculated residue maximum solvent accessibility:
+python3 produce_empirical_maxAcc.py
+
+# Calculate mutation residue RSA:
+python3 calculate_mutation_RSA.py
+
+# Compare mutation RSA with other residues:
+python3 compare_RSA.py
+
+# Calculate mutation distance to protein geometric centre:
+python3 calculate_mutation_dist_to_center.py
+
+# Compare mutations distance to centre with other residues:
+python3 compare_dist_to_center.py
+
+# Predict mutation locations on protein structure:
+python3 predict_mut_locations_on_structure.py
+
+# Produce mutation maps on single protein structures for FoldX folding ∆∆G calculations:
+python3 produce_mutation_structure_maps.py
+
+# Run FoldX folding ∆∆G calculations following instructions in file ‘instructions_for_FoldX_folding_ddg’
+
+# Plot distribution of change in protein stability (∆∆G) upon mutation:
+python3 plot_folding_ddg_distributions.py
+
+# Plot folding ∆∆G upon mutation versus mutation residue RSA:
+python3 analyze_folding_ddg_RSA.py
+
+# Plot folding ∆∆G upon mutation versus mutation residue distance to protein center:
+python3 analyze_folding_ddg_distToCenter.py
+
+# Predict non-edgetic mutations to be either quasi-null or quasi-wild-type:
+python3 predict_quasi-null_mutations.py
+
+# Calculate fitness effect for predicted mutation edgotypes:
+# Set parameter <edgotype> in script calculate_mut_FE.py to either "edgetic", "quasi-null", or "quasi-wild-type"
+python3 calculate_mut_FE.py
+
+# Calculate fitness effect for mutations edgotypes obtained from experiments:
+# Set parameter <edgotype> in script calculate_mut_FE_experiment.py to either "edgetic", "quasi-null", or "quasi-wild-type"
+python3 calculate_mut_FE_experiment.py

@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# Produce protein full model mapping data files required for further structural calculations.
+# Produce protein full model mapping data required for further structural calculations.
 #----------------------------------------------------------------------------------------
 
 import os

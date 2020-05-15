@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# Compare RSA for mutation residues and other residues.
+# Compare mutation residue RSA with other residues.
 #----------------------------------------------------------------------------------------
 
 import os
