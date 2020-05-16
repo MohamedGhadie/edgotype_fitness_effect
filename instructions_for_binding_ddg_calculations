@@ -54,4 +54,4 @@ server) will be saved to directory: edgotype_fitness_effect/data/processed/HuRI/
 cd edgotype_fitness_effect/code/
 python3 process_foldx_binding_ddg_results.py
 
-# A new data folder data/ and jobs folder jobs/ will be created in directory: edgotype_fitness_effect/data/processed/HuRI/model_based/foldx/. But they should be empty indicating that all results have been processed. If any new jobs appear in these folders, it means they were mistakenly missed in the FoldX submissions. Repeat steps 5-18 on these new jobs.
+# A new data folder data/ and jobs folder jobs/ will be created in directory: edgotype_fitness_effect/data/processed/HuRI/model_based/foldx/. But they should be empty indicating that all results have been processed. If any new jobs appear in these folders, it means they were mistakenly missed in the first run of FoldX calculations. Repeat steps 5-18 on these new jobs.
