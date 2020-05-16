@@ -1,5 +1,5 @@
 
-# This file contains all instructions for predicting mutation edgotypes and calculating the fitness effect for different mutation edgotypes.
+# This file provides all instructions for predicting mutation edgotypes and calculating the fitness effect for different mutation edgotypes.
 
 # All scripts run in Python 3, except for produce_ppi_models.py and produce_protein_models.py which run in Python 2.
 
