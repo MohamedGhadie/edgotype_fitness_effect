@@ -3,7 +3,7 @@
 
 1 - Register for a license with FoldX (http://foldxsuite.crg.eu/products#foldx)
 
-2 - Download FoldX and extract files into separate FoldX directory foldx/. You should get two files: foldx executable and rotabase.txt
+2 - Download FoldX and extract files into separate FoldX directory. You should get two files: foldx executable and rotabase.txt
 
 3 - Set working directory to project directory edgotype_fitness_effect/
 
@@ -18,9 +18,9 @@ server) will be saved to directory: edgotype_fitness_effect/data/processed/HuRI/
 
 # To run jobs in parallel on computing cluster (Beluga), follow instructions 5 to 9 below:
 
-	5 - Upload the two FoldX folders data/ and jobs/ to FoldX installation directory on the computing cluster
+	5 - Upload the two foldx folders data/ and jobs/ to FoldX installation directory on the computing cluster
 	
-	6 - Go to foldx installation directory on the computing cluster
+	6 - Go to FoldX installation directory on the computing cluster
 	
 	7 - cp rotabase.txt jobs/
 	
@@ -30,7 +30,7 @@ server) will be saved to directory: edgotype_fitness_effect/data/processed/HuRI/
 
 # Alternatively, to run jobs sequentially on local computer, follow instructions 10 to 14 below:
 
-	10 - Copy the two FoldX folders data/ and jobs/ to local foldx installation directory
+	10 - Copy the two foldx folders data/ and jobs/ to local FoldX installation directory
 	
 	11 - Change directory to local FoldX installation directory
 	
@@ -38,20 +38,24 @@ server) will be saved to directory: edgotype_fitness_effect/data/processed/HuRI/
 	
 	13 - cd jobs/
 	
-	14 - For each data folder in foldx/data, run the following two commands from the jobs directory:
+	14 - For each data folder in data/, run the following two commands from the jobs directory:
 	../foldx -f ../data/<data_folder_name>/config_repairPDB.cfg
 	../foldx -f ../data/<data_folder_name>/config_buildModel.cfg
 
-# FoldX will save results for each job in its data folder.
+# FoldX will save results for each job into its data folder.
 
 15 - When all calculations are completed, rename the FoldX data/ folder that has results in it to results/
 
 16 - Copy the FoldX results/ folder to edgotype_fitness_effect/data/processed/HuRI/model_based/physics/foldx_edgetics/foldx/
 
-17 - rename data/ and jobs/ folders in directory edgotype_fitness_effect/data/processed/HuRI/model_based/physics/foldx_edgetics/foldx/ to data_1/ and jobs_1/
+17 - Move folders data/ and jobs/ in directory edgotype_fitness_effect/data/processed/HuRI/model_based/physics/foldx_edgetics/foldx/ to an archive/ folder
 
 18 - Process FoldX results:
 cd edgotype_fitness_effect/code/
 python3 process_foldx_folding_ddg_results.py
 
-# A new data folder data/ and jobs folder jobs/ will be created in directory: edgotype_fitness_effect/data/processed/HuRI/model_based/physics/foldx_edgetics/foldx/. Any multi-mutation FoldX jobs that failed in the first run of calculations will appear in the new job folders, but this time split into single-mutation jobs. Repeat steps 5-18 on these new jobs.
+# New folders data/ and jobs/ will be created in directory: edgotype_fitness_effect/data/processed/HuRI/model_based/physics/foldx_edgetics/foldx/. Any multi-mutation FoldX jobs that failed in the first run of FoldX calculations will appear in the new job folders, but this time split into single-mutation jobs.
+
+19 - Move the foldx results/ folder to the archive/ folder
+
+20 - Repeat steps 5-19 on the new single-mutation jobs.
