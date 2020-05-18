@@ -11,7 +11,7 @@ from plot_tools import venn2_plot
 def main():
     
     # names of reference interactomes
-    # options: any pair from: HI-II-14, HuRI, IntAct, experiment
+    # options: any pair from HI-II-14, HuRI, IntAct, experiment
     interactome_names = ['HuRI', 'experiment']
     
     # homology modelling method used to create structural models

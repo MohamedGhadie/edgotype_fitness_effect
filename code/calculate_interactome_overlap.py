@@ -8,6 +8,7 @@ from pathlib import Path
 def main():
     
     # names of reference interactomes
+    # options: any pair from HI-II-14, HuRI, IntAct
     interactome_names = ['HuRI', 'IntAct']
     
     # type of interactomes to compare
