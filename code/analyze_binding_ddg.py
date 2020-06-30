@@ -54,7 +54,6 @@ def main():
     figDir = Path('../figures') / interactome_name / model_method / 'physics' / ('%s_edgetics' % ddg_method)
     
     # input data files
-    #geometryPerturbsFile = interactomeDir / 'unique_mutation_perturbs_geometry.pkl'
     natMutDDGinFile = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
     disMutDDGinFile = modellingDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
     structuralInteractomeFile = modellingDir / 'human_structural_interactome.txt'

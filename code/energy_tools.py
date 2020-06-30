@@ -159,7 +159,6 @@ def produce_foldx_buildmodel_jobs (mutations, pdbDir, outDir, parameters = None)
     for i, (struc, mutList) in enumerate(mutations):
         sys.stdout.write('  Structure %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
         sys.stdout.flush()
-        #strucid = '_'.join(struc)
         strucid = get_strucID (struc)
         strucDir = outDir / strucid
         if not strucDir.exists():
@@ -224,7 +223,6 @@ def produce_foldx_pssm_jobs (mutations, pdbDir, outDir, parameters = None):
     for i, (struc, mutList) in enumerate(mutations):
         sys.stdout.write('  Structure %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
         sys.stdout.flush()
-        #strucid = '_'.join(struc)
         strucid = get_strucID (struc)
         pdbid, chainID1, chainID2 = struc[:3]
         for mut in mutList:
@@ -351,7 +349,6 @@ def produce_beluga_foldx_jobs (mutations,
     print('Writing Beluga job files')
     if type is 'folding':
         for struc, _ in mutations.items():
-            #strucid = '_'.join(struc)
             strucid = get_strucID (struc)
             commands = ['../foldx -f %s/%s/config_repairPDB.cfg' % (serverDataDir, strucid),
                         '../foldx -f %s/%s/config_buildModel.cfg' % (serverDataDir, strucid)]
@@ -372,7 +369,6 @@ def produce_beluga_foldx_jobs (mutations,
                               commands = commands)
     elif type is 'binding':
         for struc, mutList in mutations.items():
-            #strucid = '_'.join(struc)
             strucid = get_strucID (struc)
             for mut in mutList:
                 mutID = '_'.join([strucid, mut])
@@ -424,7 +420,6 @@ def read_foldx_buildmodel_results (inDir):
     strucDir = os.listdir(inDir)
     strucDir = [dir for dir in strucDir if os.path.isdir(inDir / dir)]
     for strucID in strucDir:
-        #struc = tuple(strucID.split('_'))
         struc = tuple((solve_pdbfile_id(strucID)).split('_'))
         if re.match(r'\D\S\d+\D', struc[-1]):
             struc = struc[:-1]
@@ -484,7 +479,6 @@ def read_foldx_pssm_results (inDir):
     strucDirs = [dir for dir in strucDirs if os.path.isdir(inDir / dir)]
     for strucID in strucDirs:
         strucDir = inDir / strucID
-        #struc = tuple(strucID.split('_'))
         struc = tuple((solve_pdbfile_id(strucID)).split('_'))
         if len(struc) > 3:
             struc = struc[:-1]

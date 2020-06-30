@@ -55,7 +55,7 @@ def main():
     else:
         chainSeqFile = modellingDir / 'protein_chain_sequences.pkl'
         chainStrucResFile = modellingDir / 'protein_chain_strucRes.pkl'
-        chainInterfaceFile = procDir / 'pdb_interfaces.txt'
+        chainInterfaceFile = procDir / 'chain_interfaces.txt'
     chainMapFile = modellingDir / 'struc_interactome_chain_map.txt'
     natMutEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
     disMutEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
