@@ -47,11 +47,11 @@ python3 produce_edgetic_mutation_structure_maps.py
 
 # Step 8: Run FoldX binding ∆∆G calculations following instructions in file "instructions_for_FoldX_binding_ddg"
 
-# Step 9: Compare mutation binding ∆∆G
-python3 analyze_binding_ddg.py
-
-# Step 10: Predict PPI edgetic perturbations and edgetic mutations using physics (∆∆G)
+# Step 9: Predict PPI edgetic perturbations and edgetic mutations using physics (∆∆G)
 python3 predict_edgetic_mutations_physics.py
+
+# Step 10: Compare mutation binding ∆∆G
+python3 analyze_binding_ddg.py
 
 # Step 11: Produce empirically calculated residue maximum solvent accessibility
 python3 produce_empirical_maxAcc.py
