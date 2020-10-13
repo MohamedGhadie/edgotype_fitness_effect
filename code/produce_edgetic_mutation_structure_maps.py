@@ -5,7 +5,7 @@
 
 from pathlib import Path
 from text_tools import read_list_table
-from structural_annotation import write_mutation_structure_maps
+from threeD_structure_tools import write_interfacial_mutation_structure_maps
 
 def main():
     
@@ -82,31 +82,31 @@ def main():
     if not natural_mutations_onchains_file.is_file():
         print( '\n' + 'Writing edgetic non-disease mutations with structure mapping to file ' 
                 + str( natural_mutations_onchains_file ) )
-        write_mutation_structure_maps (naturalMutations,
-                                       structuralInteractomeFile,
-                                       chainMapFile,
-                                       chainSeqFile,
-                                       chainStrucResFile,
-                                       modelDir,
-                                       natural_mutations_onchains_file,
-                                       chainInterfaceFile = chainInterfaceFile,
-                                       downloadPDB = download_pdbs,
-                                       suppressWarnings = suppress_pdb_warnings)
+        write_interfacial_mutation_structure_maps (naturalMutations,
+                                                   structuralInteractomeFile,
+                                                   chainMapFile,
+                                                   chainSeqFile,
+                                                   chainStrucResFile,
+                                                   modelDir,
+                                                   natural_mutations_onchains_file,
+                                                   chainInterfaceFile = chainInterfaceFile,
+                                                   downloadPDB = download_pdbs,
+                                                   suppressWarnings = suppress_pdb_warnings)
     
     # write edgetic disease mutations
     if not disease_mutations_onchains_file.is_file():
         print( '\n' + 'Writing edgetic disease mutations with structure mapping to file ' 
                 + str( disease_mutations_onchains_file ) )
-        write_mutation_structure_maps (diseaseMutations,
-                                       structuralInteractomeFile,
-                                       chainMapFile,
-                                       chainSeqFile,
-                                       chainStrucResFile,
-                                       modelDir,
-                                       disease_mutations_onchains_file,
-                                       chainInterfaceFile = chainInterfaceFile,
-                                       downloadPDB = download_pdbs,
-                                       suppressWarnings = suppress_pdb_warnings)
+        write_interfacial_mutation_structure_maps (diseaseMutations,
+                                                   structuralInteractomeFile,
+                                                   chainMapFile,
+                                                   chainSeqFile,
+                                                   chainStrucResFile,
+                                                   modelDir,
+                                                   disease_mutations_onchains_file,
+                                                   chainInterfaceFile = chainInterfaceFile,
+                                                   downloadPDB = download_pdbs,
+                                                   suppressWarnings = suppress_pdb_warnings)
 
 if __name__ == "__main__":
     main()

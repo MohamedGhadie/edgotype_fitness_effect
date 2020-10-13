@@ -4,8 +4,7 @@
 
 import pickle
 from pathlib import Path
-from id_mapping import produce_chain_dict
-from pdb_tools import produce_chain_list
+from pdb_tools import produce_chain_list, produce_chain_dict
 from threeD_structure_tools import produce_empirical_maxAcc
 
 def main():

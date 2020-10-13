@@ -26,7 +26,9 @@ from pdb_tools import (allow_pdb_downloads,
                        suppress_pdb_warnings,
                        load_pdbtools_chain_sequences,
                        load_pdbtools_chain_strucRes_labels,
+                       clear_structures,
                        return_structure,
+                       structured_chain_residues,
                        count_neighbors_by_chainIDs,
                        return_chain_sequence,
                        return_multichain_res_posToIDs,
@@ -71,19 +73,25 @@ def set_res_accDir (dir):
     if not accDir.exists():
         os.makedirs(accDir)
 
-def load_dictionaries (chainSequencePath = None, empMaxAccPath = None):
+def load_dictionaries (chainSequenceFile = None,
+                       chainStrucResLabelFile = None,
+                       empMaxAccFile = None):
     """Load dictionaries containing PDB chain sequence data and empirically calculated
         residue maximum solvent accessibility.
 
     Args:
         chainSequencePath (Path): path to file containing PDB chain sequence dictionary.
+        chainStrucResLabelFile (Path): path to file containing PDB chain labels for residues 
+                                        with available 3D coordinates.
         empMaxAccPath (Path): path to file containing residue maximum solvent accessibility values.
 
     """
-    if chainSequencePath:
-        load_pdbtools_chain_sequences(chainSequencePath)
-    if empMaxAccPath:
-        load_empirical_maxAcc (empMaxAccPath)
+    if chainSequenceFile:
+        load_pdbtools_chain_sequences(chainSequenceFile)
+    if chainStrucResLabelFile:
+        load_pdbtools_chain_strucRes_labels (chainStrucResLabelFile)
+    if empMaxAccFile:
+        load_empirical_maxAcc (empMaxAccFile)
 
 def produce_empirical_maxAcc (pdbIDs, dsspDir, outPath, perc = 99.99):
     """Produce dictionary of residue maximum solvent accessibility (MSA) values.
@@ -2301,3 +2309,155 @@ def write_mutation_structure_maps (mutations,
                                               ''.join([chainWT, chainID, str(resNum), mutRes]),
                                               '-']) + '\n')
         print()
+
+def write_interfacial_mutation_structure_maps (mutations,
+                                               interactomeFile,
+                                               chainMapFile,
+                                               chainSeqFile,
+                                               chainStrucResFile,
+                                               pdbDir,
+                                               outPath,
+                                               chainInterfaceFile = None,
+                                               downloadPDB = True,
+                                               suppressWarnings = False):
+    """Map interfacial mutations onto PPI structural models and write to file.
+
+    Args:
+        mutations (DataFrame): mutations to be mapped.
+        interactomeFile (Path): path to file containing interface-annotated interactome.
+        chainMapFile (Path): path to tab-delimited file containing protein-chain sequence alignments.
+        chainSeqFile (Path): path to file containing dictionary of model chain sequences.
+        chainStrucResFile (Path): path to file containing dict of labels for chain sequence 
+                                    positions associated with 3D coordinates.
+        pdbDir (Path): file directory containing PDB structures.
+        outPath (Path): file path to save mapped mutations to.
+        chainInterfaceFile (Path): path to file containing chain-pair interfaces.
+        downloadPDB (bool): if True, PDB structure downloads are allowed.
+        suppressWarnings (bool): if True, PDB warnings are suppressed.
+
+    """
+    clear_structures()
+    allow_pdb_downloads (downloadPDB)
+    suppress_pdb_warnings (suppressWarnings)
+    load_dictionaries (chainSequenceFile = chainSeqFile, chainStrucResLabelFile = chainStrucResFile)
+    interactome = read_single_interface_annotated_interactome (interactomeFile)
+    chainMap = read_list_table (chainMapFile, ['Qpos', 'Spos'], [int, int], '\t')
+    
+    check_interface = False
+    if chainInterfaceFile:
+        if chainInterfaceFile.is_file():
+            print('\t' + 'loading chain interfaces')
+            chain_interfaces = read_chain_interfaces (chainInterfaceFile)
+            check_interface = True
+        else:
+            warnings.warn('Chain interface file not found. Mutations will be mapped onto structure without checking interface')
+    
+    print('\t' + 'writing mutations')
+    with io.open(outPath, "w") as fout:
+        # write header line to file
+        fout.write('\t'.join(['protein',
+                              'partner',
+                              'protein_pos',
+                              'pdb_id',
+                              'chain_id',
+                              'chain_pos',
+                              'chain_mutation',
+                              'partner_chain']) + '\n')
+        # go through each mutation
+        for i, mut in mutations.iterrows():
+            print('\t' + 'mutation index: %d' % i)
+            perturbing = False
+            pos = mut.mut_position
+            perturbedPartners = [p for p, perturb in zip(mut.partners, mut.perturbations) if perturb > 0]
+            ppis = interactome[ (interactome[ ["Protein_1", "Protein_2"] ] == mut.protein).any(1) ]
+            
+            # go through each interaction (PPI) perturbed by the mutation
+            for j, ppi in ppis.iterrows():
+                if (ppi.Protein_1 in perturbedPartners) or (ppi.Protein_2 in perturbedPartners):
+                    perturbing, mapped = True, False
+                    print('\t\t' + 'PPI # %d' % j)
+                    
+                    # get chain pairs (models) used to map interface for this PPI
+                    if ppi.Protein_2 == mut.protein:
+                        chainPairs = [tuple(reversed(x)) for x in ppi.Chain_pairs]
+                        partner = ppi.Protein_1
+                    else:
+                        chainPairs = ppi.Chain_pairs
+                        partner = ppi.Protein_2
+                    
+                    # go through each pair of chains (model)
+                    for ch1, ch2 in chainPairs:
+                        print('\t\t\t' + 'chain pair: %s-%s ' % (ch1, ch2))
+                        (pdbid, ch1_id), (_, ch2_id) = ch1.split('_'), ch2.split('_')
+                        struc = return_structure (pdbid, pdbDir)
+                        if struc:
+                            # get structured residues that are part of the chain SEQRES
+                            residues = structured_chain_residues (pdbid, ch1_id, pdbDir)
+                            if residues:
+                                # map mutation position back onto chain pair (model) through sequence alignment
+                                mappings = pos_structure_map (chainMap, mut.protein, ch1, pos)
+                                # if mutation position maps through any protein-chain alignment 
+                                if mappings is not None:
+                                    # make sure chain wildtype residue is different than mutation residue
+                                    mappings["chainRes"] = mappings["posMaps"].apply(lambda x: return_chain_sequence(ch1)[x-1])
+                                    mappings = mappings[mappings["chainRes"] != mut.mut_res]
+                                    if check_interface:
+                                        k = ch1 + '-' + ch2
+                                        interfacial = mappings["posMaps"].apply(lambda x: x in chain_interfaces[k]
+                                                                                          if k in chain_interfaces
+                                                                                          else False)
+                                        mappings = mappings[interfacial]
+                                    if not mappings.empty:
+                                        # select the first position map from alignment table
+                                        chainRes, mapPos = mappings[["chainRes","posMaps"]].iloc[0]
+                                        # map chain residue position to residue ID
+                                        resID = return_chain_res_posToID (pdbid, ch1_id, mapPos, pdbDir)
+                                        if resID:
+                                            # write mutation structure mapping to file
+                                            _, resNum, _ = resID
+                                            fout.write('\t'.join([mut.protein,
+                                                                  partner,
+                                                                  str(pos),
+                                                                  pdbid,
+                                                                  ch1_id,
+                                                                  str(mapPos),
+                                                                  ''.join([chainRes,
+                                                                           ch1_id,
+                                                                           str(resNum),
+                                                                           mut.mut_res]),
+                                                                  ch2_id]) +  '\n')
+                                            print('\t\t\t' + 'mutation mapping writen to file')
+                                            mapped = True
+                                        else:
+                                            print('\t\t\t' + 'chain residue coordinates not known')
+                                    else:
+                                        print('\t\t\t' + 'chain residue same as mutation residue')
+                                else:
+                                    print('\t\t\t' + 'mutation position not part of protein-chain alignment')
+                            else:
+                                print('\t\t\t' + 'chain residues not found')
+                        else:
+                            print('\t\t\t' + 'no structure found for chain ' + ch1)
+                    if not mapped:
+                        print('\t\t\t' + 'mutation mapping not successfull')
+                    fout.write('\n')
+            if not perturbing:
+                print('\t\t' + 'perturbed PPI not found for mutation')
+
+def read_chain_interfaces (inPath):
+    """Read chain interfaces from file.
+
+    Args:
+        inPath (Path): path to file containing chain interfaces.
+    
+    """
+    interfaces = {}
+    if inPath.is_file():
+        interfaces_df = read_list_table (inPath, "Chain1_interface", int, '\t')
+        for _, row in interfaces_df.iterrows():
+            chainKey = row.Chain_1 + '-' + row.Chain_2
+            if -1 in row.Chain1_interface:
+                interfaces[chainKey] = []
+            else:
+                interfaces[chainKey] = row.Chain1_interface
+    return interfaces

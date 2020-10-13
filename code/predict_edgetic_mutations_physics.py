@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 from text_tools import read_list_table, write_list_table
 from interactome_tools import read_single_interface_annotated_interactome
-from ddg_tools import read_protein_mutation_ddg
+from energy_tools import read_protein_mutation_ddg
 from mutation_interface_edgotype import (energy_based_perturbation,
                                          assign_edgotypes,
                                          create_perturbed_network)
