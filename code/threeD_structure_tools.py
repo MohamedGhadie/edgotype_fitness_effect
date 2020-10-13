@@ -87,7 +87,7 @@ def load_dictionaries (chainSequenceFile = None,
 
     """
     if chainSequenceFile:
-        load_pdbtools_chain_sequences(chainSequenceFile)
+        load_pdbtools_chain_sequences (chainSequenceFile)
     if chainStrucResLabelFile:
         load_pdbtools_chain_strucRes_labels (chainStrucResLabelFile)
     if empMaxAccFile:
@@ -180,11 +180,10 @@ def protein_residue_RSA (positions,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
-    if maxAccFile:
-        load_empirical_maxAcc (maxAccFile)
+    load_dictionaries (chainSequenceFile = chainSeqFile,
+                       chainStrucResLabelFile = chainStrucResFile,
+                       empMaxAccFile = maxAccFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
-    load_pdbtools_chain_sequences (chainSeqFile)
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
     
     resRSA = {}
     n = len(positions)
@@ -261,11 +260,10 @@ def produce_protein_model_RSA (prLen,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
-    if maxAccFile:
-        load_empirical_maxAcc (maxAccFile)
+    load_dictionaries (chainSequenceFile = chainSeqFile,
+                       chainStrucResLabelFile = chainStrucResFile,
+                       empMaxAccFile = maxAccFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
-    load_pdbtools_chain_sequences (chainSeqFile)
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
     
     rsa = {}
     n = len(prLen)
@@ -361,8 +359,8 @@ def mutation_dist_to_surface (mutations,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
-    chainMap = read_list_table(chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    load_dictionaries (chainStrucResLabelFile = chainStrucResFile)
+    chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
     
     distances = []
     n = len(mutations)
@@ -431,8 +429,8 @@ def multiprotein_res_dist_to_surface (proteins,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
+    load_dictionaries (chainStrucResLabelFile = chainStrucResFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
     
     distances = []
     n = len(proteins)
@@ -595,8 +593,7 @@ def mutation_dist_to_center (mutations,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
-    load_pdbtools_chain_sequences (chainSeqFile)
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    load_dictionaries (chainSequenceFile = chainSeqFile, chainStrucResLabelFile = chainStrucResFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
     
     distances = []
@@ -663,8 +660,7 @@ def multiprotein_model_res_dist_to_center (proteins,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
-    load_pdbtools_chain_sequences (chainSeqFile)
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    load_dictionaries (chainSequenceFile = chainSeqFile, chainStrucResLabelFile = chainStrucResFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
     
     distances = []
@@ -785,8 +781,7 @@ def mutation_dist_to_interface (mutations,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
-    load_pdbtools_chain_sequences (chainSeqFile)
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    load_dictionaries (chainSequenceFile = chainSeqFile, chainStrucResLabelFile = chainStrucResFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
     
     distances = []
@@ -857,8 +852,7 @@ def multiprotein_model_res_dist_to_interface (proteins,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
-    load_pdbtools_chain_sequences (chainSeqFile)
+    load_dictionaries (chainSequenceFile = chainSeqFile, chainStrucResLabelFile = chainStrucResFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
     
     distances = []
@@ -1901,8 +1895,8 @@ def count_mutation_neighbors (mutations,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
+    load_dictionaries (chainStrucResLabelFile = chainStrucResFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
     
     neighbors = []
     n = len(mutations)
@@ -1969,8 +1963,8 @@ def count_multiprotein_res_neighbors (proteins,
             toPDB = pickle.load(f)
     else:
         toPDB = {}
+    load_dictionaries (chainStrucResLabelFile = chainStrucResFile)
     chainMap = read_list_table (chainMapFile, ["Qpos", "Spos"], [int, int], '\t')
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
     
     neighbors = []
     n = len(proteins)
@@ -2277,8 +2271,7 @@ def write_mutation_structure_maps (mutations,
     set_pdb_dir (pdbDir)
     allow_pdb_downloads (downloadPDB)
     suppress_pdb_warnings (suppressWarnings)
-    load_pdbtools_chain_sequences (chainSeqFile)
-    load_pdbtools_chain_strucRes_labels (chainStrucResFile)
+    load_dictionaries (chainSequenceFile = chainSeqFile, chainStrucResLabelFile = chainStrucResFile)
     with io.open(outPath, "w") as fout:
         fout.write('\t'.join(['protein',
                               'partner',
