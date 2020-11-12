@@ -21,12 +21,20 @@ def main():
     
     # mutation edgotype for which fitness effect is calculated
     # options: quasi-null, edgetic, quasi-wild-type
-    edgotype = 'edgetic'
+    edgotype = 'quasi-null'
+    
+    # possible fitness effects
+    fitness_effects = ['Effectively neutral', 'Mildly deleterious', 'Strongly detrimental']
+    
+    # bar colors for different fitness effects
+    barColors = {'Effectively neutral':'limegreen',
+                 'Mildly deleterious':'orange',
+                 'Strongly detrimental':'red'}
     
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
     # those of mildly deleterious (M) mutations. If set to False, strongly detrimental 
     # mutations are assumed to be all quasi-null
-    assume_S_as_M = False
+    assume_S_as_M = True
     
     # calculate confidence intervals
     computeConfidenceIntervals = True
@@ -207,16 +215,12 @@ def main():
         pickle.dump(allresults, fOut)
     
     # plot fitness effect
-    posteriors = ['P(%s|%s)' % (p, T) for p in ('N','M','S')]
-    prob = [100 * allresults[p] for p in posteriors]
-    conf = []
-    if computeConfidenceIntervals:
-        for p in posteriors:
-            if p + '_CI' in allresults:
-                lower, upper = allresults[p + '_CI']
-                conf.append((100 * lower, 100 * upper))
-            else:
-                conf.append((0, 0))
+    prob = [100 * allresults['FE'][f] for f in fitness_effects]
+    if computeConfidenceIntervals and ('CI' in allresults):
+        conf = []
+        for f in fitness_effects:
+            lower, upper = allresults['CI'][f]
+            conf.append((100 * lower, 100 * upper))
     
     curve_plot (prob,
                 error = conf if computeConfidenceIntervals else None,
@@ -230,22 +234,22 @@ def main():
                 ylabel = 'Fraction (%)',
                 yMinorTicks = 4,
                 xticks = [1, 2, 3],
-                xticklabels = ('Effectively\nneutral', 'Mildly\ndeleterious', 'Strongly\ndetrimental'),
+                xticklabels = [f.replace(' ', '\n') for f in fitness_effects],
                 fontsize = 24,
                 adjustBottom = 0.2,
                 shiftBottomAxis = -0.1,
                 xbounds = (1, 3),
                 show = showFigs,
                 figdir = figDir,
-                figname = '%s_mut_fitness_effect_dot' % T)
+                figname = '%s_mut_fitness_effect_dot' % edgotype)
     
     bar_plot (prob,
               error = conf if computeConfidenceIntervals else None,
-              xlabels = ('Effectively\nneutral', 'Mildly\ndeleterious', 'Strongly\ndetrimental'),
+              xlabels = [f.replace(' ', '\n') for f in fitness_effects],
               ylabels = None,
               ylabel = 'Fraction (%)',
               barwidth = 0.5,
-              colors = ('limegreen', 'orange', 'red'),
+              colors = [barColors[f] for f in fitness_effects],
               capsize = 10 if computeConfidenceIntervals else 0,
               fmt = '.k',
               msize = 24,
@@ -262,7 +266,7 @@ def main():
               xbounds = None,
               show = showFigs,
               figdir = figDir,
-              figname = '%s_mut_fitness_effect_bar' % T)
+              figname = '%s_mut_fitness_effect_bar' % edgotype)
 
 if __name__ == "__main__":
     main()

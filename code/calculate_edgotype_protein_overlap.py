@@ -12,7 +12,7 @@ def main():
     
     # names of reference interactomes
     # options: any pair from HI-II-14, HuRI, IntAct, experiment
-    interactome_names = ['HuRI', 'experiment']
+    interactome_names = ['IntAct', 'experiment']
     
     # homology modelling method used to create structural models
     # options: template_based, model_based

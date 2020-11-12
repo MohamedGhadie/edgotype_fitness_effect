@@ -11,7 +11,7 @@
 				Instructions
 ####################################################################################
 
-# Step 1: First construct the structural interactome by running instructions found in the following repository: https://github.com/MohamedGhadie/build_structural_interactome
+# Step 1: First construct the structural interactome by running instructions found in the repository: https://github.com/MohamedGhadie/build_structural_interactome
 
 # Step 2: Now after constructing the structural interactome, replace the code folder in your project directory with the new code folder for mutation edgotype prediction found in the following repository: https://github.com/MohamedGhadie/edgotype_fitness_effect
 

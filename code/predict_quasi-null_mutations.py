@@ -13,7 +13,7 @@ from plot_tools import pie_plot
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -25,7 +25,7 @@ def main():
     
     # method that was used to calculate edgetic mutation binding ∆∆G
     # options: bindprofx, foldx
-    edgetic_ddg = 'foldx'
+    edgetic_ddg = 'mCSM'
     
     # maximum RSA for buried mutations
     burialMaxRSA = 0.25
@@ -67,8 +67,8 @@ def main():
     # input data files
     natMutLocFile = edgeticDir / 'nondisease_mutation_struc_loc.txt'
     disMutLocFile = edgeticDir / 'disease_mutation_struc_loc.txt'
-    natMutDdgFile = edgeticDir / 'nondis_mut_folding_ddg_foldx.txt'
-    disMutDdgFile = edgeticDir / 'dis_mut_folding_ddg_foldx.txt'
+    natMutDdgFile = edgeticDir / 'nondis_mut_folding_ddg_dynamut.txt'
+    disMutDdgFile = edgeticDir / 'dis_mut_folding_ddg_dynamut.txt'
     
     # output data files
     natMutEdgotypeFile = edgeticDir / 'nondisease_mutation_edgotype.txt'

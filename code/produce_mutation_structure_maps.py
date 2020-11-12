@@ -11,7 +11,7 @@ from threeD_structure_tools import write_mutation_structure_maps
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -22,7 +22,7 @@ def main():
     
     # method that was used to calculate edgetic mutation binding ∆∆G
     # options: bindprofx, foldx
-    edgetic_ddg = 'foldx'
+    edgetic_ddg = 'mCSM'
     
     # parent directory of all data files
     dataDir = Path('../data')
@@ -57,8 +57,8 @@ def main():
     diseaseMutationsFile = edgeticDir / 'disease_mutation_struc_loc.txt'
     
     # output data files
-    natural_mutations_ddg_file = edgeticDir / 'nondis_mut_folding_ddg_foldx.txt'
-    disease_mutations_ddg_file = edgeticDir / 'dis_mut_folding_ddg_foldx.txt'
+    natural_mutations_ddg_file = edgeticDir / 'nondis_mut_folding_ddg_dynamut.txt'
+    disease_mutations_ddg_file = edgeticDir / 'dis_mut_folding_ddg_dynamut.txt'
     
     # create output directories if not existing
     if not edgeticDir.exists():

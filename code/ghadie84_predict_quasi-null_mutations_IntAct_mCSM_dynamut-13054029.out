@@ -1,0 +1,12 @@
+Reading mutation locations on protein structure
+
+Fraction of edgotypes among non-disease mutations:
+quasi-null: 2.479339% (SE = 0.0141359, 3 out of 121)
+edgetic: 2.479339% (SE = 0.0141359, 3 out of 121)
+quasi-wild-type: 95.041322% (SE = 0.0197354, 115 out of 121)
+
+Fraction of edgotypes among disease mutations:
+quasi-null: 2.173913% (SE = 0.0215015, 1 out of 46)
+edgetic: 8.695652% (SE = 0.0415449, 4 out of 46)
+quasi-wild-type: 89.130435% (SE = 0.0458923, 41 out of 46)
+Fisher's exact test, p-value = 0.17742 (odds ratio = 0.427826)

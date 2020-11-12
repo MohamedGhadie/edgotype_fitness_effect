@@ -16,7 +16,7 @@ from plot_tools import network_plot
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -24,7 +24,7 @@ def main():
     
     # method of calculating mutation ∆∆G for which results will be used
     # options: bindprofx, foldx
-    ddg_method = 'foldx'
+    ddg_method = 'mCSM'
     
     # minimum reduction in binding free energy ∆∆G required for PPI disruption
     ddgCutoff = 0.5
@@ -33,7 +33,7 @@ def main():
     mono_edgetic = False
     
     # plot perturbed interactome and produce files for use by Cytoscape
-    plot_perturbations = True
+    plot_perturbations = False
     
     # show figures
     showFigs = False
@@ -61,8 +61,8 @@ def main():
     
     # input data files
     structuralInteractomeFile = modellingDir / 'structural_interactome.txt'
-    natMutGeomEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
-    disMutGeomEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
+    natMutGeomEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics_sample.txt'
+    disMutGeomEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics_sample.txt'
     natMutDDGFile = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
     disMutDDGFile = modellingDir / ('dis_mut_binding_ddg_%s.txt' % ddg_method)
     
@@ -97,6 +97,19 @@ def main():
     naturalMutationsDDG = read_protein_mutation_ddg (natMutDDGFile, 'binding')
     diseaseMutationsDDG = read_protein_mutation_ddg (disMutDDGFile, 'binding')
     
+    numNatMutGeomEdgetic = sum(naturalMutations["edgotype"] == 'edgetic')
+    numDisMutGeomEdgetic = sum(diseaseMutations["edgotype"] == 'edgetic')
+    
+    print()
+    print('Total number of mutations')
+    print('Non-disease mutations: %d' % len(naturalMutations))
+    print('Disease mutations: %d' % len(diseaseMutations))
+    
+    print()
+    print('Number of known edgetic mutations from geometry calculations:')
+    print('Non-disease mutations: %d' % numNatMutGeomEdgetic)
+    print('Disease mutations: %d' % numDisMutGeomEdgetic)
+    
     #------------------------------------------------------------------------------------
     # predict PPI perturbations based on physics
     #------------------------------------------------------------------------------------
@@ -113,10 +126,6 @@ def main():
     #------------------------------------------------------------------------------------
     # Assign mutation edgotypes
     #------------------------------------------------------------------------------------
-    
-    print('\n' + 'Labeling mutation edgotypes')
-    print('%d non-disease mutations' % len(naturalMutations))
-    print('%d disease mutations' % len(diseaseMutations))
     
     naturalMutations["edgotype"] = assign_edgotypes (naturalMutations["perturbations"].tolist(),
                                                      mono_edgetic = False)
@@ -136,8 +145,16 @@ def main():
         if "mono-edgotype" in diseaseMutations.columns.values:
             diseaseMutations = diseaseMutations.drop("mono-edgotype", axis=1)
     
-    naturalMutations = naturalMutations [naturalMutations["edgotype"] != '-'].reset_index(drop=True)
-    diseaseMutations = diseaseMutations [diseaseMutations["edgotype"] != '-'].reset_index(drop=True)
+    unknown_nat = naturalMutations["edgotype"] == '-'
+    unknown_dis = diseaseMutations["edgotype"] == '-'
+    
+    print()
+    print('Interfacial mutations with known edgetic predictions:')
+    print('Non-disease mutations: %d out of %d' % (numNatMutGeomEdgetic - sum(unknown_nat), numNatMutGeomEdgetic))
+    print('Disease mutations: %d out of %d' % (numDisMutGeomEdgetic - sum(unknown_dis), numDisMutGeomEdgetic))
+    
+    naturalMutations = naturalMutations [unknown_nat == False].reset_index(drop=True)
+    diseaseMutations = diseaseMutations [unknown_dis == False].reset_index(drop=True)
     
     if mono_edgetic:
         numNaturalMut_edgetic = sum(naturalMutations["mono-edgotype"] == 'mono-edgetic')

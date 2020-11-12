@@ -1,5 +1,0 @@
-ordered_residues_per_chain --> structured_residues_per_chain
-ordered_chain_residues --> structured_chain_residues
-ordered_residue_sequence --> structured_residue_sequence
-ordered_residue_IDs --> structured_residue_IDs
-ordered_residue_ID --> structured_residue_ID

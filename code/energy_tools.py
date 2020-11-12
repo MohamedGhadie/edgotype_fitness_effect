@@ -7,6 +7,7 @@ import io
 import re
 import sys
 from pathlib import Path
+from simple_tools import toOneLetterAA
 from text_tools import write_beluga_job
 from pdb_tools import pdbfile_id, solve_pdbfile_id, clear_structures, write_partial_structure
 
@@ -514,6 +515,127 @@ def read_foldx_pssm_results (inDir):
                     unprocessed[struc + (mut,)] = [mut]
     
     return processed, unprocessed
+
+def produce_mCSM_jobs (mutations, pdbDir, outDir):
+    """Produce jobs to be submitted to MCSM-PPI2 server for binding ∆∆G calculations.
+
+    Args:
+        mutations (dict): mutations associated with each structural model.
+        pdbDir (Path): file directory containing PPI structures.
+        outDir (Path): file directory to save MCSM-PPI2 jobs to.
+
+    """
+    clear_structures()
+    if not outDir.exists():
+        os.makedirs(outDir)
+    
+    mutations = mutations.items()
+    n = len(mutations)
+    print('Writing mCSM-PPI2 files:')
+    for i, (struc, mutList) in enumerate(mutations):
+        sys.stdout.write('  Structure %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
+        sys.stdout.flush()
+        strucid = get_strucID (struc)
+        strucDir = outDir / strucid
+        if not strucDir.exists():
+            os.makedirs(strucDir)
+        mutListFile = strucDir / 'mutList.txt'
+        mutList = [mut[1] + ' ' + mut[0] + mut[2:] for mut in mutList]
+        mutStr = '\n'.join(mutList)
+        with io.open(mutListFile, "w") as fout:
+            fout.write(mutStr)
+        pdbid, chainID1, chainID2 = struc[:3]
+        write_partial_structure (pdbid,
+                                 [chainID1, chainID2],
+                                 pdbDir,
+                                 strucDir / (strucid + '.pdb'))
+
+def read_mCSM_results (inPath):
+    """Read mutation ∆∆G results produced by mCSM-PPI2.
+
+    Args:
+        inPath (Path): path to file containing mCSM-PPI2 results.
+
+    Returns:
+        dict: processed mutations.
+
+    """
+    processed = {}
+    with io.open(inPath, "r", encoding="utf-8") as f:
+        next(f)
+        for line in f:
+            linesplit = line.split(',')
+            if len(linesplit) >= 8:
+                strucID, chainID, wt, resNum, mt, dist, ddg, affinity = linesplit[:8]
+                struc = tuple(strucID.split('_'))
+                if len(struc) > 3:
+                    struc = struc[:-1]
+                wt, mt = toOneLetterAA(wt), toOneLetterAA(mt)
+                processed[struc + (wt + chainID + resNum + mt,)] = -float(ddg)    
+    return processed
+
+def produce_dynamut_jobs (mutations, pdbDir, outDir):
+    """Produce jobs to be submitted to DynaMut2 server for folding ∆∆G calculations.
+
+    Args:
+        mutations (dict): mutations associated with each structural model.
+        pdbDir (Path): file directory containing PPI structures.
+        outDir (Path): file directory to save DynaMut2 jobs to.
+
+    """
+    clear_structures()
+    if not outDir.exists():
+        os.makedirs(outDir)
+    
+    mutations = mutations.items()
+    n = len(mutations)
+    print('Writing DynaMut2 files:')
+    for i, (struc, mutList) in enumerate(mutations):
+        sys.stdout.write('  Structure %d out of %d (%.2f%%) \r' % (i+1, n, 100*(i+1)/n))
+        sys.stdout.flush()
+        strucid = get_strucID (struc)
+        strucDir = outDir / strucid
+        if not strucDir.exists():
+            os.makedirs(strucDir)
+        mutListFile = strucDir / 'mutList.txt'
+        mutList = [mut[1] + ' ' + mut[0] + mut[2:] for mut in mutList]
+        mutStr = '\n'.join(mutList)
+        with io.open(mutListFile, "w") as fout:
+            fout.write(mutStr)
+        pdbid, chainID = struc[:2]
+        write_partial_structure (pdbid,
+                                 [chainID],
+                                 pdbDir,
+                                 strucDir / (strucid + '.pdb'))
+
+def read_dynamut_results (inDir):
+    """Read mutation ∆∆G results produced by DynaMut2.
+
+    Args:
+        inDir (Path): file directory containing DynaMut2 results.
+
+    Returns:
+        dict: processed mutations.
+
+    """
+    processed = {}
+    strucDir = os.listdir(inDir)
+    strucDir = [dir for dir in strucDir if os.path.isdir(inDir / dir)]
+    for strucID in strucDir:
+        struc = tuple((solve_pdbfile_id(strucID)).split('_'))
+        if re.match(r'\D\S\d+\D', struc[-1]):
+            struc = struc[:-1]
+        
+        for filename in os.listdir(inDir / strucID):
+            if filename.startswith('results_'):
+                with io.open(inDir / strucID / filename, "r") as f:
+                    next(f)
+                    for line in f:
+                        linesplit = list(map(str.strip, line.split(',')))
+                        if len(linesplit) > 2:
+                            mut, chainID, ddg = linesplit[:3]
+                            processed[struc + (mut[0] + chainID + mut[1:],)] = -float(ddg)   
+    return processed
 
 def read_protein_mutation_ddg (inPath, type = 'binding'):
     """Read protein mutation ∆∆G values from file.

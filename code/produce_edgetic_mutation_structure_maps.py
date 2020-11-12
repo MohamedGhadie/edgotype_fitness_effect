@@ -10,7 +10,7 @@ from threeD_structure_tools import write_interfacial_mutation_structure_maps
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -18,7 +18,7 @@ def main():
     
     # method of calculating mutation ∆∆G for which results will be used
     # options: bindprofx, foldx
-    ddg_method = 'foldx'
+    ddg_method = 'mCSM'
     
     # allow PDB structure files to be downloaded
     download_pdbs = False
@@ -57,8 +57,8 @@ def main():
         chainStrucResFile = modellingDir / 'protein_chain_strucRes.pkl'
         chainInterfaceFile = procDir / 'chain_interfaces.txt'
     chainMapFile = modellingDir / 'struc_interactome_chain_map.txt'
-    natMutEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics.txt'
-    disMutEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics.txt'
+    natMutEdgotypeFile = modellingDir / 'geometry' / 'nondisease_mutation_edgetics_sample.txt'
+    disMutEdgotypeFile = modellingDir / 'geometry' / 'disease_mutation_edgetics_sample.txt'
     
     # output data files
     natural_mutations_onchains_file = modellingDir / ('nondis_mut_binding_ddg_%s.txt' % ddg_method)
@@ -77,7 +77,7 @@ def main():
     
     naturalMutations = naturalMutations[naturalMutations["edgotype"] == 'edgetic'].reset_index(drop=True)
     diseaseMutations = diseaseMutations[diseaseMutations["edgotype"] == 'edgetic'].reset_index(drop=True)
-    
+
     # write edgetic non-disease mutations
     if not natural_mutations_onchains_file.is_file():
         print( '\n' + 'Writing edgetic non-disease mutations with structure mapping to file ' 

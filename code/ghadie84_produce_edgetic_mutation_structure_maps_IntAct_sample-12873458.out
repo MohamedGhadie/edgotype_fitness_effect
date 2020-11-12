@@ -1,0 +1,266 @@
+
+Writing edgetic non-disease mutations with structure mapping to file ../data/processed/IntAct/model_based/nondis_mut_binding_ddg_mCSM.txt
+	loading chain interfaces
+	writing mutations
+	mutation index: 0
+		PPI # 2507
+			chain pair: Q9H832=O15205_B-Q9H832=O15205_A 
+			mutation mapping writen to file
+	mutation index: 1
+		PPI # 500
+			chain pair: Q9UKG1=Q8NEU8_A-Q9UKG1=Q8NEU8_B 
+			mutation mapping writen to file
+	mutation index: 2
+		PPI # 4191
+			chain pair: P01889=Q14943_A-P01889=Q14943_B 
+			mutation mapping writen to file
+	mutation index: 3
+		PPI # 1607
+			chain pair: Q13042=Q9UJX3_A-Q13042=Q9UJX3_B 
+			mutation mapping writen to file
+	mutation index: 4
+		PPI # 4542
+			chain pair: O75521=Q13011_B-O75521=Q13011_A 
+			mutation mapping writen to file
+	mutation index: 5
+		PPI # 4192
+			chain pair: P30511=P43629_B-P30511=P43629_A 
+			mutation mapping writen to file
+	mutation index: 6
+		PPI # 4267
+			chain pair: P61247=P62263_B-P61247=P62263_A 
+			mutation mapping writen to file
+	mutation index: 7
+		PPI # 3078
+			chain pair: P62140=Q96QC0_A-P62140=Q96QC0_B 
+			mutation mapping writen to file
+		PPI # 3079
+			chain pair: P62140=Q96SB3_A-P62140=Q96SB3_B 
+			mutation mapping writen to file
+	mutation index: 8
+		PPI # 3099
+			chain pair: Q9BYD2=Q13084_A-Q9BYD2=Q13084_B 
+			mutation mapping writen to file
+	mutation index: 9
+		PPI # 3302
+			chain pair: P08727=Q7RTS7_B-P08727=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3315
+			chain pair: P19012=Q7RTS7_B-P19012=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3386
+			chain pair: Q6A163=Q7RTS7_B-Q6A163=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3522
+			chain pair: O76014=Q7RTS7_B-O76014=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3688
+			chain pair: Q7Z3Z0=Q7RTS7_B-Q7Z3Z0=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3754
+			chain pair: Q15323=Q7RTS7_B-Q15323=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3783
+			chain pair: P08779=Q7RTS7_B-P08779=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3829
+			chain pair: O76015=Q7RTS7_B-O76015=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3834
+			chain pair: O76011=Q7RTS7_B-O76011=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3846
+			chain pair: P13646=Q7RTS7_B-P13646=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3867
+			chain pair: Q7Z3Y8=Q7RTS7_B-Q7Z3Y8=Q7RTS7_A 
+			mutation mapping writen to file
+		PPI # 3939
+			chain pair: Q92764=Q7RTS7_B-Q92764=Q7RTS7_A 
+			mutation mapping writen to file
+	mutation index: 10
+		PPI # 3244
+			chain pair: P08779=Q3SY84_A-P08779=Q3SY84_B 
+			mutation mapping writen to file
+		PPI # 3260
+			chain pair: P08779=P41219_A-P08779=P41219_B 
+			mutation mapping writen to file
+		PPI # 3264
+			chain pair: P08779=P19013_A-P08779=P19013_B 
+			mutation mapping writen to file
+		PPI # 3290
+			chain pair: P08779=Q5XKE5_A-P08779=Q5XKE5_B 
+			mutation mapping writen to file
+		PPI # 3319
+			chain pair: P08779=P35908_A-P08779=P35908_B 
+			mutation mapping writen to file
+		PPI # 3375
+			chain pair: P08779=Q14533_A-P08779=Q14533_B 
+			mutation mapping writen to file
+		PPI # 3379
+			chain pair: P08779=O43790_A-P08779=O43790_B 
+			mutation mapping writen to file
+		PPI # 3380
+			chain pair: P08779=Q14CN4_A-P08779=Q14CN4_B 
+			mutation mapping writen to file
+		PPI # 3391
+			chain pair: P08779=P12035_A-P08779=P12035_B 
+			mutation mapping writen to file
+		PPI # 3452
+			chain pair: P08779=P78386_A-P08779=P78386_B 
+			mutation mapping writen to file
+		PPI # 3489
+			chain pair: P08779=Q8N1N4_A-P08779=Q8N1N4_B 
+			mutation mapping writen to file
+		PPI # 3501
+			chain pair: P08779=P05787_A-P08779=P05787_B 
+			mutation mapping writen to file
+		PPI # 3526
+			chain pair: P08779=Q01546_A-P08779=Q01546_B 
+			mutation mapping writen to file
+		PPI # 3534
+			chain pair: P08779=P13647_A-P08779=P13647_B 
+			mutation mapping writen to file
+		PPI # 3756
+			chain pair: P08779=P04264_A-P08779=P04264_B 
+			mutation mapping writen to file
+		PPI # 3783
+			chain pair: P08779=Q7RTS7_A-P08779=Q7RTS7_B 
+			mutation mapping writen to file
+		PPI # 3823
+			chain pair: P08779=P02538_A-P08779=P02538_B 
+			mutation mapping writen to file
+		PPI # 3909
+			chain pair: P08779=P78385_A-P08779=P78385_B 
+			mutation mapping writen to file
+		PPI # 3934
+			chain pair: P08779=P48668_A-P08779=P48668_B 
+			mutation mapping writen to file
+	mutation index: 11
+		PPI # 1144
+			chain pair: P09326=Q9BZW8_A-P09326=Q9BZW8_B 
+			mutation mapping writen to file
+
+Writing edgetic disease mutations with structure mapping to file ../data/processed/IntAct/model_based/dis_mut_binding_ddg_mCSM.txt
+	loading chain interfaces
+	writing mutations
+	mutation index: 0
+		PPI # 3668
+			chain pair: P48165=P29033_B-P48165=P29033_A 
+			mutation mapping writen to file
+		PPI # 3685
+			chain pair: P08034=P29033_B-P08034=P29033_A 
+			mutation mapping writen to file
+	mutation index: 1
+		PPI # 1935
+			chain pair: Q06265=Q13868_A-Q06265=Q13868_B 
+			mutation mapping writen to file
+	mutation index: 2
+		PPI # 373
+			chain pair: Q6P2Q9=Q15029_B-Q6P2Q9=Q15029_A 
+			mutation mapping writen to file
+	mutation index: 3
+		PPI # 2878
+			chain pair: Q9H334=O15409_A-Q9H334=O15409_B 
+			mutation mapping writen to file
+		PPI # 2879
+			chain pair: Q9H334=Q8IVH2_A-Q9H334=Q8IVH2_B 
+			mutation mapping writen to file
+		PPI # 2903
+			chain pair: Q9BZS1=Q9H334_B-Q9BZS1=Q9H334_A 
+			mutation mapping writen to file
+	mutation index: 4
+		PPI # 2691
+			chain pair: Q96HD9=P45381_B-Q96HD9=P45381_A 
+			mutation mapping writen to file
+	mutation index: 5
+		PPI # 84
+			chain pair: P28288=P33897_B-P28288=P33897_A 
+			mutation mapping writen to file
+	mutation index: 6
+		PPI # 841
+			chain pair: P12694=P21953_B-P12694=P21953_A 
+			mutation mapping writen to file
+	mutation index: 7
+		PPI # 3744
+			chain pair: P36382=P29033_B-P36382=P29033_A 
+			mutation mapping writen to file
+	mutation index: 8
+		PPI # 3282
+			chain pair: O76015=P04264_B-O76015=P04264_A 
+			mutation mapping writen to file
+		PPI # 3314
+			chain pair: Q6A163=P04264_B-Q6A163=P04264_A 
+			mutation mapping writen to file
+		PPI # 3367
+			chain pair: Q14525=P04264_B-Q14525=P04264_A 
+			mutation mapping writen to file
+		PPI # 3414
+			chain pair: O76011=P04264_B-O76011=P04264_A 
+			mutation mapping writen to file
+		PPI # 3466
+			chain pair: P13646=P04264_B-P13646=P04264_A 
+			mutation mapping writen to file
+		PPI # 3556
+			chain pair: P02533=P04264_B-P02533=P04264_A 
+			mutation mapping writen to file
+		PPI # 3756
+			chain pair: P08779=P04264_B-P08779=P04264_A 
+			mutation mapping writen to file
+		PPI # 3814
+			chain pair: P08727=P04264_B-P08727=P04264_A 
+			mutation mapping writen to file
+		PPI # 3847
+			chain pair: O76014=P04264_B-O76014=P04264_A 
+			mutation mapping writen to file
+		PPI # 3871
+			chain pair: Q92764=P04264_B-Q92764=P04264_A 
+			mutation mapping writen to file
+		PPI # 3933
+			chain pair: Q15323=P04264_B-Q15323=P04264_A 
+			mutation mapping writen to file
+		PPI # 3966
+			chain pair: P19012=P04264_B-P19012=P04264_A 
+			mutation mapping writen to file
+	mutation index: 9
+		PPI # 2693
+			chain pair: O76015=P48668_B-O76015=P48668_A 
+			mutation mapping writen to file
+		PPI # 2694
+			chain pair: P19012=P48668_B-P19012=P48668_A 
+			mutation mapping writen to file
+		PPI # 2695
+			chain pair: Q15323=P48668_B-Q15323=P48668_A 
+			mutation mapping writen to file
+		PPI # 2696
+			chain pair: Q6A162=P48668_B-Q6A162=P48668_A 
+			mutation mapping writen to file
+		PPI # 3250
+			chain pair: O76014=P48668_B-O76014=P48668_A 
+			mutation mapping writen to file
+		PPI # 3364
+			chain pair: P08727=P48668_B-P08727=P48668_A 
+			mutation mapping writen to file
+		PPI # 3370
+			chain pair: Q14525=P48668_B-Q14525=P48668_A 
+			mutation mapping writen to file
+		PPI # 3521
+			chain pair: O76011=P48668_B-O76011=P48668_A 
+			mutation mapping writen to file
+		PPI # 3934
+			chain pair: P08779=P48668_B-P08779=P48668_A 
+			mutation mapping writen to file
+		PPI # 3951
+			chain pair: Q92764=P48668_B-Q92764=P48668_A 
+			mutation mapping writen to file
+		PPI # 4036
+			chain pair: P02533=P48668_B-P02533=P48668_A 
+			mutation mapping writen to file
+	mutation index: 10
+		PPI # 3685
+			chain pair: P08034=P29033_A-P08034=P29033_B 
+			mutation mapping writen to file
+	mutation index: 11
+		PPI # 1775
+			chain pair: Q02750=Q86Y07_A-Q02750=Q86Y07_B 
+			mutation mapping writen to file

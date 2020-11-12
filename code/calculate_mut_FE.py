@@ -14,11 +14,11 @@ from plot_tools import curve_plot, bar_plot
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # mutation edgotype for which fitness effect is calculated
     # options: quasi-null, edgetic, quasi-wild-type
-    edgotype = 'quasi-null'
+    edgotype = 'edgetic'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -30,12 +30,20 @@ def main():
     
     # method of calculating edgetic mutation ∆∆G
     # options: bindprofx, foldx
-    edgetic_ddg = 'foldx'
+    edgetic_ddg = 'mCSM'
+    
+    # possible fitness effects
+    fitness_effects = ['Effectively neutral', 'Mildly deleterious', 'Strongly detrimental']
+    
+    # bar colors for different fitness effects
+    barColors = {'Effectively neutral':'limegreen',
+                 'Mildly deleterious':'orange',
+                 'Strongly detrimental':'red'}
     
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
     # those of mildly deleterious (M) mutations. If False, strongly detrimental 
     # mutations are assumed to be all quasi-null
-    assume_S_as_M = False
+    assume_S_as_M = True
     
     # calculate confidence intervals
     computeConfidenceIntervals = True
@@ -84,7 +92,7 @@ def main():
     
     # create output directories if not existing
     if not edgeticDir.exists():
-        os.makedirs(edgeticDir)
+        os.makedirs(interactomeDir)
     if not figDir.exists():
         os.makedirs(figDir)
     
@@ -98,13 +106,13 @@ def main():
     naturalMutations = naturalMutations [naturalMutations["edgotype"] != '-'].reset_index(drop=True)
     diseaseMutations = diseaseMutations [diseaseMutations["edgotype"] != '-'].reset_index(drop=True)
     
-    numNaturalMut_type = {'Q': sum(naturalMutations["edgotype"] == 'quasi-null'),
-                          'E': sum(naturalMutations["edgotype"] == 'edgetic'),
-                          'W': sum(naturalMutations["edgotype"] == 'quasi-wild-type')}
+    numNaturalMut_type = {'quasi-null': sum(naturalMutations["edgotype"] == 'quasi-null'),
+                          'edgetic': sum(naturalMutations["edgotype"] == 'edgetic'),
+                          'quasi-wild-type': sum(naturalMutations["edgotype"] == 'quasi-wild-type')}
     
-    numDiseaseMut_type = {'Q': sum(diseaseMutations["edgotype"] == 'quasi-null'),
-                          'E': sum(diseaseMutations["edgotype"] == 'edgetic'),
-                          'W': sum(diseaseMutations["edgotype"] == 'quasi-wild-type')}
+    numDiseaseMut_type = {'quasi-null': sum(diseaseMutations["edgotype"] == 'quasi-null'),
+                          'edgetic': sum(diseaseMutations["edgotype"] == 'edgetic'),
+                          'quasi-wild-type': sum(diseaseMutations["edgotype"] == 'quasi-wild-type')}
     
     numNaturalMut_considered = len(naturalMutations)
     numDiseaseMut_considered = len(diseaseMutations)
@@ -113,10 +121,6 @@ def main():
     # Apply Bayes' theorem to calculate the probabilities for a mutation of selected
     # edgotype to be effectively neutral, mildly deleterious or strongly detrimental
     #------------------------------------------------------------------------------------
-    
-    # edgotype abbreviations
-    etype_symbol = {'quasi-null':'Q', 'edgetic':'E', 'quasi-wild-type':'W'}
-    T = etype_symbol [edgotype]
     
     # Probability for new missense mutations to be neutral (N)
     pN = 0.27
@@ -129,35 +133,32 @@ def main():
     
     # Probability for strongly detrimental mutations (S) to be of selected edgotype (T)
     if assume_S_as_M:
-        pT_S = numDiseaseMut_type[T] / numDiseaseMut_considered
+        pT_S = numDiseaseMut_type[edgotype] / numDiseaseMut_considered
     else:
         pT_S = 1 if edgotype is 'quasi-null' else 0
     
     allresults = fitness_effect (pN,
                                  pM,
                                  pS,
-                                 numNaturalMut_type[T],
+                                 numNaturalMut_type[edgotype],
                                  numNaturalMut_considered,
-                                 numDiseaseMut_type[T],
+                                 numDiseaseMut_type[edgotype],
                                  numDiseaseMut_considered,
                                  pT_S = pT_S,
                                  edgotype = edgotype,
                                  CI = 95,
                                  output = True)
+    
     with open(outputFile, 'wb') as fOut:
         pickle.dump(allresults, fOut)
     
     # plot fitness effect
-    posteriors = ['P(%s|%s)' % (p, T) for p in ('N','M','S')]
-    prob = [100 * allresults[p] for p in posteriors]
-    conf = []
-    if computeConfidenceIntervals:
-        for p in posteriors:
-            if p + '_CI' in allresults:
-                lower, upper = allresults[p + '_CI']
-                conf.append((100 * lower, 100 * upper))
-            else:
-                conf.append((0, 0))
+    prob = [100 * allresults['FE'][f] for f in fitness_effects]
+    if computeConfidenceIntervals and ('CI' in allresults):
+        conf = []
+        for f in fitness_effects:
+            lower, upper = allresults['CI'][f]
+            conf.append((100 * lower, 100 * upper))
     
     curve_plot (prob,
                 error = conf if computeConfidenceIntervals else None,
@@ -171,22 +172,22 @@ def main():
                 ylabel = 'Fraction (%)',
                 yMinorTicks = 4,
                 xticks = [1, 2, 3],
-                xticklabels = ('Effectively\nneutral', 'Mildly\ndeleterious', 'Strongly\ndetrimental'),
+                xticklabels = [f.replace(' ', '\n') for f in fitness_effects],
                 fontsize = 24,
                 adjustBottom = 0.2,
                 shiftBottomAxis = -0.1,
                 xbounds = (1, 3),
                 show = showFigs,
                 figdir = figDir,
-                figname = '%s_mut_fitness_effect_dot' % T)
+                figname = '%s_mut_fitness_effect_dot' % edgotype)
     
     bar_plot (prob,
               error = conf if computeConfidenceIntervals else None,
-              xlabels = ('Effectively\nneutral', 'Mildly\ndeleterious', 'Strongly\ndetrimental'),
+              xlabels = [f.replace(' ', '\n') for f in fitness_effects],
               ylabels = None,
               ylabel = 'Fraction (%)',
               barwidth = 0.5,
-              colors = ('limegreen', 'orange', 'red'),
+              colors = [barColors[f] for f in fitness_effects],
               capsize = 10 if computeConfidenceIntervals else 0,
               fmt = '.k',
               msize = 24,
@@ -203,7 +204,7 @@ def main():
               xbounds = None,
               show = showFigs,
               figdir = figDir,
-              figname = '%s_mut_fitness_effect_bar' % T)
+              figname = '%s_mut_fitness_effect_bar' % edgotype)
 
 if __name__ == "__main__":
     main()

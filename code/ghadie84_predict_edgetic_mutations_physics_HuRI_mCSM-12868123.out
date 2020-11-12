@@ -1,0 +1,21 @@
+
+Total number of mutations
+Non-disease mutations: 108
+Disease mutations: 32
+
+Number of known edgetic mutations from geometry calculations:
+Non-disease mutations: 7
+Disease mutations: 7
+
+Performing physics-based edgotype prediction for non-disease mutations
+
+Performing physics-based edgotype prediction for disease mutations
+
+Interfacial mutations with known edgetic predictions:
+Non-disease mutations: 2 out of 7
+Disease mutations: 7 out of 7
+
+Fraction of predicted edgetic mutations:
+Non-disease mutations: 0.010 (SE = 0.00966149, 1 out of 103)
+Disease mutations: 0.094 (SE = 0.051527, 3 out of 32)
+Fisher's exact test, p-value = 0.0413245 (odds ratio = 0.0947712)

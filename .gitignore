@@ -5,7 +5,7 @@ alignments/
 templates/
 models/
 paper/
-related papers/
+related_papers/
 .cache/
 __pycache__/
 .DS_Store

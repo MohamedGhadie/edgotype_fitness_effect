@@ -356,3 +356,24 @@ def sample_random_pairs (ls, N):
             pairs.append((p1, p2))
             n += 1
     return pairs
+
+def toOneLetterAA (aa):
+    """Convert an amino acid three-letter code to one-letter code.
+
+    Args:
+        aa (str): amino acid three-letter code.
+
+    Returns:
+        str if valid, otherwise '-'
+
+    """
+    oneLetter = {'Cys': 'C', 'Asp': 'D', 'Ser': 'S', 'Gln': 'Q', 'Lys': 'K', 'Trp': 'W', 
+                 'Thr': 'T', 'Asn': 'N', 'Pro': 'P', 'Phe': 'F', 'Ala': 'A', 'Gly': 'G', 
+                 'Ile': 'I', 'Leu': 'L', 'His': 'H', 'Arg': 'R', 'Met': 'M', 'Val': 'V', 
+                 'Glu': 'E', 'Tyr': 'Y', 'Asx': 'B', 'Glx': 'Z', 'Ter': '*'}
+    
+    aa = aa.title()
+    if aa in oneLetter:
+        return oneLetter[aa] 
+    else:
+        return '-'

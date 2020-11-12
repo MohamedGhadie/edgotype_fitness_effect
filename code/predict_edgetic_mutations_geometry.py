@@ -17,7 +17,7 @@ from plot_tools import network_plot
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # modelling method used to map interfaces: template_based or model_based
     model_method = 'model_based'
@@ -26,7 +26,7 @@ def main():
     mono_edgetic = False
     
     # plot perturbed interactome and produce files for use by Cytoscape
-    plot_perturbations = True
+    plot_perturbations = False
     
     # show figures
     showFigs = False
@@ -53,13 +53,15 @@ def main():
     figDir = Path('../figures') / interactome_name / model_method / 'geometry'
     
     # input data files
-    naturalMutationsFile = procDir / 'dbsnp_mutations4.txt'
-    diseaseMutationsFile = procDir / 'clinvar_mutations6.txt'
+    #naturalMutationsFile = procDir / 'dbsnp_mutations4.txt'
+    #diseaseMutationsFile = procDir / 'clinvar_mutations6.txt'
+    naturalMutationsFile = methodDir / 'nondisease_mutation_struc_loc_sample.txt'
+    diseaseMutationsFile = methodDir / 'disease_mutation_struc_loc_sample.txt'
     structuralInteractomeFile = modellingDir / 'structural_interactome.txt'
     
     # output data files
-    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgetics.txt'
-    disMutEdgotypeFile = methodDir / 'disease_mutation_edgetics.txt'
+    natMutEdgotypeFile = methodDir / 'nondisease_mutation_edgetics_sample.txt'
+    disMutEdgotypeFile = methodDir / 'disease_mutation_edgetics_sample.txt'
     naturalMutEdgeFile = cytoscapeDir / 'nondiseaseMut_perturbed_edges'
     naturalMutNodeFile = cytoscapeDir / 'nondiseaseMut_node_colors'
     diseaseMutEdgeFile = cytoscapeDir / 'diseaseMut_perturbed_edges'

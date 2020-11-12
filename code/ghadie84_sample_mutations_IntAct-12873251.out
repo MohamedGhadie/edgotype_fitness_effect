@@ -1,0 +1,11 @@
+Non-disease interface mutations selected: 12
+Non-disease buried mutations selected: 21
+Non-disease exposed-noninterface mutations selected: 110
+
+Disease interface mutations selected: 12
+Disease buried mutations selected: 23
+Disease exposed-noninterface mutations selected: 29
+
+Overall mutations selected
+Non-disease: 143
+Disease: 64

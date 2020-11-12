@@ -9,7 +9,7 @@ import pickle
 from Bio import Seq
 import pandas as pd
 import numpy as np
-from simple_tools import is_numeric, find_substring, find_masked_substring
+from simple_tools import is_numeric, find_substring, find_masked_substring, toOneLetterAA
 
 def parse_dbsnp_flatfile_keys (inPath,
                                outDir,
@@ -595,27 +595,6 @@ def remove_synon_nonsense_mutations (inPath, outPath):
     missense = mutations["mut_res"] != '*'
     mutations = mutations[nonsynonymous & missense]
     mutations.to_csv (outPath, index=False, sep='\t')
-
-def toOneLetterAA (aa):
-    """Convert an amino acid three-letter code to one-letter code.
-
-    Args:
-        aa (str): amino acid three-letter code.
-
-    Returns:
-        str if valid, otherwise '-'
-
-    """
-    oneLetter = {'Cis': 'C', 'Asp': 'D', 'Ser': 'S', 'Gln': 'Q', 'Lys': 'K', 'Trp': 'W', 
-                 'Thr': 'T', 'Asn': 'N', 'Pro': 'P', 'Phe': 'F', 'Ala': 'A', 'Gly': 'G', 
-                 'Ile': 'I', 'Leu': 'L', 'His': 'H', 'Arg': 'R', 'Met': 'M', 'Val': 'V', 
-                 'Glu': 'E', 'Tyr': 'Y', 'Ter': '*'}
-    
-    aa = aa.title()
-    if aa in oneLetter:
-        return oneLetter[aa] 
-    else:
-        return '-'
 
 def remove_mutation_overlaps (nondiseaseMutationFile, diseaseMutationFile):
     """Remove nondisease missense mutations overlaping in position with disease missense mutations.
