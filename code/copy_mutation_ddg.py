@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# This script transfers mutation ∆∆G values from one file to another.
+# This script transfers mutation ∆∆G values from one file to another..
 # Values are transfered only for mutations with no ∆∆G values in the destination file. 
 #
 # Requirements:
