@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------------
-# This script compares mutation binding ∆∆G values calculated by FoldX and mCSM.
+# This script compares mutation binding ∆∆G values calculated by FoldX and mCSM..
 #----------------------------------------------------------------------------------------
 
 import numpy as np
