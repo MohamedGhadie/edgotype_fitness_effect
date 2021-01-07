@@ -14,7 +14,7 @@ from plot_tools import bar_plot, multi_bar_plot
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -198,14 +198,14 @@ def main():
     maxY = 0.1 * np.ceil(max(data) / 0.1)
     bar_plot (data,
               error = [sderror(disMutRSA), sderror(natMutRSA), sderror(allResRSA)],
-              xlabels = ['Disease\nmutations', 'Non-disease\nmutations', 'All\nresidues'],
+              xlabels = ['Pathogenic\nmutations', 'Non-pathogenic\nmutations', 'All\nresidues'],
               ylabel = 'RSA',
               ylabels = list(np.around(np.linspace(0, maxY, int(maxY*10+1)),1)),
               colors = ['magenta', 'turquoise', 'dodgerblue'],
               edgecolor = 'black',
               ewidth = 2,
               barwidth = 0.6,
-              fontsize = 20,
+              fontsize = 16,
               capsize = 10,
               msize = 20,
               ylim = [0, maxY],
@@ -239,7 +239,7 @@ def main():
                     ylim = [minY, maxY],
                     xticks = xticks,
                     opacity = None,
-                    leg = ('Disease mutations', 'Non-disease mutations'),
+                    leg = ('Pathogenic mutations', 'Non-pathogenic mutations'),
                     overlap = False,
                     show = showFigs,
                     figdir = figDir,

@@ -11,7 +11,7 @@ from plot_tools import pie_plot
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -115,8 +115,10 @@ def main():
                 locations.append('interface')
             elif row.RSA <= burialMaxRSA:
                 locations.append('buried')
-            else:
+            elif row.RSA > burialMaxRSA:
                 locations.append('exposed-noninterface')
+            else:
+                locations.append('-')
         mut["structural_location"] = locations
     
     naturalMutations.to_csv (natMutLocFile, index=False, sep='\t')
@@ -179,7 +181,7 @@ def main():
     
     pie_plot ([numNaturalMut_exposed, numNaturalMut_interface, numNaturalMut_buried],
               angle = 90,
-              labels = ['exposed-noninterface', 'interface', 'Buried'],
+              #labels = ['exposed-noninterface', 'interface', 'Buried'],
               colors = ['mediumslateblue', 'purple', 'red'],
               edgewidth = 2,
               show = showFigs,
@@ -187,7 +189,7 @@ def main():
               figname = 'non_disease_mutation_structural_locations')
     pie_plot ([numDiseaseMut_exposed, numDiseaseMut_interface, numDiseaseMut_buried],
               angle = 90,
-              labels = ['exposed-noninterface', 'interface', 'Buried'],
+              #labels = ['exposed-noninterface', 'interface', 'Buried'],
               colors = ['mediumslateblue', 'purple', 'red'],
               edgewidth = 2,
               show = showFigs,

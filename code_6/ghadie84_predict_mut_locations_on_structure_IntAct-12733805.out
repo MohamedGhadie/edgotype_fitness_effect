@@ -1,0 +1,20 @@
+Reading processed mutations
+
+Number of mutations:
+non-disease mutations: 2872
+disease mutations: 1276
+
+Number of proteins carrying mutations:
+non-disease mutations: 1222
+disease mutations: 293
+all mutations: 1420
+
+Fraction of non-disease mutations in each region:
+exposed-noninterface: 75.139276% (SE = 0.00806488, 2158 out of 2872)
+interface: 10.376045% (SE = 0.00569031, 298 out of 2872)
+buried: 14.484680% (SE = 0.00656726, 416 out of 2872)
+
+Fraction of disease mutations in each region:
+exposed-noninterface: 44.357367% (SE = 0.0139079, 566 out of 1276)
+interface: 22.021944% (SE = 0.0116008, 281 out of 1276)
+buried: 33.620690% (SE = 0.013225, 429 out of 1276)

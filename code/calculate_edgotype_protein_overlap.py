@@ -103,6 +103,7 @@ def main():
         diseaseMutations2["protein"] = diseaseMutations2[gene_col].apply(lambda x:
                                                                          uniprotID[x] if x in uniprotID 
                                                                          else x + 'unknown')
+    
     natMutProteins2 = set(naturalMutations2["protein"].values)
     disMutProteins2 = set(diseaseMutations2["protein"].values)
     allMutProteins2 = natMutProteins2 | disMutProteins2

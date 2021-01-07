@@ -12,7 +12,24 @@ def main():
     
     # mutation edgotype for which fitness effect is calculated
     # options: quasi-null, edgetic, quasi-wild-type
-    edgotype = 'edgetic'
+    edgotype = 'quasi-wild-type'
+    
+    # homology modelling method used to create structural models
+    # options: template_based, model_based
+    model_method = 'model_based_4'
+    
+    # method used to predict edgetic perturbations
+    # options: geometry, physics
+    edgetic_method = 'physics'
+    
+    # method of calculating edgetic mutation ∆∆G
+    # options: bindprofx, foldx
+    edgetic_ddg = 'foldx'
+
+    # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
+    # those of mildly deleterious (M) mutations. If False, strongly detrimental 
+    # mutations are assumed to be all quasi-null
+    assume_S_as_M = True
     
     # reference interactome names
     interactome_names = ['HuRI', 'IntAct', 'experiment']
@@ -42,13 +59,22 @@ def main():
     
     # parent directory of all data files
     dataDir = Path('../data')
-    dataDir = Path('/Volumes/MG_Samsung/edgotype_fitness_effect/data')
     
     # parent directory of processed data files
     procDir = dataDir / 'processed'
-        
+    
     # figure directory
-    figDir = Path('../figures') / 'combined'
+    figDir = Path('../figures') / 'combined' / model_method / edgetic_method
+    
+    if edgetic_method is 'physics':
+        figDir = figDir / (edgetic_ddg + '_edgetics') / 'mutation_fitness_effect'
+    elif edgetic_method is 'geometry':
+        figDir = figDir / 'mutation_fitness_effect'
+    
+    if assume_S_as_M:
+        figDir = figDir / 'assume_S_as_M'
+    else:
+        figDir = figDir / 'assume_S_quasi_null'
     
     # input data files
     inFile = '%s_mut_fitness_effect.pkl' % edgotype
@@ -59,7 +85,14 @@ def main():
     
     allresults = {}
     for name in interactome_names:
-        inPath = procDir / name / inFile
+        if name is not 'experiment':
+            if edgetic_method is 'physics':
+                inPath = procDir / name / model_method / edgetic_method / (edgetic_ddg + '_edgetics') / inFile
+            else:
+                inPath = procDir / name / model_method / edgetic_method / inFile
+        else:
+            inPath = procDir / name / inFile
+        
         with open(inPath, 'rb') as f:
             allresults[name] = pickle.load(f)
     

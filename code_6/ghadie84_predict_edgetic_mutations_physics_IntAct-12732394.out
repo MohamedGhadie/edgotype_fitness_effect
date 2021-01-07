@@ -1,0 +1,17 @@
+
+Performing physics-based edgotype prediction for non-disease mutations
+
+Performing physics-based edgotype prediction for disease mutations
+
+Labeling mutation edgotypes
+2873 non-disease mutations
+1276 disease mutations
+
+Fraction of predicted edgetic mutations:
+Non-disease mutations: 0.021 (SE = 0.00264688, 59 out of 2872)
+Disease mutations: 0.083 (SE = 0.00772627, 106 out of 1276)
+Fisher's exact test, p-value = 1.7574e-19 (odds ratio = 0.231506)
+
+Creating network perturbed by non-disease mutations
+
+Creating network perturbed by disease mutations

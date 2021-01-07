@@ -17,9 +17,9 @@ def main():
     # parent directory of all processed data files
     procDir = dataDir / 'processed'
     
-    fromPath = procDir / 'HuRI' / 'model_based' / 'dis_mut_binding_ddg_foldx.txt'
-    toPath = procDir / 'HuRI' / 'model_based_6' / 'dis_mut_binding_ddg_foldx.txt'
-    outPath = procDir / 'HuRI' / 'model_based_6' / 'dis_mut_binding_ddg_foldx_2.txt'
+    fromPath = procDir / 'IntAct' / 'model_based' / 'dis_mut_binding_ddg_foldx.txt'
+    toPath = procDir / 'IntAct' / 'model_based_6' / 'dis_mut_binding_ddg_foldx.txt'
+    outPath = procDir / 'IntAct' / 'model_based_6' / 'dis_mut_binding_ddg_foldx_2.txt'
     
     copy_mutation_ddg (fromPath, toPath, outPath, 'binding')
 

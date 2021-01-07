@@ -34,7 +34,7 @@ def main():
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
     # those of mildly deleterious (M) mutations. If set to False, strongly detrimental 
     # mutations are assumed to be all quasi-null
-    assume_S_as_M = False
+    assume_S_as_M = True
     
     # calculate confidence intervals
     computeConfidenceIntervals = True

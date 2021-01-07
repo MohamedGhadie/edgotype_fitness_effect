@@ -17,7 +17,7 @@ from plot_tools import network_plot
 def main():
     
     # reference interactome name: HI-II-14, HuRI, IntAct
-    interactome_name = 'HuRI'
+    interactome_name = 'IntAct'
     
     # modelling method used to map interfaces: template_based or model_based
     model_method = 'model_based_4'

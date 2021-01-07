@@ -1,0 +1,904 @@
+Reading mutations
+Number of mutations:
+non-disease mutations: 1068
+disease mutations: 318
+
+Number of proteins carrying mutations:
+non-disease mutations: 495
+disease mutations: 93
+all mutations: 560
+
+producing protein RSA dictionary
+  protein 1 out of 560 (0.18%)   protein 2 out of 560 (0.36%)   protein 3 out of 560 (0.54%)   protein 4 out of 560 (0.71%)   protein 5 out of 560 (0.89%)   protein 6 out of 560 (1.07%)   protein 7 out of 560 (1.25%)   protein 8 out of 560 (1.43%)   protein 9 out of 560 (1.61%)   protein 10 out of 560 (1.79%)   protein 11 out of 560 (1.96%)   protein 12 out of 560 (2.14%)   protein 13 out of 560 (2.32%)   protein 14 out of 560 (2.50%)   protein 15 out of 560 (2.68%)   protein 16 out of 560 (2.86%)   protein 17 out of 560 (3.04%)   protein 18 out of 560 (3.21%)   protein 19 out of 560 (3.39%)   protein 20 out of 560 (3.57%)   protein 21 out of 560 (3.75%)   protein 22 out of 560 (3.93%)   protein 23 out of 560 (4.11%)   protein 24 out of 560 (4.29%)   protein 25 out of 560 (4.46%)   protein 26 out of 560 (4.64%)   protein 27 out of 560 (4.82%)   protein 28 out of 560 (5.00%)   protein 29 out of 560 (5.18%)   protein 30 out of 560 (5.36%)   protein 31 out of 560 (5.54%)   protein 32 out of 560 (5.71%)   protein 33 out of 560 (5.89%)   protein 34 out of 560 (6.07%)   protein 35 out of 560 (6.25%)   protein 36 out of 560 (6.43%)   protein 37 out of 560 (6.61%)   protein 38 out of 560 (6.79%)   protein 39 out of 560 (6.96%)   protein 40 out of 560 (7.14%)   protein 41 out of 560 (7.32%)   protein 42 out of 560 (7.50%)   protein 43 out of 560 (7.68%)   protein 44 out of 560 (7.86%)   protein 45 out of 560 (8.04%)   protein 46 out of 560 (8.21%)   protein 47 out of 560 (8.39%)   protein 48 out of 560 (8.57%)   protein 49 out of 560 (8.75%)   protein 50 out of 560 (8.93%)   protein 51 out of 560 (9.11%)   protein 52 out of 560 (9.29%)   protein 53 out of 560 (9.46%)   protein 54 out of 560 (9.64%)   protein 55 out of 560 (9.82%)   protein 56 out of 560 (10.00%)   protein 57 out of 560 (10.18%)   protein 58 out of 560 (10.36%)   protein 59 out of 560 (10.54%)   protein 60 out of 560 (10.71%)   protein 61 out of 560 (10.89%)   protein 62 out of 560 (11.07%)   protein 63 out of 560 (11.25%)   protein 64 out of 560 (11.43%)   protein 65 out of 560 (11.61%)   protein 66 out of 560 (11.79%)   protein 67 out of 560 (11.96%)   protein 68 out of 560 (12.14%)   protein 69 out of 560 (12.32%)   protein 70 out of 560 (12.50%)   protein 71 out of 560 (12.68%)   protein 72 out of 560 (12.86%)   protein 73 out of 560 (13.04%)   protein 74 out of 560 (13.21%)   protein 75 out of 560 (13.39%)   protein 76 out of 560 (13.57%)   protein 77 out of 560 (13.75%)   protein 78 out of 560 (13.93%)   protein 79 out of 560 (14.11%)   protein 80 out of 560 (14.29%)   protein 81 out of 560 (14.46%)   protein 82 out of 560 (14.64%)   protein 83 out of 560 (14.82%)   protein 84 out of 560 (15.00%)   protein 85 out of 560 (15.18%)   protein 86 out of 560 (15.36%)   protein 87 out of 560 (15.54%)   protein 88 out of 560 (15.71%)   protein 89 out of 560 (15.89%)   protein 90 out of 560 (16.07%)   protein 91 out of 560 (16.25%)   protein 92 out of 560 (16.43%)   protein 93 out of 560 (16.61%)   protein 94 out of 560 (16.79%)   protein 95 out of 560 (16.96%)   protein 96 out of 560 (17.14%)   protein 97 out of 560 (17.32%)   protein 98 out of 560 (17.50%)   protein 99 out of 560 (17.68%)   protein 100 out of 560 (17.86%)   protein 101 out of 560 (18.04%)   protein 102 out of 560 (18.21%)   protein 103 out of 560 (18.39%)   protein 104 out of 560 (18.57%)   protein 105 out of 560 (18.75%)   protein 106 out of 560 (18.93%)   protein 107 out of 560 (19.11%)   protein 108 out of 560 (19.29%)   protein 109 out of 560 (19.46%)   protein 110 out of 560 (19.64%)   protein 111 out of 560 (19.82%)   protein 112 out of 560 (20.00%)   protein 113 out of 560 (20.18%)   protein 114 out of 560 (20.36%)   protein 115 out of 560 (20.54%)   protein 116 out of 560 (20.71%)   protein 117 out of 560 (20.89%)   protein 118 out of 560 (21.07%)   protein 119 out of 560 (21.25%)   protein 120 out of 560 (21.43%)   protein 121 out of 560 (21.61%)   protein 122 out of 560 (21.79%)   protein 123 out of 560 (21.96%)   protein 124 out of 560 (22.14%)   protein 125 out of 560 (22.32%)   protein 126 out of 560 (22.50%)   protein 127 out of 560 (22.68%)   protein 128 out of 560 (22.86%)   protein 129 out of 560 (23.04%)   protein 130 out of 560 (23.21%)   protein 131 out of 560 (23.39%)   protein 132 out of 560 (23.57%)   protein 133 out of 560 (23.75%)   protein 134 out of 560 (23.93%)   protein 135 out of 560 (24.11%)   protein 136 out of 560 (24.29%)   protein 137 out of 560 (24.46%)   protein 138 out of 560 (24.64%)   protein 139 out of 560 (24.82%)   protein 140 out of 560 (25.00%)   protein 141 out of 560 (25.18%)   protein 142 out of 560 (25.36%)   protein 143 out of 560 (25.54%)   protein 144 out of 560 (25.71%)   protein 145 out of 560 (25.89%)   protein 146 out of 560 (26.07%)   protein 147 out of 560 (26.25%)   protein 148 out of 560 (26.43%)   protein 149 out of 560 (26.61%)   protein 150 out of 560 (26.79%)   protein 151 out of 560 (26.96%)   protein 152 out of 560 (27.14%)   protein 153 out of 560 (27.32%)   protein 154 out of 560 (27.50%)   protein 155 out of 560 (27.68%)   protein 156 out of 560 (27.86%)   protein 157 out of 560 (28.04%)   protein 158 out of 560 (28.21%)   protein 159 out of 560 (28.39%)   protein 160 out of 560 (28.57%)   protein 161 out of 560 (28.75%)   protein 162 out of 560 (28.93%)   protein 163 out of 560 (29.11%)   protein 164 out of 560 (29.29%)   protein 165 out of 560 (29.46%)   protein 166 out of 560 (29.64%)   protein 167 out of 560 (29.82%)   protein 168 out of 560 (30.00%)   protein 169 out of 560 (30.18%)   protein 170 out of 560 (30.36%)   protein 171 out of 560 (30.54%)   protein 172 out of 560 (30.71%)   protein 173 out of 560 (30.89%)   protein 174 out of 560 (31.07%)   protein 175 out of 560 (31.25%)   protein 176 out of 560 (31.43%)   protein 177 out of 560 (31.61%)   protein 178 out of 560 (31.79%)   protein 179 out of 560 (31.96%)   protein 180 out of 560 (32.14%)   protein 181 out of 560 (32.32%)   protein 182 out of 560 (32.50%)   protein 183 out of 560 (32.68%)   protein 184 out of 560 (32.86%)   protein 185 out of 560 (33.04%)   protein 186 out of 560 (33.21%)   protein 187 out of 560 (33.39%)   protein 188 out of 560 (33.57%)   protein 189 out of 560 (33.75%)   protein 190 out of 560 (33.93%)   protein 191 out of 560 (34.11%)   protein 192 out of 560 (34.29%)   protein 193 out of 560 (34.46%)   protein 194 out of 560 (34.64%)   protein 195 out of 560 (34.82%)   protein 196 out of 560 (35.00%)   protein 197 out of 560 (35.18%)   protein 198 out of 560 (35.36%)   protein 199 out of 560 (35.54%)   protein 200 out of 560 (35.71%)   protein 201 out of 560 (35.89%)   protein 202 out of 560 (36.07%)   protein 203 out of 560 (36.25%)   protein 204 out of 560 (36.43%)   protein 205 out of 560 (36.61%)   protein 206 out of 560 (36.79%)   protein 207 out of 560 (36.96%)   protein 208 out of 560 (37.14%)   protein 209 out of 560 (37.32%)   protein 210 out of 560 (37.50%)   protein 211 out of 560 (37.68%)   protein 212 out of 560 (37.86%)   protein 213 out of 560 (38.04%)   protein 214 out of 560 (38.21%)   protein 215 out of 560 (38.39%)   protein 216 out of 560 (38.57%)   protein 217 out of 560 (38.75%)   protein 218 out of 560 (38.93%)   protein 219 out of 560 (39.11%)   protein 220 out of 560 (39.29%)   protein 221 out of 560 (39.46%)   protein 222 out of 560 (39.64%)   protein 223 out of 560 (39.82%)   protein 224 out of 560 (40.00%)   protein 225 out of 560 (40.18%)   protein 226 out of 560 (40.36%)   protein 227 out of 560 (40.54%)   protein 228 out of 560 (40.71%)   protein 229 out of 560 (40.89%)   protein 230 out of 560 (41.07%)   protein 231 out of 560 (41.25%)   protein 232 out of 560 (41.43%)   protein 233 out of 560 (41.61%)   protein 234 out of 560 (41.79%)   protein 235 out of 560 (41.96%)   protein 236 out of 560 (42.14%)   protein 237 out of 560 (42.32%)   protein 238 out of 560 (42.50%)   protein 239 out of 560 (42.68%)   protein 240 out of 560 (42.86%)   protein 241 out of 560 (43.04%)   protein 242 out of 560 (43.21%)   protein 243 out of 560 (43.39%)   protein 244 out of 560 (43.57%)   protein 245 out of 560 (43.75%)   protein 246 out of 560 (43.93%)   protein 247 out of 560 (44.11%)   protein 248 out of 560 (44.29%)   protein 249 out of 560 (44.46%)   protein 250 out of 560 (44.64%)   protein 251 out of 560 (44.82%)   protein 252 out of 560 (45.00%)   protein 253 out of 560 (45.18%)   protein 254 out of 560 (45.36%)   protein 255 out of 560 (45.54%)   protein 256 out of 560 (45.71%)   protein 257 out of 560 (45.89%)   protein 258 out of 560 (46.07%)   protein 259 out of 560 (46.25%)   protein 260 out of 560 (46.43%)   protein 261 out of 560 (46.61%)   protein 262 out of 560 (46.79%)   protein 263 out of 560 (46.96%)   protein 264 out of 560 (47.14%)   protein 265 out of 560 (47.32%)   protein 266 out of 560 (47.50%)   protein 267 out of 560 (47.68%)   protein 268 out of 560 (47.86%)   protein 269 out of 560 (48.04%)   protein 270 out of 560 (48.21%)   protein 271 out of 560 (48.39%)   protein 272 out of 560 (48.57%)   protein 273 out of 560 (48.75%)   protein 274 out of 560 (48.93%)   protein 275 out of 560 (49.11%)   protein 276 out of 560 (49.29%)   protein 277 out of 560 (49.46%)   protein 278 out of 560 (49.64%)   protein 279 out of 560 (49.82%)   protein 280 out of 560 (50.00%)   protein 281 out of 560 (50.18%)   protein 282 out of 560 (50.36%)   protein 283 out of 560 (50.54%)   protein 284 out of 560 (50.71%)   protein 285 out of 560 (50.89%)   protein 286 out of 560 (51.07%)   protein 287 out of 560 (51.25%)   protein 288 out of 560 (51.43%)   protein 289 out of 560 (51.61%)   protein 290 out of 560 (51.79%)   protein 291 out of 560 (51.96%)   protein 292 out of 560 (52.14%)   protein 293 out of 560 (52.32%)   protein 294 out of 560 (52.50%)   protein 295 out of 560 (52.68%)   protein 296 out of 560 (52.86%)   protein 297 out of 560 (53.04%)   protein 298 out of 560 (53.21%)   protein 299 out of 560 (53.39%)   protein 300 out of 560 (53.57%)   protein 301 out of 560 (53.75%)   protein 302 out of 560 (53.93%)   protein 303 out of 560 (54.11%)   protein 304 out of 560 (54.29%)   protein 305 out of 560 (54.46%)   protein 306 out of 560 (54.64%)   protein 307 out of 560 (54.82%)   protein 308 out of 560 (55.00%)   protein 309 out of 560 (55.18%)   protein 310 out of 560 (55.36%)   protein 311 out of 560 (55.54%)   protein 312 out of 560 (55.71%)   protein 313 out of 560 (55.89%)   protein 314 out of 560 (56.07%)   protein 315 out of 560 (56.25%)   protein 316 out of 560 (56.43%)   protein 317 out of 560 (56.61%)   protein 318 out of 560 (56.79%)   protein 319 out of 560 (56.96%)   protein 320 out of 560 (57.14%)   protein 321 out of 560 (57.32%)   protein 322 out of 560 (57.50%)   protein 323 out of 560 (57.68%)   protein 324 out of 560 (57.86%)   protein 325 out of 560 (58.04%)   protein 326 out of 560 (58.21%)   protein 327 out of 560 (58.39%)   protein 328 out of 560 (58.57%)   protein 329 out of 560 (58.75%)   protein 330 out of 560 (58.93%)   protein 331 out of 560 (59.11%)   protein 332 out of 560 (59.29%)   protein 333 out of 560 (59.46%)   protein 334 out of 560 (59.64%)   protein 335 out of 560 (59.82%)   protein 336 out of 560 (60.00%)   protein 337 out of 560 (60.18%)   protein 338 out of 560 (60.36%)   protein 339 out of 560 (60.54%)   protein 340 out of 560 (60.71%)   protein 341 out of 560 (60.89%)   protein 342 out of 560 (61.07%)   protein 343 out of 560 (61.25%)   protein 344 out of 560 (61.43%)   protein 345 out of 560 (61.61%)   protein 346 out of 560 (61.79%)   protein 347 out of 560 (61.96%)   protein 348 out of 560 (62.14%)   protein 349 out of 560 (62.32%)   protein 350 out of 560 (62.50%)   protein 351 out of 560 (62.68%)   protein 352 out of 560 (62.86%)   protein 353 out of 560 (63.04%)   protein 354 out of 560 (63.21%)   protein 355 out of 560 (63.39%)   protein 356 out of 560 (63.57%)   protein 357 out of 560 (63.75%)   protein 358 out of 560 (63.93%)   protein 359 out of 560 (64.11%)   protein 360 out of 560 (64.29%)   protein 361 out of 560 (64.46%)   protein 362 out of 560 (64.64%)   protein 363 out of 560 (64.82%)   protein 364 out of 560 (65.00%)   protein 365 out of 560 (65.18%)   protein 366 out of 560 (65.36%)   protein 367 out of 560 (65.54%)   protein 368 out of 560 (65.71%)   protein 369 out of 560 (65.89%)   protein 370 out of 560 (66.07%)   protein 371 out of 560 (66.25%)   protein 372 out of 560 (66.43%)   protein 373 out of 560 (66.61%)   protein 374 out of 560 (66.79%)   protein 375 out of 560 (66.96%)   protein 376 out of 560 (67.14%)   protein 377 out of 560 (67.32%)   protein 378 out of 560 (67.50%)   protein 379 out of 560 (67.68%)   protein 380 out of 560 (67.86%)   protein 381 out of 560 (68.04%)   protein 382 out of 560 (68.21%)   protein 383 out of 560 (68.39%)   protein 384 out of 560 (68.57%)   protein 385 out of 560 (68.75%)   protein 386 out of 560 (68.93%)   protein 387 out of 560 (69.11%)   protein 388 out of 560 (69.29%)   protein 389 out of 560 (69.46%)   protein 390 out of 560 (69.64%)   protein 391 out of 560 (69.82%)   protein 392 out of 560 (70.00%)   protein 393 out of 560 (70.18%)   protein 394 out of 560 (70.36%)   protein 395 out of 560 (70.54%)   protein 396 out of 560 (70.71%)   protein 397 out of 560 (70.89%)   protein 398 out of 560 (71.07%)   protein 399 out of 560 (71.25%)   protein 400 out of 560 (71.43%)   protein 401 out of 560 (71.61%)   protein 402 out of 560 (71.79%)   protein 403 out of 560 (71.96%)   protein 404 out of 560 (72.14%)   protein 405 out of 560 (72.32%)   protein 406 out of 560 (72.50%)   protein 407 out of 560 (72.68%)   protein 408 out of 560 (72.86%)   protein 409 out of 560 (73.04%)   protein 410 out of 560 (73.21%)   protein 411 out of 560 (73.39%)   protein 412 out of 560 (73.57%)   protein 413 out of 560 (73.75%)   protein 414 out of 560 (73.93%)   protein 415 out of 560 (74.11%)   protein 416 out of 560 (74.29%)   protein 417 out of 560 (74.46%)   protein 418 out of 560 (74.64%)   protein 419 out of 560 (74.82%)   protein 420 out of 560 (75.00%)   protein 421 out of 560 (75.18%)   protein 422 out of 560 (75.36%)   protein 423 out of 560 (75.54%)   protein 424 out of 560 (75.71%)   protein 425 out of 560 (75.89%)   protein 426 out of 560 (76.07%)   protein 427 out of 560 (76.25%)   protein 428 out of 560 (76.43%)   protein 429 out of 560 (76.61%)   protein 430 out of 560 (76.79%)   protein 431 out of 560 (76.96%)   protein 432 out of 560 (77.14%)   protein 433 out of 560 (77.32%)   protein 434 out of 560 (77.50%)   protein 435 out of 560 (77.68%)   protein 436 out of 560 (77.86%)   protein 437 out of 560 (78.04%)   protein 438 out of 560 (78.21%)   protein 439 out of 560 (78.39%)   protein 440 out of 560 (78.57%)   protein 441 out of 560 (78.75%)   protein 442 out of 560 (78.93%)   protein 443 out of 560 (79.11%)   protein 444 out of 560 (79.29%)   protein 445 out of 560 (79.46%)   protein 446 out of 560 (79.64%)   protein 447 out of 560 (79.82%)   protein 448 out of 560 (80.00%)   protein 449 out of 560 (80.18%)   protein 450 out of 560 (80.36%)   protein 451 out of 560 (80.54%)   protein 452 out of 560 (80.71%)   protein 453 out of 560 (80.89%)   protein 454 out of 560 (81.07%)   protein 455 out of 560 (81.25%)   protein 456 out of 560 (81.43%)   protein 457 out of 560 (81.61%)   protein 458 out of 560 (81.79%)   protein 459 out of 560 (81.96%)   protein 460 out of 560 (82.14%)   protein 461 out of 560 (82.32%)   protein 462 out of 560 (82.50%)   protein 463 out of 560 (82.68%)   protein 464 out of 560 (82.86%)   protein 465 out of 560 (83.04%)   protein 466 out of 560 (83.21%)   protein 467 out of 560 (83.39%)   protein 468 out of 560 (83.57%)   protein 469 out of 560 (83.75%)   protein 470 out of 560 (83.93%)   protein 471 out of 560 (84.11%)   protein 472 out of 560 (84.29%)   protein 473 out of 560 (84.46%)   protein 474 out of 560 (84.64%)   protein 475 out of 560 (84.82%)   protein 476 out of 560 (85.00%)   protein 477 out of 560 (85.18%)   protein 478 out of 560 (85.36%)   protein 479 out of 560 (85.54%)   protein 480 out of 560 (85.71%)   protein 481 out of 560 (85.89%)   protein 482 out of 560 (86.07%)   protein 483 out of 560 (86.25%)   protein 484 out of 560 (86.43%)   protein 485 out of 560 (86.61%)   protein 486 out of 560 (86.79%)   protein 487 out of 560 (86.96%)   protein 488 out of 560 (87.14%)   protein 489 out of 560 (87.32%)   protein 490 out of 560 (87.50%)   protein 491 out of 560 (87.68%)   protein 492 out of 560 (87.86%)   protein 493 out of 560 (88.04%)   protein 494 out of 560 (88.21%)   protein 495 out of 560 (88.39%)   protein 496 out of 560 (88.57%)   protein 497 out of 560 (88.75%)   protein 498 out of 560 (88.93%)   protein 499 out of 560 (89.11%)   protein 500 out of 560 (89.29%)   protein 501 out of 560 (89.46%)   protein 502 out of 560 (89.64%)   protein 503 out of 560 (89.82%)   protein 504 out of 560 (90.00%)   protein 505 out of 560 (90.18%)   protein 506 out of 560 (90.36%)   protein 507 out of 560 (90.54%)   protein 508 out of 560 (90.71%)   protein 509 out of 560 (90.89%)   protein 510 out of 560 (91.07%)   protein 511 out of 560 (91.25%)   protein 512 out of 560 (91.43%)   protein 513 out of 560 (91.61%)   protein 514 out of 560 (91.79%)   protein 515 out of 560 (91.96%)   protein 516 out of 560 (92.14%)   protein 517 out of 560 (92.32%)   protein 518 out of 560 (92.50%)   protein 519 out of 560 (92.68%)   protein 520 out of 560 (92.86%)   protein 521 out of 560 (93.04%)   protein 522 out of 560 (93.21%)   protein 523 out of 560 (93.39%)   protein 524 out of 560 (93.57%)   protein 525 out of 560 (93.75%)   protein 526 out of 560 (93.93%)   protein 527 out of 560 (94.11%)   protein 528 out of 560 (94.29%)   protein 529 out of 560 (94.46%)   protein 530 out of 560 (94.64%)   protein 531 out of 560 (94.82%)   protein 532 out of 560 (95.00%)   protein 533 out of 560 (95.18%)   protein 534 out of 560 (95.36%)   protein 535 out of 560 (95.54%)   protein 536 out of 560 (95.71%)   protein 537 out of 560 (95.89%)   protein 538 out of 560 (96.07%)   protein 539 out of 560 (96.25%)   protein 540 out of 560 (96.43%)   protein 541 out of 560 (96.61%)   protein 542 out of 560 (96.79%)   protein 543 out of 560 (96.96%)   protein 544 out of 560 (97.14%)   protein 545 out of 560 (97.32%)   protein 546 out of 560 (97.50%)   protein 547 out of 560 (97.68%)   protein 548 out of 560 (97.86%)   protein 549 out of 560 (98.04%)   protein 550 out of 560 (98.21%)   protein 551 out of 560 (98.39%)   protein 552 out of 560 (98.57%)   protein 553 out of 560 (98.75%)   protein 554 out of 560 (98.93%)   protein 555 out of 560 (99.11%)   protein 556 out of 560 (99.29%)   protein 557 out of 560 (99.46%)   protein 558 out of 560 (99.64%)   protein 559 out of 560 (99.82%)   protein 560 out of 560 (100.00%) /lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_4/pdb_tools.py:160: UserWarning: Structure file not loaded
+  warnings.warn('Structure file not loaded')
+
+Average RSA for non-disease mutations: 0.519047 Å (SE = 0.00590617, n = 1060)
+Average RSA for disease mutations: 0.352354 Å (SE = 0.0135413, n = 318)
+t-test, p-value = 4.50666e-26
+

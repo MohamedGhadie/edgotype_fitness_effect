@@ -1,0 +1,1942 @@
+mapping PPI interfaces from structural models
+	clearing known interfaces dictionary
+	reading chain-annotated interactome
+	reading protein-chain mapping table
+	creating interface file directory
+	resolving interfaces for all 193 PPIs
+	PPI: P23511 - Q13952
+		PPI: P23511 - Q13952 (# 1 out of 193) (0.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P23511=Q13952_A - P23511=Q13952_B (# 1 out of 1)
+			computing interface for chain pair P23511=Q13952_A-P23511=Q13952_B
+			writing chain interfaces to file
+			interface 1 found
+	1 PPIs resolved
+	1 PPIs annotated
+	PPI: P23511 - P25208
+		PPI: P23511 - P25208 (# 2 out of 193) (1.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P23511=P25208_A - P23511=P25208_B (# 1 out of 1)
+			computing interface for chain pair P23511=P25208_A-P23511=P25208_B
+			writing chain interfaces to file
+			interface 1 found
+	2 PPIs resolved
+	2 PPIs annotated
+	PPI: Q92934 - Q92843
+		PPI: Q92934 - Q92843 (# 3 out of 193) (1.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q92843=Q92934_B - Q92843=Q92934_A (# 1 out of 1)
+			computing interface for chain pair Q92843=Q92934_B-Q92843=Q92934_A
+			writing chain interfaces to file
+			interface 1 found
+	3 PPIs resolved
+	3 PPIs annotated
+	PPI: Q92934 - Q07817
+		PPI: Q92934 - Q07817 (# 4 out of 193) (2.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q07817=Q92934_B - Q07817=Q92934_A (# 1 out of 1)
+			computing interface for chain pair Q07817=Q92934_B-Q07817=Q92934_A
+			writing chain interfaces to file
+			interface 1 found
+	4 PPIs resolved
+	4 PPIs annotated
+	PPI: Q9Y6D9 - Q13257
+		PPI: Q9Y6D9 - Q13257 (# 5 out of 193) (2.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13257=Q9Y6D9_B - Q13257=Q9Y6D9_A (# 1 out of 1)
+			computing interface for chain pair Q13257=Q9Y6D9_B-Q13257=Q9Y6D9_A
+			writing chain interfaces to file
+			interface 1 found
+	5 PPIs resolved
+	5 PPIs annotated
+	PPI: Q9Y216 - Q96QG7
+		PPI: Q9Y216 - Q96QG7 (# 6 out of 193) (3.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9Y216=Q96QG7_A - Q9Y216=Q96QG7_B (# 1 out of 1)
+			computing interface for chain pair Q9Y216=Q96QG7_A-Q9Y216=Q96QG7_B
+			writing chain interfaces to file
+			interface 1 found
+	6 PPIs resolved
+	6 PPIs annotated
+	PPI: O60341 - Q9P2K3
+		PPI: O60341 - Q9P2K3 (# 7 out of 193) (3.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O60341=Q9P2K3_A - O60341=Q9P2K3_B (# 1 out of 1)
+			computing interface for chain pair O60341=Q9P2K3_A-O60341=Q9P2K3_B
+			writing chain interfaces to file
+			interface 1 found
+	7 PPIs resolved
+	7 PPIs annotated
+	PPI: P52435 - O15160
+		PPI: P52435 - O15160 (# 8 out of 193) (4.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O15160=P52435_B - O15160=P52435_A (# 1 out of 1)
+			computing interface for chain pair O15160=P52435_B-O15160=P52435_A
+			writing chain interfaces to file
+			interface 1 found
+	8 PPIs resolved
+	8 PPIs annotated
+	PPI: P50221 - P31273
+		PPI: P50221 - P31273 (# 9 out of 193) (4.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P50221=P31273_A - P50221=P31273_B (# 1 out of 1)
+			computing interface for chain pair P50221=P31273_A-P50221=P31273_B
+			writing chain interfaces to file
+			interface 1 found
+	9 PPIs resolved
+	9 PPIs annotated
+	PPI: P31323 - P17612
+		PPI: P31323 - P17612 (# 10 out of 193) (5.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31323=P17612_A - P31323=P17612_B (# 1 out of 1)
+			computing interface for chain pair P31323=P17612_A-P31323=P17612_B
+			writing chain interfaces to file
+			interface 1 found
+	10 PPIs resolved
+	10 PPIs annotated
+	PPI: O14978 - P57086
+		PPI: O14978 - P57086 (# 11 out of 193) (5.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O14978=P57086_A - O14978=P57086_B (# 1 out of 1)
+			computing interface for chain pair O14978=P57086_A-O14978=P57086_B
+			writing chain interfaces to file
+			interface 1 found
+	11 PPIs resolved
+	11 PPIs annotated
+	PPI: O14978 - P10073
+		PPI: O14978 - P10073 (# 12 out of 193) (6.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O14978=P10073_A - O14978=P10073_B (# 1 out of 1)
+			computing interface for chain pair O14978=P10073_A-O14978=P10073_B
+			writing chain interfaces to file
+			interface 1 found
+	12 PPIs resolved
+	12 PPIs annotated
+	PPI: O14978 - P49910
+		PPI: O14978 - P49910 (# 13 out of 193) (6.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O14978=P49910_A - O14978=P49910_B (# 1 out of 1)
+			computing interface for chain pair O14978=P49910_A-O14978=P49910_B
+			writing chain interfaces to file
+			interface 1 found
+	13 PPIs resolved
+	13 PPIs annotated
+	PPI: Q9UHR4 - Q9UQB8
+		PPI: Q9UHR4 - Q9UQB8 (# 14 out of 193) (7.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UHR4=Q9UQB8_A - Q9UHR4=Q9UQB8_B (# 1 out of 1)
+			computing interface for chain pair Q9UHR4=Q9UQB8_A-Q9UHR4=Q9UQB8_B
+			writing chain interfaces to file
+			interface 1 found
+	14 PPIs resolved
+	14 PPIs annotated
+	PPI: Q9Y6N9 - Q8N8V4
+		PPI: Q9Y6N9 - Q8N8V4 (# 15 out of 193) (7.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9Y6N9=Q8N8V4_A - Q9Y6N9=Q8N8V4_B (# 1 out of 1)
+			computing interface for chain pair Q9Y6N9=Q8N8V4_A-Q9Y6N9=Q8N8V4_B
+			writing chain interfaces to file
+			interface 1 found
+	15 PPIs resolved
+	15 PPIs annotated
+	PPI: Q9UBU7 - O00311
+		PPI: Q9UBU7 - O00311 (# 16 out of 193) (8.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O00311=Q9UBU7_B - O00311=Q9UBU7_A (# 1 out of 1)
+			computing interface for chain pair O00311=Q9UBU7_B-O00311=Q9UBU7_A
+			writing chain interfaces to file
+			interface 1 found
+	16 PPIs resolved
+	16 PPIs annotated
+	PPI: O75865 - O43617
+		PPI: O75865 - O43617 (# 17 out of 193) (8.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O43617=O75865_B - O43617=O75865_A (# 1 out of 1)
+			computing interface for chain pair O43617=O75865_B-O43617=O75865_A
+			writing chain interfaces to file
+			interface 1 found
+	17 PPIs resolved
+	17 PPIs annotated
+	PPI: P26367 - P31273
+		PPI: P26367 - P31273 (# 18 out of 193) (9.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=P26367_B - P31273=P26367_A (# 1 out of 1)
+			computing interface for chain pair P31273=P26367_B-P31273=P26367_A
+			writing chain interfaces to file
+			interface 1 found
+	18 PPIs resolved
+	18 PPIs annotated
+	PPI: P26367 - P49639
+		PPI: P26367 - P49639 (# 19 out of 193) (9.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P49639=P26367_B - P49639=P26367_A (# 1 out of 1)
+			computing interface for chain pair P49639=P26367_B-P49639=P26367_A
+			writing chain interfaces to file
+			interface 1 found
+	19 PPIs resolved
+	19 PPIs annotated
+	PPI: P26367 - P31274
+		PPI: P26367 - P31274 (# 20 out of 193) (10.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P26367=P31274_A - P26367=P31274_B (# 1 out of 1)
+			computing interface for chain pair P26367=P31274_A-P26367=P31274_B
+			writing chain interfaces to file
+			interface 1 found
+	20 PPIs resolved
+	20 PPIs annotated
+	PPI: Q99594 - Q99990
+		PPI: Q99594 - Q99990 (# 21 out of 193) (10.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q99990=Q99594_B - Q99990=Q99594_A (# 1 out of 1)
+			computing interface for chain pair Q99990=Q99594_B-Q99990=Q99594_A
+			writing chain interfaces to file
+			interface 1 found
+	21 PPIs resolved
+	21 PPIs annotated
+	PPI: Q99594 - Q14135
+		PPI: Q99594 - Q14135 (# 22 out of 193) (11.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q99594=Q14135_A - Q99594=Q14135_B (# 1 out of 1)
+			computing interface for chain pair Q99594=Q14135_A-Q99594=Q14135_B
+			writing chain interfaces to file
+			interface 1 found
+	22 PPIs resolved
+	22 PPIs annotated
+	PPI: Q99594 - A8MV65
+		PPI: Q99594 - A8MV65 (# 23 out of 193) (11.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: A8MV65=Q99594_B - A8MV65=Q99594_A (# 1 out of 1)
+			computing interface for chain pair A8MV65=Q99594_B-A8MV65=Q99594_A
+			writing chain interfaces to file
+			interface 1 found
+	23 PPIs resolved
+	23 PPIs annotated
+	PPI: P20618 - P25786
+		PPI: P20618 - P25786 (# 24 out of 193) (12.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P20618=P25786_A - P20618=P25786_B (# 1 out of 1)
+			computing interface for chain pair P20618=P25786_A-P20618=P25786_B
+			writing chain interfaces to file
+			interface 1 found
+	24 PPIs resolved
+	24 PPIs annotated
+	PPI: P20618 - P28070
+		PPI: P20618 - P28070 (# 25 out of 193) (13.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P20618=P28070_A - P20618=P28070_B (# 1 out of 1)
+			computing interface for chain pair P20618=P28070_A-P20618=P28070_B
+			writing chain interfaces to file
+			interface 1 found
+	25 PPIs resolved
+	25 PPIs annotated
+	PPI: O43739 - Q969H4
+		PPI: O43739 - Q969H4 (# 26 out of 193) (13.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O43739=Q969H4_A - O43739=Q969H4_B (# 1 out of 1)
+			computing interface for chain pair O43739=Q969H4_A-O43739=Q969H4_B
+			writing chain interfaces to file
+			interface 1 found
+	26 PPIs resolved
+	26 PPIs annotated
+	PPI: Q9NP79 - Q7LBR1
+		PPI: Q9NP79 - Q7LBR1 (# 27 out of 193) (14.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NP79=Q7LBR1_A - Q9NP79=Q7LBR1_B (# 1 out of 1)
+			computing interface for chain pair Q9NP79=Q7LBR1_A-Q9NP79=Q7LBR1_B
+			writing chain interfaces to file
+			interface 1 found
+	27 PPIs resolved
+	27 PPIs annotated
+	PPI: Q96GD3 - Q9UHJ3
+		PPI: Q96GD3 - Q9UHJ3 (# 28 out of 193) (14.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96GD3=Q9UHJ3_A - Q96GD3=Q9UHJ3_B (# 1 out of 1)
+			computing interface for chain pair Q96GD3=Q9UHJ3_A-Q96GD3=Q9UHJ3_B
+			writing chain interfaces to file
+			interface 1 found
+	28 PPIs resolved
+	28 PPIs annotated
+	PPI: Q96GD3 - Q5VUG0
+		PPI: Q96GD3 - Q5VUG0 (# 29 out of 193) (15.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96GD3=Q5VUG0_A - Q96GD3=Q5VUG0_B (# 1 out of 1)
+			computing interface for chain pair Q96GD3=Q5VUG0_A-Q96GD3=Q5VUG0_B
+			writing chain interfaces to file
+			interface 1 found
+	29 PPIs resolved
+	29 PPIs annotated
+	PPI: Q9Y2Y4 - Q9HBE1
+		PPI: Q9Y2Y4 - Q9HBE1 (# 30 out of 193) (15.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9HBE1=Q9Y2Y4_B - Q9HBE1=Q9Y2Y4_A (# 1 out of 1)
+			computing interface for chain pair Q9HBE1=Q9Y2Y4_B-Q9HBE1=Q9Y2Y4_A
+			writing chain interfaces to file
+			interface 1 found
+	30 PPIs resolved
+	30 PPIs annotated
+	PPI: Q9Y2Y4 - O14787
+		PPI: Q9Y2Y4 - O14787 (# 31 out of 193) (16.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O14787=Q9Y2Y4_B - O14787=Q9Y2Y4_A (# 1 out of 1)
+			computing interface for chain pair O14787=Q9Y2Y4_B-O14787=Q9Y2Y4_A
+			writing chain interfaces to file
+			interface 1 found
+	31 PPIs resolved
+	31 PPIs annotated
+	PPI: Q96RI1 - P48443
+		PPI: Q96RI1 - P48443 (# 32 out of 193) (16.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96RI1=P48443_A - Q96RI1=P48443_B (# 1 out of 1)
+			computing interface for chain pair Q96RI1=P48443_A-Q96RI1=P48443_B
+			writing chain interfaces to file
+			interface 1 found
+	32 PPIs resolved
+	32 PPIs annotated
+	PPI: Q96RI1 - P28702
+		PPI: Q96RI1 - P28702 (# 33 out of 193) (17.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96RI1=P28702_A - Q96RI1=P28702_B (# 1 out of 1)
+			computing interface for chain pair Q96RI1=P28702_A-Q96RI1=P28702_B
+			writing chain interfaces to file
+			interface 1 found
+	33 PPIs resolved
+	33 PPIs annotated
+	PPI: Q9P1Z2 - Q9H0R8
+		PPI: Q9P1Z2 - Q9H0R8 (# 34 out of 193) (17.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9P1Z2=Q9H0R8_A - Q9P1Z2=Q9H0R8_B (# 1 out of 1)
+			computing interface for chain pair Q9P1Z2=Q9H0R8_A-Q9P1Z2=Q9H0R8_B
+			writing chain interfaces to file
+			interface 1 found
+	34 PPIs resolved
+	34 PPIs annotated
+	PPI: P43686 - P62195
+		PPI: P43686 - P62195 (# 35 out of 193) (18.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P62195=P43686_B - P62195=P43686_A (# 1 out of 1)
+			computing interface for chain pair P62195=P43686_B-P62195=P43686_A
+			writing chain interfaces to file
+			interface 1 found
+	35 PPIs resolved
+	35 PPIs annotated
+	PPI: P43686 - O75832
+		PPI: P43686 - O75832 (# 36 out of 193) (18.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P43686=O75832_A - P43686=O75832_B (# 1 out of 1)
+			computing interface for chain pair P43686=O75832_A-P43686=O75832_B
+			writing chain interfaces to file
+			interface 1 found
+	36 PPIs resolved
+	36 PPIs annotated
+	PPI: P49759 - Q07955
+		PPI: P49759 - Q07955 (# 37 out of 193) (19.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P49759=Q07955_A - P49759=Q07955_B (# 1 out of 1)
+			computing interface for chain pair P49759=Q07955_A-P49759=Q07955_B
+			writing chain interfaces to file
+			interface 1 found
+	37 PPIs resolved
+	37 PPIs annotated
+	PPI: P49759 - P49760
+		PPI: P49759 - P49760 (# 38 out of 193) (19.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P49759=P49760_A - P49759=P49760_B (# 1 out of 1)
+			computing interface for chain pair P49759=P49760_A-P49759=P49760_B
+			writing chain interfaces to file
+			interface 1 found
+	38 PPIs resolved
+	38 PPIs annotated
+	PPI: Q8IY57 - Q99496
+		PPI: Q8IY57 - Q99496 (# 39 out of 193) (20.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q99496=Q8IY57_B - Q99496=Q8IY57_A (# 1 out of 1)
+			computing interface for chain pair Q99496=Q8IY57_B-Q99496=Q8IY57_A
+			writing chain interfaces to file
+			interface 1 found
+	39 PPIs resolved
+	39 PPIs annotated
+	PPI: Q8IY57 - Q06587
+		PPI: Q8IY57 - Q06587 (# 40 out of 193) (20.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q06587=Q8IY57_B - Q06587=Q8IY57_A (# 1 out of 1)
+			computing interface for chain pair Q06587=Q8IY57_B-Q06587=Q8IY57_A
+			writing chain interfaces to file
+			interface 1 found
+	40 PPIs resolved
+	40 PPIs annotated
+	PPI: P61371 - Q86U70
+		PPI: P61371 - Q86U70 (# 41 out of 193) (21.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P61371=Q86U70_A - P61371=Q86U70_B (# 1 out of 1)
+			computing interface for chain pair P61371=Q86U70_A-P61371=Q86U70_B
+			writing chain interfaces to file
+			interface 1 found
+	41 PPIs resolved
+	41 PPIs annotated
+	PPI: Q9GZV5 - Q15562
+		PPI: Q9GZV5 - Q15562 (# 42 out of 193) (21.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15562=Q9GZV5_B - Q15562=Q9GZV5_A (# 1 out of 1)
+			computing interface for chain pair Q15562=Q9GZV5_B-Q15562=Q9GZV5_A
+			writing chain interfaces to file
+			interface 1 found
+	42 PPIs resolved
+	42 PPIs annotated
+	PPI: Q9GZV5 - P28347
+		PPI: Q9GZV5 - P28347 (# 43 out of 193) (22.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P28347=Q9GZV5_B - P28347=Q9GZV5_A (# 1 out of 1)
+			computing interface for chain pair P28347=Q9GZV5_B-P28347=Q9GZV5_A
+			writing chain interfaces to file
+			interface 1 found
+	43 PPIs resolved
+	43 PPIs annotated
+	PPI: Q9GZV5 - Q15561
+		PPI: Q9GZV5 - Q15561 (# 44 out of 193) (22.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15561=Q9GZV5_B - Q15561=Q9GZV5_A (# 1 out of 1)
+			computing interface for chain pair Q15561=Q9GZV5_B-Q15561=Q9GZV5_A
+			writing chain interfaces to file
+			interface 1 found
+	44 PPIs resolved
+	44 PPIs annotated
+	PPI: O43623 - P36508
+		PPI: O43623 - P36508 (# 45 out of 193) (23.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O43623=P36508_A - O43623=P36508_B (# 1 out of 1)
+			computing interface for chain pair O43623=P36508_A-O43623=P36508_B
+			writing chain interfaces to file
+			interface 1 found
+	45 PPIs resolved
+	45 PPIs annotated
+	PPI: Q13761 - Q13951
+		PPI: Q13761 - Q13951 (# 46 out of 193) (23.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13761=Q13951_A - Q13761=Q13951_B (# 1 out of 1)
+			computing interface for chain pair Q13761=Q13951_A-Q13761=Q13951_B
+			writing chain interfaces to file
+			interface 1 found
+	46 PPIs resolved
+	46 PPIs annotated
+	PPI: Q9H4E7 - Q7Z5H3
+		PPI: Q9H4E7 - Q7Z5H3 (# 47 out of 193) (24.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9H4E7=Q7Z5H3_A - Q9H4E7=Q7Z5H3_B (# 1 out of 1)
+			computing interface for chain pair Q9H4E7=Q7Z5H3_A-Q9H4E7=Q7Z5H3_B
+			writing chain interfaces to file
+			interface 1 found
+	47 PPIs resolved
+	47 PPIs annotated
+	PPI: Q13133 - P48443
+		PPI: Q13133 - P48443 (# 48 out of 193) (24.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P48443=Q13133_B - P48443=Q13133_A (# 1 out of 1)
+			computing interface for chain pair P48443=Q13133_B-P48443=Q13133_A
+			writing chain interfaces to file
+			interface 1 found
+	48 PPIs resolved
+	48 PPIs annotated
+	PPI: Q13133 - P28702
+		PPI: Q13133 - P28702 (# 49 out of 193) (25.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P28702=Q13133_B - P28702=Q13133_A (# 1 out of 1)
+			computing interface for chain pair P28702=Q13133_B-P28702=Q13133_A
+			writing chain interfaces to file
+			interface 1 found
+	49 PPIs resolved
+	49 PPIs annotated
+	PPI: O60684 - Q9UKX7
+		PPI: O60684 - Q9UKX7 (# 50 out of 193) (25.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O60684=Q9UKX7_A - O60684=Q9UKX7_B (# 1 out of 1)
+			computing interface for chain pair O60684=Q9UKX7_A-O60684=Q9UKX7_B
+			writing chain interfaces to file
+			interface 1 found
+	50 PPIs resolved
+	50 PPIs annotated
+	PPI: O60684 - Q96HA1
+		PPI: O60684 - Q96HA1 (# 51 out of 193) (26.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O60684=Q96HA1_A - O60684=Q96HA1_B (# 1 out of 1)
+			computing interface for chain pair O60684=Q96HA1_A-O60684=Q96HA1_B
+			writing chain interfaces to file
+			interface 1 found
+	51 PPIs resolved
+	51 PPIs annotated
+	PPI: P08670 - P07197
+		PPI: P08670 - P07197 (# 52 out of 193) (26.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P08670=P07197_A - P08670=P07197_B (# 1 out of 1)
+			computing interface for chain pair P08670=P07197_A-P08670=P07197_B
+			writing chain interfaces to file
+			interface 1 found
+	52 PPIs resolved
+	52 PPIs annotated
+	PPI: P08670 - P14136
+		PPI: P08670 - P14136 (# 53 out of 193) (27.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P08670=P14136_A - P08670=P14136_B (# 1 out of 1)
+			computing interface for chain pair P08670=P14136_A-P08670=P14136_B
+			writing chain interfaces to file
+			interface 1 found
+	53 PPIs resolved
+	53 PPIs annotated
+	PPI: P08670 - P41219
+		PPI: P08670 - P41219 (# 54 out of 193) (28.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P08670=P41219_A - P08670=P41219_B (# 1 out of 1)
+			computing interface for chain pair P08670=P41219_A-P08670=P41219_B
+			writing chain interfaces to file
+			interface 1 found
+	54 PPIs resolved
+	54 PPIs annotated
+	PPI: P08670 - O95678
+		PPI: P08670 - O95678 (# 55 out of 193) (28.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P08670=O95678_A - P08670=O95678_B (# 1 out of 1)
+			computing interface for chain pair P08670=O95678_A-P08670=O95678_B
+			writing chain interfaces to file
+			interface 1 found
+	55 PPIs resolved
+	55 PPIs annotated
+	PPI: P08670 - P35900
+		PPI: P08670 - P35900 (# 56 out of 193) (29.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P35900=P08670_B - P35900=P08670_A (# 1 out of 1)
+			computing interface for chain pair P35900=P08670_B-P35900=P08670_A
+			writing chain interfaces to file
+			interface 1 found
+	56 PPIs resolved
+	56 PPIs annotated
+	PPI: P08670 - P17661
+		PPI: P08670 - P17661 (# 57 out of 193) (29.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P08670=P17661_A - P08670=P17661_B (# 1 out of 1)
+			computing interface for chain pair P08670=P17661_A-P08670=P17661_B
+			writing chain interfaces to file
+			interface 1 found
+	57 PPIs resolved
+	57 PPIs annotated
+	PPI: Q13596 - Q9UNH7
+		PPI: Q13596 - Q9UNH7 (# 58 out of 193) (30.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13596=Q9UNH7_A - Q13596=Q9UNH7_B (# 1 out of 1)
+			computing interface for chain pair Q13596=Q9UNH7_A-Q13596=Q9UNH7_B
+			writing chain interfaces to file
+			interface 1 found
+	58 PPIs resolved
+	58 PPIs annotated
+	PPI: Q13596 - Q86XE0
+		PPI: Q13596 - Q86XE0 (# 59 out of 193) (30.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13596=Q86XE0_A - Q13596=Q86XE0_B (# 1 out of 1)
+			computing interface for chain pair Q13596=Q86XE0_A-Q13596=Q86XE0_B
+			writing chain interfaces to file
+			interface 1 found
+	59 PPIs resolved
+	59 PPIs annotated
+	PPI: P62380 - P52655
+		PPI: P62380 - P52655 (# 60 out of 193) (31.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P62380=P52655_A - P62380=P52655_B (# 1 out of 1)
+			computing interface for chain pair P62380=P52655_A-P62380=P52655_B
+			writing chain interfaces to file
+			interface 1 found
+	60 PPIs resolved
+	60 PPIs annotated
+	PPI: Q8WYA1 - Q99814
+		PPI: Q8WYA1 - Q99814 (# 61 out of 193) (31.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8WYA1=Q99814_A - Q8WYA1=Q99814_B (# 1 out of 1)
+			computing interface for chain pair Q8WYA1=Q99814_A-Q8WYA1=Q99814_B
+			writing chain interfaces to file
+			interface 1 found
+	61 PPIs resolved
+	61 PPIs annotated
+	PPI: Q8WYA1 - O15516
+		PPI: Q8WYA1 - O15516 (# 62 out of 193) (32.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8WYA1=O15516_A - Q8WYA1=O15516_B (# 1 out of 1)
+			computing interface for chain pair Q8WYA1=O15516_A-Q8WYA1=O15516_B
+			writing chain interfaces to file
+			interface 1 found
+	62 PPIs resolved
+	62 PPIs annotated
+	PPI: Q8WYA1 - Q99743
+		PPI: Q8WYA1 - Q99743 (# 63 out of 193) (32.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8WYA1=Q99743_A - Q8WYA1=Q99743_B (# 1 out of 1)
+			computing interface for chain pair Q8WYA1=Q99743_A-Q8WYA1=Q99743_B
+			writing chain interfaces to file
+			interface 1 found
+	63 PPIs resolved
+	63 PPIs annotated
+	PPI: Q15276 - P61018
+		PPI: Q15276 - P61018 (# 64 out of 193) (33.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P61018=Q15276_B - P61018=Q15276_A (# 1 out of 1)
+			computing interface for chain pair P61018=Q15276_B-P61018=Q15276_A
+			writing chain interfaces to file
+			interface 1 found
+	64 PPIs resolved
+	64 PPIs annotated
+	PPI: Q15276 - P20338
+		PPI: Q15276 - P20338 (# 65 out of 193) (33.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P20338=Q15276_B - P20338=Q15276_A (# 1 out of 1)
+			computing interface for chain pair P20338=Q15276_B-P20338=Q15276_A
+			writing chain interfaces to file
+			interface 1 found
+	65 PPIs resolved
+	65 PPIs annotated
+	PPI: Q16611 - Q92843
+		PPI: Q16611 - Q92843 (# 66 out of 193) (34.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q92843=Q16611_B - Q92843=Q16611_A (# 1 out of 1)
+			computing interface for chain pair Q92843=Q16611_B-Q92843=Q16611_A
+			writing chain interfaces to file
+			interface 1 found
+	66 PPIs resolved
+	66 PPIs annotated
+	PPI: Q16611 - Q16548
+		PPI: Q16611 - Q16548 (# 67 out of 193) (34.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q16611=Q16548_A - Q16611=Q16548_B (# 1 out of 1)
+			computing interface for chain pair Q16611=Q16548_A-Q16611=Q16548_B
+			writing chain interfaces to file
+			interface 1 found
+	67 PPIs resolved
+	67 PPIs annotated
+	PPI: Q16611 - Q07820
+		PPI: Q16611 - Q07820 (# 68 out of 193) (35.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q16611=Q07820_A - Q16611=Q07820_B (# 1 out of 1)
+			computing interface for chain pair Q16611=Q07820_A-Q16611=Q07820_B
+			writing chain interfaces to file
+			interface 1 found
+	68 PPIs resolved
+	68 PPIs annotated
+	PPI: Q16611 - Q07817
+		PPI: Q16611 - Q07817 (# 69 out of 193) (35.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q07817=Q16611_B - Q07817=Q16611_A (# 1 out of 1)
+			computing interface for chain pair Q07817=Q16611_B-Q07817=Q16611_A
+			writing chain interfaces to file
+			interface 1 found
+	69 PPIs resolved
+	69 PPIs annotated
+	PPI: P56589 - P40855
+		PPI: P56589 - P40855 (# 70 out of 193) (36.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P56589=P40855_A - P56589=P40855_B (# 1 out of 1)
+			computing interface for chain pair P56589=P40855_A-P56589=P40855_B
+			writing chain interfaces to file
+			interface 1 found
+	70 PPIs resolved
+	70 PPIs annotated
+	PPI: P60520 - Q86VP1
+		PPI: P60520 - Q86VP1 (# 71 out of 193) (36.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q86VP1=P60520_B - Q86VP1=P60520_A (# 1 out of 1)
+			computing interface for chain pair Q86VP1=P60520_B-Q86VP1=P60520_A
+			writing chain interfaces to file
+			interface 1 found
+	71 PPIs resolved
+	71 PPIs annotated
+	PPI: P60520 - Q13137
+		PPI: P60520 - Q13137 (# 72 out of 193) (37.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13137=P60520_B - Q13137=P60520_A (# 1 out of 1)
+			computing interface for chain pair Q13137=P60520_B-Q13137=P60520_A
+			writing chain interfaces to file
+			interface 1 found
+	72 PPIs resolved
+	72 PPIs annotated
+	PPI: P60520 - Q9Y4P1
+		PPI: P60520 - Q9Y4P1 (# 73 out of 193) (37.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9Y4P1=P60520_B - Q9Y4P1=P60520_A (# 1 out of 1)
+			computing interface for chain pair Q9Y4P1=P60520_B-Q9Y4P1=P60520_A
+			writing chain interfaces to file
+			interface 1 found
+	73 PPIs resolved
+	73 PPIs annotated
+	PPI: Q96HL8 - Q5HYK7
+		PPI: Q96HL8 - Q5HYK7 (# 74 out of 193) (38.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96HL8=Q5HYK7_A - Q96HL8=Q5HYK7_B (# 1 out of 1)
+			computing interface for chain pair Q96HL8=Q5HYK7_A-Q96HL8=Q5HYK7_B
+			writing chain interfaces to file
+			interface 1 found
+	74 PPIs resolved
+	74 PPIs annotated
+	PPI: Q13618 - Q9H0C5
+		PPI: Q13618 - Q9H0C5 (# 75 out of 193) (38.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9H0C5=Q13618_B - Q9H0C5=Q13618_A (# 1 out of 1)
+			computing interface for chain pair Q9H0C5=Q13618_B-Q9H0C5=Q13618_A
+			writing chain interfaces to file
+			interface 1 found
+	75 PPIs resolved
+	75 PPIs annotated
+	PPI: Q13618 - Q14145
+		PPI: Q13618 - Q14145 (# 76 out of 193) (39.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q14145=Q13618_B - Q14145=Q13618_A (# 1 out of 1)
+			computing interface for chain pair Q14145=Q13618_B-Q14145=Q13618_A
+			writing chain interfaces to file
+			interface 1 found
+	76 PPIs resolved
+	76 PPIs annotated
+	PPI: Q13618 - Q53G59
+		PPI: Q13618 - Q53G59 (# 77 out of 193) (39.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q53G59=Q13618_B - Q53G59=Q13618_A (# 1 out of 1)
+			computing interface for chain pair Q53G59=Q13618_B-Q53G59=Q13618_A
+			writing chain interfaces to file
+			interface 1 found
+	77 PPIs resolved
+	77 PPIs annotated
+	PPI: Q13618 - Q9Y2F9
+		PPI: Q13618 - Q9Y2F9 (# 78 out of 193) (40.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9Y2F9=Q13618_B - Q9Y2F9=Q13618_A (# 1 out of 1)
+			computing interface for chain pair Q9Y2F9=Q13618_B-Q9Y2F9=Q13618_A
+			writing chain interfaces to file
+			interface 1 found
+	78 PPIs resolved
+	78 PPIs annotated
+	PPI: Q13618 - Q9BX70
+		PPI: Q13618 - Q9BX70 (# 79 out of 193) (40.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9BX70=Q13618_B - Q9BX70=Q13618_A (# 1 out of 1)
+			computing interface for chain pair Q9BX70=Q13618_B-Q9BX70=Q13618_A
+			writing chain interfaces to file
+			interface 1 found
+	79 PPIs resolved
+	79 PPIs annotated
+	PPI: Q13618 - Q9UH77
+		PPI: Q13618 - Q9UH77 (# 80 out of 193) (41.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UH77=Q13618_B - Q9UH77=Q13618_A (# 1 out of 1)
+			computing interface for chain pair Q9UH77=Q13618_B-Q9UH77=Q13618_A
+			writing chain interfaces to file
+			interface 1 found
+	80 PPIs resolved
+	80 PPIs annotated
+	PPI: Q13618 - Q96KE9
+		PPI: Q13618 - Q96KE9 (# 81 out of 193) (42.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96KE9=Q13618_B - Q96KE9=Q13618_A (# 1 out of 1)
+			computing interface for chain pair Q96KE9=Q13618_B-Q96KE9=Q13618_A
+			writing chain interfaces to file
+			interface 1 found
+	81 PPIs resolved
+	81 PPIs annotated
+	PPI: Q9UBP6 - P57081
+		PPI: Q9UBP6 - P57081 (# 82 out of 193) (42.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P57081=Q9UBP6_B - P57081=Q9UBP6_A (# 1 out of 1)
+			computing interface for chain pair P57081=Q9UBP6_B-P57081=Q9UBP6_A
+			writing chain interfaces to file
+			interface 1 found
+	82 PPIs resolved
+	82 PPIs annotated
+	PPI: P31273 - Q9BYU1
+		PPI: P31273 - Q9BYU1 (# 83 out of 193) (43.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=Q9BYU1_A - P31273=Q9BYU1_B (# 1 out of 1)
+			computing interface for chain pair P31273=Q9BYU1_A-P31273=Q9BYU1_B
+			writing chain interfaces to file
+			interface 1 found
+	83 PPIs resolved
+	83 PPIs annotated
+	PPI: P31273 - P50222
+		PPI: P31273 - P50222 (# 84 out of 193) (43.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=P50222_A - P31273=P50222_B (# 1 out of 1)
+			computing interface for chain pair P31273=P50222_A-P31273=P50222_B
+			writing chain interfaces to file
+			interface 1 found
+	84 PPIs resolved
+	84 PPIs annotated
+	PPI: P31273 - P50458
+		PPI: P31273 - P50458 (# 85 out of 193) (44.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=P50458_A - P31273=P50458_B (# 1 out of 1)
+			computing interface for chain pair P31273=P50458_A-P31273=P50458_B
+			writing chain interfaces to file
+			interface 1 found
+	85 PPIs resolved
+	85 PPIs annotated
+	PPI: P31273 - Q9UBR4
+		PPI: P31273 - Q9UBR4 (# 86 out of 193) (44.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=Q9UBR4_A - P31273=Q9UBR4_B (# 1 out of 1)
+			computing interface for chain pair P31273=Q9UBR4_A-P31273=Q9UBR4_B
+			writing chain interfaces to file
+			interface 1 found
+	86 PPIs resolved
+	86 PPIs annotated
+	PPI: P31273 - Q9Y458
+		PPI: P31273 - Q9Y458 (# 87 out of 193) (45.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=Q9Y458_A - P31273=Q9Y458_B (# 1 out of 1)
+			computing interface for chain pair P31273=Q9Y458_A-P31273=Q9Y458_B
+			writing chain interfaces to file
+			interface 1 found
+	87 PPIs resolved
+	87 PPIs annotated
+	PPI: P31273 - P31249
+		PPI: P31273 - P31249 (# 88 out of 193) (45.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=P31249_A - P31273=P31249_B (# 1 out of 1)
+			computing interface for chain pair P31273=P31249_A-P31273=P31249_B
+			writing chain interfaces to file
+			interface 1 found
+	88 PPIs resolved
+	88 PPIs annotated
+	PPI: P31273 - O60806
+		PPI: P31273 - O60806 (# 89 out of 193) (46.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=O60806_A - P31273=O60806_B (# 1 out of 1)
+			computing interface for chain pair P31273=O60806_A-P31273=O60806_B
+			writing chain interfaces to file
+			interface 1 found
+	89 PPIs resolved
+	89 PPIs annotated
+	PPI: P31273 - O95231
+		PPI: P31273 - O95231 (# 90 out of 193) (46.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=O95231_A - P31273=O95231_B (# 1 out of 1)
+			computing interface for chain pair P31273=O95231_A-P31273=O95231_B
+			writing chain interfaces to file
+			interface 1 found
+	90 PPIs resolved
+	90 PPIs annotated
+	PPI: P31273 - Q9UBX0
+		PPI: P31273 - Q9UBX0 (# 91 out of 193) (47.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=Q9UBX0_A - P31273=Q9UBX0_B (# 1 out of 1)
+			computing interface for chain pair P31273=Q9UBX0_A-P31273=Q9UBX0_B
+			writing chain interfaces to file
+			interface 1 found
+	91 PPIs resolved
+	91 PPIs annotated
+	PPI: P31273 - P40424
+		PPI: P31273 - P40424 (# 92 out of 193) (47.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=P40424_A - P31273=P40424_B (# 1 out of 1)
+			computing interface for chain pair P31273=P40424_A-P31273=P40424_B
+			writing chain interfaces to file
+			interface 1 found
+	92 PPIs resolved
+	92 PPIs annotated
+	PPI: P31273 - P40425
+		PPI: P31273 - P40425 (# 93 out of 193) (48.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P31273=P40425_A - P31273=P40425_B (# 1 out of 1)
+			computing interface for chain pair P31273=P40425_A-P31273=P40425_B
+			writing chain interfaces to file
+			interface 1 found
+	93 PPIs resolved
+	93 PPIs annotated
+	PPI: O00194 - Q9Y2J0
+		PPI: O00194 - Q9Y2J0 (# 94 out of 193) (48.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O00194=Q9Y2J0_A - O00194=Q9Y2J0_B (# 1 out of 1)
+			computing interface for chain pair O00194=Q9Y2J0_A-O00194=Q9Y2J0_B
+			writing chain interfaces to file
+			interface 1 found
+	94 PPIs resolved
+	94 PPIs annotated
+	PPI: O00194 - Q9BV36
+		PPI: O00194 - Q9BV36 (# 95 out of 193) (49.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O00194=Q9BV36_A - O00194=Q9BV36_B (# 1 out of 1)
+			computing interface for chain pair O00194=Q9BV36_A-O00194=Q9BV36_B
+			writing chain interfaces to file
+			interface 1 found
+	95 PPIs resolved
+	95 PPIs annotated
+	PPI: O00194 - Q8TDW5
+		PPI: O00194 - Q8TDW5 (# 96 out of 193) (49.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O00194=Q8TDW5_A - O00194=Q8TDW5_B (# 1 out of 1)
+			computing interface for chain pair O00194=Q8TDW5_A-O00194=Q8TDW5_B
+			writing chain interfaces to file
+			interface 1 found
+	96 PPIs resolved
+	96 PPIs annotated
+	PPI: O00194 - Q8NFW9
+		PPI: O00194 - Q8NFW9 (# 97 out of 193) (50.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O00194=Q8NFW9_A - O00194=Q8NFW9_B (# 1 out of 1)
+			computing interface for chain pair O00194=Q8NFW9_A-O00194=Q8NFW9_B
+			writing chain interfaces to file
+			interface 1 found
+	97 PPIs resolved
+	97 PPIs annotated
+	PPI: O00194 - Q9UNE2
+		PPI: O00194 - Q9UNE2 (# 98 out of 193) (50.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O00194=Q9UNE2_A - O00194=Q9UNE2_B (# 1 out of 1)
+			computing interface for chain pair O00194=Q9UNE2_A-O00194=Q9UNE2_B
+			writing chain interfaces to file
+			interface 1 found
+	98 PPIs resolved
+	98 PPIs annotated
+	PPI: P25789 - O14818
+		PPI: P25789 - O14818 (# 99 out of 193) (51.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P25789=O14818_A - P25789=O14818_B (# 1 out of 1)
+			computing interface for chain pair P25789=O14818_A-P25789=O14818_B
+			writing chain interfaces to file
+			interface 1 found
+	99 PPIs resolved
+	99 PPIs annotated
+	PPI: Q9NRF8 - P17812
+		PPI: Q9NRF8 - P17812 (# 100 out of 193) (51.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NRF8=P17812_A - Q9NRF8=P17812_B (# 1 out of 1)
+			computing interface for chain pair Q9NRF8=P17812_A-Q9NRF8=P17812_B
+			writing chain interfaces to file
+			interface 1 found
+	100 PPIs resolved
+	100 PPIs annotated
+	PPI: Q9UN30 - Q5VUG0
+		PPI: Q9UN30 - Q5VUG0 (# 101 out of 193) (52.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UN30=Q5VUG0_A - Q9UN30=Q5VUG0_B (# 1 out of 1)
+			computing interface for chain pair Q9UN30=Q5VUG0_A-Q9UN30=Q5VUG0_B
+			writing chain interfaces to file
+			interface 1 found
+	101 PPIs resolved
+	101 PPIs annotated
+	PPI: Q8TAP4 - P49023
+		PPI: Q8TAP4 - P49023 (# 102 out of 193) (52.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8TAP4=P49023_A - Q8TAP4=P49023_B (# 1 out of 1)
+			computing interface for chain pair Q8TAP4=P49023_A-Q8TAP4=P49023_B
+			writing chain interfaces to file
+			interface 1 found
+	102 PPIs resolved
+	102 PPIs annotated
+	PPI: Q8TAP4 - O60711
+		PPI: Q8TAP4 - O60711 (# 103 out of 193) (53.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O60711=Q8TAP4_B - O60711=Q8TAP4_A (# 1 out of 1)
+			computing interface for chain pair O60711=Q8TAP4_B-O60711=Q8TAP4_A
+			writing chain interfaces to file
+			interface 1 found
+	103 PPIs resolved
+	103 PPIs annotated
+	PPI: Q8TAP4 - Q8WUP2
+		PPI: Q8TAP4 - Q8WUP2 (# 104 out of 193) (53.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8WUP2=Q8TAP4_B - Q8WUP2=Q8TAP4_A (# 1 out of 1)
+			computing interface for chain pair Q8WUP2=Q8TAP4_B-Q8WUP2=Q8TAP4_A
+			writing chain interfaces to file
+			interface 1 found
+	104 PPIs resolved
+	104 PPIs annotated
+	PPI: Q8TAP4 - O43679
+		PPI: Q8TAP4 - O43679 (# 105 out of 193) (54.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8TAP4=O43679_A - Q8TAP4=O43679_B (# 1 out of 1)
+			computing interface for chain pair Q8TAP4=O43679_A-Q8TAP4=O43679_B
+			writing chain interfaces to file
+			interface 1 found
+	105 PPIs resolved
+	105 PPIs annotated
+	PPI: Q8TAP4 - P48059
+		PPI: Q8TAP4 - P48059 (# 106 out of 193) (54.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P48059=Q8TAP4_B - P48059=Q8TAP4_A (# 1 out of 1)
+			computing interface for chain pair P48059=Q8TAP4_B-P48059=Q8TAP4_A
+			writing chain interfaces to file
+			interface 1 found
+	106 PPIs resolved
+	106 PPIs annotated
+	PPI: Q8TAP4 - Q86U70
+		PPI: Q8TAP4 - Q86U70 (# 107 out of 193) (55.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8TAP4=Q86U70_A - Q8TAP4=Q86U70_B (# 1 out of 1)
+			computing interface for chain pair Q8TAP4=Q86U70_A-Q8TAP4=Q86U70_B
+			writing chain interfaces to file
+			interface 1 found
+	107 PPIs resolved
+	107 PPIs annotated
+	PPI: Q15836 - O95721
+		PPI: Q15836 - O95721 (# 108 out of 193) (56.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15836=O95721_A - Q15836=O95721_B (# 1 out of 1)
+			computing interface for chain pair Q15836=O95721_A-Q15836=O95721_B
+			writing chain interfaces to file
+			interface 1 found
+	108 PPIs resolved
+	108 PPIs annotated
+	PPI: Q15836 - Q12846
+		PPI: Q15836 - Q12846 (# 109 out of 193) (56.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15836=Q12846_A - Q15836=Q12846_B (# 1 out of 1)
+			computing interface for chain pair Q15836=Q12846_A-Q15836=Q12846_B
+			writing chain interfaces to file
+			interface 1 found
+	109 PPIs resolved
+	109 PPIs annotated
+	PPI: Q15836 - Q16623
+		PPI: Q15836 - Q16623 (# 110 out of 193) (57.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15836=Q16623_A - Q15836=Q16623_B (# 1 out of 1)
+			computing interface for chain pair Q15836=Q16623_A-Q15836=Q16623_B
+			writing chain interfaces to file
+			interface 1 found
+	110 PPIs resolved
+	110 PPIs annotated
+	PPI: Q15836 - P32856
+		PPI: Q15836 - P32856 (# 111 out of 193) (57.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15836=P32856_A - Q15836=P32856_B (# 1 out of 1)
+			computing interface for chain pair Q15836=P32856_A-Q15836=P32856_B
+			writing chain interfaces to file
+			interface 1 found
+	111 PPIs resolved
+	111 PPIs annotated
+	PPI: Q96KP6 - Q15025
+		PPI: Q96KP6 - Q15025 (# 112 out of 193) (58.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96KP6=Q15025_A - Q96KP6=Q15025_B (# 1 out of 1)
+			computing interface for chain pair Q96KP6=Q15025_A-Q96KP6=Q15025_B
+			writing chain interfaces to file
+			interface 1 found
+	112 PPIs resolved
+	112 PPIs annotated
+	PPI: P45984 - Q9BY84
+		PPI: P45984 - Q9BY84 (# 113 out of 193) (58.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P45984=Q9BY84_A - P45984=Q9BY84_B (# 1 out of 1)
+			computing interface for chain pair P45984=Q9BY84_A-P45984=Q9BY84_B
+			writing chain interfaces to file
+			interface 1 found
+	113 PPIs resolved
+	113 PPIs annotated
+	PPI: P45984 - Q13115
+		PPI: P45984 - Q13115 (# 114 out of 193) (59.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P45984=Q13115_A - P45984=Q13115_B (# 1 out of 1)
+			computing interface for chain pair P45984=Q13115_A-P45984=Q13115_B
+			writing chain interfaces to file
+			interface 1 found
+	114 PPIs resolved
+	114 PPIs annotated
+	PPI: P45984 - Q9Y6W6
+		PPI: P45984 - Q9Y6W6 (# 115 out of 193) (59.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P45984=Q9Y6W6_A - P45984=Q9Y6W6_B (# 1 out of 1)
+			computing interface for chain pair P45984=Q9Y6W6_A-P45984=Q9Y6W6_B
+			writing chain interfaces to file
+			interface 1 found
+	115 PPIs resolved
+	115 PPIs annotated
+	PPI: Q9NSC5 - P50458
+		PPI: Q9NSC5 - P50458 (# 116 out of 193) (60.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NSC5=P50458_A - Q9NSC5=P50458_B (# 1 out of 1)
+			computing interface for chain pair Q9NSC5=P50458_A-Q9NSC5=P50458_B
+			writing chain interfaces to file
+			interface 1 found
+	116 PPIs resolved
+	116 PPIs annotated
+	PPI: Q9NSC5 - Q86YM7
+		PPI: Q9NSC5 - Q86YM7 (# 117 out of 193) (60.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NSC5=Q86YM7_A - Q9NSC5=Q86YM7_B (# 1 out of 1)
+			computing interface for chain pair Q9NSC5=Q86YM7_A-Q9NSC5=Q86YM7_B
+			writing chain interfaces to file
+			interface 1 found
+	117 PPIs resolved
+	117 PPIs annotated
+	PPI: Q9Y5Z4 - O75340
+		PPI: Q9Y5Z4 - O75340 (# 118 out of 193) (61.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9Y5Z4=O75340_A - Q9Y5Z4=O75340_B (# 1 out of 1)
+			computing interface for chain pair Q9Y5Z4=O75340_A-Q9Y5Z4=O75340_B
+			writing chain interfaces to file
+			interface 1 found
+	118 PPIs resolved
+	118 PPIs annotated
+	PPI: O43488 - O95154
+		PPI: O43488 - O95154 (# 119 out of 193) (61.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O43488=O95154_A - O43488=O95154_B (# 1 out of 1)
+			computing interface for chain pair O43488=O95154_A-O43488=O95154_B
+			writing chain interfaces to file
+			interface 1 found
+	119 PPIs resolved
+	119 PPIs annotated
+	PPI: O43617 - Q9Y5R8
+		PPI: O43617 - Q9Y5R8 (# 120 out of 193) (62.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O43617=Q9Y5R8_A - O43617=Q9Y5R8_B (# 1 out of 1)
+			computing interface for chain pair O43617=Q9Y5R8_A-O43617=Q9Y5R8_B
+			writing chain interfaces to file
+			interface 1 found
+	120 PPIs resolved
+	120 PPIs annotated
+	PPI: O43617 - Q8IUR0
+		PPI: O43617 - Q8IUR0 (# 121 out of 193) (62.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O43617=Q8IUR0_A - O43617=Q8IUR0_B (# 1 out of 1)
+			computing interface for chain pair O43617=Q8IUR0_A-O43617=Q8IUR0_B
+			writing chain interfaces to file
+			interface 1 found
+	121 PPIs resolved
+	121 PPIs annotated
+	PPI: O43617 - P0DI81
+		PPI: O43617 - P0DI81 (# 122 out of 193) (63.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P0DI81=O43617_B - P0DI81=O43617_A (# 1 out of 1)
+			computing interface for chain pair P0DI81=O43617_B-P0DI81=O43617_A
+			writing chain interfaces to file
+			interface 1 found
+	122 PPIs resolved
+	122 PPIs annotated
+	PPI: O43617 - P0DI82
+		PPI: O43617 - P0DI82 (# 123 out of 193) (63.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P0DI82=O43617_B - P0DI82=O43617_A (# 1 out of 1)
+			computing interface for chain pair P0DI82=O43617_B-P0DI82=O43617_A
+			writing chain interfaces to file
+			interface 1 found
+	123 PPIs resolved
+	123 PPIs annotated
+	PPI: Q13077 - Q12933
+		PPI: Q13077 - Q12933 (# 124 out of 193) (64.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13077=Q12933_A - Q13077=Q12933_B (# 1 out of 1)
+			computing interface for chain pair Q13077=Q12933_A-Q13077=Q12933_B
+			writing chain interfaces to file
+			interface 1 found
+	124 PPIs resolved
+	124 PPIs annotated
+	PPI: Q13077 - Q9Y4K3
+		PPI: Q13077 - Q9Y4K3 (# 125 out of 193) (64.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13077=Q9Y4K3_A - Q13077=Q9Y4K3_B (# 1 out of 1)
+			computing interface for chain pair Q13077=Q9Y4K3_A-Q13077=Q9Y4K3_B
+			writing chain interfaces to file
+			interface 1 found
+	125 PPIs resolved
+	125 PPIs annotated
+	PPI: Q9H1Y0 - Q7Z6L1
+		PPI: Q9H1Y0 - Q7Z6L1 (# 126 out of 193) (65.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9H1Y0=Q7Z6L1_A - Q9H1Y0=Q7Z6L1_B (# 1 out of 1)
+			computing interface for chain pair Q9H1Y0=Q7Z6L1_A-Q9H1Y0=Q7Z6L1_B
+			writing chain interfaces to file
+			interface 1 found
+	126 PPIs resolved
+	126 PPIs annotated
+	PPI: Q13554 - Q9UQM7
+		PPI: Q13554 - Q9UQM7 (# 127 out of 193) (65.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13554=Q9UQM7_A - Q13554=Q9UQM7_B (# 1 out of 1)
+			computing interface for chain pair Q13554=Q9UQM7_A-Q13554=Q9UQM7_B
+			writing chain interfaces to file
+			interface 1 found
+	127 PPIs resolved
+	127 PPIs annotated
+	PPI: Q13554 - Q13557
+		PPI: Q13554 - Q13557 (# 128 out of 193) (66.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13554=Q13557_A - Q13554=Q13557_B (# 1 out of 1)
+			computing interface for chain pair Q13554=Q13557_A-Q13554=Q13557_B
+			writing chain interfaces to file
+			interface 1 found
+	128 PPIs resolved
+	128 PPIs annotated
+	PPI: Q13554 - Q13555
+		PPI: Q13554 - Q13555 (# 129 out of 193) (66.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13554=Q13555_A - Q13554=Q13555_B (# 1 out of 1)
+			computing interface for chain pair Q13554=Q13555_A-Q13554=Q13555_B
+			writing chain interfaces to file
+			interface 1 found
+	129 PPIs resolved
+	129 PPIs annotated
+	PPI: Q9NQX0 - Q9HBE1
+		PPI: Q9NQX0 - Q9HBE1 (# 130 out of 193) (67.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NQX0=Q9HBE1_A - Q9NQX0=Q9HBE1_B (# 1 out of 1)
+			computing interface for chain pair Q9NQX0=Q9HBE1_A-Q9NQX0=Q9HBE1_B
+			writing chain interfaces to file
+			interface 1 found
+	130 PPIs resolved
+	130 PPIs annotated
+	PPI: P26368 - Q01081
+		PPI: P26368 - Q01081 (# 131 out of 193) (67.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q01081=P26368_B - Q01081=P26368_A (# 1 out of 1)
+			computing interface for chain pair Q01081=P26368_B-Q01081=P26368_A
+			writing chain interfaces to file
+			interface 1 found
+	131 PPIs resolved
+	131 PPIs annotated
+	PPI: P26368 - Q96AE4
+		PPI: P26368 - Q96AE4 (# 132 out of 193) (68.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P26368=Q96AE4_A - P26368=Q96AE4_B (# 1 out of 1)
+			computing interface for chain pair P26368=Q96AE4_A-P26368=Q96AE4_B
+			writing chain interfaces to file
+			interface 1 found
+	132 PPIs resolved
+	132 PPIs annotated
+	PPI: P26368 - Q15637
+		PPI: P26368 - Q15637 (# 133 out of 193) (68.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15637=P26368_B - Q15637=P26368_A (# 1 out of 1)
+			computing interface for chain pair Q15637=P26368_B-Q15637=P26368_A
+			writing chain interfaces to file
+			interface 1 found
+	133 PPIs resolved
+	133 PPIs annotated
+	PPI: P26368 - Q15415
+		PPI: P26368 - Q15415 (# 134 out of 193) (69.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P26368=Q15415_A - P26368=Q15415_B (# 1 out of 1)
+			computing interface for chain pair P26368=Q15415_A-P26368=Q15415_B
+			writing chain interfaces to file
+			interface 1 found
+	134 PPIs resolved
+	134 PPIs annotated
+	PPI: P26368 - Q9UHX1
+		PPI: P26368 - Q9UHX1 (# 135 out of 193) (69.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P26368=Q9UHX1_A - P26368=Q9UHX1_B (# 1 out of 1)
+			computing interface for chain pair P26368=Q9UHX1_A-P26368=Q9UHX1_B
+			writing chain interfaces to file
+			interface 1 found
+	135 PPIs resolved
+	135 PPIs annotated
+	PPI: P26368 - P0DN76
+		PPI: P26368 - P0DN76 (# 136 out of 193) (70.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P0DN76=P26368_B - P0DN76=P26368_A (# 1 out of 1)
+			computing interface for chain pair P0DN76=P26368_B-P0DN76=P26368_A
+			writing chain interfaces to file
+			interface 1 found
+	136 PPIs resolved
+	136 PPIs annotated
+	PPI: O15499 - Q2M1V0
+		PPI: O15499 - Q2M1V0 (# 137 out of 193) (71.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O15499=Q2M1V0_A - O15499=Q2M1V0_B (# 1 out of 1)
+			computing interface for chain pair O15499=Q2M1V0_A-O15499=Q2M1V0_B
+			writing chain interfaces to file
+			interface 1 found
+	137 PPIs resolved
+	137 PPIs annotated
+	PPI: Q9NSD4 - Q96EG3
+		PPI: Q9NSD4 - Q96EG3 (# 138 out of 193) (71.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NSD4=Q96EG3_A - Q9NSD4=Q96EG3_B (# 1 out of 1)
+			computing interface for chain pair Q9NSD4=Q96EG3_A-Q9NSD4=Q96EG3_B
+			writing chain interfaces to file
+			interface 1 found
+	138 PPIs resolved
+	138 PPIs annotated
+	PPI: Q9NSD4 - Q5T619
+		PPI: Q9NSD4 - Q5T619 (# 139 out of 193) (72.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NSD4=Q5T619_A - Q9NSD4=Q5T619_B (# 1 out of 1)
+			computing interface for chain pair Q9NSD4=Q5T619_A-Q9NSD4=Q5T619_B
+			writing chain interfaces to file
+	139 PPIs resolved
+	138 PPIs annotated
+	PPI: Q9NSD4 - Q3KQV3
+		PPI: Q9NSD4 - Q3KQV3 (# 140 out of 193) (72.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NSD4=Q3KQV3_A - Q9NSD4=Q3KQV3_B (# 1 out of 1)
+			computing interface for chain pair Q9NSD4=Q3KQV3_A-Q9NSD4=Q3KQV3_B
+			writing chain interfaces to file
+			interface 1 found
+	140 PPIs resolved
+	139 PPIs annotated
+	PPI: Q9NSD4 - Q86UD4
+		PPI: Q9NSD4 - Q86UD4 (# 141 out of 193) (73.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9NSD4=Q86UD4_A - Q9NSD4=Q86UD4_B (# 1 out of 1)
+			computing interface for chain pair Q9NSD4=Q86UD4_A-Q9NSD4=Q86UD4_B
+			writing chain interfaces to file
+			interface 1 found
+	141 PPIs resolved
+	140 PPIs annotated
+	PPI: P78317 - P63279
+		PPI: P78317 - P63279 (# 142 out of 193) (73.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P78317=P63279_A - P78317=P63279_B (# 1 out of 1)
+			computing interface for chain pair P78317=P63279_A-P78317=P63279_B
+			writing chain interfaces to file
+			interface 1 found
+	142 PPIs resolved
+	141 PPIs annotated
+	PPI: P78317 - O00635
+		PPI: P78317 - O00635 (# 143 out of 193) (74.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P78317=O00635_A - P78317=O00635_B (# 1 out of 1)
+			computing interface for chain pair P78317=O00635_A-P78317=O00635_B
+			writing chain interfaces to file
+			interface 1 found
+	143 PPIs resolved
+	142 PPIs annotated
+	PPI: P78317 - P63165
+		PPI: P78317 - P63165 (# 144 out of 193) (74.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P63165=P78317_B - P63165=P78317_A (# 1 out of 1)
+			computing interface for chain pair P63165=P78317_B-P63165=P78317_A
+			writing chain interfaces to file
+			interface 1 found
+	144 PPIs resolved
+	143 PPIs annotated
+	PPI: O00167 - Q15475
+		PPI: O00167 - Q15475 (# 145 out of 193) (75.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15475=O00167_B - Q15475=O00167_A (# 1 out of 1)
+			computing interface for chain pair Q15475=O00167_B-Q15475=O00167_A
+			writing chain interfaces to file
+			interface 1 found
+	145 PPIs resolved
+	144 PPIs annotated
+	PPI: Q92625 - Q3KP44
+		PPI: Q92625 - Q3KP44 (# 146 out of 193) (75.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q92625=Q3KP44_A - Q92625=Q3KP44_B (# 1 out of 1)
+			computing interface for chain pair Q92625=Q3KP44_A-Q92625=Q3KP44_B
+			writing chain interfaces to file
+			interface 1 found
+	146 PPIs resolved
+	145 PPIs annotated
+	PPI: P36508 - Q7Z3K3
+		PPI: P36508 - Q7Z3K3 (# 147 out of 193) (76.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P36508=Q7Z3K3_A - P36508=Q7Z3K3_B (# 1 out of 1)
+			computing interface for chain pair P36508=Q7Z3K3_A-P36508=Q7Z3K3_B
+			writing chain interfaces to file
+			interface 1 found
+	147 PPIs resolved
+	146 PPIs annotated
+	PPI: P36508 - Q9UKT9
+		PPI: P36508 - Q9UKT9 (# 148 out of 193) (76.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P36508=Q9UKT9_A - P36508=Q9UKT9_B (# 1 out of 1)
+			computing interface for chain pair P36508=Q9UKT9_A-P36508=Q9UKT9_B
+			writing chain interfaces to file
+			interface 1 found
+	148 PPIs resolved
+	147 PPIs annotated
+	PPI: P36508 - Q9UIH9
+		PPI: P36508 - Q9UIH9 (# 149 out of 193) (77.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P36508=Q9UIH9_A - P36508=Q9UIH9_B (# 1 out of 1)
+			computing interface for chain pair P36508=Q9UIH9_A-P36508=Q9UIH9_B
+			writing chain interfaces to file
+			interface 1 found
+	149 PPIs resolved
+	148 PPIs annotated
+	PPI: P36508 - Q8TF50
+		PPI: P36508 - Q8TF50 (# 150 out of 193) (77.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P36508=Q8TF50_A - P36508=Q8TF50_B (# 1 out of 1)
+			computing interface for chain pair P36508=Q8TF50_A-P36508=Q8TF50_B
+			writing chain interfaces to file
+			interface 1 found
+	150 PPIs resolved
+	149 PPIs annotated
+	PPI: P36508 - O75123
+		PPI: P36508 - O75123 (# 151 out of 193) (78.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P36508=O75123_A - P36508=O75123_B (# 1 out of 1)
+			computing interface for chain pair P36508=O75123_A-P36508=O75123_B
+			writing chain interfaces to file
+			interface 1 found
+	151 PPIs resolved
+	150 PPIs annotated
+	PPI: P36508 - Q8TAQ5
+		PPI: P36508 - Q8TAQ5 (# 152 out of 193) (78.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P36508=Q8TAQ5_A - P36508=Q8TAQ5_B (# 1 out of 1)
+			computing interface for chain pair P36508=Q8TAQ5_A-P36508=Q8TAQ5_B
+			writing chain interfaces to file
+			interface 1 found
+	152 PPIs resolved
+	151 PPIs annotated
+	PPI: P08754 - P81274
+		PPI: P08754 - P81274 (# 153 out of 193) (79.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P08754=P81274_A - P08754=P81274_B (# 1 out of 1)
+			computing interface for chain pair P08754=P81274_A-P08754=P81274_B
+			writing chain interfaces to file
+			interface 1 found
+	153 PPIs resolved
+	152 PPIs annotated
+	PPI: P08754 - O43566
+		PPI: P08754 - O43566 (# 154 out of 193) (79.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P08754=O43566_A - P08754=O43566_B (# 1 out of 1)
+			computing interface for chain pair P08754=O43566_A-P08754=O43566_B
+			writing chain interfaces to file
+			interface 1 found
+	154 PPIs resolved
+	153 PPIs annotated
+	PPI: Q15046 - Q13155
+		PPI: Q15046 - Q13155 (# 155 out of 193) (80.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q15046=Q13155_A - Q15046=Q13155_B (# 1 out of 1)
+			computing interface for chain pair Q15046=Q13155_A-Q15046=Q13155_B
+			writing chain interfaces to file
+			interface 1 found
+	155 PPIs resolved
+	154 PPIs annotated
+	PPI: Q13952 - Q01658
+		PPI: Q13952 - Q01658 (# 156 out of 193) (80.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q01658=Q13952_B - Q01658=Q13952_A (# 1 out of 1)
+			computing interface for chain pair Q01658=Q13952_B-Q01658=Q13952_A
+			writing chain interfaces to file
+			interface 1 found
+	156 PPIs resolved
+	155 PPIs annotated
+	PPI: Q13952 - P25208
+		PPI: Q13952 - P25208 (# 157 out of 193) (81.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P25208=Q13952_B - P25208=Q13952_A (# 1 out of 1)
+			computing interface for chain pair P25208=Q13952_B-P25208=Q13952_A
+			writing chain interfaces to file
+			interface 1 found
+	157 PPIs resolved
+	156 PPIs annotated
+	PPI: Q9H9A6 - Q4LDG9
+		PPI: Q9H9A6 - Q4LDG9 (# 158 out of 193) (81.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9H9A6=Q4LDG9_A - Q9H9A6=Q4LDG9_B (# 1 out of 1)
+			computing interface for chain pair Q9H9A6=Q4LDG9_A-Q9H9A6=Q4LDG9_B
+			writing chain interfaces to file
+			interface 1 found
+	158 PPIs resolved
+	157 PPIs annotated
+	PPI: P61586 - Q92974
+		PPI: P61586 - Q92974 (# 159 out of 193) (82.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P61586=Q92974_A - P61586=Q92974_B (# 1 out of 1)
+			computing interface for chain pair P61586=Q92974_A-P61586=Q92974_B
+			writing chain interfaces to file
+			interface 1 found
+	159 PPIs resolved
+	158 PPIs annotated
+	PPI: Q13951 - Q01196
+		PPI: Q13951 - Q01196 (# 160 out of 193) (82.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q01196=Q13951_B - Q01196=Q13951_A (# 1 out of 1)
+			computing interface for chain pair Q01196=Q13951_B-Q01196=Q13951_A
+			writing chain interfaces to file
+			interface 1 found
+	160 PPIs resolved
+	159 PPIs annotated
+	PPI: Q9NS23 - Q13188
+		PPI: Q9NS23 - Q13188 (# 161 out of 193) (83.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13188=Q9NS23_B - Q13188=Q9NS23_A (# 1 out of 1)
+			computing interface for chain pair Q13188=Q9NS23_B-Q13188=Q9NS23_A
+			writing chain interfaces to file
+			interface 1 found
+	161 PPIs resolved
+	160 PPIs annotated
+	PPI: Q15173 - P30153
+		PPI: Q15173 - P30153 (# 162 out of 193) (83.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P30153=Q15173_B - P30153=Q15173_A (# 1 out of 1)
+			computing interface for chain pair P30153=Q15173_B-P30153=Q15173_A
+			writing chain interfaces to file
+			interface 1 found
+	162 PPIs resolved
+	161 PPIs annotated
+	PPI: P11217 - P06737
+		PPI: P11217 - P06737 (# 163 out of 193) (84.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P11217=P06737_A - P11217=P06737_B (# 1 out of 1)
+			computing interface for chain pair P11217=P06737_A-P11217=P06737_B
+			writing chain interfaces to file
+			interface 1 found
+	163 PPIs resolved
+	162 PPIs annotated
+	PPI: P11217 - P11216
+		PPI: P11217 - P11216 (# 164 out of 193) (85.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P11217=P11216_A - P11217=P11216_B (# 1 out of 1)
+			computing interface for chain pair P11217=P11216_A-P11217=P11216_B
+			writing chain interfaces to file
+			interface 1 found
+	164 PPIs resolved
+	163 PPIs annotated
+	PPI: P78337 - P49639
+		PPI: P78337 - P49639 (# 165 out of 193) (85.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P78337=P49639_A - P78337=P49639_B (# 1 out of 1)
+			computing interface for chain pair P78337=P49639_A-P78337=P49639_B
+			writing chain interfaces to file
+			interface 1 found
+	165 PPIs resolved
+	164 PPIs annotated
+	PPI: P78337 - P35548
+		PPI: P78337 - P35548 (# 166 out of 193) (86.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P35548=P78337_B - P35548=P78337_A (# 1 out of 1)
+			computing interface for chain pair P35548=P78337_B-P35548=P78337_A
+			writing chain interfaces to file
+			interface 1 found
+	166 PPIs resolved
+	165 PPIs annotated
+	PPI: P78337 - Q9Y458
+		PPI: P78337 - Q9Y458 (# 167 out of 193) (86.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9Y458=P78337_B - Q9Y458=P78337_A (# 1 out of 1)
+			computing interface for chain pair Q9Y458=P78337_B-Q9Y458=P78337_A
+			writing chain interfaces to file
+			interface 1 found
+	167 PPIs resolved
+	166 PPIs annotated
+	PPI: P78337 - O60806
+		PPI: P78337 - O60806 (# 168 out of 193) (87.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O60806=P78337_B - O60806=P78337_A (# 1 out of 1)
+			computing interface for chain pair O60806=P78337_B-O60806=P78337_A
+			writing chain interfaces to file
+			interface 1 found
+	168 PPIs resolved
+	167 PPIs annotated
+	PPI: Q96QK1 - Q9UBQ0
+		PPI: Q96QK1 - Q9UBQ0 (# 169 out of 193) (87.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UBQ0=Q96QK1_B - Q9UBQ0=Q96QK1_A (# 1 out of 1)
+			computing interface for chain pair Q9UBQ0=Q96QK1_B-Q9UBQ0=Q96QK1_A
+			writing chain interfaces to file
+			interface 1 found
+	169 PPIs resolved
+	168 PPIs annotated
+	PPI: Q96QK1 - O75436
+		PPI: Q96QK1 - O75436 (# 170 out of 193) (88.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96QK1=O75436_A - Q96QK1=O75436_B (# 1 out of 1)
+			computing interface for chain pair Q96QK1=O75436_A-Q96QK1=O75436_B
+			writing chain interfaces to file
+			interface 1 found
+	170 PPIs resolved
+	169 PPIs annotated
+	PPI: Q96QK1 - Q4G0F5
+		PPI: Q96QK1 - Q4G0F5 (# 171 out of 193) (88.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96QK1=Q4G0F5_A - Q96QK1=Q4G0F5_B (# 1 out of 1)
+			computing interface for chain pair Q96QK1=Q4G0F5_A-Q96QK1=Q4G0F5_B
+			writing chain interfaces to file
+			interface 1 found
+	171 PPIs resolved
+	170 PPIs annotated
+	PPI: Q9UHP7 - P26715
+		PPI: Q9UHP7 - P26715 (# 172 out of 193) (89.1 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UHP7=P26715_A - Q9UHP7=P26715_B (# 1 out of 1)
+			computing interface for chain pair Q9UHP7=P26715_A-Q9UHP7=P26715_B
+			writing chain interfaces to file
+			interface 1 found
+	172 PPIs resolved
+	171 PPIs annotated
+	PPI: Q9UHP7 - Q6UVW9
+		PPI: Q9UHP7 - Q6UVW9 (# 173 out of 193) (89.6 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UHP7=Q6UVW9_A - Q9UHP7=Q6UVW9_B (# 1 out of 1)
+			computing interface for chain pair Q9UHP7=Q6UVW9_A-Q9UHP7=Q6UVW9_B
+			writing chain interfaces to file
+			interface 1 found
+	173 PPIs resolved
+	172 PPIs annotated
+	PPI: Q16659 - Q8IW41
+		PPI: Q16659 - Q8IW41 (# 174 out of 193) (90.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q8IW41=Q16659_B - Q8IW41=Q16659_A (# 1 out of 1)
+			computing interface for chain pair Q8IW41=Q16659_B-Q8IW41=Q16659_A
+			writing chain interfaces to file
+			interface 1 found
+	174 PPIs resolved
+	173 PPIs annotated
+	PPI: P51159 - Q96C24
+		PPI: P51159 - Q96C24 (# 175 out of 193) (90.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P51159=Q96C24_A - P51159=Q96C24_B (# 1 out of 1)
+			computing interface for chain pair P51159=Q96C24_A-P51159=Q96C24_B
+			writing chain interfaces to file
+			interface 1 found
+	175 PPIs resolved
+	174 PPIs annotated
+	PPI: P51159 - Q8IYJ3
+		PPI: P51159 - Q8IYJ3 (# 176 out of 193) (91.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P51159=Q8IYJ3_A - P51159=Q8IYJ3_B (# 1 out of 1)
+			computing interface for chain pair P51159=Q8IYJ3_A-P51159=Q8IYJ3_B
+			writing chain interfaces to file
+			interface 1 found
+	176 PPIs resolved
+	175 PPIs annotated
+	PPI: P51159 - Q8TDW5
+		PPI: P51159 - Q8TDW5 (# 177 out of 193) (91.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P51159=Q8TDW5_A - P51159=Q8TDW5_B (# 1 out of 1)
+			computing interface for chain pair P51159=Q8TDW5_A-P51159=Q8TDW5_B
+			writing chain interfaces to file
+			interface 1 found
+	177 PPIs resolved
+	176 PPIs annotated
+	PPI: P51159 - Q4VX76
+		PPI: P51159 - Q4VX76 (# 178 out of 193) (92.2 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P51159=Q4VX76_A - P51159=Q4VX76_B (# 1 out of 1)
+			computing interface for chain pair P51159=Q4VX76_A-P51159=Q4VX76_B
+			writing chain interfaces to file
+			interface 1 found
+	178 PPIs resolved
+	177 PPIs annotated
+	PPI: P51159 - Q8NFW9
+		PPI: P51159 - Q8NFW9 (# 179 out of 193) (92.7 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P51159=Q8NFW9_A - P51159=Q8NFW9_B (# 1 out of 1)
+			computing interface for chain pair P51159=Q8NFW9_A-P51159=Q8NFW9_B
+			writing chain interfaces to file
+			interface 1 found
+	179 PPIs resolved
+	178 PPIs annotated
+	PPI: Q9BV68 - P51668
+		PPI: Q9BV68 - P51668 (# 180 out of 193) (93.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P51668=Q9BV68_B - P51668=Q9BV68_A (# 1 out of 1)
+			computing interface for chain pair P51668=Q9BV68_B-P51668=Q9BV68_A
+			writing chain interfaces to file
+			interface 1 found
+	180 PPIs resolved
+	179 PPIs annotated
+	PPI: Q9BV68 - Q9Y2X8
+		PPI: Q9BV68 - Q9Y2X8 (# 181 out of 193) (93.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9Y2X8=Q9BV68_B - Q9Y2X8=Q9BV68_A (# 1 out of 1)
+			computing interface for chain pair Q9Y2X8=Q9BV68_B-Q9Y2X8=Q9BV68_A
+			writing chain interfaces to file
+			interface 1 found
+	181 PPIs resolved
+	180 PPIs annotated
+	PPI: Q9BV68 - P61077
+		PPI: Q9BV68 - P61077 (# 182 out of 193) (94.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P61077=Q9BV68_B - P61077=Q9BV68_A (# 1 out of 1)
+			computing interface for chain pair P61077=Q9BV68_B-P61077=Q9BV68_A
+			writing chain interfaces to file
+			interface 1 found
+	182 PPIs resolved
+	181 PPIs annotated
+	PPI: Q9BV68 - P62837
+		PPI: Q9BV68 - P62837 (# 183 out of 193) (94.8 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P62837=Q9BV68_B - P62837=Q9BV68_A (# 1 out of 1)
+			computing interface for chain pair P62837=Q9BV68_B-P62837=Q9BV68_A
+			writing chain interfaces to file
+			interface 1 found
+	183 PPIs resolved
+	182 PPIs annotated
+	PPI: Q9BV68 - Q969T4
+		PPI: Q9BV68 - Q969T4 (# 184 out of 193) (95.3 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q969T4=Q9BV68_B - Q969T4=Q9BV68_A (# 1 out of 1)
+			computing interface for chain pair Q969T4=Q9BV68_B-Q969T4=Q9BV68_A
+			writing chain interfaces to file
+			interface 1 found
+	184 PPIs resolved
+	183 PPIs annotated
+	PPI: Q9BV68 - Q96LR5
+		PPI: Q9BV68 - Q96LR5 (# 185 out of 193) (95.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q96LR5=Q9BV68_B - Q96LR5=Q9BV68_A (# 1 out of 1)
+			computing interface for chain pair Q96LR5=Q9BV68_B-Q96LR5=Q9BV68_A
+			writing chain interfaces to file
+			interface 1 found
+	185 PPIs resolved
+	184 PPIs annotated
+	PPI: Q2QGD7 - Q7Z3K3
+		PPI: Q2QGD7 - Q7Z3K3 (# 186 out of 193) (96.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q2QGD7=Q7Z3K3_A - Q2QGD7=Q7Z3K3_B (# 1 out of 1)
+			computing interface for chain pair Q2QGD7=Q7Z3K3_A-Q2QGD7=Q7Z3K3_B
+			writing chain interfaces to file
+			interface 1 found
+	186 PPIs resolved
+	185 PPIs annotated
+	PPI: P19784 - P67870
+		PPI: P19784 - P67870 (# 187 out of 193) (96.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P19784=P67870_A - P19784=P67870_B (# 1 out of 1)
+			computing interface for chain pair P19784=P67870_A-P19784=P67870_B
+			writing chain interfaces to file
+			interface 1 found
+	187 PPIs resolved
+	186 PPIs annotated
+	PPI: Q9UQM7 - Q13557
+		PPI: Q9UQM7 - Q13557 (# 188 out of 193) (97.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UQM7=Q13557_A - Q9UQM7=Q13557_B (# 1 out of 1)
+			computing interface for chain pair Q9UQM7=Q13557_A-Q9UQM7=Q13557_B
+			writing chain interfaces to file
+			interface 1 found
+	188 PPIs resolved
+	187 PPIs annotated
+	PPI: Q9UQM7 - Q13555
+		PPI: Q9UQM7 - Q13555 (# 189 out of 193) (97.9 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9UQM7=Q13555_A - Q9UQM7=Q13555_B (# 1 out of 1)
+			computing interface for chain pair Q9UQM7=Q13555_A-Q9UQM7=Q13555_B
+			writing chain interfaces to file
+			interface 1 found
+	189 PPIs resolved
+	188 PPIs annotated
+	PPI: P60953 - Q9P286
+		PPI: P60953 - Q9P286 (# 190 out of 193) (98.4 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q9P286=P60953_B - Q9P286=P60953_A (# 1 out of 1)
+			computing interface for chain pair Q9P286=P60953_B-Q9P286=P60953_A
+			writing chain interfaces to file
+			interface 1 found
+	190 PPIs resolved
+	189 PPIs annotated
+	PPI: P60953 - Q9BYG5
+		PPI: P60953 - Q9BYG5 (# 191 out of 193) (99.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: P60953=Q9BYG5_A - P60953=Q9BYG5_B (# 1 out of 1)
+			computing interface for chain pair P60953=Q9BYG5_A-P60953=Q9BYG5_B
+			writing chain interfaces to file
+			interface 1 found
+	191 PPIs resolved
+	190 PPIs annotated
+	PPI: P60953 - Q13177
+		PPI: P60953 - Q13177 (# 192 out of 193) (99.5 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: Q13177=P60953_B - Q13177=P60953_A (# 1 out of 1)
+			computing interface for chain pair Q13177=P60953_B-Q13177=P60953_A
+			writing chain interfaces to file
+			interface 1 found
+	192 PPIs resolved
+	191 PPIs annotated
+	PPI: O43639 - P42681
+		PPI: O43639 - P42681 (# 193 out of 193) (100.0 %)
+		0 attempts (max 1)
+		0 interfaces mapped (seeking 1)
+		Chain pair: O43639=P42681_A - O43639=P42681_B (# 1 out of 1)
+			computing interface for chain pair O43639=P42681_A-O43639=P42681_B
+			writing chain interfaces to file
+			interface 1 found
+	193 PPIs resolved
+	192 PPIs annotated
+	finalizing interface-annotated interactome
+merging interface annotations for each PPI
+
+Structural interactome:
+192 PPIs
+255 proteins
+

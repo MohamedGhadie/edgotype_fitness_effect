@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=8G
 #SBATCH --output=/project/ctb-yxia/ghadie84/edgotype_fitness_effect/code_4/%x-%j.out
-#SBATCH --job-name=ghadie84_predict_edgetic_mutations_geometry_HuRI
+#SBATCH --job-name=ghadie84_predict_quasi-null_mutations_IntAct
 
 source ~/venv/bin/activate
-python predict_edgetic_mutations_geometry.py
+python predict_quasi-null_mutations.py

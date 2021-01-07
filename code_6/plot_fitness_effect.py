@@ -12,7 +12,7 @@ def main():
     
     # mutation edgotype for which fitness effect is calculated
     # options: quasi-null, edgetic, quasi-wild-type
-    edgotype = 'quasi-wild-type'
+    edgotype = 'edgetic'
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -29,7 +29,7 @@ def main():
     # assume edgotype probabilities of strongly detrimental (S) mutations to be similar to 
     # those of mildly deleterious (M) mutations. If False, strongly detrimental 
     # mutations are assumed to be all quasi-null
-    assume_S_as_M = False
+    assume_S_as_M = True
     
     # reference interactome names
     interactome_names = ['HuRI', 'IntAct', 'experiment']

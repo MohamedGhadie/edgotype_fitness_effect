@@ -11,7 +11,7 @@ def main():
     
     # names of reference interactomes
     # options: any pair from HI-II-14, HuRI, IntAct, experiment
-    interactome_names = ['IntAct', 'experiment']
+    interactome_names = ['IntAct', 'HuRI']
     
     # homology modelling method used to create structural models
     # options: template_based, model_based
@@ -104,7 +104,7 @@ def main():
         
         print()
         print('%s mutations:' % name)
-        print('Non-disease: %d' % len(diseaseMutations))
+        print('Non-disease: %d' % len(naturalMutations))
         print('Disease: %d' % len(diseaseMutations))
         
         if name is interactome_names[0]:
@@ -129,7 +129,7 @@ def main():
     print('Overlapping mutations:')
     print('Non-disease: %d' % len(natMut_overlap))
     print('Disease: %d' % len(disMut_overlap))
-    
+    return
     cols = ["protein", 'mut_position', 'wt_res', 'mut_res']
     cols = cols + ['edgotype_' + n for n in interactome_names]
     cols = cols + ['partners_' + n for n in interactome_names]

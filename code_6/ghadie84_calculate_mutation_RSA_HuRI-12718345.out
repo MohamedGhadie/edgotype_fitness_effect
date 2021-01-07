@@ -1,0 +1,904 @@
+Reading mutations
+Number of mutations:
+non-disease mutations: 1081
+disease mutations: 318
+
+Number of proteins carrying mutations:
+non-disease mutations: 498
+disease mutations: 93
+all mutations: 563
+
+producing protein RSA dictionary
+  protein 1 out of 563 (0.18%)   protein 2 out of 563 (0.36%)   protein 3 out of 563 (0.53%)   protein 4 out of 563 (0.71%)   protein 5 out of 563 (0.89%)   protein 6 out of 563 (1.07%)   protein 7 out of 563 (1.24%)   protein 8 out of 563 (1.42%)   protein 9 out of 563 (1.60%)   protein 10 out of 563 (1.78%)   protein 11 out of 563 (1.95%)   protein 12 out of 563 (2.13%)   protein 13 out of 563 (2.31%)   protein 14 out of 563 (2.49%)   protein 15 out of 563 (2.66%)   protein 16 out of 563 (2.84%)   protein 17 out of 563 (3.02%)   protein 18 out of 563 (3.20%)   protein 19 out of 563 (3.37%)   protein 20 out of 563 (3.55%)   protein 21 out of 563 (3.73%)   protein 22 out of 563 (3.91%)   protein 23 out of 563 (4.09%)   protein 24 out of 563 (4.26%)   protein 25 out of 563 (4.44%)   protein 26 out of 563 (4.62%)   protein 27 out of 563 (4.80%)   protein 28 out of 563 (4.97%)   protein 29 out of 563 (5.15%)   protein 30 out of 563 (5.33%)   protein 31 out of 563 (5.51%)   protein 32 out of 563 (5.68%)   protein 33 out of 563 (5.86%)   protein 34 out of 563 (6.04%)   protein 35 out of 563 (6.22%)   protein 36 out of 563 (6.39%)   protein 37 out of 563 (6.57%)   protein 38 out of 563 (6.75%)   protein 39 out of 563 (6.93%)   protein 40 out of 563 (7.10%)   protein 41 out of 563 (7.28%)   protein 42 out of 563 (7.46%)   protein 43 out of 563 (7.64%)   protein 44 out of 563 (7.82%)   protein 45 out of 563 (7.99%)   protein 46 out of 563 (8.17%)   protein 47 out of 563 (8.35%)   protein 48 out of 563 (8.53%)   protein 49 out of 563 (8.70%)   protein 50 out of 563 (8.88%)   protein 51 out of 563 (9.06%)   protein 52 out of 563 (9.24%)   protein 53 out of 563 (9.41%)   protein 54 out of 563 (9.59%)   protein 55 out of 563 (9.77%)   protein 56 out of 563 (9.95%)   protein 57 out of 563 (10.12%)   protein 58 out of 563 (10.30%)   protein 59 out of 563 (10.48%)   protein 60 out of 563 (10.66%)   protein 61 out of 563 (10.83%)   protein 62 out of 563 (11.01%)   protein 63 out of 563 (11.19%)   protein 64 out of 563 (11.37%)   protein 65 out of 563 (11.55%)   protein 66 out of 563 (11.72%)   protein 67 out of 563 (11.90%)   protein 68 out of 563 (12.08%)   protein 69 out of 563 (12.26%)   protein 70 out of 563 (12.43%)   protein 71 out of 563 (12.61%)   protein 72 out of 563 (12.79%)   protein 73 out of 563 (12.97%)   protein 74 out of 563 (13.14%)   protein 75 out of 563 (13.32%)   protein 76 out of 563 (13.50%)   protein 77 out of 563 (13.68%)   protein 78 out of 563 (13.85%)   protein 79 out of 563 (14.03%)   protein 80 out of 563 (14.21%)   protein 81 out of 563 (14.39%)   protein 82 out of 563 (14.56%)   protein 83 out of 563 (14.74%)   protein 84 out of 563 (14.92%)   protein 85 out of 563 (15.10%)   protein 86 out of 563 (15.28%)   protein 87 out of 563 (15.45%)   protein 88 out of 563 (15.63%)   protein 89 out of 563 (15.81%)   protein 90 out of 563 (15.99%)   protein 91 out of 563 (16.16%)   protein 92 out of 563 (16.34%)   protein 93 out of 563 (16.52%)   protein 94 out of 563 (16.70%)   protein 95 out of 563 (16.87%)   protein 96 out of 563 (17.05%)   protein 97 out of 563 (17.23%)   protein 98 out of 563 (17.41%)   protein 99 out of 563 (17.58%)   protein 100 out of 563 (17.76%)   protein 101 out of 563 (17.94%)   protein 102 out of 563 (18.12%)   protein 103 out of 563 (18.29%)   protein 104 out of 563 (18.47%)   protein 105 out of 563 (18.65%)   protein 106 out of 563 (18.83%)   protein 107 out of 563 (19.01%)   protein 108 out of 563 (19.18%)   protein 109 out of 563 (19.36%)   protein 110 out of 563 (19.54%)   protein 111 out of 563 (19.72%)   protein 112 out of 563 (19.89%)   protein 113 out of 563 (20.07%)   protein 114 out of 563 (20.25%)   protein 115 out of 563 (20.43%)   protein 116 out of 563 (20.60%)   protein 117 out of 563 (20.78%)   protein 118 out of 563 (20.96%)   protein 119 out of 563 (21.14%)   protein 120 out of 563 (21.31%)   protein 121 out of 563 (21.49%)   protein 122 out of 563 (21.67%)   protein 123 out of 563 (21.85%)   protein 124 out of 563 (22.02%)   protein 125 out of 563 (22.20%)   protein 126 out of 563 (22.38%)   protein 127 out of 563 (22.56%)   protein 128 out of 563 (22.74%)   protein 129 out of 563 (22.91%)   protein 130 out of 563 (23.09%)   protein 131 out of 563 (23.27%)   protein 132 out of 563 (23.45%)   protein 133 out of 563 (23.62%)   protein 134 out of 563 (23.80%)   protein 135 out of 563 (23.98%)   protein 136 out of 563 (24.16%)   protein 137 out of 563 (24.33%)   protein 138 out of 563 (24.51%)   protein 139 out of 563 (24.69%)   protein 140 out of 563 (24.87%)   protein 141 out of 563 (25.04%)   protein 142 out of 563 (25.22%)   protein 143 out of 563 (25.40%)   protein 144 out of 563 (25.58%)   protein 145 out of 563 (25.75%)   protein 146 out of 563 (25.93%)   protein 147 out of 563 (26.11%)   protein 148 out of 563 (26.29%)   protein 149 out of 563 (26.47%)   protein 150 out of 563 (26.64%)   protein 151 out of 563 (26.82%)   protein 152 out of 563 (27.00%)   protein 153 out of 563 (27.18%)   protein 154 out of 563 (27.35%)   protein 155 out of 563 (27.53%)   protein 156 out of 563 (27.71%)   protein 157 out of 563 (27.89%)   protein 158 out of 563 (28.06%)   protein 159 out of 563 (28.24%)   protein 160 out of 563 (28.42%)   protein 161 out of 563 (28.60%)   protein 162 out of 563 (28.77%)   protein 163 out of 563 (28.95%)   protein 164 out of 563 (29.13%)   protein 165 out of 563 (29.31%)   protein 166 out of 563 (29.48%)   protein 167 out of 563 (29.66%)   protein 168 out of 563 (29.84%)   protein 169 out of 563 (30.02%)   protein 170 out of 563 (30.20%)   protein 171 out of 563 (30.37%)   protein 172 out of 563 (30.55%)   protein 173 out of 563 (30.73%)   protein 174 out of 563 (30.91%)   protein 175 out of 563 (31.08%)   protein 176 out of 563 (31.26%)   protein 177 out of 563 (31.44%)   protein 178 out of 563 (31.62%)   protein 179 out of 563 (31.79%)   protein 180 out of 563 (31.97%)   protein 181 out of 563 (32.15%)   protein 182 out of 563 (32.33%)   protein 183 out of 563 (32.50%)   protein 184 out of 563 (32.68%)   protein 185 out of 563 (32.86%)   protein 186 out of 563 (33.04%)   protein 187 out of 563 (33.21%)   protein 188 out of 563 (33.39%)   protein 189 out of 563 (33.57%)   protein 190 out of 563 (33.75%)   protein 191 out of 563 (33.93%)   protein 192 out of 563 (34.10%)   protein 193 out of 563 (34.28%)   protein 194 out of 563 (34.46%)   protein 195 out of 563 (34.64%)   protein 196 out of 563 (34.81%)   protein 197 out of 563 (34.99%)   protein 198 out of 563 (35.17%)   protein 199 out of 563 (35.35%)   protein 200 out of 563 (35.52%)   protein 201 out of 563 (35.70%)   protein 202 out of 563 (35.88%)   protein 203 out of 563 (36.06%)   protein 204 out of 563 (36.23%)   protein 205 out of 563 (36.41%)   protein 206 out of 563 (36.59%)   protein 207 out of 563 (36.77%)   protein 208 out of 563 (36.94%)   protein 209 out of 563 (37.12%)   protein 210 out of 563 (37.30%)   protein 211 out of 563 (37.48%)   protein 212 out of 563 (37.66%)   protein 213 out of 563 (37.83%)   protein 214 out of 563 (38.01%)   protein 215 out of 563 (38.19%)   protein 216 out of 563 (38.37%)   protein 217 out of 563 (38.54%)   protein 218 out of 563 (38.72%)   protein 219 out of 563 (38.90%)   protein 220 out of 563 (39.08%)   protein 221 out of 563 (39.25%)   protein 222 out of 563 (39.43%)   protein 223 out of 563 (39.61%)   protein 224 out of 563 (39.79%)   protein 225 out of 563 (39.96%)   protein 226 out of 563 (40.14%)   protein 227 out of 563 (40.32%)   protein 228 out of 563 (40.50%)   protein 229 out of 563 (40.67%)   protein 230 out of 563 (40.85%)   protein 231 out of 563 (41.03%)   protein 232 out of 563 (41.21%)   protein 233 out of 563 (41.39%)   protein 234 out of 563 (41.56%)   protein 235 out of 563 (41.74%)   protein 236 out of 563 (41.92%)   protein 237 out of 563 (42.10%)   protein 238 out of 563 (42.27%)   protein 239 out of 563 (42.45%)   protein 240 out of 563 (42.63%)   protein 241 out of 563 (42.81%)   protein 242 out of 563 (42.98%)   protein 243 out of 563 (43.16%)   protein 244 out of 563 (43.34%)   protein 245 out of 563 (43.52%)   protein 246 out of 563 (43.69%)   protein 247 out of 563 (43.87%)   protein 248 out of 563 (44.05%)   protein 249 out of 563 (44.23%)   protein 250 out of 563 (44.40%)   protein 251 out of 563 (44.58%)   protein 252 out of 563 (44.76%)   protein 253 out of 563 (44.94%)   protein 254 out of 563 (45.12%)   protein 255 out of 563 (45.29%)   protein 256 out of 563 (45.47%)   protein 257 out of 563 (45.65%)   protein 258 out of 563 (45.83%)   protein 259 out of 563 (46.00%)   protein 260 out of 563 (46.18%)   protein 261 out of 563 (46.36%)   protein 262 out of 563 (46.54%)   protein 263 out of 563 (46.71%)   protein 264 out of 563 (46.89%)   protein 265 out of 563 (47.07%)   protein 266 out of 563 (47.25%)   protein 267 out of 563 (47.42%)   protein 268 out of 563 (47.60%)   protein 269 out of 563 (47.78%)   protein 270 out of 563 (47.96%)   protein 271 out of 563 (48.13%)   protein 272 out of 563 (48.31%)   protein 273 out of 563 (48.49%)   protein 274 out of 563 (48.67%)   protein 275 out of 563 (48.85%)   protein 276 out of 563 (49.02%)   protein 277 out of 563 (49.20%)   protein 278 out of 563 (49.38%)   protein 279 out of 563 (49.56%)   protein 280 out of 563 (49.73%)   protein 281 out of 563 (49.91%)   protein 282 out of 563 (50.09%)   protein 283 out of 563 (50.27%)   protein 284 out of 563 (50.44%)   protein 285 out of 563 (50.62%)   protein 286 out of 563 (50.80%)   protein 287 out of 563 (50.98%)   protein 288 out of 563 (51.15%)   protein 289 out of 563 (51.33%)   protein 290 out of 563 (51.51%)   protein 291 out of 563 (51.69%)   protein 292 out of 563 (51.87%)   protein 293 out of 563 (52.04%)   protein 294 out of 563 (52.22%)   protein 295 out of 563 (52.40%)   protein 296 out of 563 (52.58%)   protein 297 out of 563 (52.75%)   protein 298 out of 563 (52.93%)   protein 299 out of 563 (53.11%)   protein 300 out of 563 (53.29%)   protein 301 out of 563 (53.46%)   protein 302 out of 563 (53.64%)   protein 303 out of 563 (53.82%)   protein 304 out of 563 (54.00%)   protein 305 out of 563 (54.17%)   protein 306 out of 563 (54.35%)   protein 307 out of 563 (54.53%)   protein 308 out of 563 (54.71%)   protein 309 out of 563 (54.88%)   protein 310 out of 563 (55.06%)   protein 311 out of 563 (55.24%)   protein 312 out of 563 (55.42%)   protein 313 out of 563 (55.60%)   protein 314 out of 563 (55.77%)   protein 315 out of 563 (55.95%)   protein 316 out of 563 (56.13%)   protein 317 out of 563 (56.31%)   protein 318 out of 563 (56.48%)   protein 319 out of 563 (56.66%)   protein 320 out of 563 (56.84%)   protein 321 out of 563 (57.02%)   protein 322 out of 563 (57.19%)   protein 323 out of 563 (57.37%)   protein 324 out of 563 (57.55%)   protein 325 out of 563 (57.73%)   protein 326 out of 563 (57.90%)   protein 327 out of 563 (58.08%)   protein 328 out of 563 (58.26%)   protein 329 out of 563 (58.44%)   protein 330 out of 563 (58.61%)   protein 331 out of 563 (58.79%)   protein 332 out of 563 (58.97%)   protein 333 out of 563 (59.15%)   protein 334 out of 563 (59.33%)   protein 335 out of 563 (59.50%)   protein 336 out of 563 (59.68%)   protein 337 out of 563 (59.86%)   protein 338 out of 563 (60.04%)   protein 339 out of 563 (60.21%)   protein 340 out of 563 (60.39%)   protein 341 out of 563 (60.57%)   protein 342 out of 563 (60.75%)   protein 343 out of 563 (60.92%)   protein 344 out of 563 (61.10%)   protein 345 out of 563 (61.28%)   protein 346 out of 563 (61.46%)   protein 347 out of 563 (61.63%)   protein 348 out of 563 (61.81%)   protein 349 out of 563 (61.99%)   protein 350 out of 563 (62.17%)   protein 351 out of 563 (62.34%)   protein 352 out of 563 (62.52%)   protein 353 out of 563 (62.70%)   protein 354 out of 563 (62.88%)   protein 355 out of 563 (63.06%)   protein 356 out of 563 (63.23%)   protein 357 out of 563 (63.41%)   protein 358 out of 563 (63.59%)   protein 359 out of 563 (63.77%)   protein 360 out of 563 (63.94%)   protein 361 out of 563 (64.12%)   protein 362 out of 563 (64.30%)   protein 363 out of 563 (64.48%)   protein 364 out of 563 (64.65%)   protein 365 out of 563 (64.83%)   protein 366 out of 563 (65.01%)   protein 367 out of 563 (65.19%)   protein 368 out of 563 (65.36%)   protein 369 out of 563 (65.54%)   protein 370 out of 563 (65.72%)   protein 371 out of 563 (65.90%)   protein 372 out of 563 (66.07%)   protein 373 out of 563 (66.25%)   protein 374 out of 563 (66.43%)   protein 375 out of 563 (66.61%)   protein 376 out of 563 (66.79%)   protein 377 out of 563 (66.96%)   protein 378 out of 563 (67.14%)   protein 379 out of 563 (67.32%)   protein 380 out of 563 (67.50%)   protein 381 out of 563 (67.67%)   protein 382 out of 563 (67.85%)   protein 383 out of 563 (68.03%)   protein 384 out of 563 (68.21%)   protein 385 out of 563 (68.38%)   protein 386 out of 563 (68.56%)   protein 387 out of 563 (68.74%)   protein 388 out of 563 (68.92%)   protein 389 out of 563 (69.09%)   protein 390 out of 563 (69.27%)   protein 391 out of 563 (69.45%)   protein 392 out of 563 (69.63%)   protein 393 out of 563 (69.80%)   protein 394 out of 563 (69.98%)   protein 395 out of 563 (70.16%)   protein 396 out of 563 (70.34%)   protein 397 out of 563 (70.52%)   protein 398 out of 563 (70.69%)   protein 399 out of 563 (70.87%)   protein 400 out of 563 (71.05%)   protein 401 out of 563 (71.23%)   protein 402 out of 563 (71.40%)   protein 403 out of 563 (71.58%)   protein 404 out of 563 (71.76%)   protein 405 out of 563 (71.94%)   protein 406 out of 563 (72.11%)   protein 407 out of 563 (72.29%)   protein 408 out of 563 (72.47%)   protein 409 out of 563 (72.65%)   protein 410 out of 563 (72.82%)   protein 411 out of 563 (73.00%)   protein 412 out of 563 (73.18%)   protein 413 out of 563 (73.36%)   protein 414 out of 563 (73.53%)   protein 415 out of 563 (73.71%)   protein 416 out of 563 (73.89%)   protein 417 out of 563 (74.07%)   protein 418 out of 563 (74.25%)   protein 419 out of 563 (74.42%)   protein 420 out of 563 (74.60%)   protein 421 out of 563 (74.78%)   protein 422 out of 563 (74.96%)   protein 423 out of 563 (75.13%)   protein 424 out of 563 (75.31%)   protein 425 out of 563 (75.49%)   protein 426 out of 563 (75.67%)   protein 427 out of 563 (75.84%)   protein 428 out of 563 (76.02%)   protein 429 out of 563 (76.20%)   protein 430 out of 563 (76.38%)   protein 431 out of 563 (76.55%)   protein 432 out of 563 (76.73%)   protein 433 out of 563 (76.91%)   protein 434 out of 563 (77.09%)   protein 435 out of 563 (77.26%)   protein 436 out of 563 (77.44%)   protein 437 out of 563 (77.62%)   protein 438 out of 563 (77.80%)   protein 439 out of 563 (77.98%)   protein 440 out of 563 (78.15%)   protein 441 out of 563 (78.33%)   protein 442 out of 563 (78.51%)   protein 443 out of 563 (78.69%)   protein 444 out of 563 (78.86%)   protein 445 out of 563 (79.04%)   protein 446 out of 563 (79.22%)   protein 447 out of 563 (79.40%)   protein 448 out of 563 (79.57%)   protein 449 out of 563 (79.75%)   protein 450 out of 563 (79.93%)   protein 451 out of 563 (80.11%)   protein 452 out of 563 (80.28%)   protein 453 out of 563 (80.46%)   protein 454 out of 563 (80.64%)   protein 455 out of 563 (80.82%)   protein 456 out of 563 (80.99%)   protein 457 out of 563 (81.17%)   protein 458 out of 563 (81.35%)   protein 459 out of 563 (81.53%)   protein 460 out of 563 (81.71%)   protein 461 out of 563 (81.88%)   protein 462 out of 563 (82.06%)   protein 463 out of 563 (82.24%)   protein 464 out of 563 (82.42%)   protein 465 out of 563 (82.59%)   protein 466 out of 563 (82.77%)   protein 467 out of 563 (82.95%)   protein 468 out of 563 (83.13%)   protein 469 out of 563 (83.30%)   protein 470 out of 563 (83.48%)   protein 471 out of 563 (83.66%)   protein 472 out of 563 (83.84%)   protein 473 out of 563 (84.01%)   protein 474 out of 563 (84.19%)   protein 475 out of 563 (84.37%)   protein 476 out of 563 (84.55%)   protein 477 out of 563 (84.72%)   protein 478 out of 563 (84.90%)   protein 479 out of 563 (85.08%)   protein 480 out of 563 (85.26%)   protein 481 out of 563 (85.44%)   protein 482 out of 563 (85.61%)   protein 483 out of 563 (85.79%)   protein 484 out of 563 (85.97%)   protein 485 out of 563 (86.15%)   protein 486 out of 563 (86.32%)   protein 487 out of 563 (86.50%)   protein 488 out of 563 (86.68%)   protein 489 out of 563 (86.86%)   protein 490 out of 563 (87.03%)   protein 491 out of 563 (87.21%)   protein 492 out of 563 (87.39%)   protein 493 out of 563 (87.57%)   protein 494 out of 563 (87.74%)   protein 495 out of 563 (87.92%)   protein 496 out of 563 (88.10%)   protein 497 out of 563 (88.28%)   protein 498 out of 563 (88.45%)   protein 499 out of 563 (88.63%)   protein 500 out of 563 (88.81%)   protein 501 out of 563 (88.99%)   protein 502 out of 563 (89.17%)   protein 503 out of 563 (89.34%)   protein 504 out of 563 (89.52%)   protein 505 out of 563 (89.70%)   protein 506 out of 563 (89.88%)   protein 507 out of 563 (90.05%)   protein 508 out of 563 (90.23%)   protein 509 out of 563 (90.41%)   protein 510 out of 563 (90.59%)   protein 511 out of 563 (90.76%)   protein 512 out of 563 (90.94%)   protein 513 out of 563 (91.12%)   protein 514 out of 563 (91.30%)   protein 515 out of 563 (91.47%)   protein 516 out of 563 (91.65%)   protein 517 out of 563 (91.83%)   protein 518 out of 563 (92.01%)   protein 519 out of 563 (92.18%)   protein 520 out of 563 (92.36%)   protein 521 out of 563 (92.54%)   protein 522 out of 563 (92.72%)   protein 523 out of 563 (92.90%)   protein 524 out of 563 (93.07%)   protein 525 out of 563 (93.25%)   protein 526 out of 563 (93.43%)   protein 527 out of 563 (93.61%)   protein 528 out of 563 (93.78%)   protein 529 out of 563 (93.96%)   protein 530 out of 563 (94.14%)   protein 531 out of 563 (94.32%)   protein 532 out of 563 (94.49%)   protein 533 out of 563 (94.67%)   protein 534 out of 563 (94.85%)   protein 535 out of 563 (95.03%)   protein 536 out of 563 (95.20%)   protein 537 out of 563 (95.38%)   protein 538 out of 563 (95.56%)   protein 539 out of 563 (95.74%)   protein 540 out of 563 (95.91%)   protein 541 out of 563 (96.09%)   protein 542 out of 563 (96.27%)   protein 543 out of 563 (96.45%)   protein 544 out of 563 (96.63%)   protein 545 out of 563 (96.80%)   protein 546 out of 563 (96.98%)   protein 547 out of 563 (97.16%)   protein 548 out of 563 (97.34%)   protein 549 out of 563 (97.51%)   protein 550 out of 563 (97.69%)   protein 551 out of 563 (97.87%)   protein 552 out of 563 (98.05%)   protein 553 out of 563 (98.22%)   protein 554 out of 563 (98.40%)   protein 555 out of 563 (98.58%)   protein 556 out of 563 (98.76%)   protein 557 out of 563 (98.93%)   protein 558 out of 563 (99.11%)   protein 559 out of 563 (99.29%)   protein 560 out of 563 (99.47%)   protein 561 out of 563 (99.64%)   protein 562 out of 563 (99.82%)   protein 563 out of 563 (100.00%) /lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+/lustre03/project/6037355/ghadie84/edgotype_fitness_effect/code_6/pdb_tools.py:160: UserWarning: Structure file ../data/processed/HuRI/model_based/protein_models/pdbQ9H095.ent not loaded
+  warnings.warn('Structure file %s not loaded' % str(structureFile))
+
+Average RSA for non-disease mutations: 0.518702 Å (SE = 0.0058849, n = 1073)
+Average RSA for disease mutations: 0.352354 Å (SE = 0.0135413, n = 318)
+t-test, p-value = 5.30018e-26
+
